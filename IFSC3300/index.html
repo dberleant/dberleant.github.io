@@ -211,8 +211,27 @@ margin-left:1.5in;margin-bottom:.0001pt;text-align:center'><b>Detailed schedule<
 
 <p style='margin-top:5.0pt;margin-right:0in;margin-bottom:0in;margin-left:1.25in;
 margin-bottom:.0001pt;text-indent:-.25in'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-style='font-size:7.0pt'>&nbsp;</span><b>Bolded=already updated for this
-semester. . . . . . . </b>. . . . .Unbolded=to be updated for this semester soon</p>
+style='font-size:7.0pt'>&nbsp;</span><b>
+
+Bolded=updated as of <span id="loadtime">the time you loaded this page</span>. . . . . . . </b>. . . . .Unbolded=to be updated<br><br></p>
+<script>
+var d=new Date();
+dString=d.toString();
+dParts=dString.split(" ");
+dFormatted
+  = dParts[0]
+   +"., "
+   +dParts[1]
+   +". "
+   +dParts[2]
+   +", "
+   +dParts[3]
+   +" at <i>"
+   +dParts[4]
+   +"</i> (24-hour time)";
+document.getElementById("loadtime").innerHTML=dFormatted;
+</script>
+
 
 <div align=center>
 
@@ -639,7 +658,7 @@ semester. . . . . . . </b>. . . . .Unbolded=to be updated for this semester soon
   href="https://www.w3schools.com/js/js_string_methods.asp">String methods</a>"
   </b>
   <li>&nbsp;&nbsp;&nbsp; &nbsp;<a
-  href="https://en.wikipedia.org/wiki/Phaistos_Disc">Unicode</a>
+  href="https://en.wikipedia.org/wiki/Phaistos_Disc"><b>Unicode</b></a>
   <li><b>JS "<a
   href="https://www.w3schools.com/js/js_numbers.asp">Numbers</a>"  -  check for new things</b>
   <li><b>JS "<a
@@ -675,9 +694,7 @@ semester. . . . . . . </b>. . . . .Unbolded=to be updated for this semester soon
   <li><b>JS "<a
   href="https://www.w3schools.com/js/js_date_methods.asp">Date Methods</a>"  - 
   cover a few things</b>
-	  
   <li><b>Recording: (Blackboard down in F '19)</b>
-
   </td>
   <td width=214 style='width:160.35pt;padding:0in 0in 0in 0in;height:13.0pt'>
   <p class=MsoNormal><span style='font-size:4.0pt;color:windowtext'>Time: have them
@@ -691,21 +708,17 @@ semester. . . . . . . </b>. . . . .Unbolded=to be updated for this semester soon
   <p class=MsoNormal align=center style='text-align:center'><b><span
   style='color:windowtext'>W 10/9/2019</span></b></p>
   </td>
-  <td width=178 style='width:133.5pt;padding:0in 0in 0in 0in;height:13.0pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='color:windowtext'>HTML forms I</span></p>
+  <td width=178 align=center style='width:133.5pt;padding:0in 0in 0in 0in;height:13.0pt'>
+  <b>HTML forms I</b>
   </td>
   <td width=297 style='width:222.95pt;padding:0in 0in 0in 0in;height:13.0pt'>
-  <p class=MsoListParagraph style='margin-left:.25in;text-indent:-.25in'><span
-  style='font-family:Symbol'>·</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><a
+  <li><b><a
   href="https://www.w3schools.com/html/html_forms.asp">HTML Forms</a> (from <a
-  href="https://www.w3schools.com/html">HTML</a> section)</p>
-  <p class=MsoListParagraph style='margin-left:.25in;text-indent:-.25in'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  Try the end exercises</p>
-  <p class=MsoListParagraph style='margin-left:.25in;text-indent:-.25in'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  &nbsp;&nbsp;&nbsp;Modify a "try it yourself" and try it!</p>
-  <p class=MsoListParagraph style='margin-left:.25in;text-indent:-.25in'><a
-  href="HW9b.html">HW9</a> due 10/24/18</p>
+  href="https://www.w3schools.com/html">HTML</a> section)
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Try the end exercises
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Modify "try it yourself" sandboxes!</b>
+  <li><b><a
+  href="HW8b.html">HW8</a> due 10/16/19</b>
   </td>
   <td width=214 style='width:160.35pt;padding:0in 0in 0in 0in;height:13.0pt'>
   <p class=MsoNormal><span style='font-size:4.0pt;color:windowtext'>Interesting
