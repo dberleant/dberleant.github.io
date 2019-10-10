@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2 id="demo">This will keep asking for car names until you type Bugatti.<br>
+Notice how the local variable carName has different values in different myFunction call frames.
+<br><br>
+</h2>
+
+<button onclick="myFunction()">Input car names</button>
+
+<script>
+function myFunction() {
+  var carName = prompt();
+  document.getElementById("demo").innerHTML += "<br>"+carName; 
+  alert(carName);
+  if (carName !== "Bugatti") myFunction();
+  document.getElementById("demo").innerHTML += "<br>"+carName;
+  alert(carName);
+}
+</script>
+
+</body>
+</html>
