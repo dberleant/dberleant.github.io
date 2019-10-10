@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+body
+{
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	background-color: #99cc99;
+}
+
+p, div
+{
+	font-family: 'Courier New', monospace; 
+	font-size: 18px;
+	font-style: normal;
+	width: 640px;
+	border: 2px solid green;
+	padding: 10px;
+	margin: 20px;
+}
+
+/* Buttons adapted from http://bit.ly/2kFqlb3 */
+
+.button.R
+{
+  background-color: rgb(250, 0, 20);
+}
+
+.button.O
+{
+  background-color: rgb(250, 150, 20);
+}
+
+.button.Y
+{
+	background-color: rgb(250, 250, 50);
+	color: #000;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.button.G
+{
+  background-color: rgb(0, 151, 0);
+}
+
+.button.B
+{
+  background-color: rgb(100, 101, 250);
+}
+
+.button.I
+{
+  background-color: rgb(20, 20, 250);
+}
+
+.button.V
+{
+  background-color: rgb(200, 50, 200);
+}
+
+.button.g
+{
+  background-color: #333;
+}
+
+.button.b
+{
+  background-color: rgb(0, 0, 0);
+}
+
+.button.w
+{
+  background-color: rgb(250, 250, 250);
+  color: #000;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 0.618rem 1.618rem;
+  cursor: pointer;
+  color: #FFF;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+  background: #434343 none repeat scroll 0% 0%;
+  border: 1px solid #242424;
+  border-radius: 8px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.25),
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 0 0 rgba(0, 0, 0, 0.5) inset,
+    0 1.25rem 0 rgba(255, 255, 255, 0.08) inset,
+    0 -1.25rem 1.25rem rgba(0, 0, 0, 0.3) inset,
+    0 1.25rem 1.25rem rgba(255, 255, 255, 0.1) inset;
+
+  transition: all 0.2s linear 0s;
+
+  text-align: center;
+  text-decoration: none;
+  margin: 0.618rem;
+}
+
+.button:hover,
+.button:focus
+{
+  text-decoration: none;
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.25) inset,
+    0 0 0 rgba(0, 0, 0, 0.25) inset,
+    0 20px 0 rgba(255, 255, 255, 0.03) inset,
+    0 -20px 20px rgba(0, 0, 0, 0.15) inset,
+    0 20px 20px rgba(255, 255, 255, 0.05) inset;
+}
+.button:active
+{
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.25),
+    0 1px 0 rgba(255, 255, 255, 0) inset,
+    0 0 5px rgba(0, 0, 0, 0.5) inset,
+    0 20px 0 rgba(255, 255, 255, 0.03) inset,
+    0 -20px 20px rgba(0, 0, 0, 0.15) inset,
+    0 20px 20px rgba(255, 255, 255, 0.05) inset;
+}
+
+.button::before
+{
+  content: "";
+  display: block;
+  position: absolute;
+  background:-moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+  background:-webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+  background:-webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+  background:linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+  padding: x 12px;
+  top: 0;
+  left: 15%;
+  height: 1px;
+  width: 40%;
+  box-shadow: 0 1px 5px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.button:active::before
+{
+  opacity: 0;
+}
+
+.button:hover::before
+{
+  left: 45%;
+}
+</style>
+     
+</head>
+<body>
+<h2>Interactive JavaScript Arrays</h2>
+<hr></hr>
+
+<button class = "button R" type="button" onclick="_createArray();">CREATE</button>
+<div id = 'createID'>
+fruits = []<br>
+Press CREATE to populate this JavaScript array.
+</div>
+<hr></hr>
+
+<button class = "button O" type="button" onclick="_getFirstArray();">GET FIRST ELEMENT</button>
+<div id = 'getFirstID'>
+fruits[0]<br>
+Press GET FIRST ELEMENT to access it.
+</div>
+<hr></hr>
+
+<button class = "button Y" type="button" onclick="_getLastArray();">GET LAST ELEMENT</button>
+<div id = 'getLastID'>
+fruits[fruits.length-1]<br>
+Press GET LAST ELEMENT to access it.
+</div>
+<hr></hr>
+
+<button class = "button G" type="button" onclick="_loopForEachArray();">LOOP FOR EACH</button>
+<div id = 'loopForEachID'>
+fruits.forEach(fruitFunction);<br>
+Press LOOP FOR EACH to loop on fruitFunction().
+</div>
+<hr></hr>
+
+<button class = "button B" type="button" onclick="_loopForIndexArray();">LOOP FOR INDEX</button>
+<div id = 'loopForIndexID'>
+for(let i = 0; i < fruits.length; i++)<br>
+Press LOOP FOR INDEX to index over fruits array.
+</div>
+<hr></hr>
+
+<button class = "button I" type="button" onclick="_push();">PUSH ITEM</button>
+<div id = 'pushID'>
+fruit.push('pear') appends 'pear' to the fruits array.<br>
+fruit.push('pear') returns the length of fruits array.<br>
+Press PUSH ITEM to add 'pear' to END of fruits array.
+</div>
+<hr></hr>
+
+<button class = "button V" type="button" onclick="_pop();">POP ITEM</button>
+<div id = 'popID'>
+fruits.pop() removes item from the end of an array.<br>
+fruits.pop() returns the item shifted.<br>
+Press POP ITEM to remove 'pear' from END of fruits array.
+</div>
+<hr></hr>
+
+<button class = "button w" type="button" onclick="_unshift();">UNSHIFT ITEM</button>
+<div id = 'unshiftID'>
+fruits.unshift('mango') adds item to beginning of array.<br>
+fruits.unshift('mango') returns length of fruits  array.<br>
+Press UNSHIFT ITEM to add 'mango' to START of fruits  array.
+</div>
+<hr></hr>
+
+<button class = "button b" type="button" onclick="_shift();">SHIFT ITEM</button>
+<div id = 'shiftID'>
+fruits.shift() removes item from beginning of array.<br>
+fruits.shift() returns the item shifted.<br>
+Press SHIFT ITEM to remove 'mango' from START of fruits array.
+</div>
+<hr></hr>
+
+<button class = "button R" type="button" onclick="_indexOf();">INDEX OF ITEM</button>
+<div id = 'indexOfID'>
+fruits.indexOf('banana')<br>
+Press INDEX OF ITEM to find index of 'banana'.
+</div>
+<hr></hr>
+
+<button class = "button G" type="button" onclick="_splice();">SPLICE OUT ITEM</button>
+<div id = 'spliceID'>
+fruits.splice(2, 1)<br>
+Press SPLICE OUT ITEM to splice out 'orange'.
+</div>
+<hr></hr>
+
+<button class = "button B" type="button" onclick="_slice();">COPY ARRAY</button>
+<div id = 'sliceID'>
+newFruits = fruits.slice()<br>
+Press COPY ARRAY to copy fruits to newFruits.
+</div>
+<hr></hr>
+
+<script>
+// Teaching JavaScript Array Operations
+//
+// L. Van Warren  lvwarren@ualr.edu
+//
+// Fri Sep 13, 2019
+//
+// Adapted from https://mzl.la/2m9Aw8l 
+//          and http://bit.ly/2lI9c0F
+// Suggested by Dr. Dan Berleant
+
+function Zap(id)
+{
+	document.getElementById(id).innerHTML = '';
+}
+
+function Say(id, s)
+{
+	document.getElementById(id).innerHTML += s;
+}
+
+let fruits = []; // global Array
+items = ['apple', 'orange', 'banana'];
+
+function _createArray()
+{
+	fruits = [...items];
+
+	Zap('createID');
+	Say('createID', formatArray('fruits', fruits));
+}
+
+function formatArray(name, array)
+{
+	return( name + ' = [' + "'" + array.join("','") + "'" + ']');
+}
+
+function _getFirstArray()
+{
+	let first = fruits[0];
+
+	Zap('getFirstID');
+	Say('getFirstID', 'fruits[0] is ' + "'" + fruits[0] + "'");
+}
+
+function _getLastArray()
+{
+	let last = fruits[fruits.length-1];
+
+	Zap('getLastID');
+	Say('getLastID', 'fruits[fruits.length-1] is ' + "'" + fruits[fruits.length-1] + "'");
+}
+
+function _loopForEachArray()
+{
+	Zap('loopForEachID');
+	fruits.forEach(fruitFunction);
+}
+
+function fruitFunction(item, index)
+{
+	Say('loopForEachID', `fruits[${index}] =  ${item}<br>`);
+}
+
+
+function _loopForIndexArray()
+{
+	Zap('loopForIndexID');
+	for(let i = 0; i < fruits.length; i++)
+	{
+		Say('loopForIndexID', `fruits[${i}] =  ${fruits[i]}<br>`);
+	}
+}
+
+function _push()
+{
+	fruits.push('pear')
+
+	Zap('pushID');
+	Say('pushID', formatArray('fruits', fruits));
+}
+
+function _pop()
+{
+	fruits.pop()
+
+	Zap('popID');
+	Say('popID', formatArray('fruits', fruits));
+}
+
+function _unshift()
+{
+	fruits.unshift('mango')
+
+	Zap('unshiftID');
+	Say('unshiftID', formatArray('fruits', fruits));
+}
+
+function _shift()
+{
+	fruits.shift()
+
+	Zap('shiftID');
+	Say('shiftID', formatArray('fruits', fruits));
+}
+
+function _indexOf()
+{
+	i = fruits.indexOf('banana')
+
+	Zap('indexOfID');
+	Say('indexOfID', `fruits.indexOf['banana'] is ${i}`);
+}
+
+function _splice()
+{
+	segment = fruits.splice(1,1)
+
+	Zap('spliceID');
+	Say('spliceID', 'fruits.splice(1,1) returns ' + formatArray('segment', segment) + '<br>');
+	Say('spliceID', 'fruits itself &nbsp;&nbsp;&nbsp;&nbsp; is now&nbsp;&nbsp; ' + formatArray('fruits', fruits));
+}
+
+function _slice()
+{
+	cloned = fruits.slice()
+
+	Zap('sliceID');
+	Say('sliceID', 'fruits.slice() returns ' + formatArray('cloned', cloned) + '<br>');
+	Say('sliceID', 'fruits itself &nbsp;is now&nbsp; ' + formatArray('fruits', fruits));
+}
+</script>
+
+</body>
+</html>
