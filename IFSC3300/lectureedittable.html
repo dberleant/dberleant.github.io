@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Instructions: click a table entry to input a new value for that entry.</p>
+
+<table>
+<tr><td id="row1col1" onclick="update('row1col1')">11</td>
+    <td id="row1col2" onclick="update('row1col2')">12</td>
+</tr>
+<tr><td id="row2col1" onclick="update('row2col1')">21</td>
+    <td id="row2col2" onclick="update('row2col2')">22</td>
+</tr>
+<tr><td id="row3col1" onclick="update('row3col1')">31</td>
+    <td id="row3col2" onclick="update('row3col2')">32</td>
+</tr>
+</table>
+
+<script>
+function update(x){
+   var newVal=prompt("type new value for "+x);
+   document.getElementById(x).innerHTML="<b>"+newVal+"</b>";
+}
+</script>
+
+<p id="par">(Saving the edited page can have wrinkles.)</p>
+
+</body>
+</html> 
