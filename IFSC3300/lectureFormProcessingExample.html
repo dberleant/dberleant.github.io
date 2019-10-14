@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<body onload="handleFormAction()">
+
+<p id="newtab"></p>
+<h2>Form handling example in JavaScript</h2>
+<h3>(Or, John Doe meets Robbie Robot)</h3>
+<h4>Instructions: Fill in the form. Then fill in comments 1 through 23 in the JavaScript code!</h4>
+
+
+<form  target="_blank" action="">  <!- 1: replace this placeholder HTML comment with a real comment>
+Type your first name:
+<br> <!- 2: replace this placeholder HTML comment with a real comment>
+<input type="text" name="firstName" value="John"> <!- 3: replace this placeholder HTML comment with a real comment>
+<br>
+...and last name:
+<br>
+<input type="text" name="lastName" value="Doe">
+<br>
+<input type="submit" value="Click to submit form"> <!- 4: replace this placeholder HTML comment with a real comment>
+</form>
+<br><br>
+
+<p id="demo"> <!- 5: replace this placeholder HTML comment with a real comment>
+<b>The analysis of the form data will appear here:</b>
+</p>
+
+<script>
+//6 
+function handleFormAction(){
+//7 
+  if (document.URL.indexOf("?")>-1){
+       document.getElementById("newtab").innerHTML="<H1>You are looking at a new browser tab, in which this page has been reloaded. The initial load of this page is still in its original tab.</h1>"
+//8 
+	   processFormData();
+  }
+
+}
+//9 
+function processFormData(){
+  //10
+  var fullURLstring=document.URL
+  //11
+  document.getElementById('demo').innerHTML
+     +=  "<br>fullURLstring is: "+fullURLstring;
+  //12
+  var separate_argsPassedIn=fullURLstring.split("?");
+  //13
+  document.getElementById('demo').innerHTML
+     += "<br>fullURLstring is: "+ separate_argsPassedIn;
+  //14
+  document.getElementById('demo').innerHTML
+     += "<br>Notice '?' is removed and parts are now separated by a comma";
+  //15
+  var tempArray=['a','b','c','d','e'];
+  //16
+  document.getElementById('demo').innerHTML
+     += "<br>array ['a','b','c','d','e'] prints out as: "
+        + tempArray;
+  //17
+  document.getElementById('demo').innerHTML
+     += "<br>That should remind you what .split() returns.";
+  //18
+  var argsPassedIn=separate_argsPassedIn[1];
+  //19
+  document.getElementById('demo').innerHTML
+     += "<br>"+argsPassedIn;
+  //20
+  var arrayOfArgs=argsPassedIn.split("&");
+  //21
+  document.getElementById('demo').innerHTML
+     += "<br>"+arrayOfArgs;
+  //22
+  var arg1=arrayOfArgs[0];
+  //23
+  var arg2=arrayOfArgs[1];
+  //24
+  document.getElementById('demo').innerHTML
+     += "<br>"+arg1;
+  //25
+  document.getElementById('demo').innerHTML
+     += "<br>"+arg2;
+  //26
+  var separate_firstName = arg1.split("=");
+  //27
+  var separate_lastName  = arg2.split("=");
+  //28
+  var firstName=separate_firstName[1];
+  //29
+  var lastName =separate_lastName [1];
+  //30
+  document.getElementById('demo').innerHTML
+     += "<br>"+firstName;
+  //31
+  document.getElementById('demo').innerHTML
+     += "<br>"+lastName;
+  //32
+  document.getElementById('demo').innerHTML
+     += "<br>Good afternoon, "+lastName+". I am Robot, but please call me Robbie. May I call you "+firstName+"?";
+}
+</script>
+
+</body>
+</html> 
