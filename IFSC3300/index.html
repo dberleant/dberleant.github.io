@@ -216,19 +216,24 @@ style='font-size:7.0pt'>&nbsp;</span><b>
 Bolded=updated as of <span id="loadtime">the time you loaded this page</span>. . . . . . . </b>. . . . .Unbolded=to be updated<br><br></p>
 <script>
 var d=new Date();
-dString=d.toString();
-dParts=dString.split(" ");
-dFormatted
-  = dParts[0]
+var dString=d.toString();
+var dParts=dString.split(" ");
+var time=dParts[4];
+var dHours=time.substring(0,2);
+var hour24=parseInt(dHours);
+var am_pm=(hour24>12) ? "p.m." : "a.m.";
+var hour12=hour24%12;
+var dMinutes=time.substring(3,5);
+var dFormatted
+  = dParts[0] //Day of the week
    +"., "
-   +dParts[1]
+   +dParts[1] //Month
    +". "
-   +dParts[2]
+   +parseInt(dParts[2]) //Removes any leading 0s
    +", "
-   +dParts[3]
-   +" at <i>"
-   +dParts[4]
-   +"</i> (24-hour time)";
+   +dParts[3] //Year
+   +" at "
+   +hour12+":"+dMinutes+" "+am_pm+" ";
 document.getElementById("loadtime").innerHTML=dFormatted;
 </script>
 
@@ -736,16 +741,13 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   <p class=MsoNormal align=center style='text-align:center'><span
   style='color:windowtext'>HTML forms II</span></p>
   </td>
-  <td width=297 style='width:222.95pt;padding:0in 0in 0in 0in;height:13.0pt'>
-  <p class=MsoListParagraph style='margin-left:.25in;text-indent:-.25in'><span
-  style='font-family:Symbol'>·</span><span style='font-size:7.0pt'>&nbsp;&nbsp;
-  &nbsp;&nbsp; </span><a href="lectureFormProcessingExample.html">HTML form
-  demo &amp; exercise</a></p>
-  <p class=MsoListParagraph style='margin-left:.25in;text-indent:-.25in'><span
-  style='font-family:Symbol'>·</span><span style='font-size:7.0pt'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span><a href="https://www.w3schools.com/html/html_form_elements.asp">HTML
-  Form Elements</a> (from <a href="https://www.w3schools.com/html">HTML</a>
-  section)</p>
+  <td>
+  <li><b><a href="lectureFormProcessingExample.html">HTML form
+  demo &amp; exercise</a></b>
+  <li><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.chegg.com/homework-help/questions-and-answers/add-comments-filling-blank-comments-numbers-1-32-first-comments-html-comments-javascript-c-q32309862">What on Earth is this?!</a></b>
+  <li><b><a href="https://www.w3schools.com/html/html_form_elements.asp">HTML
+  Form Elements</a> (from w3schools.com <a href="https://www.w3schools.com/html">HTML</a>
+  section)</b>
   </td>
   <td width=214 style='width:160.35pt;padding:0in 0in 0in 0in;height:13.0pt'></td>
  </tr>
