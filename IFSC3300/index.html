@@ -1,6 +1,7 @@
 <html>
 
 <head>
+<meta http-equiv="refresh" content="3000">
 <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
 <meta name=Generator content="Microsoft Word 12 (filtered)">
 <style>
@@ -221,8 +222,8 @@ var dParts=dString.split(" ");
 var time=dParts[4];
 var dHours=time.substring(0,2);
 var hour24=parseInt(dHours);
-var am_pm=(hour24>12) ? "p.m." : "a.m.";
-var hour12=hour24%12;
+var am_pm=(hour24>=12) ? "p.m." : "a.m.";
+var hour12=(hour24>12)?(hour24-12):hour24;
 var dMinutes=time.substring(3,5);
 var dFormatted
   = dParts[0] //Day of the week
@@ -793,6 +794,7 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   href="https://www.w3schools.com/js/js_htmldom_document.asp">DOM Document</a>"</b>
   <li><b>"<a href="https://www.w3schools.com/js">JavaScript HTML DOM</a>" &gt; "<a
   href="https://www.w3schools.com/js/js_htmldom_elements.asp">DOM Elements</a>"</b>
+  <li><b>Recording: <a href="https://us.bbcollab.com/collab/ui/session/playback/load/949f44dbcffc41e1b2b1ee833f1e45b6">F '19</a></b>
   </td>
   <td width=214 style='width:160.35pt;padding:0in 0in 0in 0in;height:13.0pt'>
   <p class=MsoNormal><span style='font-size:4.0pt;color:windowtext'>They donâ€™t
@@ -814,27 +816,47 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   style='color:windowtext'>DOM, </span>animation </p></b>
   </td>
   <td width=297 style='width:222.95pt;padding:0in 0in 0in 0in;height:13.0pt'>
-  <p class=MsoListParagraph style='margin-left:16.25pt;text-indent:-16.25pt'><span
-  style='font-family:Symbol'>·</span><span style='color:windowtext'>&nbsp;&nbsp;
-  <b>"<a href="https://www.w3schools.com/js">JavaScript HTML DOM</a>" &gt; "<a
-  href="https://www.w3schools.com/js/js_htmldom_html.asp">DOM HTML</a>"</b></span></p>
-  <p class=MsoListParagraph style='margin-left:16.25pt;text-indent:-16.25pt'><span
-  style='font-family:Symbol'>·</span><span style='color:windowtext'>&nbsp;&nbsp;
-  <b>"<a href="https://www.w3schools.com/js">JavaScript HTML DOM</a>" &gt; "<a
-  href="https://www.w3schools.com/js/js_htmldom_css.asp">DOM CSS</a>"</b> </span></p>
-  <p class=MsoListParagraph style='margin-left:16.25pt;text-indent:-16.25pt'><span
-  style='font-family:Symbol'>·</span><span style='color:windowtext'>&nbsp;&nbsp;
-  "<a href="https://www.w3schools.com/js">JavaScript HTML DOM</a>" &gt; "<a
-  href="https://www.w3schools.com/js/js_htmldom_animate.asp">DOM Animations</a>"</span></p>
-  <p class=MsoListParagraph style='margin-left:16.25pt;text-indent:-16.25pt'><span
-  style='color:windowtext'><a href="HW10d.html">HW10</a>, due W 10/30/19</span></p>
+  <li><b>"<a href="https://www.w3schools.com/js">JavaScript HTML DOM</a>" &gt; "<a
+  href="https://www.w3schools.com/js/js_htmldom_html.asp">DOM HTML</a>"</b>
+  <li><b>"<a href="https://www.w3schools.com/js">JavaScript HTML DOM</a>" &gt; "<a
+  href="https://www.w3schools.com/js/js_htmldom_css.asp">DOM CSS</a>"</b>
+  <li><b>Let's go out of official w3schools order with lesson "JavaScript Timing Events": 
+  <a href="https://www.w3schools.com/">w3schools.com</a>
+  &gt; <a href="https://www.w3schools.com/js">Learn JavaScript</a> &gt; JS
+  Browser BOM &gt; <a href="https://www.w3schools.com/js/js_timing.asp">JS
+  Timing</a>
+  <li><span id="whatTimeIsIt">The time is...</span>
+      <button onclick="showClockCode()">See clock code</button>
+  <script>
+  window.setInterval(currentTime,1200);
+  function currentTime(){
+     document.getElementById("whatTimeIsIt").innerHTML=new Date();
+  }
+  function showClockCode(){
+     alert('<span id="whatTimeIsIt">The time is...</span>\n<button onclick="showClockCode()">See clock code</button>\n<script>\nwindow.setInterval(currentTime,1200);\nfunction currentTime(){\n   document.getElementById("whatTimeIsIt").innerHTML=new Date();\n}\nfunction showClockCode(){\n   alert(\'<what you\'re reading now>\');\n}\n<\script>');
+  }
+  </script>
+  
+  <li><b><a href="HW10d.html">HW10</a>, due W 10/30/19</b>
   </td>
   <td width=214 style='width:160.35pt;padding:0in 0in 0in 0in;height:13.0pt'>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:5.0pt;color:windowtext'>For animation go through the example
-  making changes to each significant line</span></p>
-  <p class=MsoNormal align=center style='text-align:center'><span
-  style='font-size:5.0pt;color:windowtext'>&nbsp;</span></p>
+ <p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+  4.0pt;font-family:Symbol;color:windowtext'>·</span><span style='font-size:
+  7.0pt;color:windowtext'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span><span style='font-size:4.0pt;color:windowtext'>
+  In class exercise idea: make a button based mini-game for turning things off before they happen<br>
+  In setInterval()
+  lesson, try alert(alert("hi")) and explain. This is a gentle approach to
+  recursion. </span></p>
+  <p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
+  4.0pt;font-family:Symbol;color:windowtext'>·</span><span style='font-size:
+  7.0pt;color:windowtext'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
+  style='font-size:1.0pt;color:windowtext'>&nbsp; In setTimeOut()</span><span
+  style='font-size:4.0pt;color:windowtext'> lesson, try printing out alert</span><span
+  style='font-size:4.0pt'>(<span style='background:white'>setTimeout(myFunction,
+  3000)</span>).</span><span style='font-size:4.0pt;color:mediumblue;
+  background:white'> </span><span style='font-size:4.0pt;color:windowtext'>Point
+  out the recursion.</span></p>
   </td>
  </tr>
  <tr style='height:13.0pt'>
@@ -844,21 +866,24 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   </td>
   <td width=178 style='width:133.5pt;padding:0in 0in 0in 0in;height:13.0pt'>
   <p class=MsoListParagraph align=center style='margin-left:7.5pt;text-align:
-  center;text-indent:-7.5pt'>Timing (from BOM lessons); more on the DOM</p>
+  center;text-indent:-7.5pt'>More on the DOM (inc. animation)</p>
   </td>
   <td width=297 style='width:222.95pt;padding:0in 0in 0in 0in;height:13.0pt'>
   <p class=MsoListParagraph style='margin-left:16.25pt;text-indent:-16.25pt'><span
   style='font-family:Symbol'>·</span><span style='color:windowtext'>&nbsp;&nbsp;
-  "JavaScript Timing Events": </span><a href="https://www.w3schools.com/">w3schools.com</a>
-  &gt; <a href="https://www.w3schools.com/js">Learn JavaScript</a> &gt; JS
-  Browser BOM &gt; <a href="https://www.w3schools.com/js/js_timing.asp">JS
-  Timing</a></p>
-  <p class=MsoListParagraph style='margin-left:16.25pt;text-indent:-16.25pt'><span
+  "<a href="https://www.w3schools.com/js">JavaScript HTML DOM</a>" &gt; "<a
+  href="https://www.w3schools.com/js/js_htmldom_animate.asp">DOM Animations</a>"</span></p>
+   <p class=MsoListParagraph style='margin-left:16.25pt;text-indent:-16.25pt'><span
   style='font-family:Symbol'>·</span><span style='color:windowtext'>&nbsp;&nbsp;
   "<a href="https://www.w3schools.com/js">JavaScript HTML DOM</a>" &gt; <a
   href="https://www.w3schools.com/js/js_htmldom_events.asp">DOM Events</a></span></p>
   </td>
   <td width=214 style='width:160.35pt;padding:0in 0in 0in 0in;height:13.0pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:5.0pt;color:windowtext'>For animation go through the example
+  making changes to each significant line</span></p>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-size:5.0pt;color:windowtext'>&nbsp;</span></p>
   <p class=MsoNormal><span style='font-size:4.0pt;color:windowtext'>&nbsp;Skip
   "</span><span style='font-size:4.0pt'><a
   href="https://www.w3schools.com/js/js_htmldom_eventlistener.asp">JavaScript&nbsp;HTML
@@ -872,21 +897,7 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   7.0pt;color:windowtext'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   </span><span style='font-size:4.0pt;color:windowtext'>DOM Animations lesson,
   then have them modify the animation however they can, then report to class. </span></p>
-  <p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
-  4.0pt;font-family:Symbol;color:windowtext'>·</span><span style='font-size:
-  7.0pt;color:windowtext'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span><span style='font-size:4.0pt;color:windowtext'>In setInterval()
-  lesson, try alert(alert("hi")) and explain. This is a gentle approach to
-  recursion. </span></p>
-  <p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
-  4.0pt;font-family:Symbol;color:windowtext'>·</span><span style='font-size:
-  7.0pt;color:windowtext'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span
-  style='font-size:1.0pt;color:windowtext'>&nbsp; In setTimeOut()</span><span
-  style='font-size:4.0pt;color:windowtext'> lesson, try printing out alert</span><span
-  style='font-size:4.0pt'>(<span style='background:white'>setTimeout(myFunction,
-  3000)</span>).</span><span style='font-size:4.0pt;color:mediumblue;
-  background:white'> </span><span style='font-size:4.0pt;color:windowtext'>Point
-  out the recursion.</span></p>
+ 
   </td>
  </tr>
  <tr style='height:13.0pt'>
