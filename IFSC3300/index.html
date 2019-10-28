@@ -177,12 +177,42 @@ div.WordSection1
   <span id="header" 
         onclick="document.getElementById('header').style.color='lightgreen'" 
 		onmousedown="document.getElementById('header').style.color='red'"		
-		onmouseup="document.getElementById('header').style.color='blue'"
+		onmouseup="document.getElementById('header').style.color='lightblue'"
 		ondblclick="document.getElementById('header').style.color='magenta'"
-		onmouseover="document.getElementById('header').style.color='chartreuse'"
+		onmouseover="document.getElementById('header').style.color='darkviolet'"
 		onmouseout="document.getElementById('header').style.color='green'" 
 		onmousemove="document.getElementById('header').style.color='blue'"
-		style='font-size:14.0pt'><i>*NOTE: the syllabus location is now  https://dberleant.github.io/IFSC3300/. If you see this NOTE you are in the right place.*</i><br><br>YOU'RE HERE! <br>Welcome to the syllabus for<br><br>IFSC 3300 Internet Applications</span></h2>
+		style='font-size:14.0pt'><i>*NOTE: the syllabus location is now  https://dberleant.github.io/IFSC3300/. 
+		If you see this NOTE you are in the right place.*</i><br><br>
+		YOU'RE HERE! <br>Welcome to the syllabus for
+		<br><br>IFSC 3300<br>Internet Applications<button onclick="showColorCode()">color code</button>
+  </span>
+  </h2>
+	<span id="showColorCode"></span>	
+<script>
+		function showColorCode(){
+		   alert(
+			   `<span id="header" \
+				onclick="document.getElementById('header').style.color='lightgreen'" \n\
+				onmousedown="document.getElementById('header').style.color='red'" \n\
+				onmouseup="document.getElementById('header').style.color='lightblue'" \n\
+				ondblclick="document.getElementById('header').style.color='magenta'" \n\
+				onmouseover="document.getElementById('header').style.color='darkviolet'" \n\
+				onmouseout="document.getElementById('header').style.color='green'" \n\
+				onmousemove="document.getElementById('header').style.color='blue'" \n\
+				style='font-size:14.0pt'> \n\
+				<i>*NOTE: the syllabus location is now\n  https://dberleant.github.io/IFSC3300/. \n\
+				If you see this NOTE you are in the right place.* \n\
+				</i><br><br> \n\
+				YOU'RE HERE! \n\
+				<br>Welcome to the syllabus for \n\
+				<br><br>IFSC 3300 Internet Applications \n\
+				</span>\
+		       `
+           );
+		}
+</script>
+
   <p align=center style='margin-top:5.0pt;margin-right:-2.25pt;margin-bottom:
   0in;margin-left:0in;margin-bottom:.0001pt;text-align:center'><span
   style='font-size:13.0pt'>Fall 2019</span></p>
@@ -566,7 +596,7 @@ document.getElementById("loadtime").innerHTML=dFormatted;
    <li><b><a href="HW5b.html">HW5</a> due W 9/25/2019</b>
   </td>
   <td width=214 style='width:160.35pt;padding:0in 0in 0in 0in;height:13.0pt'>
-  <p class=MsoNormal><span style='font-size:5.0pt;color:windowtext'>&nbsp;</span></p>
+  <p class=MsoNormal><span style='font-size:5.0pt;color:windowtext'>&nbsp;</p>
   </td>
  </tr>
  <tr style='height:13.0pt'>
@@ -667,6 +697,8 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   href="https://en.wikipedia.org/wiki/Phaistos_Disc"><b>Unicode</b></a>
   <li><b>JS "<a
   href="https://www.w3schools.com/js/js_numbers.asp">Numbers</a>"  -  check for new things</b>
+  <li>&nbsp;&nbsp;&nbsp; &nbsp;<a
+  href="lectureBases.htm"><b>Notes on number systems</b></a>
   <li><b>JS "<a
   href="https://www.w3schools.com/js/js_number_methods.asp">Number Methods</a>"</b>
   <li><b>JS "<a
@@ -750,7 +782,8 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   Form Elements</a> (from w3schools.com <a href="https://www.w3schools.com/html">HTML</a>
   section)</b>
   </td>
-  <td width=214 style='width:160.35pt;padding:0in 0in 0in 0in;height:13.0pt'></td>
+  <td width=214 style='width:160.35pt;padding:0in 0in 0in 0in;height:13.0pt'>
+  <span style='font-size:4.0pt'>Check paper folder for extra printouts of the exercise</span></td>
  </tr>
  <tr style='height:13.0pt'>
   <td width=79 style='width:59.1pt;padding:0in 0in 0in 0in;height:13.0pt'>
@@ -811,30 +844,29 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   <p class=MsoNormal align=center style='text-align:center'><b><span
   style='color:windowtext'>W 10/23/2019</span></b></p>
   </td>
-  <td width=178 style='width:133.5pt;padding:0in 0in 0in 0in;height:13.0pt'>
-  <b>DOM; </span>time delays</b>
+  <td width=178 style='text-align:center;'>
+  <b>DOM; time delays</b>
   </td>
   <td width=297 style='width:222.95pt;padding:0in 0in 0in 0in;height:13.0pt'>
   <li><b>"<a href="https://www.w3schools.com/js">JavaScript HTML DOM</a>" &gt; "<a
   href="https://www.w3schools.com/js/js_htmldom_html.asp">DOM HTML</a>"</b>
   <li><b>"<a href="https://www.w3schools.com/js">JavaScript HTML DOM</a>" &gt; "<a
   href="https://www.w3schools.com/js/js_htmldom_css.asp">DOM CSS</a>"</b>
-  <li><b>Let's go out of official w3schools order with lesson "JavaScript Timing Events": 
-  <a href="https://www.w3schools.com/">w3schools.com</a>
-  &gt; <a href="https://www.w3schools.com/js">Learn JavaScript</a> &gt; JS
-  Browser BOM &gt; <a href="https://www.w3schools.com/js/js_timing.asp">JS
+  <li><b>Let's go out of official w3schools order with: <a href="https://www.w3schools.com/js/js_timing.asp">JS
   Timing</a>
-  <li><span id="whatTimeIsIt">The time is...</span>
-      <button onclick="showClockCode()">See clock code</button>
+  <li><span id="whatTimeIsIt" style="font-size:10.0pt">The time is...</span>
   <script>
   window.setInterval(currentTime,1200);
   function currentTime(){
      document.getElementById("whatTimeIsIt").innerHTML=new Date();
   }
+  </script>
+  <script>
   function showClockCode(){
-     alert('<span id="whatTimeIsIt">The time is...</span>\n<button onclick="showClockCode()">See clock code</button>\n<script>\nwindow.setInterval(currentTime,1200);\nfunction currentTime(){\n   document.getElementById("whatTimeIsIt").innerHTML=new Date();\n}\nfunction showClockCode(){\n   alert(\'<what you\'re reading now>\');\n}\n<\script>');
+     alert('<span id="whatTimeIsIt" style="font-size:10.0pt">The time is...</span>\n<script>\nwindow.setInterval(currentTime,1200);\nfunction currentTime(){\n   document.getElementById("whatTimeIsIt").innerHTML=new Date();\n}\n<\script>');
   }
   </script>
+  <button onclick="showClockCode()">See clock code</button>
   <li><b>Recording: (equipment malfunction)</b>
   <li><b><a href="HW10d.html">HW10</a>, due W 10/30/19</b>
   </td>
@@ -868,6 +900,11 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   center;text-indent:-7.5pt'><b>More on the DOM (including animation)</b></p>
   </td>
   <td width=297 style='width:222.95pt;padding:0in 0in 0in 0in;height:13.0pt'>
+  <li><b>Review: <a href="https://www.w3schools.com/css/css_syntax.asp">CSS Syntax</a></b>
+  <style>#cssExample {color: magenta}</style>
+  <li><b><span id="cssExample">Review:</span> <a href="https://www.w3schools.com/css/css_selectors.asp">CSS Selectors</a></b>
+  <button onclick='alert(`<style>#cssExample {color: magenta}</style>\n<li><b><span id="cssExample">Review:</span>.....`);'>see code</button>
+  <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>(View source of this page for examples)</b>
   <li><b>"<a href="https://www.w3schools.com/js">JavaScript HTML DOM</a>" &gt; "<a
   href="https://www.w3schools.com/js/js_htmldom_animate.asp">DOM Animations</a>"</b>
   <li><b>"<a href="https://www.w3schools.com/js">JavaScript HTML DOM</a>" &gt; <a
