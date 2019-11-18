@@ -173,8 +173,8 @@ div.WordSection1
   <td width=234 valign=top style='width:175.65pt;border-top:solid windowtext 1.0pt;
   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:none;
   padding:0in 5.4pt 0in 5.4pt;height:120.35pt'>
-  <h2 align=center style='margin:0in;margin-bottom:.0001pt;text-align:center'>
-  <span id="header" 
+  <h2 id="colorCode" align=center style='margin:0in;margin-bottom:.0001pt;text-align:center'>
+<span id="header" 
         onclick="document.getElementById('header').style.color='lightgreen'" 
 		onmousedown="document.getElementById('header').style.color='red'"		
 		onmouseup="document.getElementById('header').style.color='lightblue'"
@@ -190,26 +190,7 @@ div.WordSection1
   </h2>
 	<span id="showColorCode"></span>	
 <script>
-		function showColorCode(){
-		   alert(
-			   `<span id="header" \
-				onclick="document.getElementById('header').style.color='lightgreen'" \n\
-				onmousedown="document.getElementById('header').style.color='red'" \n\
-				onmouseup="document.getElementById('header').style.color='lightblue'" \n\
-				ondblclick="document.getElementById('header').style.color='magenta'" \n\
-				onmouseover="document.getElementById('header').style.color='darkviolet'" \n\
-				onmouseout="document.getElementById('header').style.color='green'" \n\
-				onmousemove="document.getElementById('header').style.color='blue'" \n\
-				style='font-size:14.0pt'> \n\
-				<i>*NOTE: the syllabus location is now\n  https://dberleant.github.io/IFSC3300/. \n\
-				If you see this NOTE you are in the right place.* \n\
-				</i><br><br> \n\
-				YOU'RE HERE! \n\
-				<br>Welcome to the syllabus for \n\
-				<br><br>IFSC 3300 Internet Applications \n\
-				</span>\
-		       `
-           );
+		function showColorCode(){alert(document.getElementById("colorCode").innerHTML);
 		}
 </script>
 
@@ -864,7 +845,7 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   </script>
   <script>
   function showClockCode(){
-     alert('<span id="whatTimeIsIt" style="font-size:10.0pt">The time is...</span>\n<script>\nwindow.setInterval(currentTime,1200);\nfunction currentTime(){\n   document.getElementById("whatTimeIsIt").innerHTML=new Date();\n}\n<\script>');
+	 alert('<span id="whatTimeIsIt" style="font-size:10.0pt">The time is...</span>\n<script>\nwindow.setInterval(currentTime,1200);\nfunction currentTime(){\n   document.getElementById("whatTimeIsIt").innerHTML=new Date();\n}\n<\script>');
   }
   </script>
   <button onclick="showClockCode()">See clock code</button>
@@ -970,7 +951,7 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   <p class=MsoNormal align=center style='text-align:center'><b><span
   style='color:windowtext'>M 11/4/2019</span></b></p>
   </td>
-  <td style='text-align:center' width=178>
+  <td style='text-align:center'>
   <b>DOM Structure</b>
   </td>
   <td width=297 style='width:222.95pt;padding:0in 0in 0in 0in;height:13.0pt'>
@@ -1058,16 +1039,17 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   <p class=MsoNormal align=center style='text-align:center'><b>Finish BOM: Cookies</b></p>
   </td>
   <td width=297 style='width:222.95pt;padding:0in 0in 0in 0in;height:26.05pt'>
-  <li><b><a
-  href="http://ualr.edu/jdberleant/courses/IFSC3300/cookieTest.html">Bake and
-  eat cookies the easy way</a>!</b>
+  <li><a
+  href="http://ualr.edu/jdberleant/courses/IFSC3300/cookieTest.html"><button><b>Bake and
+  eat cookies the easy way</b></a>!</button>
   <li><b><a href="https://www.w3schools.com/js">JavaScript
   Browser BOM</a> &gt; <a
   href="https://www.w3schools.com/js/js_cookies.asp">JS Cookies</a></b>
   <li><b> <a
   href="https://www.w3schools.com/jsref/jsref_decodeuricomponent.asp">decodeURIComponent()</a>, <a
   href="http://www.utf8-chartable.de/">&Aring;</a>, &amp; <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a></b>
-  <br>Recording: <a href="https://us.bbcollab.com/collab/ui/session/playback/load/369dab377f154b18b7fac5effb145949">F '19</a>	  
+  <br><b>Recording: <a href="https://us.bbcollab.com/collab/ui/session/playback/load/369dab377f154b18b7fac5effb145949
+">F '19</a></b>
   </td>
   <td width=214 style='width:160.35pt;padding:0in 0in 0in 0in;height:26.05pt'>
  <p class=MsoNormal><span style='font-size:4.0pt;color:windowtext'>Note: the w3schools lesson is not well done, the sole try it yourself exercise is too long and involved. I need to review the last bullet point (decodeURIcomponent...) better so that part of the lecture is more coherent. The utf8-chartable page needs more rehearsing to make sure the %number column shows up in class</p>
@@ -1101,8 +1083,8 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   <p class=MsoNormal align=center style='text-align:center'><b>W 11/13/2019</b></p>
   </td>
   <td width=178 style='width:133.5pt;padding:0in 0in 0in 0in;height:13.0pt'>
-  <p class=MsoNormal align=center style='text-align:center'>From Objects to
-  JSON</p>
+  <p class=MsoNormal align=center style='text-align:center'><b>From Objects to
+  JSON</b>
   </td>
   <td width=297 style='width:222.95pt;padding:0in 0in 0in 0in;height:13.0pt'>
   <b>From the "JS Tutorial" category -</b>
@@ -1134,8 +1116,8 @@ document.getElementById("loadtime").innerHTML=dFormatted;
   href="https://www.w3schools.com/js/js_json_arrays.asp">JSON Arrays</a></b>
 
   <br>
-  <button id="JSONdemo" onclick="useJSON();">Use JSON</button>
-<button onclick="alert(getElementById('JSONcode').firstChild.nodeValue)">See code</button>
+  <button id="JSONdemo" onclick="useJSON();"><b>Use JSON</b></button>
+<button onclick="alert(getElementById('JSONcode').firstChild.nodeValue)"><b>See code</b></button>
 <script id="JSONcode">
 var txt, obj;
 function useJSON(){
@@ -1146,7 +1128,7 @@ document.getElementById("JSONdemo").innerHTML = "<b>Hello,</b> "+obj.name;
 </script>
 
   <br><b><a href="HW13.html">HW13</a> due Wednesday Nov. 20, 2019</b>
-  <br><b>Recording: <aa href="">F '19</a></b>
+  <br><b>Recording: <aa href="https://us.bbcollab.com/collab/ui/session/playback/load/fee87368dd6940feb2d604604f1edbdc">F '19</a></b>
   </td>
   <td width=214 style='width:160.35pt;padding:0in 0in 0in 0in;height:13.0pt'>
   <p class=MsoNormal><span style='font-size:5.0pt;color:windowtext'>&nbsp;</span></p>
@@ -1157,39 +1139,24 @@ document.getElementById("JSONdemo").innerHTML = "<b>Hello,</b> "+obj.name;
   <p class=MsoNormal align=center style='text-align:center'><b>M 11/18/2019</b></p>
   </td>
   <td width=178 style='width:133.5pt;padding:0in 0in 0in 0in;height:13.0pt'>
+  <b>
   <p class=MsoNormal align=center style='text-align:center'><span
   style='color:windowtext'>Regular expressions</span></p>
+  </b>
   </td>
   <td width=297 style='width:222.95pt;padding:0in 0in 0in 0in;height:13.0pt'>
-  <h1 style='margin-top:0in;background:white'><span class=colorh1><span
-  style='font-family:Symbol;color:windowtext;font-weight:normal'>·</span></span><span
-  class=colorh1><span style='font-size:7.0pt;color:windowtext;font-weight:normal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span class=colorh1><span style='font-size:12.0pt;font-family:
-  "Times New Roman","serif";font-weight:normal'><a
-  href="https://www.w3schools.com/js">w3schools.com/js</a></span></span><span
-  class=colorh1><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
-  color:windowtext;font-weight:normal'> &gt; </span></span><span class=colorh1><span
-  style='font-size:12.0pt;font-family:"Times New Roman","serif";font-weight:
-  normal'><a href="https://www.w3schools.com/js/js_regexp.asp">JS RegExp</a></span></span></h1>
-  <h1 style='margin-top:0in;background:white'><span class=colorh1><span
-  style='font-family:Symbol;color:windowtext;font-weight:normal'>·</span></span><span
-  class=colorh1><span style='font-size:7.0pt;color:windowtext;font-weight:normal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span class=colorh1><span style='font-size:12.0pt;font-family:
-  "Times New Roman","serif";color:windowtext;font-weight:normal'>More: <a
-  href="http://w3schools.com/jsref">w3schools.com/jsref</a> &gt; </span></span><span
-  class=colorh1><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
-  color:black;font-weight:normal'><a
-  href="https://www.w3schools.com/jsref/jsref_obj_regexp.asp">JS RegExp</a></span></span></h1>
-  <h1 style='margin-top:0in;background:white'><span class=colorh1><span
-  style='font-family:Symbol;color:windowtext;font-weight:normal'>·</span></span><span
-  class=colorh1><span style='font-size:7.0pt;color:windowtext;font-weight:normal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  </span></span><span class=colorh1><span style='font-size:12.0pt;font-family:
-  "Times New Roman","serif";color:windowtext;font-weight:normal'>Some <a
+  <li><b><a
+  href="https://www.w3schools.com/js">w3schools.com/js</a> &gt; <a href="https://www.w3schools.com/js/js_regexp.asp">JS RegExp</a></b>
+  <li><b><a
+  href="http://w3schools.com/jsref">w3schools.com/jsref</a> &gt; <a
+  href="https://www.w3schools.com/jsref/jsref_obj_regexp.asp">JS RegExp Ref.</a></b>
+  <li><b>Some <a
   href="http://ualr.edu/jdberleant/courses/IFSC3300/lectureRegExp.htm">regular expression
-  notes</a></span></span></h1>
+  notes</a></b>
+  <br>Recording: <a href="">F '19</a>
   </td>
   <td width=214 style='width:160.35pt;padding:0in 0in 0in 0in;height:13.0pt'>
-  <p class=MsoNormal><span style='font-size:7.0pt'>Check <a
+  <p class=MsoNormal><span style='font-size:4.0pt'>Have them figure out the number of elements of a /.../i regexp (2^n)<br>Check <a
   href="https://regexr.com/" target="_blank"><span style='font-family:"Arial","sans-serif";
   color:#1155CC;background:white'>https://regexr.com/</span></a> to see if can
   use something there.</span></p>
