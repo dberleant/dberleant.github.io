@@ -1,0 +1,140 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+ xmlns:oa="urn:schemas-microsoft-com:office:activation">
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="2"/>
+ </o:shapelayout><p:colorscheme
+  colors="#FFFFFF,#000000,#5E574E,#000000,#FF6600,#FFCC00,#996633,#808000"/>
+ <v:background id="_x0000_s2049" o:bwmode="white" fillcolor="#6db6ff"
+  o:targetscreensize="800,600">
+  <v:fill color2="yellow" angle="-135" focus="50%" type="gradient"/>
+ </v:background><p:shaperange id="_x0000_m2050">
+  <v:shapetype id="_x0000_m2050" style='position:absolute;left:12pt;top:12pt;
+   width:636pt;height:80.25pt;v-text-anchor:bottom' coordsize="21600,21600"
+   o:master="" o:spt="1" path="m,l,21600r21600,l21600,xe" filled="f"
+   fillcolor="#f60 [4]" stroked="f" strokecolor="black [1]">
+   <v:fill o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <p:placeholder type="title"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_m2051">
+  <v:shapetype id="_x0000_m2051" style='position:absolute;left:38pt;top:126pt;
+   width:644pt;height:372pt' coordsize="21600,21600" o:master="" o:spt="1"
+   path="m,l,21600r21600,l21600,xe" filled="f" fillcolor="#f60 [4]" stroked="f"
+   strokecolor="black [1]">
+   <v:fill o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <p:placeholder type="body" position="1"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_s2052">
+  <v:shapetype id="_x0000_s2052" style='position:absolute;left:34pt;top:490.5pt;
+   width:150pt;height:36pt;v-text-anchor:bottom' coordsize="21600,21600"
+   o:master="" o:spt="1" path="m,l,21600r21600,l21600,xe" filled="f"
+   fillcolor="#f60 [4]" stroked="f" strokecolor="black [1]">
+   <v:fill o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <p:placeholder type="dateTime" position="2" size="half"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_s2053">
+  <v:shapetype id="_x0000_s2053" style='position:absolute;left:246pt;top:490.5pt;
+   width:228pt;height:36pt;v-text-anchor:bottom' coordsize="21600,21600"
+   o:master="" o:spt="1" path="m,l,21600r21600,l21600,xe" filled="f"
+   fillcolor="#f60 [4]" stroked="f" strokecolor="black [1]">
+   <v:fill o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <p:placeholder type="footer" position="3" size="quarter"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_s2054">
+  <v:shapetype id="_x0000_s2054" style='position:absolute;left:568.25pt;top:502.875pt;
+   width:150pt;height:36pt;v-text-anchor:bottom' coordsize="21600,21600"
+   o:master="" o:spt="1" path="m,l,21600r21600,l21600,xe" filled="f"
+   fillcolor="#f60 [4]" stroked="f" strokecolor="black [1]">
+   <v:fill o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <p:placeholder type="slideNumber" position="4" size="quarter"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_s2073">
+  <v:group id="_x0000_s2073" style='position:absolute;left:646.125pt;top:6.375pt;
+   width:84pt;height:82.375pt' coordorigin="4752,96" coordsize="864,847"
+   o:userdrawn="t">
+   <v:group id="_x0000_s2056" style='position:absolute;left:4896;top:96;
+    width:566;height:576' coordorigin="4869,3273" coordsize="707,719"
+    o:regroupid="1" o:userdrawn="t">
+    <v:oval id="_x0000_s2057" style='position:absolute;left:5176;top:3580;
+     width:136;height:136;mso-wrap-style:none;v-text-anchor:middle' filled="f"
+     fillcolor="white [0]" strokecolor="black [1]" strokeweight="1pt">
+     <v:fill color2="white [0]"/>
+     <v:shadow color="#5e574e [2]"/>
+    </v:oval><v:line id="_x0000_s2058" style='position:absolute;flip:x y;
+     mso-wrap-style:none;v-text-anchor:middle' from="5145,3273" to="5180,3640"
+     strokecolor="black [1]" strokeweight="4pt">
+     <v:shadow color="#5e574e [2]"/>
+    </v:line><v:line id="_x0000_s2059" style='position:absolute;flip:x y;
+     mso-wrap-style:none;v-text-anchor:middle' from="5145,3273" to="5312,3620"
+     strokecolor="black [1]" strokeweight="4pt">
+     <v:shadow color="#5e574e [2]"/>
+    </v:line><v:line id="_x0000_s2060" style='position:absolute;flip:y;
+     mso-wrap-style:none;v-text-anchor:middle' from="5261,3357" to="5468,3580"
+     strokecolor="black [1]" strokeweight="4pt">
+     <v:shadow color="#5e574e [2]"/>
+    </v:line><v:line id="_x0000_s2061" style='position:absolute;flip:y;
+     mso-wrap-style:none;v-text-anchor:middle' from="5337,3369" to="5468,3692"
+     strokecolor="black [1]" strokeweight="4pt">
+     <v:shadow color="#5e574e [2]"/>
+    </v:line><v:line id="_x0000_s2062" style='position:absolute;
+     mso-wrap-style:none;v-text-anchor:middle' from="5285,3737" to="5576,3764"
+     strokecolor="black [1]" strokeweight="4pt">
+     <v:shadow color="#5e574e [2]"/>
+    </v:line><v:line id="_x0000_s2063" style='position:absolute;
+     mso-wrap-style:none;v-text-anchor:middle' from="5321,3605" to="5552,3760"
+     strokecolor="black [1]" strokeweight="4pt">
+     <v:shadow color="#5e574e [2]"/>
+    </v:line><v:line id="_x0000_s2064" style='position:absolute;
+     mso-wrap-style:none;v-text-anchor:middle' from="5177,3701" to="5324,3980"
+     strokecolor="black [1]" strokeweight="4pt">
+     <v:shadow color="#5e574e [2]"/>
+    </v:line><v:line id="_x0000_s2065" style='position:absolute;
+     mso-wrap-style:none;v-text-anchor:middle' from="5321,3693" to="5352,3992"
+     strokecolor="black [1]" strokeweight="4pt">
+     <v:shadow color="#5e574e [2]"/>
+    </v:line><v:line id="_x0000_s2066" style='position:absolute;flip:x;
+     mso-wrap-style:none;v-text-anchor:middle' from="4989,3737" to="5296,3896"
+     strokecolor="black [1]" strokeweight="4pt">
+     <v:shadow color="#5e574e [2]"/>
+    </v:line><v:line id="_x0000_s2067" style='position:absolute;flip:x;
+     mso-wrap-style:none;v-text-anchor:middle' from="4989,3649" to="5184,3908"
+     strokecolor="black [1]" strokeweight="4pt">
+     <v:shadow color="#5e574e [2]"/>
+    </v:line><v:line id="_x0000_s2068" style='position:absolute;flip:x y;
+     mso-wrap-style:none;v-text-anchor:middle' from="4881,3513" to="5212,3728"
+     strokecolor="black [1]" strokeweight="4pt">
+     <v:shadow color="#5e574e [2]"/>
+    </v:line><v:line id="_x0000_s2069" style='position:absolute;flip:x y;
+     mso-wrap-style:none;v-text-anchor:middle' from="4869,3513" to="5252,3580"
+     strokecolor="black [1]" strokeweight="4pt">
+     <v:shadow color="#5e574e [2]"/>
+    </v:line><v:oval id="_x0000_s2070" style='position:absolute;left:4976;
+     top:3388;width:536;height:536;mso-wrap-style:none;v-text-anchor:middle'
+     filled="f" fillcolor="white [0]" strokecolor="black [1]" strokeweight="1pt">
+     <v:fill color2="white [0]"/>
+     <v:shadow color="#5e574e [2]"/>
+    </v:oval></v:group><v:rect id="_x0000_s2071" style='position:absolute;
+    left:4752;top:624;width:864;height:319' o:regroupid="1" o:userdrawn="t"
+    filled="f" fillcolor="white [0]" stroked="f" strokecolor="black [1]"
+    strokeweight="1pt">
+    <v:fill color2="white [0]"/>
+    <v:shadow color="#5e574e [2]"/>
+    <v:textbox style='mso-fit-shape-to-text:t' inset="2.51356mm,3.5pt,2.51356mm,3.5pt"/>
+   </v:rect></v:group></p:shaperange>
+</xml>

@@ -1,0 +1,624 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 10">
+<link id=Main-File rel=Main-File href="../IABdec02.htm">
+<link rel=Preview href=preview.wmf>
+<meta name=Robots content=NoIndex>
+<script src=script.js></script><script><!--
+if( !(IsWin("PPTOtl")||IsWin("PPTNav")||IsWin("PPTOtlNav")) )
+{
+	obj = GetObj("Main-File")
+	parent.location.href=obj.href
+}
+var gOtlHiliteClr="#ffffff",gOtlNormalClr="#000000",gOtlActiveClr="#ffff00",gSelected="",gTxtState=false,gChildEntryTable=new Array()
+function Load()
+{
+	if( IsWin("PPTOtl" ) ){ LoadOtl(); parent.gOtlLoaded=true; return }
+	if( g_supportsPPTHTML ) {
+		if( IsWin("PPTNav" ) ){ LoadNav("NavObj",UpdNav); parent.gNavLoaded=true; return }
+		if( IsWin("PPTOtlNav" ) ){ LoadNav("OtlNavObj",UpdOtlNav); parent.gOtlNavLoaded=true; return }
+	}
+}
+function Upd(){ if( IsWin("PPTNav") ) LoadNav("NavObj",UpdNav) }
+function LoadNav( oId,UpdFunc )
+{
+	document.ondragstart=CancelDrag
+	document.onselectstart=CancelDrag
+	document.body.style.margin=2
+	UpdFunc()
+	obj=document.all.item(oId)
+	obj.style.display="block"
+	obj.style.visibility="visible"
+	document.bgColor="threedface"
+	if( parent.frames["PPTNts"] )
+		notesBtn.style.display = ""
+	if( parent.gHasNarration )
+		nb_voiceBorder.style.display = ""
+}
+function LoadOtl()
+{
+	var otl=GetObj("OtlObj")
+	otl.style.display="block"
+	otl.style.visibility="visible"
+	if( gOtlActiveClr == "" ) gOtlActiveClr=document.linkColor
+	if( gOtlHiliteClr == "" ) gOtlHiliteClr=document.fgColor
+	if( gOtlNormalClr == "" )
+		gOtlNormalClr=document.bgColor
+	else
+		document.bgColor=gOtlNormalClr
+	InitArray()
+	if( ObjExists( parent.gCurSld ) ) {
+		ChangeState( parent.gCurSld,gOtlNormalClr,gOtlHiliteClr )
+		gSelected=parent.gCurSld
+	}
+	else gSelected = -1
+	UpdOtl()
+}
+function UpdOtl(){ UpdIdx(parent.gCurSld) }
+function UpdIdx( idx )
+{
+	if( gSelected != idx ) {
+		if( gSelected > 0 )
+			ChangeState( gSelected,gOtlHiliteClr,gOtlNormalClr )
+		if( ObjExists( idx ) ) {
+			gSelected = idx
+			ChangeState( gSelected,gOtlNormalClr,gOtlHiliteClr )
+		}
+		else gSelected = -1
+	}
+	if( gTxtState != parent.gOtlTxtExp ) {
+		state = "block"
+		if( !parent.gOtlTxtExp )
+			state="none"
+		for(ii=0; ii<gChildEntryTable.length; ii++) {
+			obj=gChildEntryTable[ii];
+			if( obj.id == null ) continue;
+			if( obj.id.indexOf("PPTC") >= 0 )
+				obj.style.display=state;
+		}
+		gTxtState=parent.gOtlTxtExp
+		if( ObjExists( gSelected ) )
+			ChangeState( gSelected,gOtlNormalClr,gOtlHiliteClr )
+	}
+}
+function InitArray()
+{
+	count=0
+	var list=GetTags(document,"DIV");
+	for(ii=0; ii<list.length; ii++) {
+		obj=list.item(ii)
+		if( obj.id == null ) continue
+		if( obj.id.indexOf("PPTC") >= 0 )
+			gChildEntryTable[count++]=obj
+	}
+}
+function ChangeState( idx,fgColor,bgColor )
+{
+	obj=GetObj("PPTL"+idx)
+	obj.style.color=fgColor
+	obj=GetObj("PPTP"+idx)
+	obj.style.backgroundColor=bgColor
+}
+function ChgClr( o,clr ){ if( o.id != "PPTL"+gSelected ) o.style.color=clr }
+function Over( src ){ ChgClr(GetLink(src),gOtlActiveClr) }
+function Out( src ){ ChgClr(GetLink(src),gOtlHiliteClr) }
+function Follow(src){ window.location.href = GetLink(src).href; }
+function ObjExists( ii ) { obj=GetObj("PPTP"+ii ); return( obj ) }
+function GoToSld( href ){ UpdIdx(parent.GetSldNum(href)); parent.GoToSld( href ) }
+function CancelDrag(){ window.event.cancelBubble=true;window.event.returnValue=false}
+function GetLink(src)
+{
+   if(src.tagName=="A") return src
+   else return GetTags(src,"A").item(0)
+}
+function UpdNav()
+{
+	txt = "<center>";
+	if( parent.GetHrefObj( parent.gCurSld ).mOrigVis == 1 )
+		txt += "Slide " + parent.GetCurSldNum() + " of " + parent.GetNumSlds()
+	else
+		txt += "Hidden Slide"
+	txt += "</center>";
+	nav_text.innerHTML = txt;
+	if( !parent.HasPrevSld() )
+		gBtnArr["nb_prev"].Enabled(0)
+	else
+		gBtnArr["nb_prev"].Enabled(1)
+	if( !parent.HasNextSld() )
+		gBtnArr["nb_next"].Enabled(0)
+	else
+		gBtnArr["nb_next"].Enabled(1)
+	gBtnArr["nb_nts"].SetEnabled()
+	gBtnArr["nb_nts"].SetFlag( parent.gHasNts )
+	gBtnArr["nb_sldshw"].Enabled(1)
+	gBtnArr["nb_voice"].Enabled(1)
+}
+function UpdOtlNav()
+{
+	gBtnArr["nb_otl"].SetEnabled();
+	if( parent.gOtlOpen )
+		gBtnArr["nb_otlTxt"].Enabled( true );
+	else
+		document.all.item("nb_otlTxtBorder").style.visibility = "hidden";
+}
+
+//--></script>
+<style>
+<!--.PTxt
+	{position:relative;
+	width:100%;
+	margin-top:5px;
+	padding-left:2px;
+	font-weight:bold;}
+.CTxt
+	{position:relative;
+	width:100%;
+	margin-top:5px;}
+a
+	{color:white;
+	text-decoration:none;}
+ul
+	{color:white;
+	margin-bottom:0px;
+	margin-left:20px;}
+.sldNum
+	{margin-top:5px;
+	color:white;}
+.button
+	{position:absolute;
+	width:32px;
+	height:20px;
+	border-style:solid;
+	border-width:1px;
+	border-color:threedface;}
+-->
+</style>
+</head>
+
+<body onload="Load()" style='margin:2px'>
+
+<div id=NavObj onload="Load()" onmouseover="BtnOnOver()"
+onmousedown="BtnOnDown()" onmouseout="BtnOnOut()" onmouseup="BtnOnUp()"
+onkeypress="_KPH()" style='display:none;visibility:hidden'>
+<table id="notesBtn" style='position:absolute;display:none;width:70px' align=left cellpadding=0
+ cellspacing=0>
+ <td nowrap>
+ <div id="nb_ntsElem" align=center style='position:relative;padding:3px;
+ font-family:Arial;color:buttontext;font-size:9pt'><img src="notes_flag.gif"
+ border=0 id="notes_flag" style='display:none'><span
+style='mso-spacerun:yes'>  </span>Notes</div>
+ <div title="Show/Hide Notes" id="nb_nts" style='position:absolute;top:0%;
+ left:0%;width:100%;height:100%'></div>
+ </td>
+</table>
+
+<table style='position:relative;width:70px' align=right cellpadding=0 cellspacing=0>
+ <td nowrap>
+ <div id="nb_sldshwText" title="Full
+Screen Slide Show" align=center style='position:relative;margin-left:20px;padding:3px;
+ font-family:Arial;color:buttontext;font-size:9pt;cursor:default'>Slide
+Show</div>
+ <div id="nb_sldshwBorder" title="Full Screen Slide Show" style='position:absolute;top:0%;left:0%;width:100%;height:20px'>
+ <div style='position:absolute;clip:rect(0px, 18px, 18px, 0px)'><img
+ src="buttons.gif" id="nb_sldshw" style='position:relative;left:-254px'></div>
+ </div>
+ </td>
+ <td>
+ <div id="nb_voiceBorder" style='display:none;position:absolute;top:0;left:-40px;
+ width:20px;height:20px'>
+ <div style='position:absolute;clip:rect(0px, 18px, 18px, 0px)'><img
+ src="buttons.gif" id="nb_voice" title="Pause/Play Narration" style='position:
+ relative;left:-290px'></div>
+ </div>
+ </td>
+</table>
+
+<table style='position:relative' align=center cellpadding=0 cellspacing=0>
+ <td nowrap>
+ <div id="nb_prevBorder" class=button style='left:-30px'>
+ <div style='position:absolute;clip:rect(0px, 30px, 18px, 0px)'><img
+ src="buttons.gif" id="nb_prev" title="Previous Slide" style='position:relative;
+ left:0px'></div>
+ </div>
+ <span id="nav_text" style='position:relative;top:3px;width:100px;font-family:
+ Arial;color:buttontext;font-size:9pt'></span>
+ <div id="nb_nextBorder" class=button>
+ <div style='position:absolute;clip:rect(0px, 30px, 18px, 0px)'><img
+ src="buttons.gif" id="nb_next" title="Next Slide" style='position:relative;
+ left:-90px'></div>
+ </div>
+ </td>
+</table>
+</div>
+
+<div id=OtlNavObj onload="Load()" onmouseover="BtnOnOver()"
+onmousedown="BtnOnDown()" onmouseout="BtnOnOut()" onmouseup="BtnOnUp()"
+onkeypress="_KPH()" style='display:none;visibility:hidden'>
+
+<table style='position:relative;width:70px' align=left cellpadding=0 cellspacing=0>
+ <td nowrap><div title="Show/Hide
+Outline" id="nb_otl"
+ style='position:absolute;top:0%;left:0%;width:100%;height:100%;cursor:default'>
+ <div id="nb_otlElem" align=center style='position:relative;padding:3px;font-family:Arial;
+ color:buttontext;font-size:9pt'>Outline</div></div>
+ </td>
+</table>
+
+<table style='position:relative' align=center cellpadding=0 cellspacing=0>
+ <td>
+ <div style='position:absolute;left:-18px;width:24px;height:20px;border-style:
+ solid;border-width:1px;border-color:threedface' id="nb_otlTxtBorder">
+ <div style='position:absolute;clip:rect(0px, 22px, 18px, 0px)'><img
+ src=buttons.gif id="nb_otlTxt" title="Expand/Collapse Outline"
+ style='position:relative;left:-157px'></div>
+ </div>
+ </td>
+</table>
+
+</div>
+
+<div id=OtlObj style='display:none;visibility:hidden;'>
+
+
+<table width="100%" style='font-family:Arial;font-size:9pt'>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>1</font></div>
+  </td>
+  <td width="100%">
+  <div id=PPTP1 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0020.htm');" id=PPTL1>Market interaction<br>
+    and Market Power<br>
+    <br>
+    <br>
+    G. Sheblé, D. Berleant, J. Zhang, <br>
+    M. Cheong, and R. Thomas</a></font></div>
+  <div id=PPTC1 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Industrial Advisory Board Meeting</li>
+   <li>December 11-13, 2002<br>
+              Atlanta, GA</li>
+   <br>
+   <br>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>2</font></div>
+  </td>
+  <td>
+  <div id=PPTP2 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0021.htm');" id=PPTL2>Strategy: Quantify &amp;
+  Use Uncertainty about Uncertainty</a></font></div>
+  <div id=PPTC2 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Similar concepts include:</li>
+   <ul>
+    <li>Uncertainty quantification (UQ)</li>
+    <li>2<sup>nd</sup>-order uncertainty</li>
+    <li>Model form uncertainty</li>
+    <li>Subjective uncertainty</li>
+    <li>Epistemic uncertainty</li>
+    <li>Reducible uncertainty</li>
+   </ul>
+   <li>Our “DEnv” algorithm is simpler than</li>
+   <ul>
+    <li>copula-based and Dempster-Shafer-based methods</li>
+    <br>
+    <br>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>3</font></div>
+  </td>
+  <td>
+  <div id=PPTP3 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0022.htm');" id=PPTL3>Team and Recent
+  Activities</a></font></div>
+  <div id=PPTC3 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Team members:</li>
+   <li>		G. Sheblé, D. Berleant, J. Zhang, M.-P. Cheong, R. Thomas</li>
+   <br>
+   <br>
+   <li>Recent publications:</li>
+   <ul>
+    <ul>
+     <li>Using correlation to improve envelopes around derived distributions,”
+         accepted for journal publication pending revisions.</li>
+     <li>Representation and Problem Solving with the Distribution Envelope
+         Determination (DEnv) Method,&quot; accepted for journal publication
+         pending revisions.</li>
+     <li>Statool: a tool for Distribution Envelope Determination (DEnv), an
+         interval-based algorithm for arithmetic on random variables,” Reliable
+         Computing 9, 2003, to appear.</li>
+     <li>Economic dispatch: applying the interval-based distribution envelope
+         algorithm to an electric power problem, SIAM Workshop on Validated
+         Computing 2002 (entire submission refereed).</li>
+     <li>An improved tool for distribution envelope determination, a technique
+         for interval-based, verified arithmetic on random variables, SIAM
+         Workshop on Validated Computing 2002(entire submission refereed).</li>
+     <li>Bounding the composite value at risk for energy service company
+         operation with DEnv, an interval-based algorithm, SIAM Workshop on
+         Validated Computing 2002(entire submission refereed).</li>
+    </ul>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>4</font></div>
+  </td>
+  <td>
+  <div id=PPTP4 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0023.htm');" id=PPTL4>Power Application Topic
+  Areas</a></font></div>
+  <div id=PPTC4 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Bidding strategy</li>
+   <ul>
+    <li>Knowledge of competitors has complex uncertainty structure</li>
+   </ul>
+   <li>Financial engineering</li>
+   <ul>
+    <li>Demand projections (from minutes to decades) have interacting
+        uncertainties</li>
+    <li>Market properties have many uncertainties</li>
+   </ul>
+   <li>Engineering design</li>
+   <ul>
+    <li>Risks can involve uncertain uncertainties</li>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>5</font></div>
+  </td>
+  <td>
+  <div id=PPTP5 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0024.htm');" id=PPTL5>Combining Evidence</a></font></div>
+  <div id=PPTC5 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Consider three estimates of a distribution for B</li>
+   <li>Each estimate: lognormal &amp; ranges for &#956; &amp; &#963;</li>
+   <li>Weight equally &amp; combine using Statool:</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>6</font></div>
+  </td>
+  <td>
+  <div id=PPTP6 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0025.htm');" id=PPTL6>Using Uncertain
+  Distributions</a></font></div>
+  <div id=PPTC6 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>What is the distribution of Y, where</li>
+   <li>Y=(A + B<sub>combined </sub>)<sup>A</sup>, and</li>
+   <li>A<sub>combined</sub> combines equally credible nested measurements [0.5,
+       0.7], [0.3, 0.8], and [0.1, 1].</li>
+   <br>
+   <br>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>7</font></div>
+  </td>
+  <td>
+  <div id=PPTP7 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0026.htm');" id=PPTL7>Dependencies may be
+  Unknown</a></font></div>
+  <div id=PPTC7 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Given random variables</li>
+   <li>	A and B</li>
+   <li>What is the distribution of</li>
+   <li>Y with samples y=f (a,b)?</li>
+   <li>Two possibilities for A and B</li>
+   <ul>
+    <li>They are independent</li>
+    <li>Their dependency relationship is unknown</li>
+   </ul>
+   <li>Envelopes in unknown case enclose those in independent case</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>8</font></div>
+  </td>
+  <td>
+  <div id=PPTP8 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0027.htm');" id=PPTL8>Accounting for
+  Correlation</a></font></div>
+  <div id=PPTC8 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>A way to partially characterize dependency</li>
+   <li>Given two marginals, correlation restricts the space of possible joint
+       distributions</li>
+   <li>Restrictions on joint distributions lead to constriction of CDF
+       envelopes relative to unknown dependency</li>
+   <li>Details of constriction depend greatly on f (.)</li>
+   <li>Other ways to restrict the joint distribution may be useful to
+       investigate (much is unknown)</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>9</font></div>
+  </td>
+  <td>
+  <div id=PPTP9 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0028.htm');" id=PPTL9>Effects of Correlation</a></font></div>
+  <div id=PPTC9 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Let A have 3 equally credible measurements</li>
+   <ul>
+    <li>[0.8, 1], [0.5, 0.7], and [0.1, 0.4]</li>
+   </ul>
+   <li>Let B have 4 equally credible measurements</li>
+   <ul>
+    <li>[0.8, 1], [0.5, 0.7], [0.1, 0.4] , and [0, 0.2]</li>
+   </ul>
+   <li>Here are envelopes around Y=(A + B )<sup>A</sup></li>
+   <br>
+   <br>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>10</font></div>
+  </td>
+  <td>
+  <div id=PPTP10 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0029.htm');" id=PPTL10>Making Better Decisions</a></font></div>
+  <div id=PPTC10 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Optimal decisions from specific CDFs</li>
+   <ul>
+    <li>Often possible if formula can be found</li>
+   </ul>
+   <li>Optimal decisions from CDF envelopes</li>
+   <ul>
+    <li>Ambiguity in CDF often leads to</li>
+    <ul>
+     <li>a range of possibly-optimal decisions</li>
+     <li>cannot rule out potential optimality of each</li>
+    </ul>
+    <li>Heuristic approaches to this problem include:</li>
+    <ul>
+     <li>Using midpoint of the range</li>
+    </ul>
+    <li>A better approach:</li>
+    <ul>
+     <li>Compute monetary value of uncertainty reduction</li>
+     <li>Then, get more information, if benefit &gt; cost</li>
+    </ul>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>11</font></div>
+  </td>
+  <td>
+  <div id=PPTP11 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0030.htm');" id=PPTL11>Application: VaR</a></font></div>
+  <div id=PPTC11 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Three key random variables:</li>
+   <ul>
+    <li>Energy not served,</li>
+    <li>Price fluctuation, and</li>
+    <li>Risk of contract violation</li>
+   </ul>
+   <li>Limited information on their dependency relationship implies</li>
+   <ul>
+    <li>uncertainty about amount of value at risk</li>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>12</font></div>
+  </td>
+  <td>
+  <div id=PPTP12 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0031.htm');" id=PPTL12>Application: Economic
+  Dispatch</a></font></div>
+  <div id=PPTC12 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Important, well-understood, but more to say</li>
+   <ul>
+    <li>Consider envelopes for p (power<sub>optimum</sub>&#8804;P<sub>1</sub>):</li>
+    <br>
+    <br>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+</table>
+
+
+
+</div>
+
+<div style='display:none'><a href=master04.htm></a><a href=master04.xml></a><a
+href=preview.wmf></a><a href=master05.htm></a><a href=master05.xml></a><a
+href=master02.htm></a><a href=pres.xml></a><a href=slide0020.htm></a><a
+href="master05_background.gif"></a><a href="master05_image001.gif"></a><a
+href=slide0021.htm></a><a href="master04_background.gif"></a><a
+href="master04_image002.gif"></a><a href=slide0022.htm></a><a
+href=slide0023.htm></a><a href=slide0024.htm></a><a
+href="slide0024_image003.gif"></a><a href="slide0024_image004.gif"></a><a
+href="slide0024_image005.gif"></a><a href="slide0024_image006.gif"></a><a
+href=slide0025.htm></a><a href="slide0025_image007.png"></a><a
+href="slide0025_image008.jpg"></a><a href="slide0025_image009.png"></a><a
+href=oledata.mso></a><a href="slide0025_image010.jpg"></a><a
+href="slide0025_image011.jpg"></a><a href="slide0025_image012.gif"></a><a
+href="slide0025_image013.gif"></a><a href="slide0025_image014.gif"></a><a
+href="slide0025_image015.gif"></a><a href="slide0025_image016.gif"></a><a
+href=slide0026.htm></a><a href="slide0026_image017.jpg"></a><a
+href="slide0026_image018.png"></a><a href="slide0026_image019.jpg"></a><a
+href="slide0026_image020.gif"></a><a href="slide0026_image021.gif"></a><a
+href=slide0027.htm></a><a href=slide0028.htm></a><a
+href="slide0028_image022.png"></a><a href="slide0028_image023.jpg"></a><a
+href="slide0028_image024.png"></a><a href="slide0028_image025.jpg"></a><a
+href="slide0028_image026.png"></a><a href="slide0028_image027.jpg"></a><a
+href="slide0028_image028.png"></a><a href="slide0028_image029.jpg"></a><a
+href="slide0028_image030.gif"></a><a href="slide0028_image031.gif"></a><a
+href="slide0028_image032.gif"></a><a href="slide0028_image033.gif"></a><a
+href=slide0029.htm></a><a href=slide0030.htm></a><a
+href="slide0030_image034.png"></a><a href="slide0030_image035.jpg"></a><a
+href="slide0030_image036.png"></a><a href="slide0030_image037.jpg"></a><a
+href=slide0031.htm></a><a href="slide0031_image038.png"></a><a
+href="slide0031_image039.jpg"></a><a href=master01.htm></a><a
+href="master04_stylesheet.css"></a><a href=script.js></a><a
+href="../IABdec02.htm"></a><a href=fullscreen.htm></a><a href=buttons.gif></a><a
+href=frame.htm></a><a href=outline.htm></a></div>
+
+</body>
+
+</html>
