@@ -1,0 +1,190 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 9">
+<link id=Main-File rel=Main-File href="../ECpresentation.htm">
+<link rel=Preview href=preview.wmf>
+<link rel=OLE-Object-Data href=oledata.mso>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+p\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+v\:textbox {display:none;}
+</style>
+<![endif]-->
+<title>Economic Dispatch: Applying  the Interval-Based DEnv Algorithm to an
+Electric  Power  Problem</title>
+<meta name=Description content=2-Jul-02>
+<link rel=Stylesheet href="master12_stylesheet.css">
+<![if !ppt]>
+<style media=print>
+<!--.sld
+	{left:0px !important;
+	width:6.0in !important;
+	height:4.5in !important;
+	font-size:107% !important;}
+-->
+</style>
+<script src=script.js></script><script><!--
+gId="slide0011.htm"
+if( !IsNts() ) Redirect( "PPTSld", gId );
+//-->
+</script><!--[if vml]><script>g_vml = 1;
+</script><![endif]--><script for=window event=onload><!--
+if( !IsSldOrNts() ) return;
+if( MakeNotesVis() ) return;
+LoadSld( gId );
+MakeSldVis(0);
+//-->
+</script><![endif]><o:shapelayout v:ext="edit">
+ <o:idmap v:ext="edit" data="101,103"/>
+</o:shapelayout>
+</head>
+
+<body lang=EN-US style='margin:0px;background-color:black'
+onclick="DocumentOnClick()" onresize="_RSW()" onkeypress="_KPH()">
+
+<div id=SlideObj class=sld style='position:absolute;top:0px;left:0px;
+width:534px;height:400px;font-size:16px;background-color:white;clip:rect(0%, 101%, 101%, 0%);
+visibility:hidden'><p:slide coordsize="720,540"
+ colors="#FFFFFF,#000000,#1C1C1C,#333399,#00E4A8,#FFCF01,#FF0000,#3333CC"
+ masterhref="master12.xml">
+ <p:shaperange href="master12.xml#_x0000_s64513"/><![if !ppt]><p:shaperange
+  href="master12.xml#_x0000_s64514"/><![if !vml]><img border=0
+ v:shapes="_x0000_s64514,_x0000_s64515,_x0000_s64516,_x0000_s64517"
+ src="master12_image002.gif" style='position:absolute;top:16.0%;left:4.49%;
+ width:9.73%;height:13.5%'><![endif]><p:shaperange
+  href="master12.xml#_x0000_s64518"/><![if !vml]><img border=0
+ v:shapes="_x0000_s64518" src="master12_image003.gif" style='position:absolute;
+ top:21.0%;left:1.31%;width:6.36%;height:6.5%'><![endif]><p:shaperange
+  href="master12.xml#_x0000_s64519"/><![if !vml]><img border=0
+ v:shapes="_x0000_s64519" src="master12_image004.gif" style='position:absolute;
+ top:14.5%;left:8.42%;width:.74%;height:15.75%'><![endif]><p:shaperange
+  href="master12.xml#_x0000_s64520"/><![if !vml]><img border=0
+ v:shapes="_x0000_s64520" src="master12_image005.gif" style='position:absolute;
+ top:26.0%;left:4.86%;width:90.26%;height:1.0%'><![endif]><p:shaperange
+  href="master12.xml#_x0000_s64523"/><p:shaperange
+  href="master12.xml#_x0000_s64524"/><![endif]><v:shapetype id="_x0000_t75"
+  coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+  filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="_x0000_s105474" type="#_x0000_t75" style='position:absolute;
+  left:0;top:0;width:10in;height:540pt;mso-wrap-style:none;
+  mso-wrap-distance-left:0;mso-wrap-distance-right:0' fillcolor="#00e4a8 [4]"
+  strokecolor="black [1]">
+  <v:fill color2="white [0]"/>
+  <v:imagedata src="slide0011_image035.png" o:title=""/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:shape><o:OLEObject Type="Embed" ProgID="Paint.Picture"
+  ShapeID="_x0000_s105474" DrawAspect="Content" ObjectID="38">
+  <p:oleclientdata menuname="Bitmap Image" clipboardname="Bitmap Image"/></o:OLEObject>
+ <![if !vml]><img border=0 v:shapes="_x0000_s105474"
+ src="slide0011_image036.jpg" style='position:absolute;top:0%;left:0%;
+ width:100.0%;height:100.0%'><![endif]><v:shape id="_x0000_s105475" type="#_x0000_t75"
+  style='position:absolute;left:48pt;top:24pt;width:282pt;height:318pt;
+  mso-wrap-style:none;mso-wrap-distance-left:0;mso-wrap-distance-right:0'
+  fillcolor="#00e4a8 [4]" strokecolor="black [1]">
+  <v:fill color2="white [0]"/>
+  <v:imagedata src="slide0011_image037.png" o:title=""/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:shape><o:OLEObject Type="Embed" ProgID="Paint.Picture"
+  ShapeID="_x0000_s105475" DrawAspect="Content" ObjectID="39">
+  <p:oleclientdata menuname="Bitmap Image" clipboardname="Bitmap Image"/></o:OLEObject>
+ <![if !vml]><img border=0 v:shapes="_x0000_s105475"
+ src="slide0011_image038.jpg" style='position:absolute;top:4.5%;left:6.74%;
+ width:39.13%;height:58.75%'><![endif]><v:shape id="_x0000_s105476" type="#_x0000_t75"
+  style='position:absolute;left:420pt;top:204pt;width:256.5pt;height:276.75pt;
+  mso-wrap-style:none;mso-wrap-distance-left:0;mso-wrap-distance-right:0'
+  fillcolor="#00e4a8 [4]" strokecolor="black [1]">
+  <v:fill color2="white [0]"/>
+  <v:imagedata src="slide0011_image039.png" o:title=""/>
+  <v:shadow color="#1c1c1c [2]"/>
+ </v:shape><o:OLEObject Type="Embed" ProgID="Paint.Picture"
+  ShapeID="_x0000_s105476" DrawAspect="Content" ObjectID="40">
+  <p:oleclientdata menuname="Bitmap Image" clipboardname="Bitmap Image"/></o:OLEObject>
+ <![if !vml]><img border=0 v:shapes="_x0000_s105476"
+ src="slide0011_image040.jpg" style='position:absolute;top:37.75%;left:58.42%;
+ width:35.58%;height:51.25%'><![endif]><v:shapetype id="_x0000_t202"
+  coordsize="21600,21600" o:spt="202" path="m0,0l0,21600,21600,21600,21600,0xe">
+  <v:stroke joinstyle="miter"/>
+  <v:path gradientshapeok="t" o:connecttype="rect"/>
+ </v:shapetype><v:shape id="_x0000_s105478" type="#_x0000_t202" style='position:absolute;
+  left:180pt;top:150pt;width:1in;height:103.125pt;mso-wrap-distance-left:0;
+  mso-wrap-distance-right:0' filled="f" fillcolor="#00e4a8 [4]" stroked="f"
+  strokecolor="black [1]">
+  <v:fill color2="white [0]"/>
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:shape id="_x0000_s105479" type="#_x0000_t202" style='position:absolute;
+  left:498pt;top:264pt;width:66pt;height:103.125pt;mso-wrap-distance-left:0;
+  mso-wrap-distance-right:0' filled="f" fillcolor="#00e4a8 [4]" stroked="f"
+  strokecolor="black [1]">
+  <v:fill color2="white [0]"/>
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape><v:shape id="_x0000_s105480" type="#_x0000_t202" style='position:absolute;
+  left:492pt;top:54pt;width:102pt;height:103.125pt;mso-wrap-distance-left:0;
+  mso-wrap-distance-right:0' filled="f" fillcolor="#00e4a8 [4]" stroked="f"
+  strokecolor="black [1]">
+  <v:fill color2="white [0]"/>
+  <v:shadow color="#1c1c1c [2]"/>
+  <v:textbox style='mso-fit-shape-to-text:t'/>
+ </v:shape>
+ <div v:shape="_x0000_s105478" class=O>
+ <div style='mso-line-spacing:"100 50 0";position:absolute;top:29.0%;
+ left:26.02%;width:8.23%;height:9.25%'><span style='font-family:"Times New Roman";
+ font-size:183%'><i>v</i></span><span style='font-family:"Times New Roman";
+ font-size:121%;position:relative;top:.37em;mso-text-raise:-25%'>1</span><span
+ style='font-family:"Times New Roman";font-size:183%;display:none'><i>&#13;</i></span></div>
+ <div style='mso-line-spacing:"100 50 0";position:absolute;top:40.75%;
+ left:26.02%;width:8.23%;height:5.5%'><span style='font-family:Tahoma;
+ mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <div v:shape="_x0000_s105479" class=O>
+ <div style='mso-line-spacing:"100 50 0";position:absolute;top:50.25%;
+ left:70.22%;width:7.3%;height:9.25%'><span style='font-family:"Times New Roman";
+ font-size:183%'><i>v</i></span><span style='font-family:"Times New Roman";
+ font-size:121%;position:relative;top:.37em;mso-text-raise:-25%'>2</span><span
+ style='font-family:"Times New Roman";font-size:183%;display:none'><i>&#13;</i></span></div>
+ <div style='mso-line-spacing:"100 50 0";position:absolute;top:62.0%;
+ left:70.22%;width:7.3%;height:5.5%'><span style='font-family:Tahoma;
+ mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+ <div v:shape="_x0000_s105480" class=O>
+ <div style='mso-line-spacing:"100 50 0";position:absolute;top:11.25%;
+ left:69.28%;width:12.35%;height:9.25%'><span style='font-family:"Times New Roman";
+ font-size:183%'><i>P</i></span><span style='font-family:"Times New Roman";
+ font-size:121%;position:relative;top:.37em;mso-text-raise:-25%'>1</span><span
+ style='font-family:"Times New Roman";font-size:183%;display:none'><i>&#13;</i></span></div>
+ <div style='mso-line-spacing:"100 50 0";position:absolute;top:23.0%;
+ left:69.28%;width:12.35%;height:5.5%'><span style='font-family:Tahoma;
+ mso-special-format:lastCR;display:none'>&#13;</span></div>
+ </div>
+</p:slide></div>
+
+</body>
+
+</html>
