@@ -1,0 +1,518 @@
+
+
+              ELECTRONIC INFORMATION MANAGEMENT: A Perspective
+
+         Daniel Berleant, Hal Berghel, and Karthikeyan Viswanathan
+                   University of Arkansas, Fayetteville
+
+
+
+
+
+                                 ABSTRACT
+
+This paper describes a new paradigm for information processing in
+general, as well as for research on text analysis software in
+particular. This is a paradigm which helps motivate not only our own
+specific research plan but also provides a way of thinking about
+information processing in tomorrow's information rich society. This
+paper does not emphasize original research, although the current
+status of our project is reviewed briefly. This paper does emphasize
+issues of more general interest in the hope of inviting comment.
+
+ELECTRONIC INFORMATION MANAGEMENT
+
+Recent years have seen increasing realization that the usefulness of
+information in the information age is based not only on the existence
+of large quantities of varied information, but also on effective
+access to that information. Advances in effective access are
+increasingly important: the sheer volume of information in existence
+is rising to such a degree that the usefulness of information items is
+in jeopardy as those items risk being lost in a swelling sea of data.
+
+We present next a brief overview of the science and technology of
+electronic information management (EIM). We draw an analogy with
+tangible products: just as society produces, stores, and distributes
+manufactured goods, society produces, stores, and distributes
+information. Just as society often customizes goods, perhaps altering
+a suit or improving an auto sound system subsequent to the
+distribution process, society needs even more to customize
+information.
+
+ELECTRONIC INFORMATION PRODUCTION
+
+Modern society has produced vast quantitities of information. The rate
+of production is accelerating, and will in all likelihood continue to
+accelerate into the indefinite future. Computer technology has played
+the pivotal role in this explosion of information and its role will
+continue to expand as it reaches into new areas and technologies,
+particularly when they are related to communications. Increasingly,
+our faxes have electronic rather than hardcopy sources. Our telexes
+are giving way to more efficient e-mail communication.  Even our cable
+systems are flooding us with digitized data as we move into
+interactive systems for home shopping, home study, A/V remote
+conferencing, and so forth. We are digitizing what we choose to hear,
+read, see, and with virtual reality technology we are even digitizing
+what we feel. We are truly immersed in digital information, and the
+modern high-speed computer is the enabling tool in the production of
+that information.
+
+However, there is a steep downside to all of these technological
+advances. The information flow has increased to the point where we
+require additional computer technology to cope with the volume. This
+very success of information production focuses our attention on the
+critical need to effectively manage our information resources.
+
+
+ELECTRONIC INFORMATION STORAGE
+
+Information that has been produced must be stored if it is to have
+lasting value. Because of the increasing volume of information and the
+importance of real-time access, information storage in the future will
+become almost exclusively digital. All but the most ephemeral
+information will be accessed electronically.
+
+Much research is taking place in the electronic information storage
+field. Recent decades have witnessed several revolutions in storage
+technology. Physical media (paper tape, punched cards) gave way to
+magnetic media. Within the "magnetic revolution," sequential media
+(tapes, data cells) evolved into random access technologies (disks,
+drums). We are now undergoing the "post- magnetic" revolution, as we
+slowly complete the process begun by the passing of magnetic core
+memory, and move away from magnetic media to CDs, floptical disks and
+portable silicon (flash cards).
+
+Each stage of this revolution is characterised by increases in storage
+densities, more efficient data access and increased convenience of
+use. These three elements contribute to the expanding role of storage
+technology. Society's databases are being augmented by knowledge
+bases, rule bases, and case bases. Larger and larger amounts of
+information may be input, output, organized, classified, sorted,
+duplicated, merged, purged - and finally stored. However, the forward
+looking technologist should keep in mind that these data depositories
+are closer to the beginning of the information application process
+than they are to the end.  Appropriately stored information is really
+only a raw resource in the modern information management scheme of
+things.  The true value of this resource is unrealized until
+information is delivered to the right person in a timely fashion.
+
+
+ELECTRONIC INFORMATION DISTRIBUTION
+
+
+The timely, accurate delivery of information to information consumers
+is a pressing problem in today's information age.  Information
+delivery research aims to efficiently deliver the right information to
+the right end user. The delivery of information electronically may
+take on many forms. The oldest class of digital technology, still in
+wide use, involves the distribution of information on physical storage
+media (disk, optical disks, tapes). In this case, the information is
+transported like other goods, but the package is electronic. Although
+the technology is 20th century, the concept of physically moving
+information is nothing new. A more sophisticated system involves the
+use of an electronic conveyer to transport the digital
+information. Computer communications networks fall into this
+category. Here, the electronic message is delivered to end users with
+no physical medium involved. In principle, this is the ultimate in
+convenience: computer telephony.  As stored information becomes more
+plentiful, facilities for distributing it are becoming more
+varied. Software like ftp, email, telnet, archie, and xmosaic, net
+news readers, telephone-related services from answering machines to
+voice mail, and on-line database services like library catalogs and
+literature search services located at virtually all research
+libraries, are examples of society's recent successes in improving
+electronic information distribution. Research relevant to electronic
+information distribution includes networking protocols and standards,
+high bandwidth information transmission, access control and security,
+and other aspects of distributed computing networks.
+
+Regrettably, this increased sophistication is creating a whole new set
+of problems for information specialists. The convenience is the
+culprit. Regrettably, our ability to control and regulate information
+delivery pales in comparison to the raw volume deliverable.  For
+example, the Internet is currently expanding at a rate of 20% a month
+(Schaller and Carlson, 1993). Information overload is a real and
+present danger for computer and information technology professionals.
+
+ADVANCED INFORMATION DELIVERY SYSTEMS
+
+Traditional information delivery makes information available. Advanced
+information delivery helps to deliver to the user the right
+information at the right tme.  Convenient, accurate mechanisms are
+needed to separate what is really needed from what isn't. Research
+activity exists which may eventually provide the needed control over
+the technology. As a whole, this research attempts to develop better
+techniques by means of which users attract the information they need
+and repel the information they don't.
+
+It is necessary to sift larger bodies of data, such as a stream of
+arriving email or bulletin board postings, to effectively deliver
+information relevant to a particular person or purpose. Routing and
+distribution lists are one such technique. In the simplest case, a
+static distribution list of email addresses is created by a list
+manager so that all communications addressed to the list will be sent
+to each address in the list. Increasingly, distribution lists are
+managed dynamically whereby individuals send subscribe, unsubscribe,
+etc., commands to the list which are obeyed automatically by the list
+management software. The listserv systems exemplify this technology,
+which is successful in delivering information to groups of information
+consumers. That is, it is effective at attracting information - but
+largely ineffective at repelling asociated unwanted information, which
+is often plentiful at least in the typical case of bulletin boards
+(Schaller and Carlson, 1993).
+
+While routing selectively delivers on the basis of membership in a
+list, categorization systems selectively deliver on the basis of
+keywords. The content of the information is classified at the
+preparation stage, and these category tags are then used to deliver
+information to users whose interest profiles agree. Such systems
+abound and are an essential characteristic of modern electronic
+publishing projects. Categorization systems, it should be understood,
+deliver on the basis of key words, not actual content.
+
+Another advanced information delivery method is document clustering,
+which automatically finds groups of especially similar articles. This
+aids users who are doing literature searches. One approach to document
+clustering is described by Bhatia et al. (1993). Document clustering
+exemplifies passive delivery, in which information is automatically
+structured in ways that aid users who invoke the system.
+
+In contrast to such passive electronic information delivery is active
+electronic information delivery, in which a system takes the
+initiative in locating information desired by the user and brings this
+information to the user's attention. Active delivery is exemplified by
+the information filtering field. Recent work on information filtering
+was the subject of a recent group of articles in Communications of the
+ACM (1992). An information filtering system might develop a profile of
+an individual's interests extracted from the internet bulletin board
+articles that individual has read. Then, the large numbers of incoming
+articles can be checked against that profile automatically and, when a
+good match is found, the matched article brought to the individual's
+attention as especially likely to be of interest. Information
+filtering has usually operated on textual information but multimedia
+technology is increasingly having an impact. For example, Story et
+al.'s (1992) RightPages system uses actual images of journal covers
+and pages and even has a prototype voice output module.
+
+INFORMATION CUSTOMIZATION
+
+While information delivery technology is an important area, we believe
+that significant further improvement in the value and usability of
+information will be needed in the information rich environment of the
+present and future. This improvement will be possible through
+electronic information customization.
+
+Customized information is processed specifically to the needs of the
+user beyond the raw information in the form in which it is produced,
+stored, and delivered. Much as a fine suit needed to give a paper at
+this conference might require altering to fit the specific user,
+information that is produced, stored, and distributed in the same form
+for all users needs to be further customized to the particular needs
+of a given user.
+
+Customizing of electronic information means changing its form to be
+better suited to one- time needs. Hypertext is one popular approach to
+customizing information.  Hypertext allows the user to access textual
+passages in the particular order that is best at the time of access,
+in contrast to just reading a document which is severely constrained
+by the structure imposed upon it by the writer.
+
+An active research area in information customization is information
+extraction.  Information extraction systems provide an alternative to
+the inherent weaknesses in routing and categorization systems
+(Sundheim 1991).  Extraction systems attempt to draw the content out
+of the data "on the fly" and according to the particular interests and
+inclinations of the user. This is no longer just information
+distribution.  While information is indeed being delivered, it is also
+customized before presentation to the user.
+
+Information extraction has the advantage over categorization systems
+in that the user can discriminate on the basis of the match between
+his interests and the document profile, but not the disadvantage of
+being simplistically based on keywords, which tend to be ambiguous and
+independent of context.  Another advantage of extraction systems is
+that they may be done on documents which have not been profiled by
+keyword.
+
+Routing, categorization, and extraction systems are all subsumed under
+the general category of information filtering systems.  However it is
+important to keep in mind that routing and categorizing are methods of
+delivery, while extraction is a method of customization. A variation
+on extraction systems we call document "gisting." A gist of a document
+is a set of several sentences which were automatically created by
+gisting software to reflect the actual content of the document. A
+condensed summary of our approach to document gisting is given next.
+
+                           GISTING: OUR METHOD
+
+Our approach to computer based gisting is in the tradition of the
+earlier work on automatic generation of abstracts from documents,
+which dates back as far as 1958 (Baxendale; Luhn). Subsequent work
+includes Edmundson and Wyllys (1961), Oswald et al. (1961), Edmundson
+(1964; 1969), Rush et al. (1971), and Paice (1981). More recently,
+Story et al. (1992) extract outlines of journal pages from section
+headings and first and last sentences of paragraphs as part of a
+comprehensive information filtering system.  A frequently useful
+source of information for systems that seek to extract relatively
+important material from documents is the background frequencies of
+words (Francis and Ku era 1982; Ku era and Francis 1967; Thorndike and
+Lorge 1944; Eldridge 1911; other references provided by Zipf 1935).
+Such information can be used to facilitate extraction by looking for
+words which appear with disproportionate frequency in the document of
+interest. Our document gisting project is complementary to earlier
+work in image gisting which uses a forward chaining expert system to
+extract semantic information from a digitally stored picture based
+upon definable properties of the image (Berghel et al., 1992).
+
+We start by tabulating the number of occurrences of each word
+appearing in the document. Each word is also associated with a list of
+pointers pointing to the sentence(s) in the document containing the
+word. Then, we attempt to consolidate inflected word forms under a
+single base form. Our procedure is currently rudimentary, seeking only
+to subsume the plural form under the singular. This may be made more
+sophisticated as needed by the gisting algorithms as they
+develop. Currently, plural subsumption appears satisfactory. Data is
+retained on the fifty most common base terms, with frequency of
+occurrence counts for singular, plural, and both together. Of these,
+the top twenty terms are assigned a background frequency count which
+is the freqency of occurrence of that term in the standard reference,
+Francis and Ku era's Frequency Analysis of English Usage. From the
+combination of absolute frequency in the document and background
+frequency derived from Francis and Ku era we derive a tentative
+"importance" value, which will ultimately be used in the creation of
+gists.  The use of such importance values is suggested by Edmundson
+and Wyllys (1961).  Currently, the software displays a matrix showing
+which derived keywords occur in which sentences in a document. An
+outline of the algorithm appears in Figure 1. Sample output appears in
+Figure 2.
+
+Computational complexity. The computational task is to process a
+document to produce an index containing each word appearing in the
+document, and for each word the number of times it appeared and
+pointers to the sentences containing it. This task can be accomplished
+in a single pass through the document. The time complexity of a single
+pass is at least O(n) where n is the length of the document, but can
+be (and in this case is) higher due to the need for accessing and
+updating the index.
+
+Every time a word is processed the count of the number of times the
+word appeared in the document must be incremented, and a pointer added
+to the index pointing to the sentence containing it.  If a word is not
+present in the index it must be added, so the index gets longer as the
+document is processed, therefore harder to search. If binary search is
+used, the complexity of the search is O(log(n)) where n is the length
+of the index. The lengthening of the index as processing of a document
+proceeds occurs at a slower and slower rate, because words are added
+less frequently later than at first, since an increasing proportion of
+the words appearing later in the document were already added
+previously. Since the index length increases at a slower and slower
+rate and besides, the difficulty of searching an index increases only
+slowly as its length increases, the time complexity of the entire
+process is only slightly greater than O(n). Therefore processing of
+large documents this way should be feasible.
+
+Further details on our approach may be found in Berghel and Berleant
+(1993), Berghel et al. (1993), and Stanley et al.  (1993).
+
+--------------------------------------------
+From the document,
+generate an index.
+      |
+      |
+      V
+From the index,
+extract occurrence
+frequencies of the
+words in the document
+      |
+      |
+      V
+Augment occurrence 
+frequency list with
+additional entries
+for the sums of 
+singular and
+plural forms
+      |
+      |
+      V
+Extract the twenty 
+entries with the 
+highest frequencies
+      |
+      |
+      V
+Assign to each entry
+an "importance" value
+based on its frequency
+
+Figure 1. Outline of our
+current algorithm.
+--------------------------------------------
+
+
+--------------------------------------------
+
+   SCREEN SHOT HERE
+
+Figure 2. Sample output. The document subject was recycling of scrap
+vehicular tires. The second of the four windows shows the twenty most
+common base terms, from 01 to 20, listed in descending order of
+frequency of occurrence in the document along with their "importance"
+ratings based on their frequency in the document and their background
+frequencies from Francis and Kucera (1982), using Edmundson and
+Wyllys' (1961) difference method. A cross reference of which words
+(numbered 01-20) occurred in which sentences of the document (numbered
+from 0001 with the first nine shown) appears in the larger window.
+--------------------------------------------
+
+
+CONCLUSIONS
+
+The technique of using frequency analysis of words to determine their
+significance in a document is certainly not new. Early work such as by
+Edmundson and Wyllys and by Luhn first developed this class of
+techniques.  Both those articles demonstrated the application of these
+techniques for the purposes of automatic indexing and abstracting. Our
+work covered in this report is not substantially different from theirs
+at the level of the frequency analysis. However, it does differ
+significantly in that it is merely a preliminary step toward gisting
+algorithms that cluster sentences that are similar in meaning, for
+customized abstract generation. Our present effort should be
+considered as a foundation for a study of
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+alternative strategies for document abstracting. As such, we rely on
+the traditional keyword-selection and weighting schemes used over the
+past several decades.  Our ultimate objective is to contribute to the
+new and important field of information customization, by extracting
+special purpose abstracts from documents to suit the particular,
+perhaps one-time needs of users.
+
+CONTRIBUTORS AND ACKNOWLEDGEMENTS
+
+Daniel Berleant and Hal Berghel wrote the paper and designed the
+program whose output is shown in figure 2. Karthikeyan Viswanathan
+implemented the software that produced the output of figure 2. Michael
+Stanley implemented the algorithm of Figure 1. Prasad Sunkara
+contributed to other parts of the software. We wish to thank the
+anonymous reviewers, especially #80, for useful suggestions.
+
+REFERENCES
+
+1. Baxendale, P. B., Machine-Made Index for Technical Literature ---
+an Experiment, IBM Journal of Research and Development 2 (4) (1958)
+354-361. Reviewed by Edmundson and Wyllys (1961).
+
+2. Belkin, N. and W. Croft, Information Filtering and Information
+Retrieval: Two Sides of the Same Coin, Communications of the ACM,
+v. 35, n. 12, pp. 29-38, December 1992.
+
+3. Berghel, H. and D. Berleant, "Word-Based Gisting for Electronic
+Information Management," Technical Report CSCI-TR- 93-06, Department
+of Computer Science, University of Arkansas, Fayetteville, AR 72701,
+1993.
+
+4. Berghel, H., D. Berleant, K. Viswanathan, and V. Sunkara,
+"KEYCHAIN: A Research Support Tool for the Stufy of Keyword Chains in
+Electronic Documents," Technical Report CSCI-TR-93-07, Department of
+Computer Science, University of Arkansas, Fayetteville, AR 72701,
+1993.
+
+5. Berghel, H., D. Roach and Y. Cheng, "An Expert System Approach to
+Image Analysis", Expert Systems, Vol. 3, No. 2, pp. 45-52 (1992).
+
+6. Bhatia, S. K. and J. S. Deogun, Cluster Characterization in
+Information Retrieval, in Proceedings of the 1993 ACM/SIGAPP Symposium
+on Applied Computing, ACM Press, 721--728.
+
+7. Communications of the ACM, Special Section on Information Filtering
+35 (12) (December 1992) 26--81.
+
+8. Edmundson, Problems in Automatic Extracting, Communications of the
+ACM, Vol. 7, No. 4, pp. 259-263, April 1961.
+
+9. Edmundson, H. P., New Methods in Automatic Extracting, Journal of
+the Association for Computing Machinery, Vo.  16, No. 2, pp. 264-285,
+April 1969.
+
+10. Edmundson, H. P. and R. E. Wyllys, Automatic Abstracting and
+Indexing --- Survey and Recommendations, Communications of the ACM 4
+(5) (May 1961) 226-234.
+
+11. Eldridge, R. C., Six Thousand Common English Words, The Clement
+Press, Buffalo, 1911. Summary in Zipf (1935).
+
+12. Francis, W. N. and H. Kucera, Frequency Analysis of English Usage:
+Lexicon and Grammar, Houghton Mifflin Company, Boston, 1982.
+
+13. Ku era, H. and W. N. Francis, Computational Analysis of
+Present-Day American English, Brown University Press, 1967.
+
+14. Luhn, H. P., The Automatic Creation of Literature Abstracts, IBM
+Journal (April 1958) 159--165.
+
+15. Oswald, V. A., et al., Automatic Indexing and Abstracting of the
+Contents of Documents. Report RADC-TR-59-208, Air Research and
+Development Command, US Air Force, Rome Air Development Center, 1959,
+pp. 5--34, 59-133. Reviewed by Edmundson and Wyllys (1961).
+
+16. Paice, C. D., The automatic Generation of Literature Abstracts: an
+Approach Based on the Identification of Self-Indicating Phrases, in
+R. N. Oddy, S. E. Robertson, C.  J. van Rijsberger, and
+P. W. Williams, eds., Information Retrieval Research, Butterworths,
+pp. 172-191, 1981.
+
+17. Rush, J., R. Salvador and A. Zamora, Automatic Abstracting and
+Indexing, Journal of the Americal Society for Information Science,
+July-August, 1971, pp. 260-273.
+
+18. Schaller, N. C. and B Carlson, Proliferation of Electronic
+Networks brings Good News, Bad News, IEEE Computer, Vol. 26, no. 9,
+September 1993, p. 94.
+
+19. Stanley, M., H. Berghel, and D. Berleant, A Preliminary Word
+Frequency Analysis for Technical Computing Literature, technical
+report CSCI-TR-93-02, Department of Computer Science, University of
+Arkansas, Fayetteville.
+
+20. Story, G. A., L. O'Gorman, D. Fox, L.  L. Schaper, and
+H. V. Jagadish, The RightPages Image-Based Electronic Library for
+Alerting and Browsing, IEEE Computer 25 (9) (Sept. 1992) 17-26.
+
+21. Sundheim, B (ed.), Proceedings of the Third Message Understanding
+Evaluation and Conference, Morgan Kaufman, Los Altos (1991).
+
+22. Thorndike, E. L. and I. Lorge, The Teacher's Word Book of 30,000
+Words, Bureau of Publications, Teachers College, Columbia University,
+New York, 1944.
+
+23. Zipf, G. K., The Psycho-Biology of Language, Houghton Mifflin Co,
+Boston, 1935.
+
+
+

@@ -1,0 +1,312 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./bookReview2002a_files/filelist.xml">
+<link rel=Edit-Time-Data href="./bookReview2002a_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Toward Better Numerical Calculations on Computers</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>berleant</o:Author>
+  <o:LastAuthor>berleant</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>196</o:TotalTime>
+  <o:Created>2002-03-04T00:43:00Z</o:Created>
+  <o:LastSaved>2002-03-04T00:43:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>1075</o:Words>
+  <o:Characters>6131</o:Characters>
+  <o:Company>isu</o:Company>
+  <o:Lines>51</o:Lines>
+  <o:Paragraphs>12</o:Paragraphs>
+  <o:CharactersWithSpaces>7529</o:CharactersWithSpaces>
+  <o:Version>9.2720</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DrawingGridHorizontalSpacing>6 pt</w:DrawingGridHorizontalSpacing>
+  <w:DisplayHorizontalDrawingGridEvery>2</w:DisplayHorizontalDrawingGridEvery>
+  <w:DisplayVerticalDrawingGridEvery>2</w:DisplayVerticalDrawingGridEvery>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+h1
+	{mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:14.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-font-kerning:0pt;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:805784650;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1230201450 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l0:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoNormal align=center style='text-align:center'><b><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></b></p>
+
+<h1>Safe and Effective Computer Arithmetic</h1>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>By Daniel Berleant, Dept. of Electrical and Computer
+Engineering, Iowa State University</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='text-align:justify'>A review of <i>Scientific
+Computing, Validated Numerics, Interval Methods (Joint Proceedings of SCAN 2000
+and Interval 2000)</i>, ed. by W. Krämer and J. von Gudenberg, Kluwer
+Academic/Plenum, 2001.</p>
+
+<p class=MsoNormal style='text-align:justify'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='text-align:justify'>Computers were invented to do
+tedious arithmetic calculations dependably, yet several decades later this goal
+has still not been reached. The world of arithmetic on computers is a world of approximations,
+where even simple numbers like 1/3 are usually represented inaccurately, and
+where the risk of inaccuracies building up over the course of a computation
+means that the goal of dependability continues to be a fruitful and worthy area
+of study. Fortunately significant progress continues to occur, as shown by this
+rich and diverse snapshot of the state of the art.</p>
+
+<p class=MsoNormal style='text-align:justify'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='text-align:justify'>The transition from binary coded
+decimal to floating point hardware early in computing history was performance
+driven. Still today, speed trumps numerical accuracy in hardware comparisons,
+though Lorenz’ renowned weather model (1963) signaled the birth of chaos theory
+and a new understanding of the potentially dramatic implications of even tiny
+numerical inaccuracies. Hence Walster’s description (p. 6) of “Moore’s fear” –
+Murphy’s law run rampant in “mission critical applications.” We refer of course
+to Ramon (Ray) Moore, the grandfather of the interval computing community, a
+community heavily committed to improving dependability of computations by
+representing values safely with lower and upper bounds. </p>
+
+<p class=MsoNormal style='text-align:justify'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='text-align:justify'>This volume contains numerous
+chapters that attest to both the vigor and the maturity of validated numerical
+computing. Many chapters deepen understanding of such traditional topics as
+linear algebra, global optimization, control, and differential equations. Other
+chapters attest to the dynamism and practical relevance of the field by
+addressing diverse other topics as well. Here are a few examples.</p>
+
+<p class=MsoNormal style='text-align:justify'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='text-align:justify'>Hyvönen examines several
+candidate notations for intervals for use in commercial products, each with its
+own advantages and disadvantages. The one best meeting requirements of user
+friendliness and informativeness for printed intervals in computer output might
+be termed delta-tilde notation. Here, a key parameter is delta, the maximum
+precision level relevant to the application, expressed as a negative whole
+power of 10. If the need to format either interval bound in limited space
+requires rounding it so much that the proportion of rounding error exceeds
+delta, then that bound is displayed with a tilde immediately following. Hence
+[1.2443, 1.2574], formatted to fit in a small space, could print as
+[1.2~,1.3~]. This conclusion is implemented in a commercially available
+interval extension to the Excel spreadsheet software. </p>
+
+<p class=MsoNormal style='text-align:justify'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='text-align:justify'>Kulpa takes a quite different
+approach to interval display by investigating graphical rather than
+character-based displays. In particular, he investigates display of an interval
+as a point in a 2-D coordinate space, where the horizontal axis expresses the
+midpoint of the interval and the vertical axis expresses its width (more
+specifically its half-width, or radius). The paper notes that these
+midpoint-radius (MR) diagrams can be used to expose interesting characteristics
+of intervals and operations on them, contradicting the dominant Hilbert-style
+view that diagrammatic methods lack the formalizability needed to be of
+significant mathematical interest.</p>
+
+<p class=MsoNormal style='text-align:justify'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='text-align:justify'>Three chapters address control.
+Although the control field is relatively mature and sophisticated, validated
+methods have interesting contributions to make. In so doing, the control field
+contributes as well, by providing a rich collection of examples upon which to
+(1) demonstrate validated methods, (2) exercise their capabilities, and (3)
+motivate further advances in validated methods whose need the examples
+highlight. Heeks, Hofer, Tibken, Lunde, and Thorwart address the important
+problem of uncertainty in sensor output, showing that interval-based global
+optimization can guarantee acceptable performance of a fly-by-wire aircraft
+elevator model. Krastanov and Dimitrova address a methane-producing bioreactor
+system. Given several system parameters of uncertain value, they model the
+uncertainties with interval bounds, then deduce a quadrilateral in the space of
+concentrations of substrate and biomass within which optimality cannot be ruled
+out. They then derive a feedback control procedure to keep the system operating
+in that region and successfully test it via numerical simulation. </p>
+
+<p class=MsoNormal style='text-align:justify'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyText>Another example of the variety and vigor of work on
+validated computing is the growing body of results relating to probability. Alt
+and Markov describe advances in stochastic arithmetic. Vamos, Suciu, Vereecken,
+Nitzsche, and Hardelauf explain how they achieved a speedup of three orders of
+magnitude in simulating an important class of diffusion problems. Ferson,
+Ginzburg, Kreinovich, and Schulte establish an interesting result about
+uncertainty classes, which are sets of probability distribution functions. They
+view an interval as representing the set of all probability distributions whose
+samples are guaranteed to fall within the interval, and observe that p-bounds –
+envelopes bounding a space within which distributions are permitted to travel
+(see Figure 1) – are only one variety of uncertainty class. They proceed to
+prove that any uncertainty class can be described arbitrarily closely by the
+distribution of some random variable, an interval expressing the range of
+another, independent random variable, and a function that takes as arguments
+samples of these two random variables.</p>
+
+<p class=MsoNormal style='text-align:justify'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><!--[if gte vml 1]><v:shapetype
+ id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+ path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:281.25pt;
+ height:122.25pt'>
+ <v:imagedata src="./bookReview2002a_files/image001.png" o:title="pbounds"/>
+</v:shape><![endif]--><![if !vml]><img width=375 height=163
+src="./bookReview2002a_files/image002.gif" v:shapes="_x0000_i1025"><![endif]><o:p></o:p></b></p>
+
+<p class=MsoNormal style='text-align:justify'><b>Figure 1</b>: P-bounds. These
+consist of a pair of probability distributions enclosing a space defining the
+set of all probability distributions whose curves do not leave that space.<span
+style="mso-spacerun: yes">  </span></p>
+
+<p class=MsoNormal style='text-align:justify'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='text-align:justify'>Oddly, the results of Michelucci
+on reliable determination of strange attractors are categorized under the
+heading of stochastics and probability, although it is precisely the
+determinism of nonlinear, chaotic systems that challenges our understanding.
+Such systems, though deterministic, can be so sensitive to perturbations that
+the numerical inaccuracies typical of computer arithmetic lead to results that
+diverge rapidly from what they would be if no inaccuracy was present.
+Michelucci describes how interval methods can produce validated conclusions
+about strange attractors, and shows that the classical method of determining
+them can lead to conclusions that are significantly, even dramatically,
+incorrect. And now we can come full circle. Early in this review a simple
+non-linear weather model was noted, described by Lorenz who conjectured it to
+be a chaotic system with a strange attractor (nonperiodic but with repeating
+characteristics). Using interval arithmetic for validated computations, Tucker
+(2002) has recently proved that this system does indeed possess a strange
+attractor, a proof listed as the fourteenth of Smale’s (1998) mathematical
+challenges for the 21<sup>st</sup> century. </p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:12.0pt;text-indent:-12.0pt;tab-stops:
+12.0pt'><b><span style='mso-bidi-font-size:10.0pt'>References<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:12.0pt;text-indent:-12.0pt;tab-stops:
+12.0pt'><span style='mso-bidi-font-size:10.0pt'>Lorenz, E. N., Deterministic
+nonperiodic flow , <i>Journal of the Atmospheric Sciences</i> <b>20</b> (1963),
+130-141.</span> </p>
+
+<p class=MsoNormal style='margin-left:12.0pt;text-indent:-12.0pt;tab-stops:
+12.0pt'>Smale, S., Mathematical problems for the next century, <i>Mathematical
+Intelligencer</i> <b>20</b>, no. 2 (1998), 7-15.</p>
+
+<p class=MsoNormal style='margin-left:12.0pt;text-indent:-12.0pt;tab-stops:
+12.0pt'>Tucker, W., A rigorous ODE solver and Smale’s 14<sup>th</sup> problem, <i>Foundations
+of Computational Mathematics </i><b>2</b>:1 (2002), 53-117.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>

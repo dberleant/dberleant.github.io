@@ -1,0 +1,50 @@
+Iowa State University
+Computer Science Department
+
+Presents:
+Daniel Berleant,  Associate Professor 
+Department of Electrical & Computer Engineering
+Iowa State University 
+
+Arithmetic on Random Variables of Unknown Dependency 
+
+Risk and Safety analyses are two examples of tasks that can involve
+arithmetic on variables whose values can be uncertain. When two variables
+are described by distribution functions, and are known to be independent,
+their sum, product, difference, etc. may be found by discretizing the
+distributions into intervals and associated probabilities, and reducing the
+problem to one of calculations on intervals. The result is bounds on the
+distribution function of the result, with finer discretizations yielding
+better bounds.
+The problem is trickier when the independence assumption is relaxed and no
+assumption is permitted about the dependency or lack thereof of the
+variables upon each other. An answer is still possible, but is in the form
+of a bounded space within which the distribution function of the result must
+fall for any given dependency relationship between the two input variables.
+Two methods for this are known. I will review the one developed by my
+students and I, review how it can be done, and provide copies of a relevant
+paper to those interested in the full details of the method. Various curves
+and bounds produced by a software package will provide a visual illustration
+of the problem.
+
+******************************************************
+
+Daniel Berleant recently joined the Dept. of Electrical and Computer
+Engineering at Iowa State University as an Associate Professor. He received
+his PhD from University of Texas at Austin in 1991. In addition to the topic
+of this colloquium he also works in the areas of software engineering and
+Web Based systems. 
+
+******************************************************
+
+Thursday, November 18, at 3:40 p.m. in Atanasoff, Room B29
+Refreshments will be served afterwards in 225 Atanasoff
+http://www.cs.iastate.edu/~colloq/
+
+**************************
+Janey Nicholas
+Computer Science
+226 Atanasoff
+294-4377
+jnichol@iastate.edu
+**************************

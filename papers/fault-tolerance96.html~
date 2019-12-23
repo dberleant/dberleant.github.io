@@ -1,0 +1,341 @@
+<html>
+<head>
+<meta name="Keywords" content="Daniel Berleant, Byron Liu, Fault Tolerant, Software, Software Engineering, Mutation, Simulation, Sensititivy Analysis">
+<title> Daniel Berleant and Byron Liu, Is Sensitivity Analysis More Fault Tolerant than Point Prediction?, 1997 </title>
+</head>
+<body>
+
+Reference: Berleant, D. and B. Liu, Is Sensitivity Analysis More Fault
+Tolerant than Point Prediction?, 1997 Society for Computer Simulation
+Western Multiconference - Medical Sciences Simulation Conference,
+Jan. 12-15, Phoenix, AZ. <br>
+
+<center>
+<h2>Is Sensitivity Analysis More Fault Tolerant than Point Prediction?</h2>
+<pre>
+
+</pre>
+<b>Daniel Berleant</b><br>
+<b>Byron Liu</b><br>
+<i> 313 Engineering Hall<br>
+University of Arkansas<br>
+Fayetteville, AR 72701</i><br>
+<tt>djb@engr.uark.edu</tt>
+
+</center>
+    
+
+<b>Keywords:<br>software engineering, testing,
+fault tolerance, mutation, verification.</b>
+
+<p>
+A fault (``bug'') can cause software to crash catastrophically. Or it
+can have no apparent effect at all. Here, we concentrate on an
+intermediate possibility: a fault may degrade the performance of a
+software system to a quantitatively measurable extent. In particular,
+we address software for which the intended output is numerical, as is
+the case with simulation models. For these systems, faults may degrade
+output by making it different from its nominal value. Clearly, the
+less severe this degradation is for a given output of a given program,
+the more trustworthy the output, since almost any significant software
+system has faults. This paper investigates the severity of output
+degradation due to faults.
+
+Our findings suggest that when fault-induced degradation is present,
+point prediction degradation tends to be more severe than sensitivity
+analysis degradation. Our findings also suggest that the sign of a
+sensitivity analysis prediction is usually not reversed by faults.
+
+Our findings have important practical implications for the
+interpretation of simulation outputs since simulation programs, like
+software systems in general, usually contain faults.
+
+<P><h3>BRIEF SYNOPSIS OF THE RESEARCH AREA</h3>
+
+<i> Software mutation.</i> To investigate the
+effects of faults, we <i> mutated </i> the software system under
+investigation, that is, we modified it by creating new faults
+in it. Software mutation work has also been described in
+the software testability literature, where it is used to find input
+data with good fault detection coverage (cf. Friedman and Voas 1995).
+
+<p>
+<i> Software fault tolerance.</i> Most work in the area of software
+fault tolerance has categorized program operation dichotomously as
+acceptable or unacceptable.  As an illustration, fault tolerance is
+typically associated with the concept of reliability, which refers to
+the probability that a working software system will continue working
+throughout a given time period, where the software system is
+considered to be either working or not working at any given time. As
+another illustration, software performability work (e.g. Goseva et
+al. 1995) deals with the fact of <i> degrees </i> of failure of
+software, like the present work, but these degrees are then classified
+into the 2 categories of ``acceptable'' and ``unacceptable'' In
+contrast, here ``acceptable'' can mean something both more severe than
+a trivial malfunction, and less severe than a catastrophic failure.
+
+<p>
+<i> This work.</i> The present work deals with software mutation, like
+the mutation based testing literature, and with characterizing
+degraded system performance, like the software performability
+literature. However, this work distinguishes itself in that mutations
+are used, not to determine software testability, but to determine
+software fault tolerance, and this fault tolerance is measured by
+characterizing system performance along a continuous scale rather than
+dichotomously.
+
+<p>
+<h3>OBJECT OF THE STUDY</h3>
+
+This study addresses two related questions concerning the fault
+tolerance of results produced by simulation programs with faults.
+
+<ol>
+
+ <li> <i> Are sensitivity analysis predictions more fault tolerant than
+point predictions?</i> And,
+
+ <li> <i> Are sensitivity analysis prediction signs (plus or minus)
+fault tolerant?</i>
+
+</ol>
+
+<p>
+<h3>EXPERIMENTAL TECHNIQUE</h3>
+
+We experimented on IMAP3 (<b> I</b>nteractive <b> M</b>odel for <b> A</b>IDS
+<b> P</b>rediction <b>3</b>, Goforth and Berleant 1994), an epidemiological
+simulation program which predicts US HIV infections, AIDS cases, and
+cumulative deaths from AIDS on a yearly basis ending in the year
+2016. The entire interactive program, with numerous screens of input
+numbers describing various epidemiological parameters and populations
+is fairly large, consisting of 782 kilobytes of executable code. The
+source code for the simulation core contains 504 individual runnable C
+statements. We mutated the system by deleting statements from the
+simulation core. We deleted each statement in turn, running the
+program for each deletion. This required running the program 505
+times, once for each deletion condition plus once for the unmutated
+system. A program was written to automate much of this process (Liu
+1996).
+
+For each deleted statement, we tabulated the effect of the deletion
+on:
+
+<ul>
+
+ <li> <i> Point prediction.</i> As a specific typical output example,
+we arbitrarily chose the number of HIV cases predicted for the year
+2016. To measure the effect of a mutation on this prediction, we used
+the <i> deviation</i> (Berleant et al. 1994):
+
+<p><i>
+deviation = 100% x <br>
+<b>|</b> prediction of unmutated version - prediction of mutated version <b>|</b><br>
+------------------------------------------<br>
+<b>|</b>prediction of unmutated version<b>|</b>
+</i><p>
+
+ <li> <i> Sensitivity analysis prediction.</i> As a specific typical
+output, we arbitrarily chose the prediction for the percent change in
+HIV cases in 2016 that would be induced by a 9% increase in condom
+usage.  To measure the effect of a mutation on this sensitivity
+prediction, we used the aforementioned deviation.
+
+<p> <li> <i> Sensitivity analysis prediction sign.</i> The unmutated
+program indicated that increased condom use would <i> decrease</i> the
+number of future HIV cases. We tabulated how many of the mutated
+versions instead predicted an <i> increase</i> in HIV cases, how many
+correctly predicted a decrease, and how many predicted no change.
+
+</ul>
+
+Note that the sensitivity analysis code was not itself mutated. Rather
+the model core, which was mutated, is called by the sensitivity
+analysis module.
+
+<p>
+<h3>RESULTS</h3>
+
+First the main results are described. Then the findings are presented
+and discussed, followed by the conclusions.
+
+<p>
+<h4>Description of Main Results</h4>
+
+<ul>
+
+ <li> <i> Point prediction.</i> For the unmutated versions, the median
+deviation from the nominal prediction for the chosen output (HIV cases
+in the year 2016) was: <u>1.85%</u> .
+
+ This was over the 147 mutated versions that both ran (the others
+failed to run), and for which the deviation was nonzero (in other
+words, for which the mutation affected the output prediction). The 87
+mutations which ran and had no apparent effect were omitted from the
+median calculation.
+
+ <li> <i> Sensitivity analysis prediction.</i> The median deviation
+from the nominal prediction for the chosen sensitivity analysis output
+(percent change in HIV cases in 2016 that would be induced by a 9%
+increase in male condom usage) was: <u>1.34%</u> .
+
+This result was based on the same 147 mutated versions, and is less
+than the aforementioned median deviation in point predictions of
+1.85%.
+
+ <li> <i> Sensitivity analysis prediction sign.</i> The unmutated
+program predicted that increased condom use would decrease the number
+of future HIV cases. Of the same 147 mutated versions as above, only
+two (1.36%) incorrectly predicted an increase. Another 140 of them
+(95.24%) correctly predicted a decrease, and the remaining five
+(3.40%) incorrectly predicted no change (that is, they predicted zero
+sensitivity). The prediction of no change is less dangerous an error
+than a reversed sign since zero sensitivity in a parameter that a
+program is explicitly expected to handle is a strong clue (which could
+be detected automatically) that a serious fault exists.
+
+</ul>
+
+We compared the point prediction deviation to the corresponding
+sensitivity prediction deviation for each mutated version in
+turn. This analysis showed that the point prediction deviation was
+greater than the sensitivity prediction deviation 91 times, less than
+56 times, and both were zero and equal 87 times.
+
+<p>
+<h4>Findings, Discussion & Conclusions</h4>
+
+<b><u>Findings.</u></b> For this experiment, the quality of the output
+produced by mutated programs was noticeably better for sensitivity
+analysis prediction than for point prediction, and sensitivity
+analysis prediction sign was fairly robust.
+
+<br><br><b><u>Discussion.</u></b>
+  The IMAP software system is intended for use in testing hypotheses
+related to the US HIV epidemic. Uses of this type include
+interactively helping the user to investigate sensitivity analysis
+prediction signs, relative sensitivities of different model outputs to
+different parameters and combinations of parameters (e.g. Zhang 1994),
+etc. It was not intended to replace existing point predictions about
+the epidemic (cf. Brookmeyer and Gail 1994). An important issue in the
+performance of an interactive hypothesis testing system is the fault
+tolerance of its outputs, because almost all software systems
+of significant size have faults. This fault tolerance is
+the issue investigated in this paper.
+
+The suggestion that sensitivity analysis is more fault tolerant than
+point prediction has intuitive appeal: one would expect many faults that
+affect point prediction calculations to affect them similarly for both
+conditions of a sensitivity analysis, the base condition and the
+perturbed condition. However, intuitive appeal does not constitute a
+proof nor does it eliminate the need for experimental results. We
+would like for the experiment reported on here to be broadly
+applicable to simulation systems. In order to generalize our findings
+so that they are broadly applicable, however, we must presently make
+certain assumptions:
+
+
+<ul>
+ <li> Assumption #1: the findings stated above are insensitive to
+the type of fault. In particular, real faults will act similarly to
+statement deletion mutations with respect to the
+findings. (Another implication of this assumption is that
+analyses based on other types of mutation will also provide similar
+results. One particularly useful type of mutation would be random
+modification of executable files, because this would be easy to do on
+commercially sold software for which only the executable code is
+available.)
+ 
+ <li> Assumption #2: the findings are qualitatively typical of those
+that would be reached for other outputs and other simulation programs.
+
+ <li> Assumption #3: the findings hold not just for single faults,
+which we tested here, but to multiple faults as well (since programs
+are likely to have more than one fault).
+
+ <li> Assumption #4: Augmenting the experiment to test for faults in
+the sensitivity analysis module itself, rather than just in the
+simulation model core, would not change the findings.
+
+</ul>
+
+<u><b> Conclusions.</b></u> Additional research is required
+to test the validity of the assumptions and thus establish the degree
+of generality of the findings. If the assumptions are valid we would
+then conclude that, in the presence of faults:
+
+<ul>
+
+ <li> Sensitivity analysis predictions tend to be more fault
+tolerant, and hence more dependable than point predictions.
+
+ <li> Sensitivity analysis prediction signs tend to be fault
+tolerant.
+
+</ul>
+
+<p>
+<h3>ACKNOWLEDGEMENTS</h3>
+
+The IMAP project was supported in part by funding from the Center for
+Devices and Radiological Health (CDRH), Food and Drug Administration,
+Department of Health and Human Services, Rockville, Maryland.
+
+The authors wish to thank Harry F. Bushar (CDRH) and R. Ron Goforth
+(Suranaree Institute of Technology, Thailand) for their comments on
+the manuscript.
+
+<h3>REFERENCES</h3>
+
+<ol>
+
+ <li> Berleant, D., H. Cheng, P. Hoang, M. Ibrahim, S.
+Jamil, and P.  Krovvidi, 1994, Robustness measurement: an approach to
+assessing simulation program reliability, in M. J. Chinni, ed.,
+<i> Proceedings of the Military, Government and Aerospace Simulation
+Conference,</i> The Society for Computer Simulation (ISBN 1-56555-072-2),
+pp.~165--170.
+
+ <li> Brookmeyer, R. and M. H. Gail, 1994, <i> AIDS Epidemiology,</i> Oxford
+University Press.
+
+ <li> Friedman, M. and J. Voas, 1995, <i> Software Assessment:
+Reliability, Safety, Testability,</i> John Wiley & Sons.
+
+  <li> Goforth, R. R. and D. Berleant, 1994, A simulation model to
+assist in managing the HIV epidemic: IMAP2, <i> Simulation</i> <b> 63</b>
+(2) (August) 128--136. (IMAP3, used for this paper, is a
+revised version of IMAP2.)
+
+ <li> Goseva, K., P. Grnarov and A. Grnarov, 1995, Performability
+modeling of N version programming technique, <i> Proceedings of the
+Sixth International Symposium on Software Reliability Engineering
+(ISSRE '95).</i> Abstract:
+http://www.computer.org/conferen/proceed/issre95/abstract.htm#209.
+
+  <li> Liu, B., 1996, <i> A mutation based approach to software fault
+tolerance assessment,</i> master's thesis, University of Arkansas,
+Fayetteville, AR.
+
+ <li> Zhang, P., 1994, <i> Extension and maintenance of the
+Interactive Model for Aids Prediction (IMAP2) with emphasis on
+automated sensitivity analysis,</i> master's thesis, University of
+Arkansas, Fayetteville, AR.
+
+</ol>
+
+Biography: Daniel Berleant is an assistant professor with publications
+and teaching interests in the areas of software engineering and
+simulation, as well as in text processing, computer assisted language
+learning, artificial intelligence, and interval computations (see
+http://www.cseg.engr.uark.edu/~djb). Byron Liu received his master's
+degree in 1996.
+
+
+
+<br>        
+<font size=1>
+ <!--#exec
+cmd="/home/djb/public_html/He1/log.cgi"-->
+</font><br><br>
+

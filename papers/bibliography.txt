@@ -1,0 +1,1073 @@
+(Wouldn't it be nice if the two QR bibliographies linked to from the
+Qphysics home page were merged... Volunteers?)
+
+
+Bibliography for qualitative-quantitative reasoning
+===================================================
+
+Compiled by: Daniel Berleant, djb@engr.uark.edu
+
+Note: Boundaries on what constitutes qualitative-quantitative
+reasoning are vague. There is no intention here to implicitly define
+it.  However, neither is any attempt made to give a comprehensive
+listing of work in many fields with their own identities; only a few
+words are listed in e.g.  temporal reasoning and system dynamics.
+  I've included what people sent, with no real attempt to judge
+suitability for this particular bibliography.
+  This bibliography ends in February, 1993.
+
+ Thank you.
+
+---------------------------------------------------
+
+Abelson, H., M. Eisenberg, M. Halfant, J. Katzenelson, E.  Sacks, G.
+Sussman, J. Wisdom, and K. Yip, Intelligence in scientific computing,
+{\it Communications of the ACM} {\bf 32} (1989) 546-562.  Reprinted in
+Weld \& de Kleer [1990].  (Topics: Phase space exploration)
+
+Allen, J.F., Maintaining knowledge about temporal intervals, TR-86,
+Computer Science Department, University of Rochester, NY, 1981.
+(Topics: Temporal reasoning)
+
+Allen, J.F., An interval-based representation of temporal knowledge,
+in: {\it Proceedings IJCAI-81}, Vancouver, BC (1981) 221-226.  August.
+(Topics: Temporal reasoning)
+
+Allen, J.F., Towards a general model of action and time, {\em
+Artificial Intelligence} {\bf 23} (1984) 123--154. (Topics: Temporal
+reasoning)
+
+Allen, J. F., Maintaining knowledge about temporal intervals, {\it
+Communications of the ACM} {\bf 26} (11) (1983) 832-843. (Topics:
+Temporal reasoning)
+
+Amador, Franz G., A. Finkelstein, D. Weld Real-Time Self-Explanatory
+Simulation. Submitted, 1993.  Electronic mail: franz@cs.washington.edu
+(Topics: Simulation over time; Causality; QPT)
+
+Apte, Chidanand and Se June Hong, Using qualitative reasoning to
+understand financial arithmetic, in AAAI-86, p. 942-948. See last two
+paragraphs of section 2. (Topics: Finance)
+
+Bandini, S., G.Cattaneo, P.Stofella, A Theory for Molecule Structures:
+the Molecular Onthology Theory, Proceedings of Second Workshop on
+Qualitative Physics, IBM Research Center, Parigi 1988
+bandini@hermes.mc.dsi.unimi.it (Topics: Simulation; Molecular
+ontology)
+
+Bandini, S., A Qualitative Interpretation of the Notion of Field in
+Molecular Approach to Naive Physics, in M.Carnevale, M.Lucertini,
+S.Nicosia (eds.), Modelling the Innovation: Communications, Automation
+and Information Systems (IFIP Conference), North Holland, Amsterdam,
+1990 bandini@hermes.mc.dsi.unimi.it (Topics: Simulation; Molecular
+ontology)
+
+Bandini, S., G.Cattaneo, G.Tarantello, Distributed AI Models for
+Percolation, "Intelligent Scientific Computation", AAAI Fall Symposium
+Series, Cambridge (MA), 1992 bandini@hermes.mc.dsi.unimi.it (Topics:
+Simulation; Molecular ontology)
+
+Bandini, S., R.Serentha', Hyper-Cellular Automata: a Local and
+Distributed Approach for Qualitative Simulation of Complex Systems,
+submitted to QUARDET'93, III IMACS International Workshop on
+Qualitative Reasoning and Decision Technologies, Barcelona, 1993 and
+to QRW 93, Seattle, 1993 bandini@hermes.mc.dsi.unimi.it (Topics:
+Simulation; Molecular ontology)
+
+Berleant, D., Probabilities of qualitative behaviors from probability
+distributions on inputs, technical report AI90-136, Artificial
+Intelligence Laboratory, University of Texas, Austin, TX (1990).
+(Topics: Probabilistic reasoning; Simulation; Partial quantitative
+information; Pdfs)
+
+Berleant, D., The use of partial quantitative information with
+qualitative reasoning, Ph.D. thesis, technical report AI90-163,
+Artificial Intelligence Laboratory, University of Texas, Austin, TX
+(1991). (Topics: Simulation; Partial quantitative information;
+Intervals)
+
+Berleant, D., C. Chandra, K. Bogn{\ae}s, C. Liaw, L. Sheng, and J.
+Ch'ng, Probabilities of qualitative behaviors for dependability
+analysis of a fault tolerance model, in: {\it Conference Proceedings,
+1992 Symposium on Applied Computing}, Kansas City, Missouri (ACM
+Press, New York, 1992) 883-889.  Preliminary results appear in:
+workshop notes, AAAI-91 Model Based Reasoning Workshop (1991).
+(Topics: Partial quantitative information; Probabilistic reasoning)
+
+Berleant, D., and B. Kuipers, Qualitative and Quantitative Simulation:
+Bridging the Gap, Artificial Intelligence, to appear in late
+1997. (Topics: Simulation; Partial quantitative information;
+Intervals)
+
+Berleant, D. and B. Kuipers, Qualitative-numeric simulation with {\it
+Q3}, in: Faltings \& Struss [1992] 3-16. (Topics: Simulation; Partial
+quantitative information; Intervals)
+
+Boltyanskii, V. C., {\it Envelopes} (Macmillan, New York, 1964).
+(Topics: Phase spaces)
+
+Bonarini, A. and V. Maniezzo, Integrating qualitative and quantitative
+modeling, {\it International Journal of Expert Systems} {\bf 4} (1)
+(1991) 51-70. Preliminary report in: {\it Proceedings of the Second
+Annual Conference on AI, Simulation and Planning in High Autonomy
+Systems}, Cocoa Beach, Florida (IEEE Computer Society Press, Los
+Alamitos, California, 1991) 290-297, and in: {\it Internal Working
+Proceedings, First European Workshop on Qualitative Reasoning about
+Physical Systems}, Genova, Italy (1991). (Topics: Simulation; QDEs)
+
+Bousson, K. and L. Trave-Massuyes - "Modeling Perspective for
+Qualitative Simulation", Preprints of IFAC symposium on Intelligent
+Components and Instruments for Control Applications, pp. 583-588, May
+20-22, 1992, Malaga, Spain.  Email: bousson@laas.laas.fr (Topics:
+Control)
+
+Bousson, K. and L. Trave-Massuyes - "A Computational Causal Model for
+Process Supervision", IFAC International Symposium on Artificial
+Intelligence in Real-Time Control, pp. 183-189, June 16-18, 1992,
+Delft, The Netherlands.  Email: bousson@laas.laas.fr (Topics:
+Causality; Control; Process control)
+
+Bousson, K. and L. Trave-Massuyes - "Formalizing Expertise Qualitative
+Operators", 10th European Conference on Artificial Conference
+(ECAI-92), pp. 694-698, August 3-7, 1992, Vienna, Austria.  Email:
+bousson@laas.laas.fr (Topics: Foundations)
+
+Bousson, K., F. Guerrin and L. Trave-Massuyes - "Qualitative
+Prediction and Interpretation for Bioprocess supervision", Accepted
+for publication in the proceedings of the International Conference on
+Fault Diagnosis (Tooldiag'93) to be held on April 5-7, 1993 at
+Toulouse, France.  (Reference number: 292).  Email:
+bousson@laas.laas.fr (Topics: Biology; Control; Process control)
+
+Bousson, K., J.-Ph. Steyer and L. Trave-Massuyes - "Monitoring and
+Diagnosis of Fermentation Processes: From a rule-based to a
+model-based expert system", To appear in "Advances in Fault Diagnosis
+for Dynamic Systems" by Patton, Frank and Clark (Eds), Prentice Hall,
+1993.  Email: bousson@laas.laas.fr (Topics: Biology; Control; Process
+control)
+
+Bozzo, L. and Fenves, G., "Qualitative reasoning about structural
+behavior for conceptual design," SEMM report, University of California
+at Berkeley, 1992. Email: bozzo@dec-1.CE.Berkeley.EDU (Topics: Spatial
+reasoning)
+
+Bozzo, L. and Fenves, G., "Qualitative evaluation of preliminary
+structural designs," Proceedings of the Eighth conference on Computing
+in Civil Engineering, Goodno, B. and Wright, B. (Eds.), 1992.  Email:
+bozzo@dec-1.CE.Berkeley.EDU (Topics: Spatial reasoning)
+
+Bozzo, L. and Fenves, G., "Qualitative reasoning about seismic
+behavior of buildings," Proceedings of the Tenth world conference on
+Earthquake Engineering, A.A. Balkema, Madrid, 1992.  Email:
+bozzo@dec-1.CE.Berkeley.EDU (Topics: Spatial reasoning; Construction)
+
+Bratko, I., Mozeti\v{c}, I., Lavra\v{c}, N.  {\em KARDIO: A Study in
+Deep and Qualitative Knowledge for Expert Systems}.  MIT Press,
+Cambridge, MA, 1989. (Topics: Biology; Medical)
+
+Capelo, A.C., L. Ironi, S. Tentoni, A model-based system for the
+classification and analysis of materials, IAN-CNR 827 and submitted
+for publication. ... the integration of qualitative and quantitative
+knowledge for building models of visco-elastic materials.
+<IRO10%IPVIAN.BITNET@vm.cnuce.cnr.it> (Topics: Spatial reasoning?)
+
+Cellier, F. E., A. Nebot, F. Mugica, and A. De Albornoz, Combined
+Qualitative/Quantitative Simulation Models of Continuous-Time
+Processes using Fuzzy Inductive Reasoning Techniques, SICICA '92.
+
+Chawla, B. R., H. K. Gummel, and P. Kozak, MOTIS --- An MOS timing
+simulator, {\it IEEE Transactions on Circuits and Systems} {\bf
+CAS-22} (12) (1975) 901-910. (Topics: Electronics; VLSI)
+
+Dague, P., Symbolic Reasoning with Relative Orders of Magnitude,
+submitted IJCAI-93. Email: dague@lipn.univ-paris13.fr (Topics: Orders
+of magnitude)
+
+Dague, P., Numeric Reasoning with Relative Orders of Magnitude,
+submitted AAAI-93 and QR'93. Email: dague@lipn.univ-paris13.fr
+(Topics: Orders of magnitude)
+
+Dague, P., P. Deves, O. Jehl, P. Luciani, P. Taillibert, "When
+oscillators stop oscillating", IJCAI-91, Sydney. Also in: Readings in
+Model-based Diagnosis, eds. W. Hamscher, L. Console, J. de Kleer,
+Morgan Kaufmann, 1992; model-based diagnosis of analog electronic
+circuits. Email: dague@lipn.univ-paris13.fr (Topics: Orders of
+magnitude)
+
+Dague, P., P. Deves, P. Luciani, P. Taillibert, "Analog systems
+diagnosis", ECAI-90, Stockholm. Also in: Readings in Model-based
+Diagnosis, eds. W. Hamscher, L. Console, J. dep Kleer, Morgan
+Kaufmann, 1992; model-based diagnosis of analog electronic circuits.
+Email: dague@lipn.univ-paris13.fr (Topics: Orders of magnitude)
+
+Dague, P., P. Deves, O. Raiman, "Troubleshooting: when modeling is the
+trouble", AAAI-87, Seattle. Also in: Readings in Model-based
+Diagnosis, eds. W. Hamscher, L. Console, J. de Kleer, Morgan Kaufmann,
+1992; Readings in Qualitative Reasoning about Physical Systems, eds.
+D. Weld, J. de Kleer. Morgan Kaufmann, 1990.  model-based diagnosis of
+analog electronic circuits.  Email: dague@lipn.univ-paris13.fr
+(Topics: Orders of magnitude)
+
+Dague, P., O.Jehl, P. Taillibert, "An interval propagation and
+conflict recognition engine for diagnosing continuous dynamic
+systems", International Workshop on Expert Systems in Engineering,
+Principles and Applications, 1990, Vienna.  Also in: Lecture Notes in
+Artificial Intelligence 462, eds. G. Gootlob, W. Nejdl,
+Springer-Verlag, 1991.  model-based diagnosis of analog electronic
+circuits.  Email: dague@lipn.univ-paris13.fr (Topics: Diagnosis;
+Partial quantitative information; Intervals)
+
+Dalle Molle, D. T., Qualitative simulation of dynamic chemical
+processes, Ph.D. thesis, Chemical Engineering Dept., University of
+Texas, Austin, TX (1989). Reprinted as technical report AI89-107,
+Artificial Intelligence Laboratory, University of Texas, Austin, TX
+(1989). (Topics: Partial quantitative information; Intervals; Control;
+Process control; Fluids)
+
+Dalle Molle, D. T. and T. F. Edgar, Qualitative modeling of chemical
+reaction systems, in: M. L. Mavrovouniotis, ed., {\it Artificial
+Intelligence in Process Engineering} (Academic Press, San Diego,
+1991).  (Topics: Partial quantitative information; Intervals; Control;
+Process control; Fluids)
+
+D'Ambrosio, B., Extending the mathematics in qualitative process
+theory, in: {\it Proceedings of the National Conference on Artificial
+Intelligence (AAAI-87)}, Seattle (MIT Press, Cambridge, 1987) 595-599.
+(Topics: Partial quantitative information; Fuzzy representations; QPT)
+
+Davis, E., ``Constraint Propagation with Interval Labels.''  {\em
+Artificial Intelligence,} vol. 32, 1987, pp. 281-331. (Topics:
+Constraints; Partial quantitative information; Intervals)
+
+Davis, E., {\em Representations of Commonsense Knowledge}, chap. 4,
+Morgan Kaufmann, San Mateo, CA, 1990. (Topics: )
+
+Dean, T. and M. Boddy, Reasoning about partially ordered events, {\it
+Artificial Intelligence} {\bf 36} (3) (1988) 375-399. (Topics:
+Temporal reasoning)
+
+DeCoste, D., Dynamic across-time measurement interpretation, {\it
+Artificial Intelligence} {\bf 51} (1-3) (1991) 273-341. Version also
+in: {\it Proceedings of the National Conference on Artificial
+Intelligence (AAAI-90)}, Boston (MIT Press, Cambridge, 1990) 373-379.
+(Topics: Partial quantitative information; Intervals; Measurement
+interpretation)
+
+de~Kleer, J., Qualitative and quantitative knowledge in classical
+mechanics, technical report AI-TR-352, MIT Artificial Intelligence
+Laboratory, Cambridge, Massachusetts (1975). (Topics: Partial
+quantitative information; Intervals)
+
+de~Kleer, J., Multiple representations of knowledge in a mechanics
+problem-solver, in: {\it Proceedings of the International Joint
+Conference on Artificial Intelligence (IJCAI-77)} (1977) 299-304.
+Reprinted in Weld \& de~Kleer [1990]. (Topics: Partial quantitative
+information; Intervals)
+
+Djerroud, A., M.-C. Rousset, P. Godefroy, and M. Garcin,
+Process-Oriented Modeling for Event-Driven Simulation. 1993 (Technical
+report CSEG5-19-93, University of Arkansas Department of Computer
+Systems Engineering, 313 Engineering Bldg, Fayetteville, AR 72701)
+(email: djerroud@iri.iri.fr) (Topics: Spatial reasoning; Discrete
+event simulation)
+
+Doyle, R., U. Fayyad, D. Berleant, L. Charest, L. de Mello, H.  Porta,
+and M. Wiesmeyer, Sensor selection in complex system monitoring using
+information quantification and causal reasoning, in: Faltings \&
+Struss [1992] 229-244. (Topics: Diagnosis and monitoring; Space
+applications)
+
+Dvorak, D., Monitoring and diagnosis of continuous dynamic systems
+using semiquantitative simulation, Ph.D. thesis, technical report
+AI92-170, Artificial Intelligence Laboratory, University of Texas,
+Austin, TX (1992). (Topics: Diagnosis and monitoring; Partial
+quantitative information; QDEs)
+
+Falkenhainer, B., Proportionality graphs, units analysis, and domain
+constraints: Improving the power and efficiency of the scientific
+discovery process, in: {\it Proceedings IJCAI-85}, Los Angeles, CA
+(1985) 552-554. (Topics: Multiple models)
+
+Faltings, Boi: "Qualitative Kinematics in Mechanisms," Artificial
+Intelligence 44(1), 1990. Email: faltings@lia.di.epfl.ch (Topics:
+Spatial reasoning)
+
+Faltings, Boi: "A Symbolic Approach to Qualitative Kinematics,"
+Artificial Intelligence 56(2), 1992. Email: faltings@lia.di.epfl.ch
+(Topics: Spatial reasoning)
+
+Fishwick, P. A., Fuzzy simulation: specifying and identifying
+qualitative models, {\it Int. J. General Systems} {\bf 19} (1991)
+295-316. Email: fishwick@fish.cis.ufl.edu (Topics: Simulation; Partial
+quantitative information; Fuzzy representations)
+
+Fishwick, Paul A.  ``The Role of Process Abstraction in Simulation''.
+IEEE Transactions on Systems, Man and Cybernetics, Volume 18, Number
+1, January/February 1988, pp.  18 -- 39. Email:
+fishwick@fish.cis.ufl.edu (Topics: ?)
+
+Fishwick, Paul A.  ``Multimodel Control of Continuous Processes
+through State Space Phase Partitioning.''  to be published in Discrete
+Event Dynamic Systems: Theory and Applications, 1993. Email:
+fishwick@fish.cis.ufl.edu (Topics: Multiple models; Phase space
+analysis)
+
+Fishwick, Paul A.  ``Fuzzy Simulation: Specifying and Identifying
+Qualitative Models''.  International Journal of General Systems,
+Volume 19, Number 3, 1991, pp.  295 -- 316.  Email:
+fishwick@fish.cis.ufl.edu (Topics: Simulation; Partial quantitative
+information; Fuzzy representations)
+
+Fishwick, Paul A., N.  H.  Narayanan, Jon Sticklen and Andrea
+Bonarini.  ``Multi-Level Modeling Approaches for System Reasoning and
+Simulation.''  submitted to IEEE Systems, Man and Cybernetics. Email:
+fishwick@fish.cis.ufl.edu (Topics: Multiple models)
+
+Fishwick, Paul A. and Bernard P.  Zeigler.  ``A Multimodel Methodology
+for Qualitative Model Engineering''.  ACM Transactions on Modelling
+and Computer Simulation.  Volume 2, Issue 1, 1992, pp. 52 - 81. Email:
+fishwick@fish.cis.ufl.edu (Topics: Multiple models)
+
+Forbus, K., Interpreting measurements of physical systems, in: {\it
+Proceedings of the National Conference on Artificial Intelligence
+(AAAI-86)}, Philadelphia (MIT Press, Cambridge, 1986) 113-117.
+(Topics: Measurement interpretation; Partial quantitative information;
+QPT)
+
+Forbus, K. and B. Falkenhainer, Self-explanatory simulations: an
+integration of qualitative and quantitative knowledge, in: Faltings \&
+Struss [1992] (49-66). Also in: {\it Proceedings of the National
+Conference on Artificial Intelligence (AAAI-90)}, Boston (MIT Press,
+Cambridge, 1990) 380-387. (Topics: Simulation; Causality)
+
+Forbus, K. and B. Falkenhainer, Self-explanatory simulations: scaling
+up to large models, in: {\it Proceedings of the National Conference on
+Artificial Intelligence (AAAI-92)}, San Jose, California (MIT Press,
+Cambridge, 1992). (Topics: Simulation; Causality)
+
+Forbus, Ken, Paul Nielsen, Boi Faltings: "Qualitative Spatial
+Reasoning: The CLOCK project," Artificial Intelligence 51, 1991.
+Email: faltings@lia.di.epfl.ch (Topics: Spatial reasoning)
+
+Forrester, J. W., {\it Industrial Dynamics} (MIT Press, Cambridge,
+1961). (Topics: Simulation; Model building)
+
+The papers are related to our work in analogical reasoning a sub-field
+of qualitative reasoning.  Analogical representations are a technique
+in which properties of physical objects are represented in a direct,
+pictorial way. Usually these representation are combined with
+simulation techniques based on local information inspired by naive
+observations of physical phenomena. [Gambardella et al.]
+
+Gambardella, L.M., Gardin ,F., Meltzer, B, Analogical Representation
+in Modeling Naive Physics, in Second International Workshop on
+Qualitative Physics,1989,Paris, France luca@idsia.ch ...describes an
+analogical model of strings. (Topic: Analogical reasoning)
+
+Gambardella, L.M., Planning with Artificial Systems, in First European
+Workshop on Qualitative Reasoning about Physical Systems, Genova,
+Italy, January, 1991.  Email: luca@idsia.ch ...describes the
+integration of analogical (qualitative) tecniques and traditional
+artificial intelligence tecniques.  (Topic: Analogical reasoning)
+
+Gambardella, L.M., Simulation and Planning with Multiple
+Representations, in The Second Annual Conference on AI, Simulation and
+Planning in High Autonomy Systems, 1991, April, Cocoa Beach, Florida.
+Email: luca@idsia.ch ...describes the integration of analogical
+(qualitative) tecniques and traditional artificial intelligence
+tecniques. (Topic: Analogical reasoning)
+
+Gambardella, L.M., Haex, M.,A Multi-Agent Analogical Representation
+for Physical Objects, in Decentralized AI 3, Demazeau Y., Werner E.
+(eds.), Elsevier - North Holland, 1992, Proceedings of the 3rd
+European Workshop on Modeling an Autonomous Agents in a Multi-Agent
+World, Kaiserslautern, 5-7 August, 1991.  Email: luca@idsia.ch
+...describes a definition of an analogical model to represent physical
+objects with shape and size. (Topic: Analogical reasoning)
+
+Gardin ,F., Meltzer, B., Analogical Representations of Naive Physics,
+Artificial Intelligence, march, 1989 (Topic: Analogical reasoning)
+
+Subject: more entries for qualitative-quantitative Bibliography (Gelsey)
+
+@INPROCEEDINGS{Gelsey87,
+        AUTHOR = {Andrew Gelsey},
+        TITLE = {Automated Reasoning about Machine Geometry and Kinematics},
+        BOOKTITLE = {Proceedings of the Third IEEE Conference on
+                     Artificial Intelligence Applications}, 
+        YEAR = {1987},
+        ADDRESS = {Orlando, Florida},
+        NOTE = {Also appears in Daniel S. Weld and Johan {de Kleer}, editors,
+        {\em Readings in Qualitative Reasoning about Physical Systems\/},
+        Morgan Kaufmann, 1990}
+}
+Email: gelsey@cs.rutgers.edu 
+
+@INPROCEEDINGS{Gelsey89,
+        AUTHOR = {Andrew Gelsey},
+        TITLE = {Automated Physical Modeling},
+        BOOKTITLE = {Proceedings of the 11th International Joint
+                     Conference on Artificial Intelligence}, 
+        YEAR = {1989},
+        MONTH = aug,
+        ADDRESS = {Detroit, Michigan USA}
+}
+Email: gelsey@cs.rutgers.edu (Topics: Spatial Reasoning)
+
+@PHDTHESIS{Gelsey90a,
+        AUTHOR = {Andrew Gelsey},
+        TITLE = {Automated Reasoning about Machines},
+        SCHOOL = {Yale University},
+        YEAR = {1990},
+        MONTH = apr,
+        NOTE = {YALEU/CSD/RR\#785}
+}
+Email: gelsey@cs.rutgers.edu  (Topics: Spatial Reasoning)
+
+@INPROCEEDINGS{Gelsey91a,
+        AUTHOR = {Andrew Gelsey},
+        TITLE = {Using Intelligently Controlled Simulation to Predict
+        a Machine's Long-Term Behavior},
+        BOOKTITLE = {Proceedings, Ninth National Conference on
+        Artificial Intelligence},
+        YEAR = {1991},
+        PAGES = {880-887},
+        PUBLISHER = {AAAI Press/The MIT Press},
+        ADDRESS = {Cambridge, MA},
+        MONTH = jul
+}
+Email: gelsey@cs.rutgers.edu  (Topics: Spatial Reasoning)
+
+@INCOLLECTION{Gelsey91b,
+        AUTHOR = {Andrew Gelsey},
+        TITLE = {From {CAD/CAM} to Simulation: Automatic Model
+                 Generation for Mechanical Devices},
+        BOOKTITLE = {Knowledge-Based Simulation: Methodology and Application},
+        PUBLISHER = springer,
+        YEAR = {1991},
+        EDITOR = {Paul A. Fishwick and Richard B. Modjeski},
+        VOLUME = {4},
+        SERIES = {Advances in Simulation},
+        CHAPTER = {7},
+        PAGES = {108-132}
+}
+Email: gelsey@cs.rutgers.edu  (Topics: Spatial Reasoning)
+
+@INPROCEEDINGS{Gelsey92a,
+        AUTHOR = {Andrew Gelsey},
+        TITLE = {Using Artificial Intelligence to Control Fluid Flow
+                 Computations}, 
+        BOOKTITLE = {Proceedings, NASA Workshop on Software Systems for
+        Surface Modeling and Grid Generation},
+        YEAR = {1992},
+        MONTH = apr
+}
+Email: gelsey@cs.rutgers.edu  (Topics: Spatial Reasoning)
+
+@TECHREPORT{Gelsey92b,
+        AUTHOR = {Andrew Gelsey},
+        TITLE = {Artificial Intelligence Research Issues in
+                 Computational Simulation of Physical System Behavior},
+        INSTITUTION = {Department of Computer Science, Rutgers University},
+        YEAR = {1992},
+        NUMBER = {CAP-TR-8},
+        MONTH = apr
+}
+Email: gelsey@cs.rutgers.edu  (Topics: Spatial Reasoning)
+
+@INPROCEEDINGS{Gelsey92c,
+        AUTHOR = {Andrew Gelsey},
+        TITLE = {Modeling and Simulation for Automated Yacht Design},
+        BOOKTITLE = {AAAI Fall Symposium on Design from Physical Principles},
+        YEAR = {1992},
+        PAGES = {44-49}
+}
+Email: gelsey@cs.rutgers.edu  (Topics: Spatial Reasoning)
+
+@INCOLLECTION{Gelsey90b,
+        AUTHOR = {Andrew Gelsey and Drew McDermott},
+        TITLE = {Spatial Reasoning about Mechanisms},
+        BOOKTITLE = {Advances in Spatial Reasoning},
+        PUBLISHER = {Ablex},
+        YEAR = {1990},
+        EDITOR = {{Su-shing} Chen},
+        VOLUME = {1},
+        ADDRESS = {Norwood, New Jersey},
+        NOTE = {An earlier version appeared as Yale University
+                Computer Science Department Research Report YALEU/DCS/RR-641}
+}
+Email: gelsey@cs.rutgers.edu  (Topics: Spatial Reasoning)
+
+Groleau, N., R. Bhatnagar, and D. M. Merfeld, Using Qualitative
+Knowledge for Quantitative Simulation of the Human Spatial Orientation
+System.  in Proc. Second Annual Conference on AI, Simulation and
+Planning in High Autonomy Systems, April 1991, Cocoa Beach, Florida,
+IEEE Computer Society Press, pp. 279-289. (Topics: Spatial reasoning)
+
+Guerrin, F., K. Bousson, J.-Ph. Steyer and L. Trave-Massuyes -
+"Qualitative Reasoning Methods for CELSS Modeling", World Space
+Congress, 29th Plenary Meeting of the Committee on Space Research,
+August 28 - September 5, Washington DC, USA. Also accepted for
+publication in "Advances in Space Research" journal.  Email:
+bousson@laas.laas.fr (Topics: Space applications)
+
+Hegarty, Just, Morrison, Mental Models of Mechanical Systems:
+Individual differences in qualitative and quantitative reasoning, in
+Cognitive Psychology. (Topics: Spatial reasoning)
+
+Hellerstein, J., Constructing Quantitative Models Using Monotone
+Relationships, Technical report CSEG5-25-93, University of Arkansas
+Department of Computer Systems Engineering, 313 Engineering Bldg,
+Fayetteville, AR 72701. Also available as a technical report from IBM.
+Email: jlh@watson.ibm.com.  (Topics: Partial quantitative information;
+Computer systems analysis)
+
+Hellerstein, J., Obtaining quantitative estimates from monotone
+relationships: in Recent Advances in Qualitative Physics, MIT Press,
+1992, pp. 361-374. Similar paper appears in AAAI-90. Email:
+jlh@watson.ibm.com. (Topics: Partial quantitative information;
+Computer systems analysis)
+
+Hellerstein, J., A Statistical Apporach to Diagnosing Intermittent
+Performance Problems using Monotone Relationships, ACM SIGMETRICS
+1989. Also available as Technical report CSEG5-23-93, University of
+Arkansas Department of Computer Systems Engineering, 313 Engineering
+Bldg, Fayetteville, AR 72701. Email: jlh@watson.ibm.com. (Topics:
+Partial quantitative information; Computer systems analysis)
+
+Hellerstein, J., What's-Different Analysis and its Application to
+Performacne Management in VM SP/HPO, in CMG '88 Conference
+Proceedings. Also available as Technical report CSEG5-24-88,
+University of Arkansas Department of Computer Systems Engineering, 313
+Engineering Bldg, Fayetteville, AR 72701. Email: jlh@watson.ibm.com.
+(Topics: Partial quantitative information; Computer systems analysis)
+
+Honiden, S., Uchihira, N. and Itoh, K.: An Application of Artificial
+Intelligence to Prototyping Process for Performance Design in
+Real-time Systems, ESEC'91 (European Software Engineering Conference),
+pp.189-209, (October, 1991). Email: itohkiyo@hoffman.cc.sophia.ac.jp
+(kKiyoshi Itoh) (Topics: Computer systems analysis)
+
+Honiden,S., Uchihira, N., Matsumoto,K. and Itoh,K.: A Prototyping
+Process for Performance Design in Real-time Systems, InfoJapan'90,
+Information Processing Society of Japan, Vol.1, pp.103-110, (October,
+1990). Also available as Technical report CSEG5-20-93, University of
+Arkansas Department of Computer Systems Engineering, 313 Engineering
+Bldg, Fayetteville, AR 72701. Email: itohkiyo@hoffman.cc.sophia.ac.jp
+(kKiyoshi Itoh) (Topics: Computer systems analysis)
+
+Hyv\"{o}nen, E., Constraint reasoning based on interval arithmetic:
+the tolerance propagation approach, {\it Artificial Intelligence} {\bf
+58} (1-3) (1992) 71-112. (Topics: Constraints; Partial quantitative
+information; Intervals)
+
+Insinga, A. K., Behavioral modeling in a structural logic simulator,
+in: {\it ICCAD '84} (1984) 42-44. (Topics: Electronics; VLSI; Multiple
+models)
+
+... studied... the new application of qualitative - quantitative
+reasoning to parameter tuning for queueing network type systems with
+performance bottlenecks [Itoh et al.].
+
+Itoh,K.: Systematic Integration of Qualitative and Quantitative
+Parameter Tuning Methods for Improving Real-Time System Prototypes by
+AI Techniques, IEEE ICSI'92 (International Conference of Systems
+Integration), pp.54-65 (June 1992). Email:
+itohkiyo@hoffman.cc.sophia.ac.jp (kKiyoshi Itoh) (Topics: Computer
+systems analysis)
+
+Itoh,K., Honiden,S., Sawamura,J. and Shida,K.: Role of Qualitative and
+Quantitative Reasoning in Diagnosis and Improvement for Queueing
+Network Bottleneck, InfoJapan'90, Information Processing Society of
+Japan, Vol.2, pp.171-178, (October, 1990). Email:
+itohkiyo@hoffman.cc.sophia.ac.jp (kKiyoshi Itoh) (Topics: Computer
+systems analysis)
+
+Itoh,K., Honiden,S., Shida,K. and Konno,T.: Qualitative Reasoning-
+Based Parameter Tuning on Bottleneck of Synchronized Queueing Network,
+IEEE Compsac'91, pp.307-314, (September, 1991). Email:
+itohkiyo@hoffman.cc.sophia.ac.jp (kKiyoshi Itoh) (Topics: Computer
+systems analysis)
+
+Itoh,K. and Konno,T.: An Integrated Method for Parameter Tuning on
+Synchronized Queueing Network Bottlenecks by Qualitative and
+Quantitative Reasoning, IEICE Transactions on Information and Systems,
+The Institute of electronics, information and communication engineers
+of Japan, Vol.E75-D, No.5 , pp.635-647, (September, 1992). Also
+available as Technical report CSEG5-21-93, University of Arkansas
+Department of Computer Systems Engineering, 313 Engineering Bldg,
+Fayetteville, AR 72701. Email: itohkiyo@hoffman.cc.sophia.ac.jp
+(kKiyoshi Itoh) (Topics: Computer systems analysis)
+
+Itoh,K., Sawamura,J., Honiden,S. and Shida,K.: Knowledge-Based
+Parameter Tuning for Queueing Network Type System -A New Application
+of Qualitative Reasoning, IFIP CAPE'89 (Computer Aided Production
+Engineering), pp.206-212, (October, 1989). Email:
+itohkiyo@hoffman.cc.sophia.ac.jp (kKiyoshi Itoh) (Topics: Computer
+systems analysis)
+
+Joskowicz, Leo, and Sacks, E.  "Computational Kinematics", Artificial
+Intelligence 51(1-3), 1991.  Email: josko@watson.ibm.com (Topics:
+Spatial Reasoning)
+
+Karp, Peter D. and Peter Friedland, Coordinating the use of
+qualitative and quantitative knowledge in declarative device modeling,
+1/87, KSL-87-09. Also appears in Widman's book. (Topics: Biology;
+Partial quantitative information)
+
+Kautz, H. A. and P. B. Ladkin, Integrating Metric and Qualitative
+Temporal Reasoning, in: {\it Proceedings of the National Conference on
+Artificial Intelligence (AAAI-91)}, Anaheim, California (MIT Press,
+Cambridge, 1991) 241-246. (Topics: Temporal reasoning)
+
+Kay, Herbert and B. Kuipers.  1992.  Numerical behavior envelopes for
+qualitative models.  In {\em Working Papers of the Sixth International
+Workshop on Qualitative Reasoning about Physical Systems}, Edinburgh,
+Scotland. Email: kuipers@cs.utexas.edu.  (Topics: Partial quantitative
+information; QDEs)
+
+Kazic, T.  Representation, reasoning and the intermediary metabolism
+of \esch.  Hawaii International Conference on System Sciences, 1993
+(in press).  toni@athe.wustl.edu (Topics: Biology)
+
+Kazic, T.  Reasoning about biochemical compounds and processes.
+Invited paper for Second International Conference on Bioinformatics,
+Supercomputing and the Human Genome Project, 1992 (in press).
+toni@athe.wustl.edu (Topics: Biology; Control; Process control)
+
+Kazic, T.  Biochemical databases: challenges and opportunities.
+Invited paper for the Thirteenth International CODATA Conference, 1992
+(in press).  toni@athe.wustl.edu (Topics: Biology)
+
+Kazic, T., M. N. Liebman and R. A. Overbeek, 1990.  Steps towards a
+computational model of \esch\/ phys\-i\-o\-lo\-gy.  {\em
+Bioinformatics, Integration of Organismic and Molecular Databases, and
+Use of Expert Systems in Biology: Abstracts}.  George Mason
+University, Fairfax, VA (extended abstract).  toni@athe.wustl.edu
+(Topics: Biology)
+
+Kelley, G. T., J. I. Glasgow, and R. E. Ellis, Extracting qualitative
+descriptions from quantitative models, in: {\it Proceedings of the
+Second Annual Conference on AI, Simulation and Planning in High
+Autonomy Systems}, Cocoa Beach, Florida (IEEE Computer Society Press,
+Los Alamitos, California, 1991) 298-305. (Topics: Phase space
+analysis)
+
+Kiang, Y., Exploration of qualitative reasoning and its applications
+to management, Ph.D. thesis, University of Texas at Austin, Austin, TX
+(1991). (Topics: Simulation; Partial quantitative information;
+Intervals)
+
+Kokar, Mieczyslaw, On Consistent Symbolic Representations of General
+Dynamic Systems.  (Topics: Phase space analysis)
+
+Kuipers, B. and D. Berleant, Using incomplete quantitative knowledge
+in qualitative reasoning, in: {\it Proceedings of the National
+Conference on Artificial Intelligence (AAAI-88)}, St. Paul, Minnesota
+(MIT Press, Cambridge, 1988) 324-329. Same title appears earlier by D.
+Berleant and B. Kuipers, in: Notes, {\it Second International Workshop
+on Qualitative Reasoning}, France (1988). (Topics: Simulation; Partial
+quantitative information; Intervals)
+
+Kuipers, B. and D. Berleant, A smooth integration of incomplete
+quantitative knowledge into qualitative simulation, technical report
+AI90-122, Artificial Intelligence Laboratory, University of Texas,
+Austin, TX (1990). (Topics: Simulation; Partial quantitative
+information; Intervals)
+
+Lackinger, Franz and Irina Obreja.  Model-based Troubleshooting of
+Complex Technical Systems using Integrated Qualitative Techniques.  In
+Proceedings of the 2nd Conference on Artificial Intelligence,
+Simulation and Planning AISP-91, pages 122 - 129, Cocoa Beach,
+Florida, IEEE Computer Society Press, April 1991.
+Quantitative-qualitative modelling of parts of a Nuclear Power Plant
+(for diagnostic reasoning). (Topics: Diagnosis)
+
+The following is a list of references on Qualitative Robotics (Liu): 
+
+Liu, J. and Daneshmend, L. K., ``Qualitative physics for robot task
+planning, part I: Grammatical reasoning and commonsense
+augmentations'', in {\em Proceedings of the 1991 IEEE/RSJ
+International Workshop on Intelligent Robots and Systems (IROS '91),}
+Osaka, Japan, Nov. 1991.  Email: jiming@crim.ca (Topics: Spatial
+reasoning)
+
+Liu, J. and Daneshmend, L. K., ``Qualitative physics for robot task
+planning, part II: Kinematics of mechanical devices'', in {\em
+Proceedings of the 1991 IEEE/RSJ International Workshop on Intelligent
+Robots and Systems (IROS '91),} Osaka, Japan, Nov. 1991.  Email:
+jiming@crim.ca (Topics: Spatial reasoning)
+
+Liu, J. and Daneshmend, L.K., ``Qualitative analysis of task
+kinematics for compliant motion planning'', in {\em Proceedings of the
+IEEE International Conference on Robotics and Automation}, Sacramento,
+California, Apr. 1991.  Email: jiming@crim.ca (Topics: Spatial
+reasoning)
+
+Liu, J., {\em A Framework for the Qualitative Kinematics of Planar
+Mechanisms},Technical Report CIM-TR-90-14, Research Center for
+Intelligent Machines, McGill University, Montr\'eal, 1990.  Email:
+jiming@crim.ca (Topics: Spatial reasoning)
+
+MacNish, C., A. Galton, and J. Gooday, "QSQR: Quantitatively Scoped
+Qualitative Simulation," Draft Technical Report CSEG5-26-93,
+University of Arkansas Department of Computer Systems Engineering, 313
+Engineering Bldg, Fayetteville, AR 72701.
+
+McDermott, D. and E. Davis, Planning routes through uncertain
+territory, {\it Artificial Intelligence} {\bf 22} (1984) 107-156.
+(Topics: Spatial reasoning)
+
+Meiri, I., Combining Qualitative and Quantitative Constraints in
+Temporal Reasoning, in: {\it Proceedings of the National Conference on
+Artificial Intelligence (AAAI-91)}, Anaheim, California (MIT Press,
+Cambridge, 1991) 260-267. (Topics: Temporal reasoning)
+
+Missier, A. and L. Trav\'{e}-Massuy\`{e}s, Temporal information in
+qualitative simulation, in: {\it Proceedings of the Second Annual
+Conference on AI, Simulation and Planning in High Autonomy Systems},
+Cocoa Beach, Florida (IEEE Computer Society Press, Los Alamitos,
+California, 1991) 298-305.  (Topics: Simulation; Partial quantitative
+reasoning; Intervals)
+
+Mozeti\v{c}, I.  Diagnostic efficiency of deep and surface knowledge
+in KARDIO.  {\em Artificial Intelligence in Medicine 2 (2)}, pp.
+67-83, 1990. (Topics: Diagnosis)
+
+Mozeti\v{c}, I.  Hierarchical model-based diagnosis.  {\em Intl.
+Journal of Man-Machine Studies 35 (3)}, pp. 329-362, 1991.  Also to
+appear in {\em Readings in Model-based Diagnosis} (W. Hamscher, L.
+Console, J. de Kleer, Eds.), Morgan Kaufmann, San Mateo, CA. (Topics:
+Diagnosis)
+
+Mozeti\v{c}, I.  A polynomial-time algorithm for model-based
+diagnosis.  {\em Proc. European Conf. on Artificial Intelligence,
+ECAI-92}, Vienna, Austria, 1992. (Topics: Diagnosis)
+
+Mozeti\v{c}, I.  Reduction of diagnostic complexity through model
+abstractions.  {\em Proc. First Intl. Workshop on Principles of
+Diagnosis}, pp. 102-111, Stanford University, Palo Alto, 1990.
+(Topics: Diagnosis)
+
+Mozeti\v{c}, I., Bratko, I., Urban\v{c}i\v{c}, T.  Varying level of
+abstraction in qualitative modelling.  In J.E. Hayes, D. Michie, E.
+Tyugu (Eds.), {\em Machine Intelligence 12}, pp. 259-280, Oxford
+University Press, Oxford, UK, 1991. (Topics: Multiple models)
+
+Mozetic, I., Holzbaur, C.  Integrating numerical and qualitative
+models within constraint logic programming.  {\em Proc. 1991 Intl.
+Logic Programming Symposium, ILPS-91}, pp. 678-693, San Diego, CA, MIT
+Press, 1991. (Topics: Constraints; Multiple models)
+
+Mozeti\v{c}, I., Holzbaur, C.  Model-based diagnosis with constraint
+logic programs.  {\em Proc. 7th Austrian Conf. on Artificial
+Intelligence, \"{O}GAI-91}, pp. 168-180, Vienna, Austria,
+Springer-Verlag, 1991. (Topics: Diagnosis; Constraints)
+
+Mozeti\v{c}, I., Holzbaur, C., Novak, F., Santo-Zarnik, M.
+Model-based analogue circuit diagnosis with CLP($\Re$).  {\em Proc.
+4th Intl. GI Congress}, pp. 343-353, Munich, Springer-Verlag, 1991.
+(Topics: Diagnosis)
+
+Mozeti\v{c}, I., Pfahringer, B.  Improving diagnostic efficiency in
+KARDIO: abstractions, constraint propagation, and model compilation.
+In E. Keravnou (Ed.), {\em Deep Models for Medical Knowledge
+Engineering}, Elsevier, Amsterdam, 1992. (Topics: Diagnosis)
+
+Narayanan, N. H. and B. Chandrasekaran, Integration of Qualitative and
+Quantitative Methods in Visual Reasoning, in Proc. Second Annual
+Conference on AI, Simulation and Planning in High Autonomy Systems,
+April 1991, Cocoa Beach, Florida, IEEE Computer Society Press, pp.
+272-278.  Email: narayan@harl.hitachi.co.jp (Topic: Spatial reasoning;
+Diagrammatic representations)
+
+Nishida, Toyoaki,
+   title = "Towards Integration of Heterogeneous Knowledge for Highly
+Autonomous Analysis of Dynamical Systems --- Preliminary Report from
+the {PSX} Project",
+   note = "({\em Journal of Information Processing}",
+   volume = 15,
+   number = 3,
+   year = 1993} Email: nishida@kuis.kyoto-u.ac.jp (Topics: Phase space
+analysis)
+
+Nishida, Toyoaki and Doshita, Shuji,
+  title = "A Geometric Approach to Total Envisioning",
+  booktitle = "Proc. IJCAI-91",
+  pages = "1150-1155",
+  year = 1991} Email: nishida@kuis.kyoto-u.ac.jp (Topics: Phase space
+analysis)
+
+Nishida, T. and S. Doshita, Reasoning about global behavior of
+ordinary differential equations by combining qualitative and
+quantitative analysis, in: {\it Proceedings of the Second Annual
+Conference on AI, Simulation and Planning in High Autonomy Systems},
+Cocoa Beach, Florida (IEEE Computer Society Press, Los Alamitos,
+California, 1991) 98-107. (Topics: Phase space analysis)
+
+Nishida, T. and Hiroshi Fujiwara and Shuji Doshita",
+   title = "Abstracting Flow as Mapping",
+   booktitle = "Proceedings of PRICAI '90",
+   year = "1990",
+   pages = "384-389"} Email: nishida@kuis.kyoto-u.ac.jp (Topics: Phase
+space analysis)
+
+Nishida, Toyoaki and Mizutani, Kenji and Kubota, Atsushi and Doshita,
+Shuji",
+  title = "Automated Phase Portrait Analysis by Integrating
+Qualitative and Quantitative Analysis",
+  booktitle = "Proc. AAAI-91",
+  pages = "811-816",
+  year = 1991} Email: nishida@kuis.kyoto-u.ac.jp (Topics: Phase space
+analysis)
+
+Nishida, Toyoaki and Kenji Mizutani and Shuji Doshita",
+   title ="Automated Analysis of Qualitative Behaviors of Piecewise
+Linear Differential Equations",
+   journal = "New Generation Computing",
+   volume = 11,
+   number = 2,
+   year = 1993} Email: nishida@kuis.kyoto-u.ac.jp (Topics: Phase space
+analysis)
+
+Nordvik, J-P. Ph. Smets, and P. Magrez, Fuzzy qualitative modeling,
+in: B. Bouchon, L. Saitta, and R. R. Yager, eds., {\it Uncertainty and
+Intelligent Systems} (Springer-Verlag, New York, 1988). (Topics:
+Simulation; Partial quantitative information; Fuzzy representations;
+QPT)
+
+Novak, G., Representations of knowledge in a program for solving
+physics problems, in: {\it Proceedings IJCAI-77}, Cambridge, MA (1977)
+286--291. (Topics: Multiple models)
+
+Pearl, J., {\it Probabilistic Reasoning in Intelligent Systems:
+Networks of Plausible Inference} (Morgan Kaufmann, Los Altos,
+California, 1988). (Topics: Probabilistic reasoning)
+
+Rotstein, G., R. Lavie and D. Lewin, "Automatic Synthesis of Chemical
+Batch Plant Procedures-A Qualitative Process-Centered Approach".
+Proceedings of the IFAC Symposium on On-line Fault Detection and
+Supervision in the Chemical Process Industries, 1992.  The general
+approach is to integrate traditional optimization tools, with elements
+from Qualitative Process Theory.  CERDLWR@TECHNION.TECHNION.AC.IL
+(Topics: Control; Process control; Chemical engineering)
+
+Rotstein, G., R. Lavie and D. Lewin, "A Qualitative Process-Centered
+Approach for Chemical Process Oprerations- The Generation of Feasible
+Operation Procedures", Comp. and Chem. Eng, 16(Suppl.), S337-S334,
+1992.  The general approach is to integrate traditional optimization
+tools, with elements from Qualitative Process Theory.
+CERDLWR@TECHNION.TECHNION.AC.IL (Topics: Control; Process control;
+Chemical engineering)
+
+Rotstein, G., R. Lavie and D. Lewin, "Incorporating Shallow Knowledge
+into Batch Operation Models", Submitted to the 3rd European Symposium
+on Computer Aided Process Engineering, Graz, 1993.  The general
+approach is to integrate traditional optimization tools, with elements
+from Qualitative Process Theory.  CERDLWR@TECHNION.TECHNION.AC.IL
+(Topics: Control; Process control; Chemical engineering)
+
+Rutledge, Thomsen, Beinlich, Farr, Kahn, Sheiner and Fagan, VentPlan:
+An architecture for combining qualitative and quantitative
+computation. TR. KSL-89-04 (Topics: Biology; Medicine)
+
+Sacks, E., Automatic analysis of one-parameter planar ordinary
+differential equations by intelligent numerical simulation, {\it
+Artificial Intelligence} {\bf 48} (1991) 27-56. (Topics: Phase space
+analysis)
+
+Sacks, E., Automatic qualitative analysis of dynamic systems using
+piecewise linear approximations, {\it Artificial Intelligence} {\bf
+41} (3) (1990) 313-364. (Topics: Phase space analysis)
+
+Sacks, E., A Dynamic systems perspective on qualitative simulation.
+{\it Artificial Intelligence} {\bf 42} (2-3) (1990) 349-362. (Topics:
+Phase space analysis)
+
+Sacks, E., review of Yip [1991], in: {\it SIGART Bulletin} {\bf 3} (3)
+(1992) 18-19. (Topics: Phase space analysis)
+
+Sacks, E. and Doyle, J., Stochastic analysis of qualitative dynamics,
+in: {\it Proceedings IJCAI-89}, Detroit, MI (1989) 1187--1192.
+(Topics: Phase space analysis; Monte Carlo techniques)
+
+Schrag, Robert, "The Quantity Lattice for Engineering Design", in
+"Working Notes of the Design from Physical Principles Symposium",
+1992, publisher "AAAI Technical Report", ... describes a proposal for
+a new inequality reasoner combining aspects of Simmons' QL, Sacks'
+Bounder, and Williams' Minima. schrag@cs.utexas.edu (Topics:
+Constraints; Partial quantitative information)
+
+Schwartz, D. I., and S. S. Chen, "Order of Magnitude Reasoning for
+Qualitative Matrix Structural Analysis," 5th International Conference
+in Computing in Civil Engineering (will be out in June 93...I can send
+postscript copies for those interested) Email:
+V104N55K@ubvms.cc.buffalo.edu (Topics: Order of magnitude reasoning)
+
+Shearer, J., Murphy, A. and Richardson, H., {\em Introduction to
+System Dynamics} (Addison-Wesley, Reading, MA, 1971). (Topics:
+Simulation; Model building)
+
+Shen, Q. and R. Leitch, Integrating common-sense and qualitative
+simulation by the use of fuzzy sets, in: Faltings \& Struss [1992]
+(83-100). (Topics: Simulation; Partial quantitative information; Fuzzy
+representations) Full version in IEEE Trans. SMC, Vol. 23, No. 4.
+Email: sqi@cee.heriot-watt.ac.uk (Topics: Simulation; Partial
+quantitative information; Fuzzy representations)
+
+Simmons, Reid
+   Title={The Use of Qualitative and Quantitative Simulations},
+   BookTitle="Proc. AAAI-83",
+   Year=1983,
+   Pages={364--368},
+   Address="Washington, D.C.",
+   Month="August" Reid_Simmons@A.GP.CS.CMU.EDU (Topics: Simulation;
+Discrete event simulation; Spatial reasoning; Electronics)
+
+Simmons, Reid and Randall Davis},
+   Title={Representing and Reasoning about Change in Geologic
+Interpretation},
+   Institution="AI Lab, MIT",
+   Type="Technical Report",
+   Number={AI-TR-749},
+   Month="December", Year=1983) Reid_Simmons@A.GP.CS.CMU.EDU (Topics:
+Simulation; Discrete event simulation; Spatial reasoning)
+
+Simmons, Reid
+   Title={Commonsense Arithmetic Reasoning},
+   BookTitle="Proc. AAAI-86",
+   Year=1986,
+   Pages={118--124},
+   Address="Philadelphia, PA",
+   Month=aug) Reid_Simmons@A.GP.CS.CMU.EDU (Topics: Constraints;
+Partial quantitative information; Intervals)
+
+Simmons, Reid, title={Integrating Multiple Representations for
+Incremental, Causal Simulation},
+        booktitle={Proc. Conference on AI, Simulation, and Planning},
+        address={Cocoa Beach, FL},
+        pages={88-96}, month={April}, year=1991)
+Reid_Simmons@A.GP.CS.CMU.EDU (Topics: Multiple models; Causality)
+
+Simmons, R., A theory of debugging plans and interpretations, in: {\it
+Proceedings of the National Conference on Artificial Intelligence
+(AAAI-88)}, St. Paul, Minnesota (MIT Press, Cambridge, 1988) 94-99.
+(Topics: Causality; Spatial reasoning; Discrete event simulation)
+
+Simmons, Reid,
+        title={The Roles of Associational and Causal Reasoning in
+Problem Solving},
+        Journal={Artificial Intelligence},
+        volume=53, number="2--3", pages="159--208",
+        year=1992, month="February") Reid_Simmons@A.GP.CS.CMU.EDU
+(Topics: Causality; Spatial reasoning; Discrete event simulation)
+
+Skorstad, G., ``Finding Stable Causal Interpretations of Equations'',
+in B. Faltings and P. Struss, {\it Recent Advances in Qualitative
+Physics}, MIT Press, 1992. A significantly newer version is available
+as Technical report CSEG5-22-93, University of Arkansas Department of
+Computer Systems Engineering, 313 Engineering Bldg, Fayetteville, AR
+72701.  Email: skorstad@c3po.cs.uiuc.edu (Topics: Causality)
+
+Skorstad, G. and Forbus, K.D., Qualitative and quantitative reasoning
+about thermodynamics, in: {\it Proceedings of the eleventh annual
+conference of the cognitive science society}, Ann Arbor, MI (1989).
+(Topics: Fluids)
+
+Struss, P.  What's in SD? Towards a Theory of Modeling for Diagnosis
+in: Hamscher, Console, de Kleer (eds.), Readings in Model-based
+Diagnosis, Morgan Kaufmann 1992.  <struss@informatik.tu-muenchen.de>
+(Topics: Diagnosis)
+
+Terman, C. J., RSIM --- A logic-level timing simulator, in: {\it
+Proceedings IEEE International Conference on Computer Design} (1983)
+437-440. (Topics: Electronics; VLSI)
+
+Tufte, E. R.,{\it The Visual Display of Quantitative Information}
+(Graphics Press, Cheshire, Connecticut, 1983). (Topics: Visualization)
+
+Whitmore, G. A. and M. C. Findlay, eds., {\it Stochastic Dominance: an
+Approach to Decision-Making Under Risk} (Lexington Books, \comment{125
+Spring St., 02173, 800-235-3565} Lexington, Massachusetts, 1978).
+(Topics: Finance; Probabilistic reasoning)
+
+Struss, P., Problems of interval-based qualitative reasoning, Tech
+Report INF2 ARM-1-87, Siemens, Munich, Germany (1987). (Topics:
+Foundations)
+
+Struss, P., Problems of interval-based qualitative reasoning, this
+volume.  A revised version of: Tech Report INF2 ARM-1-87, Siemens,
+Munich, Germany (1987). (Topics: Foundations)
+
+Weld, D., ``Reasoning about Model Accuracy,'' {\it Artificial
+Intelligence}, {\bf 56}:255--300, August 1992.  weld@cs.washington.edu
+(Topics: Multiple models)
+
+Widman, Representation method for dynamic causal knowledge using
+semi-quantitative simulation. citation? (Topics: Biology; Medicine;
+Simulation)
+
+Williams, B., Doing time: putting qualitative reasoning on firmer
+ground, in: {\it Proceedings of the National Conference on Artificial
+Intelligence (AAAI-86)}, Philadelphia (MIT Press, Cambridge, 1986)
+105-112. Time may be either qualitatively or quantitatively described.
+(Topics: Temporal reasoning)
+
+Williams, B., A theory of interactions: unifying qualitative and
+quantitative algebraic reasoning, {\it Artificial Intelligence} {\bf
+51} (1-3) (1991) 39-94. Precursor in AAAI-88. (Topics: Foundations)
+
+Yip, K., {\it KAM, a System for Intelligently Guiding Numerical
+Experimentation by Computer} (MIT Press, Cambridge, 1991). (Topics:
+Phase space analysis)
+
+Yip, K., Extracting qualitative dynamics from numerical experiments,
+in: {\it Proceedings AAAI-87}, Seattle, WA (1987) 665--670. (Topics:
+Phase space analysis)
+
+Yip, K., Generating global behaviors using deep knowledge of local
+dynamics, in: {\it Proceedings AAAI-88}, Saint Paul, MINN (1988)
+264--270. (Topics: Phase space analysis)
+
+Zhao, F., ``Computational Dynamics: Modeling and Visualizing
+Trajectory Flows in Phase Space.''  {\em Annals of Mathematics and
+Artificial Intelligence}, to appear. Also in {\em Proc.\ of the 2nd
+International Symposium on Artificial Intelligence and Mathematics},
+Florida, Jan.\ 1992. Email: fz@ai.mit.edu (Topics: Phase space
+analysis)
+
+Zhao, F., ``Computation and Reasoning in Automating Control Design.''
+{\em Working Notes of AAAI 1992 Fall Symposium on Intelligent
+Scientific Computation,} Cambridge, Mass., October 1992. Email:
+fz@ai.mit.edu (Topics: Phase space analysis)
+
+Zhao, F., ``Automatic Analysis and Synthesis of Controllers for
+Dynamical Systems Based on Phase Space Knowledge.''  {\em PhD Thesis},
+M.I.T., {\em AI-TR-1385}, MIT Artificial Intelligence Lab, 1992.
+Email: fz@ai.mit.edu (Topics: Phase space analysis)
+
+Zhao, F., ``Extracting and Representing Qualitative Behaviors of
+Complex Systems in Phase Spaces.''  {\em Proc. of the 12th Int'l Joint
+Conf.\ on Artificial Intelligence}, Morgan Kaufmann, 1991. To appear
+in {\em Artificial Intelligence} journal.  Email: fz@ai.mit.edu
+(Topics: Phase space analysis)
+
+Zhao, F., ``Phase Space Navigator: Towards Automating Control
+Synthesis in Phase Spaces for Nonlinear Control Systems.''  {\em Proc.
+of the 3rd IFAC International Workshop on Artificial Intelligence in
+Real Time Control}, Pergamon Press, 1991.  Email: fz@ai.mit.edu
+(Topics: Phase space analysis)
+
+Zhao, F., Extracting and representing qualitative behaviors of complex
+systems in phase spaces, {\it Artificial Intelligence} (forthcoming).
+Version also in: {\it Proceedings of the International Joint
+Conference on Artificial Intelligence (IJCAI-91)}, Sidney, Australia
+(Morgan Kaufmann, Los Altos, California, 1991). (Topics: Phase space
+analysis)
+
+Zhao, F. and R. Thornton, ``Automatic Design of a Maglev Controller in
+State Space.''  {\em Proc.\ of the 31st IEEE Conf.\ on Decision and
+Control}, Tucson, Arizona, December 1992.  Email: fz@ai.mit.edu
+(Topics: Phase space analysis; Control)
+
+================
