@@ -1,0 +1,891 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint">
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="417"/>
+ </o:shapelayout><p:colorscheme
+  colors="#5A5C6C,#FFFFFF,#5B5D6B,#FFFFCC,#9966FF,#9383B3,#A3C145,#6FA9B7"/>
+ <v:background id="_x0000_s427009" o:bwmode="white" fillcolor="#5a5c6c [0]"
+  o:targetscreensize="800,600">
+  <v:fill color2="fill darken(232)" focusposition=".5,.5" focussize=""
+   method="linear sigma" focus="100%" type="gradient"/>
+ </v:background><p:shaperange id="_x0000_s427010">
+  <v:group id="_x0000_s427010" style='position:absolute;left:0;top:112pt;
+   width:720.25pt;height:428pt' coordorigin=",896" coordsize="5762,3424">
+   <v:group id="_x0000_s427011" style='position:absolute;left:20;top:896;
+    width:5742;height:3424' coordorigin="20,896" coordsize="5742,3424"
+    o:userdrawn="t">
+    <v:polyline id="_x0000_s427012" style='position:absolute;mso-wrap-style:square;
+     mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' points="2349,1201,2027,1554,1465,1587,1399,1743,1771,2142,2010,2018,2391,2201,2515,2455,2482,2566,2523,2775,2548,3115,2862,3226,3085,3141,3002,2893,3390,2671,3680,2658,3845,2475,3760,2117,4005,2009,4214,1570,3917,1116"
+     coordsize="2815,2110" o:bwmode="undrawn" o:userdrawn="t" filled="f"
+     fillcolor="#5a5c6c [0]" strokecolor="#5b5d6b [2]" strokeweight="1.2pt">
+     <v:path arrowok="t"/>
+    </v:polyline><v:polyline id="_x0000_s427013" style='position:absolute;
+     mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' points="2095,1181,1820,1378,1606,1332,1201,1430,846,1443,672,1744,763,1842,903,1770,1102,1803,1176,1966,1019,2136,1201,2260,1399,2221,1573,2332,1928,2345,2283,2541,2366,2789,2291,3234,2366,3384,2804,3358,2961,3482,3266,3162,3209,2933,3490,2789,3688,2835,3952,2731,4077,2290,4315,2038,4638,2012,4580,1849,4341,1679,4489,1326,4262,1116"
+     coordsize="3966,2366" o:bwmode="undrawn" o:userdrawn="t" filled="f"
+     fillcolor="#5a5c6c [0]" strokecolor="#5b5d6b [2]" strokeweight="1.3pt">
+     <v:path arrowok="t"/>
+    </v:polyline><v:polyline id="_x0000_s427014" style='position:absolute;
+     mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' points="101,1069,153,1397,20,1735,103,2290,433,2584,901,2769,1460,2720,1775,3009,1673,3195,1156,3211,931,3090,759,3211,974,3593,993,3974,1531,4176,1664,3991,2097,3866,2630,4031,3242,3881,3463,3991,3881,3717,4145,3380,4389,3387,4574,3514,5035,3211,5424,3254,5752,3138"
+     coordsize="5732,3107" o:bwmode="undrawn" o:userdrawn="t" filled="f"
+     fillcolor="#5a5c6c [0]" strokecolor="#5b5d6b [2]" strokeweight="1.3pt">
+     <v:path arrowok="t"/>
+    </v:polyline><v:polyline id="_x0000_s427015" style='position:absolute;
+     mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' points="482,1145,242,1481,324,1966,485,2018,715,2232,799,2586,1081,2644,1500,2494,1549,2638,1863,2658,2104,3010,1910,3311,1550,3362,1234,3317,1145,3389,1250,3560,1234,3683,1379,3905,1903,3768,1967,3637,2137,3696,2580,3593,2685,3859,3112,3686,3506,3736,3764,3572,3836,3226,4255,3232,4312,3069,4481,3076,4707,3239,5078,2959,5467,2930,5609,2716,5754,2730"
+     coordsize="5512,2760" o:bwmode="undrawn" o:userdrawn="t" filled="f"
+     fillcolor="#5a5c6c [0]" strokecolor="#5b5d6b [2]" strokeweight="1.2pt">
+     <v:path arrowok="t"/>
+    </v:polyline><v:polyline id="_x0000_s427016" style='position:absolute;
+     mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' points="4979,984,5050,1217,4999,1627,5294,1755,5445,2030,5630,2173,5380,2095,5203,1867,4979,1836,4840,1483,4888,1193"
+     coordsize="790,1189" o:bwmode="undrawn" o:userdrawn="t" filled="f"
+     fillcolor="#5a5c6c [0]" strokecolor="#5b5d6b [2]" strokeweight="1.2pt">
+     <v:path arrowok="t"/>
+    </v:polyline><v:polyline id="_x0000_s427017" style='position:absolute;
+     mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' points="5173,896,5301,1224,5182,1555,5213,1659,5407,1635,5517,1951,5752,2013"
+     coordsize="579,1117" o:bwmode="undrawn" o:userdrawn="t" filled="f"
+     fillcolor="#5a5c6c [0]" strokecolor="#5b5d6b [2]" strokeweight="1.3pt">
+     <v:path arrowok="t"/>
+    </v:polyline><v:polyline id="_x0000_s427018" style='position:absolute;
+     mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' points="4409,968,4470,1193,4684,1307,4695,1516,4633,1700,4725,1893,4746,2077,4602,2110,4217,2352,4266,2424,4247,2592,4073,2785,3830,2946,3443,2994,3310,3219,3291,3364,3504,3147,3920,3058,4185,2874,4521,2954,4959,2874,5274,2713,5305,2568,5528,2464,5650,2520,5762,2447"
+     coordsize="2471,2396" o:bwmode="undrawn" o:userdrawn="t" filled="f"
+     fillcolor="#5a5c6c [0]" strokecolor="#5b5d6b [2]" strokeweight="1.3pt">
+     <v:path arrowok="t"/>
+    </v:polyline><v:shape id="_x0000_s427019" style='position:absolute;left:2366;
+     top:1067;width:1399;height:1349;mso-wrap-style:square;
+     mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' coordsize="1399,1349" o:bwmode="undrawn" o:userdrawn="t"
+     path="m620,155l421,155,205,507,,673,487,783,425,1009,617,1086,498,1349,961,1035,926,776,1181,749,1399,601,1315,416,1341,196,1171,164,928,,620,155xe"
+     filled="f" fillcolor="#5a5c6c [0]" strokecolor="#5b5d6b [2]"
+     strokeweight="1.4pt">
+     <v:path arrowok="t"/>
+    </v:shape><v:polyline id="_x0000_s427020" style='position:absolute;
+     mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' points="4994,2214,5035,2064,5159,2031,5258,2109,5357,2279,5531,2260,5523,2390,5291,2462,5154,2448,4994,2512,4866,2664,4698,2568,4531,2841,4341,2795,4275,2632,4432,2514,4523,2312,4713,2181,4994,2220"
+     coordsize="1256,810" o:bwmode="undrawn" o:userdrawn="t" filled="f"
+     fillcolor="#5a5c6c [0]" strokecolor="#5b5d6b [2]" strokeweight="1.4pt">
+     <v:path arrowok="t"/>
+    </v:polyline><v:polyline id="_x0000_s427021" style='position:absolute;
+     mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' points="5752,3492,5407,3476,5192,3557,4850,3520,4653,3830,4514,3688,4266,3784,4359,3991,3986,3888,3802,4016,2914,4136,3202,4264,3954,4152,4186,4224,5010,4167,5234,4224,5370,4072,5626,4192,5630,3815,5762,3734"
+     coordsize="2848,788" o:bwmode="undrawn" o:userdrawn="t" filled="f"
+     fillcolor="#5a5c6c [0]" strokecolor="#5b5d6b [2]" strokeweight="1.4pt">
+     <v:path arrowok="t"/>
+    </v:polyline><v:polyline id="_x0000_s427022" style='position:absolute;
+     mso-wrap-style:square;mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' points="5443,922,5549,1235,5549,1556,5711,1776,5721,1499,5681,1322,5762,1162"
+     coordsize="319,854" o:bwmode="undrawn" o:userdrawn="t" filled="f"
+     fillcolor="#5a5c6c [0]" strokecolor="#5b5d6b [2]" strokeweight="1.4pt">
+     <v:path arrowok="t"/>
+    </v:polyline><v:shape id="_x0000_s427023" style='position:absolute;left:4954;
+     top:3568;width:646;height:392;mso-wrap-style:square;
+     mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' coordsize="646,392" o:bwmode="undrawn" o:userdrawn="t"
+     path="m504,0l320,61,238,109,144,216,,392,360,263,432,182,646,142,504,0xe"
+     filled="f" fillcolor="#5a5c6c [0]" strokecolor="#5b5d6b [2]"
+     strokeweight="1.4pt">
+     <v:path arrowok="t"/>
+    </v:shape><v:shape id="_x0000_s427024" style='position:absolute;left:50;
+     top:2400;width:2736;height:1920;mso-wrap-style:square;
+     mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' coordsize="2736,1920" o:bwmode="undrawn" o:userdrawn="t"
+     path="m0,0l96,336,384,384,576,720,528,960,672,1104,576,1392,624,1632,1488,1872,1680,1728,2208,1728,2304,1632,2736,1872,2640,1920,2304,1824,2160,1872,1632,1920,1440,1920,480,1824,192,1872,96,1680,288,1440,336,1104,144,864,240,624,48,528,,0xe"
+     filled="f" fillcolor="#5b5d6b [2]" strokecolor="#5b5d6b [2]">
+     <v:fill color2="#5a5c6c [0]" angle="-45" focusposition=",1" focussize=""
+      focus="100%" type="gradient"/>
+     <v:path arrowok="t"/>
+    </v:shape></v:group><v:group id="_x0000_s427025" style='position:absolute;
+    top:2291;width:1385;height:1702' coordorigin=",2291" coordsize="1385,1702"
+    o:userdrawn="t">
+    <v:rect id="_x0000_s427026" style='position:absolute;left:62;top:3883;
+     width:75;height:12;rotation:7426198fd;mso-wrap-style:none;v-text-anchor:middle'
+     o:bwmode="lightGrayScale" o:userdrawn="t" fillcolor="#5b5d6b [2]"
+     stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427027" style='position:absolute;left:33;
+     top:3880;width:75;height:12;rotation:7426198fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427028" style='position:absolute;left:6;top:3875;
+     width:75;height:12;rotation:7426198fd;mso-wrap-style:none;v-text-anchor:middle'
+     o:bwmode="lightGrayScale" o:userdrawn="t" fillcolor="#5b5d6b [2]"
+     stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427029" style='position:absolute;left:209;
+     top:3884;width:69;height:12;rotation:6553504fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427030" style='position:absolute;left:182;
+     top:3889;width:69;height:12;rotation:6553504fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427031" style='position:absolute;left:152;
+     top:3888;width:69;height:12;rotation:6826817fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427032" style='position:absolute;left:123;
+     top:3886;width:69;height:12;rotation:6813642fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427033" style='position:absolute;left:363;
+     top:3869;width:69;height:12;rotation:5877178fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427034" style='position:absolute;left:332;
+     top:3872;width:69;height:12;rotation:5877178fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427035" style='position:absolute;left:302;
+     top:3877;width:69;height:12;rotation:6098343fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427036" style='position:absolute;left:270;
+     top:3882;width:69;height:12;rotation:6267016fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427037" style='position:absolute;left:516;
+     top:3829;width:63;height:12;rotation:5150558fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427038" style='position:absolute;left:486;
+     top:3834;width:63;height:12;rotation:5379358fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427039" style='position:absolute;left:456;
+     top:3848;width:63;height:12;rotation:5379358fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427040" style='position:absolute;left:426;
+     top:3851;width:63;height:12;rotation:5506501fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427041" style='position:absolute;left:664;
+     top:3762;width:63;height:12;rotation:4169061fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427042" style='position:absolute;left:634;
+     top:3780;width:63;height:12;rotation:4169061fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427043" style='position:absolute;left:605;
+     top:3791;width:63;height:12;rotation:4482863fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427044" style='position:absolute;left:575;
+     top:3804;width:63;height:12;rotation:4724428fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427045" style='position:absolute;left:799;
+     top:3683;width:63;height:12;rotation:3678793fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427046" style='position:absolute;left:772;
+     top:3699;width:63;height:12;rotation:3678793fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427047" style='position:absolute;left:745;
+     top:3717;width:63;height:12;rotation:3678793fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427048" style='position:absolute;left:717;
+     top:3734;width:63;height:12;rotation:4169061fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427049" style='position:absolute;left:923;
+     top:3587;width:69;height:12;rotation:2514688fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427050" style='position:absolute;left:899;
+     top:3606;width:69;height:12;rotation:2514688fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427051" style='position:absolute;left:876;
+     top:3626;width:69;height:12;rotation:2957380fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427052" style='position:absolute;left:850;
+     top:3644;width:63;height:12;rotation:2957380fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427053" style='position:absolute;left:1027;
+     top:3473;width:69;height:12;rotation:1666613fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427054" style='position:absolute;left:1009;
+     top:3497;width:69;height:12;rotation:1666613fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427055" style='position:absolute;left:990;
+     top:3519;width:69;height:12;rotation:1953101fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427056" style='position:absolute;left:969;
+     top:3544;width:69;height:12;rotation:1953101fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427057" style='position:absolute;left:1113;
+     top:3355;width:75;height:12;rotation:919284fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427058" style='position:absolute;left:1100;
+     top:3378;width:69;height:12;rotation:919284fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427059" style='position:absolute;left:1086;
+     top:3404;width:69;height:12;rotation:1429437fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427060" style='position:absolute;left:1064;
+     top:3425;width:69;height:12;rotation:1429437fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427061" style='position:absolute;left:1172;
+     top:3225;width:81;height:12;rotation:513270fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427062" style='position:absolute;left:1162;
+     top:3250;width:81;height:12;rotation:611526fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427063" style='position:absolute;left:1154;
+     top:3276;width:81;height:12;rotation:801810fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427064" style='position:absolute;left:1141;
+     top:3304;width:75;height:12;rotation:801810fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427065" style='position:absolute;left:1211;
+     top:3096;width:81;height:12;rotation:-321023fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427066" style='position:absolute;left:1201;
+     top:3122;width:81;height:12;rotation:-9fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427067" style='position:absolute;left:1200;
+     top:3147;width:81;height:12;rotation:-9fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427068" style='position:absolute;left:1189;
+     top:3173;width:81;height:12;rotation:233950fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427069" style='position:absolute;left:1219;
+     top:2965;width:86;height:12;rotation:-745350fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427070" style='position:absolute;left:1220;
+     top:2991;width:86;height:12;rotation:-524725fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427071" style='position:absolute;left:1220;
+     top:3015;width:86;height:12;rotation:-524725fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427072" style='position:absolute;left:1219;
+     top:3041;width:81;height:12;rotation:-295508fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427073" style='position:absolute;left:1207;
+     top:2843;width:86;height:12;rotation:-1236758fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427074" style='position:absolute;left:1213;
+     top:2864;width:86;height:12;rotation:-1058704fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427075" style='position:absolute;left:1216;
+     top:2888;width:86;height:12;rotation:-1058704fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427076" style='position:absolute;left:1219;
+     top:2915;width:86;height:12;rotation:-880650fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427077" style='position:absolute;left:1165;
+     top:2727;width:86;height:12;rotation:-1686395fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427078" style='position:absolute;left:1176;
+     top:2752;width:86;height:12;rotation:-1465770fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427079" style='position:absolute;left:1184;
+     top:2775;width:86;height:12;rotation:-1465770fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427080" style='position:absolute;left:1194;
+     top:2795;width:86;height:12;rotation:-1465770fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427081" style='position:absolute;left:1101;
+     top:2628;width:86;height:12;rotation:-2106705fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427082" style='position:absolute;left:1114;
+     top:2645;width:86;height:12;rotation:-2014331fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427083" style='position:absolute;left:1129;
+     top:2667;width:86;height:12;rotation:-1914069fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427084" style='position:absolute;left:1142;
+     top:2684;width:86;height:12;rotation:-1914069fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427085" style='position:absolute;left:1014;
+     top:2538;width:86;height:12;rotation:-2694334fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427086" style='position:absolute;left:1035;
+     top:2557;width:86;height:12;rotation:-2694334fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427087" style='position:absolute;left:1050;
+     top:2574;width:86;height:12;rotation:-2694334fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427088" style='position:absolute;left:1068;
+     top:2590;width:86;height:12;rotation:-2559034fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:shape id="_x0000_s427089" style='position:absolute;left:486;
+     top:2563;width:180;height:151' coordsize="180,151" o:bwmode="lightGrayScale"
+     o:userdrawn="t" path="m0,144l28,147,64,46,94,151,129,151,180,9,148,10,112,112,79,,48,,,144xe"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+     <v:path arrowok="t"/>
+    </v:shape><v:rect id="_x0000_s427090" style='position:absolute;left:-217;
+     top:3138;width:1226;height:12;rotation:7182353fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427091" style='position:absolute;left:4;top:3146;
+     width:1031;height:12;rotation:260832fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427092" style='position:absolute;left:907;
+     top:2473;width:81;height:12;rotation:-3229863fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427093" style='position:absolute;left:930;
+     top:2486;width:81;height:12;rotation:-3229863fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427094" style='position:absolute;left:954;
+     top:2497;width:86;height:12;rotation:-3229863fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427095" style='position:absolute;left:974;
+     top:2509;width:86;height:12;rotation:-2906558fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427096" style='position:absolute;left:788;
+     top:2426;width:75;height:12;rotation:-3974215fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427097" style='position:absolute;left:815;
+     top:2434;width:75;height:12;rotation:-3974215fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427098" style='position:absolute;left:837;
+     top:2441;width:81;height:12;rotation:-3838916fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427099" style='position:absolute;left:862;
+     top:2453;width:81;height:12;rotation:-3517971fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427100" style='position:absolute;left:649;
+     top:2396;width:75;height:12;rotation:-4738526fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427101" style='position:absolute;left:677;
+     top:2402;width:75;height:12;rotation:-4642526fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427102" style='position:absolute;left:707;
+     top:2407;width:75;height:12;rotation:-4642526fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427103" style='position:absolute;left:737;
+     top:2411;width:75;height:12;rotation:-4357320fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427104" style='position:absolute;left:503;
+     top:2395;width:69;height:12;rotation:-5310835fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427105" style='position:absolute;left:533;
+     top:2393;width:75;height:12;rotation:-5104566fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427106" style='position:absolute;left:563;
+     top:2390;width:75;height:12;rotation:-5075458fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427107" style='position:absolute;left:594;
+     top:2391;width:75;height:12;rotation:-5003262fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427108" style='position:absolute;left:355;
+     top:2414;width:69;height:12;rotation:-5674466fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427109" style='position:absolute;left:385;
+     top:2409;width:69;height:12;rotation:-5855078fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427110" style='position:absolute;left:418;
+     top:2405;width:69;height:12;rotation:-5776932fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427111" style='position:absolute;left:449;
+     top:2400;width:69;height:12;rotation:-5641398fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427112" style='position:absolute;left:206;
+     top:2458;width:63;height:12;rotation:-6697957fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427113" style='position:absolute;left:237;
+     top:2448;width:63;height:12;rotation:-6794372fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427114" style='position:absolute;left:266;
+     top:2438;width:63;height:12;rotation:-6674779fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427115" style='position:absolute;left:292;
+     top:2427;width:69;height:12;rotation:-6465749fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427116" style='position:absolute;left:5;top:2549;
+     width:63;height:12;rotation:-8056877fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427117" style='position:absolute;left:64;
+     top:2517;width:63;height:12;rotation:-7829747fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427118" style='position:absolute;left:92;
+     top:2502;width:63;height:12;rotation:-7430052fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427119" style='position:absolute;left:119;
+     top:2492;width:63;height:12;rotation:-7430052fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427120" style='position:absolute;left:150;
+     top:2478;width:63;height:12;rotation:-7053535fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427121" style='position:absolute;top:3363;
+     width:75;height:12;rotation:-2049934fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427122" style='position:absolute;left:511;
+     top:3478;width:242;height:12;rotation:3586995fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427123" style='position:absolute;left:35;
+     top:2798;width:242;height:12;rotation:3586995fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427124" style='position:absolute;left:700;
+     top:2851;width:317;height:12;rotation:-2049934fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427125" style='position:absolute;left:200;
+     top:3915;width:138;height:12;rotation:6453675fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427126" style='position:absolute;left:45;
+     top:3915;width:144;height:12;rotation:7300681fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427127" style='position:absolute;left:361;
+     top:3893;width:132;height:12;rotation:5729604fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427128" style='position:absolute;left:522;
+     top:3847;width:132;height:12;rotation:4915768fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427129" style='position:absolute;left:670;
+     top:3778;width:132;height:12;rotation:4156323fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427130" style='position:absolute;left:813;
+     top:3688;width:132;height:12;rotation:3342487fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427131" style='position:absolute;left:938;
+     top:3582;width:132;height:12;rotation:2283144fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427132" style='position:absolute;left:-18;
+     top:2506;width:132;height:12;rotation:-7829747fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427133" style='position:absolute;left:136;
+     top:2433;width:132;height:12;rotation:-6997607fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427134" style='position:absolute;left:447;
+     top:2364;width:138;height:12;rotation:-5429243fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427135" style='position:absolute;left:597;
+     top:2360;width:150;height:12;rotation:-4695110fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427136" style='position:absolute;left:739;
+     top:2386;width:155;height:12;rotation:-4015505fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427137" style='position:absolute;left:869;
+     top:2430;width:167;height:12;rotation:-3482819fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427138" style='position:absolute;left:984;
+     top:2497;width:167;height:12;rotation:-2851085fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427139" style='position:absolute;left:1075;
+     top:2585;width:173;height:12;rotation:-2392073fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427140" style='position:absolute;left:1147;
+     top:2688;width:167;height:12;rotation:-1888046fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427141" style='position:absolute;left:1198;
+     top:2805;width:167;height:12;rotation:-1280265fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427142" style='position:absolute;left:1218;
+     top:2930;width:167;height:12;rotation:-823400fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427143" style='position:absolute;left:1213;
+     top:3066;width:167;height:12;rotation:-314380fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427144" style='position:absolute;left:1126;
+     top:3337;width:150;height:12;rotation:761027fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427145" style='position:absolute;left:1041;
+     top:3465;width:140;height:12;rotation:1671157fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:shape id="_x0000_s427146" style='position:absolute;left:850;
+     top:3136;width:204;height:120' coordsize="204,120" o:bwmode="lightGrayScale"
+     o:userdrawn="t" path="m168,120l204,12,42,,,108,30,114,60,30,102,36,78,108,102,108,132,36,162,36,138,114,168,120xe"
+     fillcolor="#5b5d6b [2]" stroked="f">
+     <v:path arrowok="t"/>
+    </v:shape><v:shape id="_x0000_s427147" style='position:absolute;left:19;
+     top:2722;width:90;height:78' coordsize="90,78" o:bwmode="lightGrayScale"
+     o:userdrawn="t" path="m66,36l66,36,18,24,,30,36,78,48,72,24,36,24,36,72,54,90,42,54,,42,6,66,36xe"
+     fillcolor="#5b5d6b [2]" stroked="f">
+     <v:path arrowok="t"/>
+    </v:shape><v:shape id="_x0000_s427148" style='position:absolute;left:97;
+     top:2651;width:101;height:89' coordsize="101,89" o:bwmode="lightGrayScale"
+     o:userdrawn="t" path="m54,89l65,83,48,35,89,65,101,59,83,,71,12,83,41,48,23,36,29,45,68,18,41,,53,54,89xe"
+     fillcolor="#5b5d6b [2]" stroked="f">
+     <v:path arrowok="t"/>
+    </v:shape><v:shape id="_x0000_s427149" style='position:absolute;left:677;
+     top:3502;width:83;height:78' coordsize="83,78" o:bwmode="lightGrayScale"
+     o:userdrawn="t" path="m36,78l83,48,54,,,30,6,36,42,18,54,30,24,48,30,54,60,36,66,48,30,66,36,78xe"
+     fillcolor="#5b5d6b [2]" stroked="f">
+     <v:path arrowok="t"/>
+    </v:shape><v:shape id="_x0000_s427150" style='position:absolute;left:940;
+     top:2782;width:90;height:72' coordsize="90,72" o:bwmode="lightGrayScale"
+     o:userdrawn="t" path="m90,30l66,,,36,24,72,36,66,18,42,36,30,54,54,60,48,48,24,60,12,78,42,90,30xe"
+     fillcolor="#5b5d6b [2]" stroked="f">
+     <v:path arrowok="t"/>
+    </v:shape><v:shape id="_x0000_s427151" style='position:absolute;left:898;
+     top:2716;width:90;height:84' coordsize="90,84" o:bwmode="lightGrayScale"
+     o:userdrawn="t" path="m42,60l42,60,72,12,66,,,42,6,54,54,24,54,24,18,72,24,84,90,42,84,30,42,60xe"
+     fillcolor="#5b5d6b [2]" stroked="f">
+     <v:path arrowok="t"/>
+    </v:shape><v:shape id="_x0000_s427152" style='position:absolute;left:7;
+     top:3837;width:6;height:12' coordsize="6,12" o:bwmode="lightGrayScale"
+     o:userdrawn="t" path="m6,0l6,,,,,,,12,6,,6,0xe" fillcolor="#5b5d6b [2]"
+     stroked="f">
+     <v:path arrowok="t"/>
+    </v:shape><v:shape id="_x0000_s427153" style='position:absolute;left:7;
+     top:2555;width:30;height:48' coordsize="30,48" o:bwmode="lightGrayScale"
+     o:userdrawn="t" path="m18,48l18,48,30,42,,,,24,18,48,18,48xe" fillcolor="#5b5d6b [2]"
+     stroked="f">
+     <v:path arrowok="t"/>
+    </v:shape><v:shape id="_x0000_s427154" style='position:absolute;left:7;
+     top:3843;width:36;height:66' coordsize="36,66" o:bwmode="lightGrayScale"
+     o:userdrawn="t" path="m36,0l24,,24,,,36,,66,36,,36,0xe" fillcolor="#5b5d6b [2]"
+     stroked="f">
+     <v:path arrowok="t"/>
+    </v:shape><v:rect id="_x0000_s427155" style='position:absolute;left:1177;
+     top:3201;width:161;height:12;rotation:267525fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:rect id="_x0000_s427156" style='position:absolute;left:290;
+     top:2386;width:138;height:12;rotation:-6115151fd;mso-wrap-style:none;
+     v-text-anchor:middle' o:bwmode="lightGrayScale" o:userdrawn="t"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+    </v:rect><v:shape id="_x0000_s427157" style='position:absolute;left:139;
+     top:3573;width:144;height:154' coordsize="144,154" o:bwmode="lightGrayScale"
+     o:userdrawn="t" path="m0,102hdc6,140,25,154,59,154,111,152,106,130,117,120,119,61,84,84,62,55,59,42,78,11,104,34,108,41,111,51,117,53hbc123,55,144,55,141,47,138,39,126,5,97,2hdc77,,48,,36,33,15,89,83,79,90,107,96,130,34,147,28,101,12,104,15,98,,102xe"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+     <v:path arrowok="t"/>
+    </v:shape><v:shape id="_x0000_s427158" style='position:absolute;left:619;
+     top:3550;width:68;height:69;rotation:-3120646fd' coordsize="144,154"
+     o:bwmode="lightGrayScale" o:userdrawn="t" path="m0,102hdc6,140,25,154,59,154,111,152,106,130,117,120,113,47,84,84,62,55,59,42,78,11,104,34,108,41,111,51,117,53hbc123,55,144,55,141,47,138,39,126,5,97,2hdc77,,48,,36,33,15,89,83,79,90,107,96,130,34,147,28,101,12,104,15,98,,102xe"
+     fillcolor="#5b5d6b [2]" stroked="f" strokecolor="white [1]">
+     <v:shadow color="#5b5d6b [2]"/>
+     <v:path arrowok="t"/>
+    </v:shape><v:shape id="_x0000_s427159" style='position:absolute;left:235;
+     top:2503;width:348;height:1272;mso-wrap-style:square;
+     mso-wrap-distance-left:9pt;mso-wrap-distance-top:0;
+     mso-wrap-distance-right:9pt;mso-wrap-distance-bottom:0;
+     mso-position-horizontal:absolute;mso-position-horizontal-relative:text;
+     mso-position-vertical:absolute;mso-position-vertical-relative:text;
+     v-text-anchor:top' coordsize="348,1272" o:bwmode="lightGrayScale"
+     o:userdrawn="t" path="m0,0l287,582,348,1272,54,676,,0xe" fillcolor="#5b5d6b [2]"
+     stroked="f">
+     <v:fill color2="fill darken(247)" angle="-45" method="linear sigma"
+      focus="100%" type="gradient"/>
+     <v:path arrowok="t"/>
+    </v:shape><v:oval id="_x0000_s427160" style='position:absolute;left:296;
+     top:3047;width:221;height:174;rotation:-1839758fd' o:bwmode="lightGrayScale"
+     o:userdrawn="t" fillcolor="#5b5d6b [2]" stroked="f">
+     <v:fill color2="fill darken(232)" angle="-45" method="linear sigma"
+      focus="50%" type="gradient"/>
+    </v:oval></v:group></v:group></p:shaperange>
+ <p:shaperange id="_x0000_s427161">
+  <v:shapetype id="_x0000_s427161" style='position:absolute;left:23.75pt;top:18pt;
+   width:672.5pt;height:90pt;v-text-anchor:middle' coordsize="21600,21600"
+   o:master="" o:spt="1" path="m0,0l0,21600,21600,21600,21600,0xe" filled="f"
+   fillcolor="#96f [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="#5a5c6c [0]" o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:shadow color="#5b5d6b [2]"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" rotation="t" grouping="t"/>
+   <p:placeholder type="title"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_s427162">
+  <v:shapetype id="_x0000_s427162" style='position:absolute;left:23.75pt;top:491.75pt;
+   width:180.25pt;height:37.5pt' coordsize="21600,21600" o:master="" o:spt="1"
+   path="m0,0l0,21600,21600,21600,21600,0xe" filled="f" fillcolor="#96f [4]"
+   stroked="f" strokecolor="white [1]">
+   <v:fill color2="#5a5c6c [0]" o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:shadow color="#5b5d6b [2]"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <p:placeholder type="dateTime" position="2" size="half"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_s427163">
+  <v:shapetype id="_x0000_s427163" style='position:absolute;left:246pt;top:491.75pt;
+   width:228pt;height:37.5pt' coordsize="21600,21600" o:master="" o:spt="1"
+   path="m0,0l0,21600,21600,21600,21600,0xe" filled="f" fillcolor="#96f [4]"
+   stroked="f" strokecolor="white [1]">
+   <v:fill color2="#5a5c6c [0]" o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:shadow color="#5b5d6b [2]"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <p:placeholder type="footer" position="3" size="quarter"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_s427164">
+  <v:shapetype id="_x0000_s427164" style='position:absolute;left:516pt;top:491.75pt;
+   width:180.25pt;height:37.5pt' coordsize="21600,21600" o:master="" o:spt="1"
+   path="m0,0l0,21600,21600,21600,21600,0xe" filled="f" fillcolor="#96f [4]"
+   stroked="f" strokecolor="white [1]">
+   <v:fill color2="#5a5c6c [0]" o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:shadow color="#5b5d6b [2]"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <p:placeholder type="slideNumber" position="4" size="quarter"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_s427165">
+  <v:shapetype id="_x0000_s427165" style='position:absolute;left:23.75pt;top:126pt;
+   width:672.5pt;height:354.25pt' coordsize="21600,21600" o:master="" o:spt="1"
+   path="m0,0l0,21600,21600,21600,21600,0xe" filled="f" fillcolor="#96f [4]"
+   stroked="f" strokecolor="white [1]">
+   <v:fill color2="#5a5c6c [0]" o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:shadow color="#5b5d6b [2]"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" rotation="t" grouping="t"/>
+   <p:placeholder type="body" position="1"/>
+  </v:shapetype></p:shaperange>
+</xml>

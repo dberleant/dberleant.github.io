@@ -1,0 +1,550 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint">
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="21"/>
+ </o:shapelayout><p:shaperange id="_x0000_s21506">
+  <v:shape id="_x0000_s21506" type="#_x0000_m1031" style='position:absolute;
+   left:54pt;top:18pt;width:612pt;height:90pt;mso-wrap-style:square;
+   v-text-anchor:middle' filled="f" stroked="f">
+   <v:fill o:detectmouseclick="f"/>
+   <v:stroke o:forcedash="f"/>
+   <v:shadow on="f"/>
+   <o:lock v:ext="edit" text="f"/>
+   <v:textbox style='layout-flow:horizontal;mso-fit-shape-to-text:f' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   <p:placeholder type="title"/>
+  </v:shape><v:rect id="_x0000_s21507" style='position:absolute;left:108.5pt;
+   top:186.5pt;width:53pt;height:23pt;mso-wrap-style:none;v-text-anchor:middle'
+   fillcolor="#969696 [7]" strokecolor="white [1]" strokeweight="1pt">
+   <v:fill opacity=".5"/>
+   <v:shadow on="t" color="black [2]" opacity=".5" offset="6pt,6pt"/>
+   <v:textbox inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:rect><v:rect id="_x0000_s21508" style='position:absolute;left:210.5pt;
+   top:180.5pt;width:107pt;height:305pt;mso-wrap-style:none;v-text-anchor:middle'
+   fillcolor="#969696 [7]" strokecolor="white [1]" strokeweight="1pt">
+   <v:fill opacity=".5"/>
+   <v:shadow on="t" color="black [2]" opacity=".5" offset="6pt,6pt"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:rect><v:rect id="_x0000_s21509" style='position:absolute;left:348.5pt;
+   top:324.5pt;width:101pt;height:23pt;mso-wrap-style:none;v-text-anchor:middle'
+   fillcolor="#f90 [4]" strokecolor="white [1]" strokeweight="1pt">
+   <v:shadow color="black [2]"/>
+   <v:textbox inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:rect><v:rect id="_x0000_s21510" style='position:absolute;left:232.75pt;
+   top:130.75pt;width:62.5pt;height:36pt;mso-wrap-style:none' filled="f"
+   fillcolor="#f90 [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="blue [0]"/>
+   <v:shadow color="black [2]"/>
+   <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+  </v:rect><v:rect id="_x0000_s21511" style='position:absolute;left:346.875pt;
+   top:130.75pt;width:197.75pt;height:36pt;mso-wrap-style:none' filled="f"
+   fillcolor="#f90 [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="blue [0]"/>
+   <v:shadow color="black [2]"/>
+   <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+  </v:rect><v:line id="_x0000_s21512" style='position:absolute' from="294pt,192pt"
+   to="5in,192pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"
+    endarrowlength="long"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21513" style='position:absolute;flip:x' from="306pt,204pt"
+   to="5in,204pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21514" style='position:absolute' from="306pt,204pt"
+   to="306pt,240pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21515" style='position:absolute' from="306pt,240pt"
+   to="5in,240pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21516" style='position:absolute;flip:x' from="306pt,252pt"
+   to="5in,252pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21517" style='position:absolute' from="306pt,252pt"
+   to="306pt,282pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21518" style='position:absolute' from="306pt,282pt"
+   to="5in,282pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21519" style='position:absolute;flip:x' from="306pt,294pt"
+   to="5in,294pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21520" style='position:absolute' from="306pt,294pt"
+   to="306pt,330pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21521" style='position:absolute' from="306pt,330pt"
+   to="348pt,330pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21522" style='position:absolute;flip:x' from="306pt,342pt"
+   to="348pt,342pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21523" style='position:absolute' from="306pt,342pt"
+   to="306pt,384pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21524" style='position:absolute' from="306pt,384pt"
+   to="348pt,384pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21525" style='position:absolute' from="162pt,192pt"
+   to="4in,192pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:rect id="_x0000_s21526" style='position:absolute;left:421.75pt;
+   top:199.875pt;width:32.5pt;height:36pt;mso-wrap-style:none' filled="f"
+   fillcolor="#f90 [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="blue [0]"/>
+   <v:shadow color="black [2]"/>
+   <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:rect><v:rect id="_x0000_s21527" style='position:absolute;left:421.75pt;
+   top:242.875pt;width:32.5pt;height:36pt;mso-wrap-style:none' filled="f"
+   fillcolor="#f90 [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="blue [0]"/>
+   <v:shadow color="black [2]"/>
+   <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:rect><v:rect id="_x0000_s21528" style='position:absolute;left:421.75pt;
+   top:283pt;width:32.5pt;height:36pt;mso-wrap-style:none' filled="f"
+   fillcolor="#f90 [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="blue [0]"/>
+   <v:shadow color="black [2]"/>
+   <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:rect><v:rect id="_x0000_s21529" style='position:absolute;left:421.75pt;
+   top:337pt;width:32.5pt;height:36pt;mso-wrap-style:none' filled="f"
+   fillcolor="#f90 [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="blue [0]"/>
+   <v:shadow color="black [2]"/>
+   <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:rect><v:rect id="_x0000_s21530" style='position:absolute;left:421.75pt;
+   top:149.125pt;width:32.5pt;height:36pt;mso-wrap-style:none' filled="f"
+   fillcolor="#f90 [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="blue [0]"/>
+   <v:shadow color="black [2]"/>
+   <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+  </v:rect><v:line id="_x0000_s21531" style='position:absolute' from="162pt,204pt"
+   to="180pt,204pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrow="classic" endarrowwidth="narrow" endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21532" style='position:absolute;flip:y' from="258pt,192pt"
+   to="258pt,330pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"
+    endarrowlength="long"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:rect id="_x0000_s21533" style='position:absolute;left:213.125pt;
+   top:329.875pt;width:89.125pt;height:45.75pt;mso-wrap-style:none' filled="f"
+   fillcolor="#f90 [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="blue [0]"/>
+   <v:shadow color="black [2]"/>
+   <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:rect><v:line id="_x0000_s21534" style='position:absolute;flip:x' from="180pt,402pt"
+   to="348pt,402pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21535" style='position:absolute' from="180pt,204pt"
+   to="180pt,402pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line><v:line id="_x0000_s21536" style='position:absolute;flip:x' from="258pt,390pt"
+   to="348pt,390pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line></p:shaperange>
+ <p:shaperange id="_x0000_s21537">
+  <v:line id="_x0000_s21537" style='position:absolute;flip:y' from="258pt,372pt"
+   to="258pt,390pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line></p:shaperange>
+ <p:shaperange id="_x0000_s21538">
+  <v:line id="_x0000_s21538" style='position:absolute;flip:x' from="258pt,456pt"
+   to="348pt,456pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrow="classic" endarrowwidth="narrow" endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line></p:shaperange>
+ <p:shaperange id="_x0000_s21539">
+  <v:line id="_x0000_s21539" style='position:absolute;flip:y' from="258pt,402pt"
+   to="258pt,456pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrowwidth="narrow"
+    endarrowlength="short"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line></p:shaperange>
+ <p:shaperange id="_x0000_s21540">
+  <v:line id="_x0000_s21540" style='position:absolute' from="252pt,186pt" to="270pt,186pt"
+   strokecolor="aqua [5]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    afterbuild="hide" flag="1024"/>
+  </v:line></p:shaperange>
+ <p:shaperange id="_x0000_s21541">
+  <v:line id="_x0000_s21541" style='position:absolute' from="300pt,210pt" to="300pt,228pt"
+   strokecolor="aqua [5]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    afterbuild="hide" flag="1024"/>
+  </v:line></p:shaperange>
+ <p:shaperange id="_x0000_s21542">
+  <v:line id="_x0000_s21542" style='position:absolute;flip:x' from="306pt,468pt"
+   to="348pt,468pt" strokecolor="white [1]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:line></p:shaperange>
+ <p:shaperange id="_x0000_s21543">
+  <v:line id="_x0000_s21543" style='position:absolute' from="300pt,258pt" to="300pt,276pt"
+   strokecolor="aqua [5]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    afterbuild="hide" flag="1024"/>
+  </v:line><v:line id="_x0000_s21544" style='position:absolute' from="300pt,306pt"
+   to="300pt,324pt" strokecolor="aqua [5]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    afterbuild="hide" flag="1024"/>
+  </v:line><v:line id="_x0000_s21545" style='position:absolute' from="300pt,354pt"
+   to="300pt,372pt" strokecolor="aqua [5]" strokeweight="1pt">
+   <v:stroke startarrowwidth="narrow" startarrowlength="short" endarrow="classic"/>
+   <v:shadow color="black [2]"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    afterbuild="hide" flag="1024"/>
+  </v:line><v:rect id="_x0000_s21546" style='position:absolute;left:421.75pt;
+   top:409pt;width:32.5pt;height:36pt;mso-wrap-style:none' filled="f"
+   fillcolor="#f90 [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="blue [0]"/>
+   <v:shadow color="black [2]"/>
+   <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+    flag="1024"/>
+  </v:rect></p:shaperange>
+ <p:shaperange id="_x0000_s21553">
+  <v:group id="_x0000_s21553" style='position:absolute;left:369.375pt;top:178.25pt;
+   width:107pt;height:291.625pt' coordorigin="2955,1426" coordsize="856,2333">
+   <v:rect id="_x0000_s21547" style='position:absolute;left:2980;top:3508;
+    width:808;height:232;mso-wrap-style:none;v-text-anchor:middle' fillcolor="#0c0"
+    strokecolor="white [1]" strokeweight="1pt">
+    <v:shadow color="black [2]"/>
+    <v:textbox inset="7.25pt,46038emu,7.25pt,46038emu"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21548" style='position:absolute;left:2980;
+    top:2932;width:808;height:232;mso-wrap-style:none;v-text-anchor:middle'
+    fillcolor="#0c0" strokecolor="white [1]" strokeweight="1pt">
+    <v:shadow color="black [2]"/>
+    <v:textbox inset="7.25pt,46038emu,7.25pt,46038emu"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21549" style='position:absolute;left:2980;
+    top:2500;width:808;height:184;mso-wrap-style:none;v-text-anchor:middle'
+    fillcolor="#0c0" strokecolor="white [1]" strokeweight="1pt">
+    <v:shadow color="black [2]"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21550" style='position:absolute;left:2980;
+    top:1444;width:808;height:184;mso-wrap-style:none;v-text-anchor:middle'
+    fillcolor="#0c0" strokecolor="white [1]" strokeweight="1pt">
+    <v:shadow color="black [2]"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21551" style='position:absolute;left:2980;
+    top:2164;width:808;height:184;mso-wrap-style:none;v-text-anchor:middle'
+    fillcolor="#0c0" strokecolor="white [1]" strokeweight="1pt">
+    <v:shadow color="black [2]"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21552" style='position:absolute;left:2955;
+    top:1426;width:856;height:2333;mso-wrap-style:none;v-text-anchor:middle'
+    filled="f" fillcolor="#f90 [4]" strokecolor="white [1]" strokeweight="1pt">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+   </v:rect></v:group></p:shaperange>
+ <p:shaperange id="_x0000_s21560">
+  <v:group id="_x0000_s21560" style='position:absolute;left:358.125pt;top:184.25pt;
+   width:112.25pt;height:220.25pt' coordorigin="2865,1474" coordsize="898,1762">
+   <v:rect id="_x0000_s21554" style='position:absolute;left:2884;top:2980;
+    width:856;height:232;mso-wrap-style:none;v-text-anchor:middle' fillcolor="#9cf"
+    strokecolor="white [1]" strokeweight="1pt">
+    <v:shadow color="black [2]"/>
+    <v:textbox inset="7.25pt,46038emu,7.25pt,46038emu"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21555" style='position:absolute;left:2884;
+    top:2548;width:856;height:184;mso-wrap-style:none;v-text-anchor:middle'
+    fillcolor="#9cf" strokecolor="white [1]" strokeweight="1pt">
+    <v:shadow color="black [2]"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21556" style='position:absolute;left:2884;
+    top:1492;width:856;height:184;mso-wrap-style:none;v-text-anchor:middle'
+    fillcolor="#9cf" strokecolor="white [1]" strokeweight="1pt">
+    <v:shadow color="black [2]"/>
+    <v:textbox inset="7.25pt,46038emu,7.25pt,46038emu"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     afterbuild="hide" flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21557" style='position:absolute;left:2884;
+    top:1876;width:856;height:184;mso-wrap-style:none;v-text-anchor:middle'
+    fillcolor="#9cf" strokecolor="white [1]" strokeweight="1pt">
+    <v:shadow color="black [2]"/>
+    <v:textbox inset="7.25pt,46038emu,7.25pt,46038emu"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     afterbuild="hide" flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21558" style='position:absolute;left:2884;
+    top:2212;width:856;height:184;mso-wrap-style:none;v-text-anchor:middle'
+    fillcolor="#9cf" strokecolor="white [1]" strokeweight="1pt">
+    <v:shadow color="black [2]"/>
+    <v:textbox inset="7.25pt,46038emu,7.25pt,46038emu"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     afterbuild="hide" flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21559" style='position:absolute;left:2865;
+    top:1474;width:898;height:1762;mso-wrap-style:none;v-text-anchor:middle'
+    filled="f" fillcolor="#f90 [4]" strokecolor="white [1]" strokeweight="1pt">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+   </v:rect></v:group></p:shaperange>
+ <p:shaperange id="_x0000_s21565">
+  <v:group id="_x0000_s21565" style='position:absolute;left:346.125pt;top:322.125pt;
+   width:117.75pt;height:161pt' coordorigin="2769,2577" coordsize="942,1288">
+   <v:rect id="_x0000_s21561" style='position:absolute;left:2788;top:3028;
+    width:904;height:232;mso-wrap-style:none;v-text-anchor:middle'
+    strokecolor="white [1]" strokeweight="1pt">
+    <v:fill src="slide0021_image020.jpg" o:title="" type="tile"/>
+    <v:shadow color="black [2]"/>
+    <v:textbox inset="7.25pt,46038emu,7.25pt,46038emu"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21562" style='position:absolute;left:2788;
+    top:3604;width:904;height:232;mso-wrap-style:none;v-text-anchor:middle'
+    strokecolor="white [1]" strokeweight="1pt">
+    <v:fill src="slide0021_image020.jpg" o:title="" type="tile"/>
+    <v:shadow color="black [2]"/>
+    <v:textbox inset="7.25pt,46038emu,7.25pt,46038emu"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21563" style='position:absolute;left:2788;
+    top:2596;width:904;height:184;mso-wrap-style:none;v-text-anchor:middle'
+    strokecolor="white [1]" strokeweight="1pt">
+    <v:fill src="slide0021_image020.jpg" o:title="" type="tile"/>
+    <v:shadow color="black [2]"/>
+    <v:textbox inset="7.25pt,46038emu,7.25pt,46038emu"/>
+    <p:animation delay="0" type="noBuild" effect="cut" direction="noBlack"
+     afterbuild="hide" flag="1024"/>
+   </v:rect><v:rect id="_x0000_s21564" style='position:absolute;left:2769;
+    top:2577;width:942;height:1288;mso-wrap-style:none;v-text-anchor:middle'
+    filled="f" fillcolor="#f90 [4]" strokecolor="white [1]" strokeweight="1pt">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+   </v:rect></v:group></p:shaperange>
+ <p:shaperange id="_x0000_s21568">
+  <v:group id="_x0000_s21568" style='position:absolute;left:486.5pt;top:198.5pt;
+   width:182.5pt;height:137pt' coordorigin="3892,1588" coordsize="1460,1096">
+   <v:shapetype id="_x0000_t17" coordsize="21600,21600" o:spt="17" adj="1800"
+    path="m18000,18000qx21600,14400l21600,3600qy18000,0l3600,0qx0,3600l0,14400qy3600,18000l3600,18000@0,21600,5400,18000xe">
+    <v:stroke joinstyle="miter"/>
+    <v:formulas>
+     <v:f eqn="val #0"/>
+    </v:formulas>
+    <v:path o:connecttype="custom" o:connectlocs="10800,0;0,9000;@0,21600;10800,18000;21600,9000"
+     o:connectangles="270,180,180,90,0" textboxrect="1054,1054,20545,16945"/>
+    <v:handles>
+     <v:h position="#0,bottomRight" xrange="0,9000"/>
+    </v:handles>
+   </v:shapetype><v:shape id="_x0000_s21566" type="#_x0000_t17" style='position:absolute;
+    left:3892;top:1588;width:1432;height:1096;rotation:180;flip:x;
+    mso-wrap-style:none;v-text-anchor:middle' adj="44" filled="f" fillcolor="#f90 [4]"
+    strokecolor="white [1]" strokeweight="1pt">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+    <p:animation number="1" delay="0" type="object" effect="cut"
+     direction="noBlack" afterbuild="hide" flag="17408"/>
+   </v:shape><v:rect id="_x0000_s21567" style='position:absolute;left:4070;
+    top:2015;width:1282;height:520;mso-wrap-style:none' filled="f" fillcolor="#f90 [4]"
+    stroked="f" strokecolor="white [1]">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+    <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   </v:rect><p:animation number="1" delay="0" type="object" effect="cut"
+    direction="noBlack" afterbuild="hide" flag="17408"/>
+  </v:group></p:shaperange>
+ <p:shaperange id="_x0000_s21571">
+  <v:group id="_x0000_s21571" style='position:absolute;left:486.5pt;top:246.5pt;
+   width:182.5pt;height:137pt' coordorigin="3892,1972" coordsize="1460,1096">
+   <v:shape id="_x0000_s21569" type="#_x0000_t17" style='position:absolute;
+    left:3892;top:1972;width:1432;height:1096;rotation:180;flip:x;
+    mso-wrap-style:none;v-text-anchor:middle' adj="44" filled="f" fillcolor="#f90 [4]"
+    strokecolor="white [1]" strokeweight="1pt">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+    <p:animation number="2" delay="0" type="object" effect="cut"
+     direction="noBlack" afterbuild="hide" flag="17408"/>
+   </v:shape><v:rect id="_x0000_s21570" style='position:absolute;left:4070;
+    top:2399;width:1282;height:520;mso-wrap-style:none' filled="f" fillcolor="#f90 [4]"
+    stroked="f" strokecolor="white [1]">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+    <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   </v:rect><p:animation number="2" delay="0" type="object" effect="cut"
+    direction="noBlack" afterbuild="hide" flag="17408"/>
+  </v:group></p:shaperange>
+ <p:shaperange id="_x0000_s21574">
+  <v:group id="_x0000_s21574" style='position:absolute;left:486.5pt;top:282.5pt;
+   width:179pt;height:137pt' coordorigin="3892,2260" coordsize="1432,1096">
+   <v:shape id="_x0000_s21572" type="#_x0000_t17" style='position:absolute;
+    left:3892;top:2260;width:1432;height:1096;rotation:180;flip:x;
+    mso-wrap-style:none;v-text-anchor:middle' adj="44" filled="f" fillcolor="#f90 [4]"
+    strokecolor="white [1]" strokeweight="1pt">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+    <p:animation number="3" delay="0" type="object" effect="cut"
+     direction="noBlack" afterbuild="hide" flag="17408"/>
+   </v:shape><v:rect id="_x0000_s21573" style='position:absolute;left:4024;
+    top:2471;width:1168;height:674;mso-wrap-style:none' filled="f" fillcolor="#f90 [4]"
+    stroked="f" strokecolor="white [1]">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+    <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   </v:rect><p:animation number="3" delay="0" type="object" effect="cut"
+    direction="noBlack" afterbuild="hide" flag="17408"/>
+  </v:group></p:shaperange>
+ <p:shaperange id="_x0000_s21577">
+  <v:group id="_x0000_s21577" style='position:absolute;left:486.5pt;top:330.5pt;
+   width:182.5pt;height:137pt' coordorigin="3892,2644" coordsize="1460,1096">
+   <v:shape id="_x0000_s21575" type="#_x0000_t17" style='position:absolute;
+    left:3892;top:2644;width:1432;height:1096;rotation:180;flip:x;
+    mso-wrap-style:none;v-text-anchor:middle' adj="44" filled="f" fillcolor="#f90 [4]"
+    strokecolor="white [1]" strokeweight="1pt">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+    <p:animation number="4" delay="0" type="object" effect="cut"
+     direction="noBlack" afterbuild="hide" flag="17408"/>
+   </v:shape><v:rect id="_x0000_s21576" style='position:absolute;left:4024;
+    top:2855;width:1328;height:520;mso-wrap-style:none' filled="f" fillcolor="#f90 [4]"
+    stroked="f" strokecolor="white [1]">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+    <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   </v:rect><p:animation number="4" delay="0" type="object" effect="cut"
+    direction="noBlack" afterbuild="hide" flag="17408"/>
+  </v:group></p:shaperange>
+ <p:shaperange id="_x0000_s21580">
+  <v:group id="_x0000_s21580" style='position:absolute;left:486.5pt;top:384.5pt;
+   width:179.875pt;height:137pt' coordorigin="3892,3076" coordsize="1439,1096">
+   <v:shape id="_x0000_s21578" type="#_x0000_t17" style='position:absolute;
+    left:3892;top:3076;width:1432;height:1096;rotation:180;flip:x;
+    mso-wrap-style:none;v-text-anchor:middle' adj="44" filled="f" fillcolor="#f90 [4]"
+    strokecolor="white [1]" strokeweight="1pt">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+    <p:animation number="5" delay="0" type="object" effect="cut"
+     direction="noBlack" afterbuild="hide" flag="17408"/>
+   </v:shape><v:rect id="_x0000_s21579" style='position:absolute;left:4024;
+    top:3287;width:1307;height:520;mso-wrap-style:none' filled="f" fillcolor="#f90 [4]"
+    stroked="f" strokecolor="white [1]">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+    <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   </v:rect><p:animation number="5" delay="0" type="object" effect="cut"
+    direction="noBlack" afterbuild="hide" flag="17408"/>
+  </v:group></p:shaperange>
+ <p:shaperange id="_x0000_s21583">
+  <v:group id="_x0000_s21583" style='position:absolute;left:486.5pt;top:330.5pt;
+   width:179pt;height:137pt' coordorigin="3892,2644" coordsize="1432,1096">
+   <v:shape id="_x0000_s21581" type="#_x0000_t17" style='position:absolute;
+    left:3892;top:2644;width:1432;height:1096;mso-wrap-style:none;
+    v-text-anchor:middle' adj="44" filled="f" fillcolor="#f90 [4]"
+    strokecolor="white [1]" strokeweight="1pt">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+    <p:animation number="6" delay="0" type="object" effect="cut"
+     direction="noBlack" afterbuild="hide" flag="17408"/>
+   </v:shape><v:rect id="_x0000_s21582" style='position:absolute;left:3902;
+    top:2933;width:1417;height:366;mso-wrap-style:none' filled="f" fillcolor="#f90 [4]"
+    stroked="f" strokecolor="white [1]">
+    <v:fill color2="blue [0]"/>
+    <v:shadow color="black [2]"/>
+    <v:textbox style='mso-fit-shape-to-text:t' inset="7.25pt,46038emu,7.25pt,46038emu"/>
+   </v:rect><p:animation number="6" delay="0" type="object" effect="cut"
+    direction="noBlack" afterbuild="hide" flag="17408"/>
+  </v:group></p:shaperange>
+</xml>
