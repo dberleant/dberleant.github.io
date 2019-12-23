@@ -1,0 +1,75 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint"
+ xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+ <p:presentation omittitleplace="t">
+  <p:master id="4" type="main" href="master04.htm" xmlhref="master04.xml"
+   template="Contemporary Portrait" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+    <p:colorscheme
+     colors="#000000,#FFFFCC,#5E574E,#FFCC00,#CC9900,#FF6600,#FF0000,#FFFFCC"/>
+    <p:colorscheme
+     colors="#FFFFFF,#000000,#5E574E,#000000,#FF6600,#FFCC00,#996633,#808000"/>
+    <p:colorscheme
+     colors="#FFFFFF,#000000,#393939,#000000,#CBCBCB,#868686,#4D4D4D,#EAEAEA"/>
+    <p:colorscheme
+     colors="#FFFFFF,#000000,#5E574E,#800000,#FF6600,#FFCC00,#FF0000,#FFFFCC"/>
+    <p:colorscheme
+     colors="#FFFFFF,#000066,#000000,#0000FF,#0066FF,#33CCCC,#FF00FF,#9933FF"/>
+    <p:colorscheme
+     colors="#000066,#FFFFFF,#000000,#FFCC00,#0066FF,#33CCCC,#FF00FF,#9933FF"/>
+    <p:colorscheme
+     colors="#800000,#FFFFCC,#5E574E,#FFCC00,#CC9900,#FF6600,#FF0000,#FFFFCC"/>
+   </p:schemes>
+  </p:master>
+  <p:master id="5" type="title" href="master05.htm" xmlhref="master05.xml"
+   layout="title_subtitle"
+   slots="centerTitle,subTitle,dateTime,footer,slideNumber"/>
+  <p:master id="1" type="notes" href="master01.htm" layout="notes"
+   slots="header,dateTime,slideImage,body,footer,slideNumber">
+   <p:tag name="___PPT10" type="binary" datasize="16" dataoffset="0"/>
+  </p:master>
+  <p:master id="2" type="handout" href="master02.htm" layout="handout"
+   slots="header,dateTime,footer,slideNumber">
+   <p:tag name="___PPT10" type="binary" datasize="16" dataoffset="1"/>
+  </p:master>
+  <p:slide id="1" href="slide0001.htm" masterhref="master05.htm"
+   layout="title_subtitle" slots="centerTitle,subTitle" collapseoutline="t"/>
+  <p:slide id="20" href="slide0020.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="35" href="slide0035.htm" layout="title_only" slots="title"/>
+  <p:slide id="21" href="slide0021.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="22" href="slide0022.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="23" href="slide0023.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="24" href="slide0024.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="25" href="slide0025.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="26" href="slide0026.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="27" href="slide0027.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="28" href="slide0028.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="29" href="slide0029.htm" layout="title_body" slots="title,body"/>
+  <p:slide id="36" href="slide0036.htm" layout="title_body" slots="title,body">
+   <p:tag name="___PPT10" type="binary" datasize="16" dataoffset="2"/>
+  </p:slide>
+  <p:slide id="37" href="slide0037.htm" layout="title_body" slots="title,body">
+   <p:tag name="___PPT10" type="binary" datasize="16" dataoffset="3"/>
+  </p:slide>
+  <p:viewstate type="slideView" slidehref="slide0037.htm" outlinescale="50"
+   restoredleft="178" horizbarstate="2" manualadjustleft="t"/>
+  <p:tag name="___PPT10" type="binary" datasize="16" dataoffset="4"/>
+  <p:kinsoku language="Japanese" level="levelOne"/>
+  <p:font name="Times New Roman" charset="0" type="4"/>
+  <p:font name="Georgia" charset="0" type="6" family="18"/>
+  <p:font name="Arial" charset="0" type="4"/>
+  <p:font name="Wingdings" charset="2" type="6" family="2"/>
+  <p:font name="Book Antiqua" charset="0" type="6" family="18"/>
+  <p:font name="Arial Black" charset="0" type="6" family="34"/>
+  <p:font name="Comic Sans MS" charset="0" type="6" family="66"/>
+  <p:font name="Symbol" charset="2" type="6" family="18"/>
+  <p:headersfooters slidenumber="t" footerstr="(c) 2001 Berleant and Sheble"
+   nouserdate="t" noheader="t" todaydate="t"/>
+  <p:headersfooters notes="t" slidenumber="t"/>
+  <p:pptdocumentsettings framecolors="WhiteTextOnBlack" hideslideanimation="t"/>
+ </p:presentation>
+ <o:shapedefaults v:ext="edit" spidmax="93186">
+  <o:colormru v:ext="edit" colors="white,#09c,yellow,#ff9,#f96,#9cf,#cfc,#f93"/>
+ </o:shapedefaults></xml>
