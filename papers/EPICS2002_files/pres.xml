@@ -1,0 +1,53 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint">
+ <p:presentation slidesizex="18432" slidesizey="23040" advisor="1024">
+  <p:master id="113" type="main" href="master113.htm" xmlhref="master113.xml"
+   template="Ocean" layout="title_body"
+   slots="title,body,dateTime,footer,slideNumber">
+   <p:schemes>
+    <p:colorscheme
+     colors="#000099,#FFFFFF,#010199,#FFFFFF,#33CCCC,#00C600,#FFCC00,#6699FF"/>
+    <p:colorscheme
+     colors="#5D93FF,#FFFFFF,#000066,#FFFFFF,#6666FF,#9999FF,#FF3300,#FF9900"/>
+    <p:colorscheme
+     colors="#572E88,#FFFFFF,#000000,#FFFFFF,#FF6600,#FFCC00,#33CCCC,#36CC64"/>
+    <p:colorscheme
+     colors="#666699,#FFFFFF,#003366,#FFFFFF,#9966FF,#00CC66,#65C8FF,#FFCC99"/>
+    <p:colorscheme
+     colors="#336600,#FFFFFF,#000000,#FFFFFF,#B7C533,#CCCCFF,#FFFFCC,#FF9900"/>
+    <p:colorscheme
+     colors="#006B80,#FFFFFF,#000000,#C1CB75,#6F8406,#D9E288,#00CC00,#C0FF73"/>
+    <p:colorscheme
+     colors="#FF6600,#FFFFFF,#5F5F5F,#FFFFFF,#CC6600,#FF6600,#FFFF99,#FFCC99"/>
+    <p:colorscheme
+     colors="#FFBA2F,#FFFFFF,#000000,#A50021,#FF6600,#CC6600,#663300,#CC9900"/>
+   </p:schemes>
+   <p:tag name="___PPT10" type="binary" datasize="16" dataoffset="0"/>
+  </p:master>
+  <p:master id="114" type="title" href="master114.htm" xmlhref="master114.xml"
+   layout="title_subtitle"
+   slots="centerTitle,subTitle,dateTime,footer,slideNumber">
+   <p:tag name="___PPT10" type="binary" datasize="16" dataoffset="1"/>
+  </p:master>
+  <p:master id="2" type="handout" href="master02.htm" layout="handout"
+   slots="header,dateTime,footer,slideNumber"/>
+  <p:slide id="1" href="slide0001.htm" layout="big_object" slots="object">
+   <p:tag name="___PPT10" type="binary" datasize="16" dataoffset="2"/>
+  </p:slide>
+  <p:viewstate type="slideView" scale="15" restoredleft="143" restoredtop="946"
+   manualadjustleft="t" hideoutlineicons="t"/>
+  <p:tag name="___PPT10" type="binary" datasize="16" dataoffset="3"/>
+  <p:font name="Arial" charset="0" type="4" family="34"/>
+  <p:font name="Tahoma" charset="0" type="4" family="34"/>
+  <p:font name="Wingdings" charset="2" type="4" family="2"/>
+  <p:font name="Comic Sans MS" charset="0" type="4" family="66"/>
+  <p:font name="Palatino Linotype" charset="0" type="6" family="18"/>
+  <p:font name="楷体_GB2312" charset="134" type="6" family="49"/>
+  <p:headersfooters noheader="t"/>
+  <p:pptdocumentsettings framecolors="WhiteTextOnBlack" hideslideanimation="t"/>
+ </p:presentation>
+ <o:shapedefaults v:ext="edit" spidmax="130050">
+  <o:colormru v:ext="edit" colors="#443830,#615045,#9b0b31,#b50d39,#15ff15,#c50328,#720217,#ff4d4d"/>
+  <o:colormenu v:ext="edit" fillcolor="none [3]"/>
+ </o:shapedefaults></xml>

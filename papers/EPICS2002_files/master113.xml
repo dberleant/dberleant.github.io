@@ -1,0 +1,76 @@
+<xml xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:p="urn:schemas-microsoft-com:office:powerpoint">
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="116"/>
+ </o:shapelayout><p:colorscheme
+  colors="#000099,#FFFFFF,#010199,#FFFFFF,#33CCCC,#00C600,#FFCC00,#6699FF"/>
+ <v:background id="_x0000_s118785" o:bwmode="white" o:targetscreensize="800,600">
+  <v:fill src="master113_image001.jpg" o:title="样品" color2="#2f4776" angle="-135"
+   method="linear sigma" focus="100%" type="frame"/>
+ </v:background><p:shaperange id="_x0000_s118786">
+  <v:shapetype id="_x0000_s118786" style='position:absolute;left:115.25pt;
+   top:122.625pt;width:2073.5pt;height:581.375pt;v-text-anchor:middle'
+   coordsize="21600,21600" o:master="" o:spt="1" path="m0,0l0,21600,21600,21600,21600,0xe"
+   filled="f" fillcolor="#3cc [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="#009 [0]" o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:shadow color="#010199 [2]"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <v:textbox inset="376202emu,188101emu,376202emu,188101emu"/>
+   <p:placeholder type="title"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_m118787">
+  <v:shapetype id="_x0000_m118787" style='position:absolute;left:115.25pt;
+   top:800pt;width:2073.5pt;height:24in' coordsize="21600,21600" o:master=""
+   o:spt="1" path="m0,0l0,21600,21600,21600,21600,0xe" filled="f" fillcolor="#3cc [4]"
+   stroked="f" strokecolor="white [1]">
+   <v:fill color2="#009 [0]" o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:shadow color="#010199 [2]"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <v:textbox inset="376202emu,188101emu,376202emu,188101emu"/>
+   <p:placeholder type="body" position="1"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_s118788">
+  <v:shapetype id="_x0000_s118788" style='position:absolute;left:115.25pt;
+   top:2622.625pt;width:537.5pt;height:200pt;v-text-anchor:bottom' coordsize="21600,21600"
+   o:master="" o:spt="1" path="m0,0l0,21600,21600,21600,21600,0xe" filled="f"
+   fillcolor="#3cc [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="#009 [0]" o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:shadow color="#010199 [2]"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <v:textbox inset="376202emu,188101emu,376202emu,188101emu"/>
+   <p:placeholder type="dateTime" position="2" size="half"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_s118789">
+  <v:shapetype id="_x0000_s118789" style='position:absolute;left:787.25pt;
+   top:2622.625pt;width:729.5pt;height:200pt;v-text-anchor:bottom' coordsize="21600,21600"
+   o:master="" o:spt="1" path="m0,0l0,21600,21600,21600,21600,0xe" filled="f"
+   fillcolor="#3cc [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="#009 [0]" o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:shadow color="#010199 [2]"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <v:textbox inset="376202emu,188101emu,376202emu,188101emu"/>
+   <p:placeholder type="footer" position="3" size="quarter"/>
+  </v:shapetype></p:shaperange>
+ <p:shaperange id="_x0000_s118790">
+  <v:shapetype id="_x0000_s118790" style='position:absolute;left:1651.25pt;
+   top:2622.625pt;width:537.5pt;height:200pt;v-text-anchor:bottom' coordsize="21600,21600"
+   o:master="" o:spt="1" path="m0,0l0,21600,21600,21600,21600,0xe" filled="f"
+   fillcolor="#3cc [4]" stroked="f" strokecolor="white [1]">
+   <v:fill color2="#009 [0]" o:detectmouseclick="t"/>
+   <v:stroke joinstyle="miter" o:forcedash="t"/>
+   <v:shadow color="#010199 [2]"/>
+   <v:path gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" grouping="t"/>
+   <v:textbox inset="376202emu,188101emu,376202emu,188101emu"/>
+   <p:placeholder type="slideNumber" position="4" size="quarter"/>
+  </v:shapetype></p:shaperange>
+</xml>

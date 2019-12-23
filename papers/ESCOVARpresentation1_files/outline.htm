@@ -1,0 +1,832 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=PowerPoint.Slide>
+<meta name=Generator content="Microsoft PowerPoint 10">
+<link id=Main-File rel=Main-File href="../ESCOVARpresentation1.htm">
+<link rel=Preview href=preview.wmf>
+<meta name=Robots content=NoIndex>
+<script src=script.js></script><script><!--
+if( !(IsWin("PPTOtl")||IsWin("PPTNav")||IsWin("PPTOtlNav")) )
+{
+	obj = GetObj("Main-File")
+	parent.location.href=obj.href
+}
+var gOtlHiliteClr="#ffffff",gOtlNormalClr="#000000",gOtlActiveClr="#ffff00",gSelected="",gTxtState=false,gChildEntryTable=new Array()
+function Load()
+{
+	if( IsWin("PPTOtl" ) ){ LoadOtl(); parent.gOtlLoaded=true; return }
+	if( g_supportsPPTHTML ) {
+		if( IsWin("PPTNav" ) ){ LoadNav("NavObj",UpdNav); parent.gNavLoaded=true; return }
+		if( IsWin("PPTOtlNav" ) ){ LoadNav("OtlNavObj",UpdOtlNav); parent.gOtlNavLoaded=true; return }
+	}
+}
+function Upd(){ if( IsWin("PPTNav") ) LoadNav("NavObj",UpdNav) }
+function LoadNav( oId,UpdFunc )
+{
+	document.ondragstart=CancelDrag
+	document.onselectstart=CancelDrag
+	document.body.style.margin=2
+	UpdFunc()
+	obj=document.all.item(oId)
+	obj.style.display="block"
+	obj.style.visibility="visible"
+	document.bgColor="threedface"
+	if( parent.frames["PPTNts"] )
+		notesBtn.style.display = ""
+	if( parent.gHasNarration )
+		nb_voiceBorder.style.display = ""
+}
+function LoadOtl()
+{
+	var otl=GetObj("OtlObj")
+	otl.style.display="block"
+	otl.style.visibility="visible"
+	if( gOtlActiveClr == "" ) gOtlActiveClr=document.linkColor
+	if( gOtlHiliteClr == "" ) gOtlHiliteClr=document.fgColor
+	if( gOtlNormalClr == "" )
+		gOtlNormalClr=document.bgColor
+	else
+		document.bgColor=gOtlNormalClr
+	InitArray()
+	if( ObjExists( parent.gCurSld ) ) {
+		ChangeState( parent.gCurSld,gOtlNormalClr,gOtlHiliteClr )
+		gSelected=parent.gCurSld
+	}
+	else gSelected = -1
+	UpdOtl()
+}
+function UpdOtl(){ UpdIdx(parent.gCurSld) }
+function UpdIdx( idx )
+{
+	if( gSelected != idx ) {
+		if( gSelected > 0 )
+			ChangeState( gSelected,gOtlHiliteClr,gOtlNormalClr )
+		if( ObjExists( idx ) ) {
+			gSelected = idx
+			ChangeState( gSelected,gOtlNormalClr,gOtlHiliteClr )
+		}
+		else gSelected = -1
+	}
+	if( gTxtState != parent.gOtlTxtExp ) {
+		state = "block"
+		if( !parent.gOtlTxtExp )
+			state="none"
+		for(ii=0; ii<gChildEntryTable.length; ii++) {
+			obj=gChildEntryTable[ii];
+			if( obj.id == null ) continue;
+			if( obj.id.indexOf("PPTC") >= 0 )
+				obj.style.display=state;
+		}
+		gTxtState=parent.gOtlTxtExp
+		if( ObjExists( gSelected ) )
+			ChangeState( gSelected,gOtlNormalClr,gOtlHiliteClr )
+	}
+}
+function InitArray()
+{
+	count=0
+	var list=GetTags(document,"DIV");
+	for(ii=0; ii<list.length; ii++) {
+		obj=list.item(ii)
+		if( obj.id == null ) continue
+		if( obj.id.indexOf("PPTC") >= 0 )
+			gChildEntryTable[count++]=obj
+	}
+}
+function ChangeState( idx,fgColor,bgColor )
+{
+	obj=GetObj("PPTL"+idx)
+	obj.style.color=fgColor
+	obj=GetObj("PPTP"+idx)
+	obj.style.backgroundColor=bgColor
+}
+function ChgClr( o,clr ){ if( o.id != "PPTL"+gSelected ) o.style.color=clr }
+function Over( src ){ ChgClr(GetLink(src),gOtlActiveClr) }
+function Out( src ){ ChgClr(GetLink(src),gOtlHiliteClr) }
+function Follow(src){ window.location.href = GetLink(src).href; }
+function ObjExists( ii ) { obj=GetObj("PPTP"+ii ); return( obj ) }
+function GoToSld( href ){ UpdIdx(parent.GetSldNum(href)); parent.GoToSld( href ) }
+function CancelDrag(){ window.event.cancelBubble=true;window.event.returnValue=false}
+function GetLink(src)
+{
+   if(src.tagName=="A") return src
+   else return GetTags(src,"A").item(0)
+}
+function UpdNav()
+{
+	txt = "<center>";
+	if( parent.GetHrefObj( parent.gCurSld ).mOrigVis == 1 )
+		txt += "Slide " + parent.GetCurSldNum() + " of " + parent.GetNumSlds()
+	else
+		txt += "Hidden Slide"
+	txt += "</center>";
+	nav_text.innerHTML = txt;
+	if( !parent.HasPrevSld() )
+		gBtnArr["nb_prev"].Enabled(0)
+	else
+		gBtnArr["nb_prev"].Enabled(1)
+	if( !parent.HasNextSld() )
+		gBtnArr["nb_next"].Enabled(0)
+	else
+		gBtnArr["nb_next"].Enabled(1)
+	gBtnArr["nb_nts"].SetEnabled()
+	gBtnArr["nb_nts"].SetFlag( parent.gHasNts )
+	gBtnArr["nb_sldshw"].Enabled(1)
+	gBtnArr["nb_voice"].Enabled(1)
+}
+function UpdOtlNav()
+{
+	gBtnArr["nb_otl"].SetEnabled();
+	if( parent.gOtlOpen )
+		gBtnArr["nb_otlTxt"].Enabled( true );
+	else
+		document.all.item("nb_otlTxtBorder").style.visibility = "hidden";
+}
+
+//--></script>
+<style>
+<!--.PTxt
+	{position:relative;
+	width:100%;
+	margin-top:5px;
+	padding-left:2px;
+	font-weight:bold;}
+.CTxt
+	{position:relative;
+	width:100%;
+	margin-top:5px;}
+a
+	{color:white;
+	text-decoration:none;}
+ul
+	{color:white;
+	margin-bottom:0px;
+	margin-left:20px;}
+.sldNum
+	{margin-top:5px;
+	color:white;}
+.button
+	{position:absolute;
+	width:32px;
+	height:20px;
+	border-style:solid;
+	border-width:1px;
+	border-color:threedface;}
+-->
+</style>
+</head>
+
+<body onload="Load()" style='margin:2px'>
+
+<div id=NavObj onload="Load()" onmouseover="BtnOnOver()"
+onmousedown="BtnOnDown()" onmouseout="BtnOnOut()" onmouseup="BtnOnUp()"
+onkeypress="_KPH()" style='display:none;visibility:hidden'>
+<table id="notesBtn" style='position:absolute;display:none;width:70px' align=left cellpadding=0
+ cellspacing=0>
+ <td nowrap>
+ <div id="nb_ntsElem" align=center style='position:relative;padding:3px;
+ font-family:Arial;color:buttontext;font-size:9pt'><img src="notes_flag.gif"
+ border=0 id="notes_flag" style='display:none'><span
+style='mso-spacerun:yes'>  </span>Notes</div>
+ <div title="Show/Hide Notes" id="nb_nts" style='position:absolute;top:0%;
+ left:0%;width:100%;height:100%'></div>
+ </td>
+</table>
+
+<table style='position:relative;width:70px' align=right cellpadding=0 cellspacing=0>
+ <td nowrap>
+ <div id="nb_sldshwText" title="Full
+Screen Slide Show" align=center style='position:relative;margin-left:20px;padding:3px;
+ font-family:Arial;color:buttontext;font-size:9pt;cursor:default'>Slide
+Show</div>
+ <div id="nb_sldshwBorder" title="Full Screen Slide Show" style='position:absolute;top:0%;left:0%;width:100%;height:20px'>
+ <div style='position:absolute;clip:rect(0px, 18px, 18px, 0px)'><img
+ src="buttons.gif" id="nb_sldshw" style='position:relative;left:-254px'></div>
+ </div>
+ </td>
+ <td>
+ <div id="nb_voiceBorder" style='display:none;position:absolute;top:0;left:-40px;
+ width:20px;height:20px'>
+ <div style='position:absolute;clip:rect(0px, 18px, 18px, 0px)'><img
+ src="buttons.gif" id="nb_voice" title="Pause/Play Narration" style='position:
+ relative;left:-290px'></div>
+ </div>
+ </td>
+</table>
+
+<table style='position:relative' align=center cellpadding=0 cellspacing=0>
+ <td nowrap>
+ <div id="nb_prevBorder" class=button style='left:-30px'>
+ <div style='position:absolute;clip:rect(0px, 30px, 18px, 0px)'><img
+ src="buttons.gif" id="nb_prev" title="Previous Slide" style='position:relative;
+ left:0px'></div>
+ </div>
+ <span id="nav_text" style='position:relative;top:3px;width:100px;font-family:
+ Arial;color:buttontext;font-size:9pt'></span>
+ <div id="nb_nextBorder" class=button>
+ <div style='position:absolute;clip:rect(0px, 30px, 18px, 0px)'><img
+ src="buttons.gif" id="nb_next" title="Next Slide" style='position:relative;
+ left:-90px'></div>
+ </div>
+ </td>
+</table>
+</div>
+
+<div id=OtlNavObj onload="Load()" onmouseover="BtnOnOver()"
+onmousedown="BtnOnDown()" onmouseout="BtnOnOut()" onmouseup="BtnOnUp()"
+onkeypress="_KPH()" style='display:none;visibility:hidden'>
+
+<table style='position:relative;width:70px' align=left cellpadding=0 cellspacing=0>
+ <td nowrap><div title="Show/Hide
+Outline" id="nb_otl"
+ style='position:absolute;top:0%;left:0%;width:100%;height:100%;cursor:default'>
+ <div id="nb_otlElem" align=center style='position:relative;padding:3px;font-family:Arial;
+ color:buttontext;font-size:9pt'>Outline</div></div>
+ </td>
+</table>
+
+<table style='position:relative' align=center cellpadding=0 cellspacing=0>
+ <td>
+ <div style='position:absolute;left:-18px;width:24px;height:20px;border-style:
+ solid;border-width:1px;border-color:threedface' id="nb_otlTxtBorder">
+ <div style='position:absolute;clip:rect(0px, 22px, 18px, 0px)'><img
+ src=buttons.gif id="nb_otlTxt" title="Expand/Collapse Outline"
+ style='position:relative;left:-157px'></div>
+ </div>
+ </td>
+</table>
+
+</div>
+
+<div id=OtlObj style='display:none;visibility:hidden;'>
+
+
+<table width="100%" style='font-family:Arial;font-size:9pt'>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>1</font></div>
+  </td>
+  <td width="100%">
+  <div id=PPTP1 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0001.htm');" id=PPTL1>Bounding Value at Risk
+  for Energy Companies with an Interval-Based Algorithm</a></font></div>
+  <div id=PPTC1 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Gerald B. Sheblé and Daniel Berleant</li>
+   <li>Dept. of Electrical and Computer Engineering</li>
+   <li>Iowa State University</li>
+   <li>Ames, Iowa 50011</li>
+   <li>USA</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>2</font></div>
+  </td>
+  <td>
+  <div id=PPTP2 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0002.htm');" id=PPTL2>The Changing Energy
+  Service Company Environment</a></font></div>
+  <div id=PPTC2 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Energy service company background</li>
+   <ul>
+    <li>ESCO = Energy Service COmpany</li>
+    <li>ESCOs are electric power retailers</li>
+    <li>Traditionally, rates are set by a regulator</li>
+    <li>Increasingly, deregulation is occurring</li>
+    <li>Market forces are now driving competition</li>
+    <li>A new risk is the risk of going out of business</li>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>3</font></div>
+  </td>
+  <td>
+  <div id=PPTP3 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0003.htm');" id=PPTL3>Value at Risk – the
+  Concept</a></font></div>
+  <div id=PPTC3 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Value at Risk = VaR</li>
+   <li>VaR consists of</li>
+   <ul>
+    <li>an upper limit on acceptable financial loss</li>
+    <li>p(loss will be within the acceptable limit)</li>
+   </ul>
+   <li>The limit might be</li>
+   <ul>
+    <li>how much the company can lose, and</li>
+    <li>still stay in business</li>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>4</font></div>
+  </td>
+  <td>
+  <div id=PPTP4 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0004.htm');" id=PPTL4>Value at Risk –<span
+  style='mso-spacerun:yes'>  </span>the Concept</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>5</font></div>
+  </td>
+  <td>
+  <div id=PPTP5 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0005.htm');" id=PPTL5>VaR and the ESCO</a></font></div>
+  <div id=PPTC5 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Deregulated energy service companies…</li>
+   <ul>
+    <li>are operating in a “typical” competitive mode</li>
+    <li>and must understand and control their VaR</li>
+   </ul>
+   <li>A model of VaR for ESCOs is needed</li>
+   <li>To reliably analyze it, we propose to:</li>
+   <ul>
+    <li>avoid assuming components are independent</li>
+    <li>use an interval-based analysis algorithm, DEnv</li>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>6</font></div>
+  </td>
+  <td>
+  <div id=PPTP6 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0006.htm');" id=PPTL6>The Covariance Method</a></font></div>
+  <div id=PPTC6 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Covariance method is relatively fast, easy</li>
+   <li>It requires a correlation matrix</li>
+   <ul>
+    <li>(for the uncertain factors)</li>
+   </ul>
+   <li>It assumes the uncertain factors are Gaussian</li>
+   <ul>
+    <li>This assumption is not always valid</li>
+    <li>Invalid assumptions lead to incorrect conclusions</li>
+   </ul>
+   <li>An augmented or different method is needed</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>7</font></div>
+  </td>
+  <td>
+  <div id=PPTP7 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0007.htm');" id=PPTL7>The Historical Method</a></font></div>
+  <div id=PPTC7 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Relies on historical data as problem input</li>
+   <br>
+   <br>
+   <ul>
+    <li>But historical data may be insufficient, and</li>
+    <li>The current environment may have changed</li>
+    <br>
+    <br>
+   </ul>
+   <li>The historical approach is not always best</li>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>8</font></div>
+  </td>
+  <td>
+  <div id=PPTP8 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0008.htm');" id=PPTL8>The Monte Carlo method</a></font></div>
+  <div id=PPTC8 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>MC involves randomly generating events</li>
+   <ul>
+    <li>Events are derived from distribution functions</li>
+    <li>Distributions are often assumed normal</li>
+    <ul>
+     <li>(But they don’t have to be)</li>
+    </ul>
+    <li>Distributions are often assumed independent</li>
+    <ul>
+     <li>(But they don’t have to be)</li>
+    </ul>
+    <li>MC is tricky when dependencies among distributions cannot be assigned</li>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>9</font></div>
+  </td>
+  <td>
+  <div id=PPTP9 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0009.htm');" id=PPTL9>A Model for ESCO VaR</a></font></div>
+  <div id=PPTC9 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>We combine three contributors to risk:</li>
+   <li></li>
+   <li>1) Market Price Risk</li>
+   <ul>
+    <li>Price fluctuation can cause losses in any business</li>
+   </ul>
+   <li>2) Supplier Contract Failure</li>
+   <ul>
+    <li>The ESCO’s energy suppliers may not deliver</li>
+   </ul>
+   <li>3) ESCO Contract Default</li>
+   <ul>
+    <li>The ESCO itself may be unable to deliver</li>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>10</font></div>
+  </td>
+  <td>
+  <div id=PPTP10 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0010.htm');" id=PPTL10>A Model for ESCO VaR</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>11</font></div>
+  </td>
+  <td>
+  <div id=PPTP11 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0011.htm');" id=PPTL11>The Model – Market
+  Price Risk</a></font></div>
+  <div id=PPTC11 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Uses a covariance matrix of fluctuations</li>
+   <ul>
+    <li>This may be derived from historical data</li>
+   </ul>
+   <li>VaR of market price fluctuation is:</li>
+   <br>
+   <br>
+   <li>P is proportion of overall value of...</li>
+   <ul>
+    <li>each portfolio component</li>
+   </ul>
+   <li><span style='mso-spacerun:yes'>  </span>is the volatility (determines
+       confidence)</li>
+   <li>C is the covariance matrix</li>
+   <br>
+   <br>
+   <ul>
+    <br>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>12</font></div>
+  </td>
+  <td>
+  <div id=PPTP12 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0012.htm');" id=PPTL12>The Model – Supplier
+  Contract Failure</a></font></div>
+  <div id=PPTC12 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Failures may be the fault of</li>
+   <ul>
+    <li>GENCOs (generating companies)</li>
+    <li>TRANSCOs (transmission companies)</li>
+    <li>DISTCOs (distribution companies)</li>
+    <li>ICA (Independent Contract Authority)</li>
+   </ul>
+   <li>This 2<sup>nd</sup> VaR component contributes to</li>
+   <ul>
+    <li>losses due to ENS (energy not served) model</li>
+    <li>the 3<sup>rd</sup> VaR component also contributes to</li>
+    <li><span style='mso-spacerun:yes'>   </span>loss due to ENS...</li>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>13</font></div>
+  </td>
+  <td>
+  <div id=PPTP13 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0013.htm');" id=PPTL13>The Model – ESCO
+  Contract Default</a></font></div>
+  <div id=PPTC13 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>ESCOs (Energy Service Companies) may</li>
+   <ul>
+    <li>fail to deliver due to supplier failures</li>
+    <li>fail to deliver due to operational failures</li>
+   </ul>
+   <li>Major operational failure sources are</li>
+   <ul>
+    <li>human error</li>
+    <li>computer error</li>
+    <li>strategic error</li>
+   </ul>
+   <li>Operational risk combines those sources</li>
+   <br>
+   <br>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>14</font></div>
+  </td>
+  <td>
+  <div id=PPTP14 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0017.htm');" id=PPTL14>Energy Not Served (ENS)</a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>15</font></div>
+  </td>
+  <td>
+  <div id=PPTP15 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0018.htm');" id=PPTL15>Energy Not Served (ENS)</a></font></div>
+  <div id=PPTC15 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Power undelivered to customer due to</li>
+   <ul>
+    <li>Operational failure of the ESCO</li>
+    <li>Failure of suppliers to deliver to the ESCO</li>
+    <ul>
+     <li>Supply chain includes</li>
+     <ul>
+      <li>GENCOs</li>
+      <li>TRANSCOs</li>
+      <li>DISTCOs</li>
+      <li>Coordinators</li>
+      <li>ESCO</li>
+     </ul>
+    </ul>
+    <br>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>16</font></div>
+  </td>
+  <td>
+  <div id=PPTP16 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0019.htm');" id=PPTL16>Cost to ESCO of Energy
+  not Served</a></font></div>
+  <div id=PPTC16 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>(Recall ESCO is the energy retailer)</li>
+   <li>Most obviously, there is loss of income</li>
+   <li>Failure to deliver may incur a penalty</li>
+   <ul>
+    <li>Customer should be compensated</li>
+    <ul>
+     <li>(This may be via rebate or direct payment)</li>
+    </ul>
+    <li>Compensation should account for:</li>
+    <ul>
+     <li>damage to the customer, and</li>
+     <li>need by ESCO to retain the customer</li>
+     <br>
+     <br>
+    </ul>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>17</font></div>
+  </td>
+  <td>
+  <div id=PPTP17 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0020.htm');" id=PPTL17>Payments Due to ENS</a></font></div>
+  <div id=PPTC17 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Any link in the supply chain to the ESCO</li>
+   <ul>
+    <li>...may cause a failure of supply</li>
+    <li>...and result in compensation TO the ESCO</li>
+   </ul>
+   <li>The ESCO may suffer operational failure</li>
+   <ul>
+    <li>...resulting in payments to the customers</li>
+    <li>Note no standards for this exist yet</li>
+    <li>ESCOs should have a capital fund for this</li>
+   </ul>
+   <br>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>18</font></div>
+  </td>
+  <td>
+  <div id=PPTP18 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0021.htm');" id=PPTL18>Market Price Risk</a></font></div>
+  <div id=PPTC18 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Energy sales depend on supply contracts</li>
+   <li>Contracts may be spot, forward, or futures</li>
+   <li>Contracts are made by a double auction system</li>
+   <li>Astute bidding strategies are a necessity</li>
+   <br>
+   <br>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>19</font></div>
+  </td>
+  <td>
+  <div id=PPTP19 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0022.htm');" id=PPTL19>Combining the Factors</a></font></div>
+  <div id=PPTC19 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Step 1: get a PDF for each factor</li>
+   <li>Step 2: obtain the PDF for</li>
+   <ul>
+    <li>the sum of the factors</li>
+    <li>That is, given random variables,</li>
+    <ul>
+     <li>what is the distribution of their sum?</li>
+    </ul>
+   </ul>
+   <li>Complication:</li>
+   <ul>
+    <li>The factors are not independent</li>
+    <ul>
+     <li>Worse, we don’t know their dependency</li>
+    </ul>
+   </ul>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>20</font></div>
+  </td>
+  <td>
+  <div id=PPTP20 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0023.htm');" id=PPTL20><span
+  style='mso-spacerun:yes'> </span></a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>21</font></div>
+  </td>
+  <td>
+  <div id=PPTP21 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0024.htm');" id=PPTL21><span
+  style='mso-spacerun:yes'> </span></a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>22</font></div>
+  </td>
+  <td>
+  <div id=PPTP22 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0025.htm');" id=PPTL22><span
+  style='mso-spacerun:yes'> </span></a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>23</font></div>
+  </td>
+  <td>
+  <div id=PPTP23 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0026.htm');" id=PPTL23><span
+  style='mso-spacerun:yes'> </span></a></font></div>
+  </td>
+ </tr>
+ <tr onmouseover="Over(this)" onmouseout="Out(this)" onclick="Follow(this)"
+  style='cursor:hand'>
+  <td align=right valign=top>
+  <div class=sldNum><font size=2>24</font></div>
+  </td>
+  <td>
+  <div id=PPTP24 class=PTxt><font size=2><a
+  href="javascript:GoToSld('slide0027.htm');" id=PPTL24>What Next?</a></font></div>
+  <div id=PPTC24 class=CTxt style='display:none'><font size=2>
+  <ul>
+   <li>Strengthen effects of constraints due to partial information about
+       dependency</li>
+   <li>Address calculation of individual components</li>
+   <li>Continue to develop applications of an interval-based algorithm, DEnv</li>
+   <li>Questions?</li>
+   <br>
+   <br>
+  </ul>
+  </font></div>
+  </td>
+ </tr>
+</table>
+
+
+
+</div>
+
+<div style='display:none'><a href=master05.htm></a><a href=master05.xml></a><a
+href=preview.wmf></a><a href=master06.htm></a><a href=master06.xml></a><a
+href=pres.xml></a><a href=slide0001.htm></a><a href="master06_image001.gif"></a><a
+href=slide0002.htm></a><a href="master05_image002.gif"></a><a
+href="master05_image003.gif"></a><a href="master05_image004.gif"></a><a
+href="master05_image005.gif"></a><a href=slide0003.htm></a><a
+href=slide0004.htm></a><a href="slide0004_image006.png"></a><a
+href=oledata.mso></a><a href="slide0004_image007.jpg"></a><a
+href=slide0005.htm></a><a href=slide0006.htm></a><a href=slide0007.htm></a><a
+href=slide0008.htm></a><a href=slide0009.htm></a><a href=slide0010.htm></a><a
+href="slide0010_image008.png"></a><a href="slide0010_image009.jpg"></a><a
+href=slide0011.htm></a><a href="slide0011_image010.wmz"></a><a
+href="slide0011_image011.gif"></a><a href="slide0011_image012.wmz"></a><a
+href="slide0011_image013.gif"></a><a href=slide0012.htm></a><a
+href=slide0013.htm></a><a href=slide0017.htm></a><a
+href="slide0017_image014.png"></a><a href="slide0017_image015.gif"></a><a
+href="slide0017_image016.gif"></a><a href=slide0018.htm></a><a
+href=slide0019.htm></a><a href=slide0020.htm></a><a href=slide0021.htm></a><a
+href=slide0022.htm></a><a href=slide0023.htm></a><a
+href="slide0023_image017.png"></a><a href="slide0023_image018.jpg"></a><a
+href="slide0023_image019.png"></a><a href="slide0023_image020.jpg"></a><a
+href="slide0023_image021.png"></a><a href="slide0023_image022.jpg"></a><a
+href="slide0023_image023.gif"></a><a href=slide0024.htm></a><a
+href="slide0024_image024.png"></a><a href="slide0024_image025.jpg"></a><a
+href=slide0025.htm></a><a href="slide0025_image026.png"></a><a
+href="slide0025_image027.jpg"></a><a href="slide0025_image028.png"></a><a
+href="slide0025_image029.jpg"></a><a href="slide0025_image030.png"></a><a
+href="slide0025_image031.jpg"></a><a href=slide0026.htm></a><a
+href="slide0026_image032.jpg"></a><a href="slide0026_image033.png"></a><a
+href="slide0026_image034.jpg"></a><a href=slide0027.htm></a><a
+href="master05_stylesheet.css"></a><a href=script.js></a><a
+href="../ESCOVARpresentation1.htm"></a><a href=fullscreen.htm></a><a
+href=buttons.gif></a><a href=frame.htm></a><a href=outline.htm></a></div>
+
+</body>
+
+</html>
