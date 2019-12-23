@@ -1,0 +1,2446 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Multibrowsers</title>
+</head>
+
+<body>
+
+<div class="Section1">
+  <p align="center" style="text-align:center"><b><span style="font-size:18.0pt">Multibrowsers:
+  Reader Interaction with Documents via Direct Multidisplay</span></b></p>
+  <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center">Daniel
+  Berleant*,&nbsp; Jinping Huang, Ji Mu, Rajesh Potti,&nbsp;Xidan Zhou,&nbsp;</p>
+  <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center">Mark
+  Arvold, Jeff Brown, Ryan DeVries, Kian-How Lim, and Zhong Gu ###</p>
+  <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center">*Corresponding
+  author</p>
+  <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center">Dept.
+  of Electrical and Computer Engineering</p>
+  <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center">Iowa
+  State University</p>
+  <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center">Ames,
+  Iowa 50011</p>
+  <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center">USA</p>
+  <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><a href="mailto:berleant@iastate.edu">berleant@iastate.edu</a></p>
+  <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center">&nbsp;</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">1 Motivation</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">2 Multibrowser Interfaces</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0"><span style="mso-spacerun: yes">&nbsp;&nbsp;&nbsp; </span>2.1
+  Comparison: Multidisplay and Monodisplay</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 2.2 Comparison: Direct Display and
+  Indirect Display</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 2.3 T<span style="mso-bidi-font-family:
+Times;color:black">he Four Display Approaches: Applicability of Each</span><u1:p>
+  &nbsp;</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">3 Multibrowsers: Text Browsing with Direct Multidisplay</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0"><span style="mso-spacerun: yes">&nbsp;</span><span style="mso-tab-count:1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span>3.1 A Standalone Multibrowser</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 3.2 A Web Client Multibrowser</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 3.3 A CGI Multibrowser</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 3.4 A Server Add-On Multibrowser</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 3.5 A Web Alcove Multibrowser</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 3.6 A Multibrowser Based Search Engine
+  Interface</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">4 Discussion</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 4.1 Navigation Issues for
+  Multibrowsers</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 4.2 Related Work on Interfaces for
+  Browsing Hypermedia</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 4.3 Related Work on Information
+  Retrieval</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 4.3 Interesting connections the reader
+  probably wouldn't make but would find interesting</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">&nbsp;&nbsp;&nbsp; 4.4 Metaphors and Paradigms for Reader
+  Interaction with Text</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">5 Conclusion</p>
+  <p class="MsoNormal" style="line-height: 100%; margin-top: 0; margin-bottom: 0">References</p>
+  <p style="text-align:justify"><b>1 Motivation</b></p>
+  <p style="text-align:justify">Improved efficiency of interaction between
+  humans and documents is an important problem that continues to be addressed on
+  several fronts. Finding the right documents has been addressed historically by
+  library card catalogs, more recently by on-line and CD-based bibliographic
+  search services, and most visibly by World Wide Web search engines. Extensive
+  research in information retrieval has addressed finding documents, using both
+  text processing and user interface strategies. User interface strategies have
+  in recent years emphasized diverse visualization techniques that help in
+  navigating in a space containing large numbers of documents (####citations).
+  Once documents have been identified as relevant, efficient interaction with
+  them enables efficient location and absorption of information in them of
+  interest to the reader. Historically such interaction has been supported by
+  tables of contents, indexes, suitable writing style and good document
+  organization. More recent forms of support are enabled by storing documents
+  digitally, and include full text search, hypertext and hypermedia, and user
+  interfaces (### citations) to support efficient and friendly interaction with
+  documents. Such user interfaces rely on the fact that users of digital
+  documents should be supported by tools that help them locate embedded
+  passages, since readers of on-line text tend to scan and pick out passages
+  rather than reading in a traditional sense (Nielsen 1999). Immediate
+  applications include on-line manuals, dealing with collections of dozens of
+  Web documents on a topic, and e-books.&nbsp;</p>
+  <p><b>2&nbsp;Multibrowser Interfaces</b></p>
+  <p>A multibrowser interface contains adjoining, non-overlapping subwindows.
+  Each subwindow provides a view of the document or some ancillary information,
+  collectively providing a more complex view of the document (Figure 1). By
+  presenting a user with multiple information items simultaneously without
+  requiring the user to request each one individually, the intent is to provide
+  information in a user-friendly way that promotes its absorption, with minimal
+  distraction from the interface. Interactive means of updating the displayed
+  view provides a mechanism for browsing, so that each individual view
+  constitutes <i>customized </i>information. Customized information addresses
+  the needs of a particular user at a particular moment (###Berghel and Berleant
+  and Berleant and Berghel (both parts)).&nbsp;</p>
+  <p>Such an interface must be interactive, and facilities for recalling
+  previous views, specifying new information needs, and requesting new views
+  will typically be present. In the interface depicted in Figure 1 for example,
+  text in the subwindow, when clicked, causes a new view to be generated and
+  displayed.&nbsp;<u1:p>
+  </u1:p>
+  <o:p>
+  </o:p>
+  </p>
+  <p><span style="font-family:Times;color:black"><V:SHAPETYPE id="_x0000_t75" coordsize="21600,21600" u2:spt="75" u2:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <V:STROKE joinstyle="miter">
+  <V:FORMULAS>
+  <V:F eqn="if lineDrawn pixelLineWidth 0">
+  <V:F eqn="sum @0 1 0">
+  <V:F eqn="sum 0 0 @1">
+  <V:F eqn="prod @2 1 2">
+  <V:F eqn="prod @3 21600 pixelWidth">
+  <V:F eqn="prod @3 21600 pixelHeight">
+  <V:F eqn="sum @0 0 1">
+  <V:F eqn="prod @6 1 2">
+  <V:F eqn="prod @7 21600 pixelWidth">
+  <V:F eqn="sum @8 21600 0">
+  <V:F eqn="prod @7 21600 pixelHeight">
+  <V:F eqn="sum @10 21600 0">
+  </V:F>
+  </V:F>
+  </V:F>
+  </V:F>
+  </V:F>
+  </V:F>
+  </V:F>
+  </V:F>
+  </V:F>
+  </V:F>
+  </V:F>
+  </V:F>
+  </V:FORMULAS>
+  <V:PATH u2:extrusionok="f" gradientshapeok="t" u2:connecttype="rect">
+  <O:LOCK u3:ext="edit" aspectratio="t">
+  </O:LOCK>
+  </V:PATH>
+  </V:STROKE>
+  </V:SHAPETYPE>
+  <V:SHAPE id="_x0000_i1025" style="HEIGHT: 255.75pt; WIDTH: 445.5pt" type="#_x0000_t75">
+  <V:IMAGEDATA src="file:///C:/TEMP/msoclip1/01/clip_image001.png" u2:title="">
+  </V:IMAGEDATA>
+  </V:SHAPE>
+  <img border="0" width="594" height="341" id="_x0000_i1025" src="./mbpaper_files/Xidan.jpg" u3:shapes="_x0000_i1025"></span></p>
+  <p><b>Figure 1. Sample output of a direct multidisplay prototype, running at <a href="http://engr.uark.edu/~djb/R/NLP/IC/MultiBrowser/versions/Zhou/infproto.html">http://engr.uark.edu/~djb/R/NLP/IC/MultiBrowser/versions/Zhou/infproto.html</a>.</b></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">Interfaces
+  such as that of Figure 1 exemplify both <i>direct</i> display and <i>multidisplay.
+  </i>The following definitions help explain these characteristics.</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><i>Definition:
+  multidisplay is a collage of non-overlapping items without spaces between
+  them.&nbsp;</i></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">Collage-based
+  computer displays (Kaltenbach et al. 1991; Kerne 1997; Yeung and Yeo 1997; Yeo
+  and Yeung 1997; Wittenburg et al. 1998; Wittenburg et al. 1999###use numbers
+  instead?Add the other references, or just the numbers, see the lit. review in
+  a later section) show multiple items simultaneously. While items are usually
+  overlapping or have spaces between them, in the video domain multidisplay is
+  used in Video Posters (Yeung and Yeo 1997; Yeo and Yeung 1997 ###use numbers
+  instead?).&nbsp;An everyday example of multidisplay is the newspaper, since
+  different articles, advertisements, etc., are presented on the same page. The
+  visual modality is clearly more suited to multidisplay than the auditory
+  modality, since it is hard to pick out and attend to a stream of speech or
+  other audio stimulus amid several such streams that are simultaneously
+  present. On the other hand, taste and smell provide a direct multidisplay to
+  the brain because we can perceive more than one taste and smell simultaneously
+  (adding greatly to the dining experience).</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">Definition:
+  <i>monodisplay is the presentation of one item.</i></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">Typical
+  information retrieval systems, once they display content from a document, use
+  monodisplay. For example, Web search engines respond to a query with a list of
+  URLs, and the user can easily display only one of those items at a time.</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">Definition:
+  <i>direct display is the presentation of actual content.</i></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">An
+  example of direct display is presentation of text from a document. Direct
+  display is contrasted with <i>indirect display</i>.</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">Definition:
+  <i>indirect display is the presentation of meta-content.</i></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">By
+  meta-content we mean information about content rather than content itself. An
+  example is the list of URLs returned by a search engine or, more generally,
+  the lists of references returned by bibliographic search systems such as
+  on-line card catalogs, search interfaces to digital libraries such as the ACM
+  digital library (www.acm.org/dl/), and so on. These systems provide such
+  meta-content as titles, authors, and brief extracts whose main purpose is
+  seemingly to help the reader decide whether to access the full document
+  itself.</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">Definition:
+  <i>direct multidisplay is presentation of material in a way that conforms to
+  both direct display and multidisplay.&nbsp;</i></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">Note<i>
+  </i>that<i> indirect</i> <i>multidisplay</i>, <i>direct</i> <i>monodisplay</i>,
+  and <i>indirect</i> <i>monodisplay</i> may be defined similarly. We compare
+  direct multidisplay to the alternatives next.</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><span style="mso-spacerun: yes">&nbsp;</span><b>2.1
+  Comparison: Multidisplay and Monodisplay</b></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">The
+  ideal interface is one which is unnoticed, reading the mind of the user and
+  from that successfully determining and presenting the optimal information.
+  This ideal is not obtainable, at least not in the near future, but interfaces
+  that move the state of the art in the direction of the ideal represent
+  progress, if not perfection. Multidisplays can do better than monodisplays in
+  this regard, under the appropriate circumstances.</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">When
+  the user needs a particular, identified item of information, a monodisplay of
+  that item is appropriate. However when there are more than one candidate
+  items, multidisplay has advantages over monodisplay. The fundamental reason
+  for these advantages center around the issue of reducing cognitive overhead
+  during information seeking. The two main ways in which multidisplay can reduce
+  this cognitive overhead compared to monodisplay are in reducing time spent on
+  interface actions, and reducing attention required to matters other than the
+  information itself. Let's look at these in more detail.</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><i>Time.
+  </i>User interface motor actions such as moving and clicking a mouse take
+  time, and multidisplay addresses the consequent need to reduce the number of
+  such actions by having one interface action lead to several responses (Berghel
+  et al. 1999). In the case of monodisplay, at least one interface action is
+  required to bring up each item viewed. In many applications a pair of such
+  actions will be needed, one to back up to a choice point, and another to
+  navigate forward to a new information item. Common Web search engines
+  exemplify the two action case, as they require backing up to the returned URL
+  list before examining the next URL in that list.&nbsp;In contrast,
+  multidisplay allows one interface action to bring up a number of items to view
+  (Figure 2), eliminating the need for a separate interface action or pair of
+  interface actions to view each item, and thereby reducing the total number of
+  interface actions.&nbsp;</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><i>Attention.</i>
+  The more user attention used in dealing with the interface, the less is
+  available to use in dealing with the presented information itself. Every user
+  interface action represents not only an expenditure of time, but also an
+  interruption in the user's attention to the main task, processing presented
+  information. Additional attention used in keeping track of the navigation
+  environment represents an additional cognitive overhead. An example of the
+  need for such attention is in skimming the content of each item in a list of
+  items (for example, skimming each URL in a list of URLs returned by a Web
+  search engine). While attending to the skimming itself, the user must also
+  maintain a mental navigation model consisting of a tree whose root is the list
+  and whose leaves are the items, and which is navigated in one direction by a
+  &quot;go back&quot; operation and in the other by a link click, and further,
+  some way of flagging items that have already been visited so that they are not
+  visited again inadvertently, and perhaps some way of remembering which visited
+  items had valuable information and which didn't. These requirements reduce the
+  amount of mental energy available to deal with the information in the items.</p>
+  <p style="margin-left:.25in;text-align:justify;text-indent:-.25in;tab-stops:
+list .25in"><img border="0" width="480" height="381" id="_x0000_i1026" src="./mbpaper_files/layouts.gif"></p>
+  <p style="text-align:justify"><b>Figure 2. Different arrangements of an
+  information presentation window, corresponding to the allowable values of N=2,
+  3, 4, 6, 8, and 9. Individual subwindows could also be of different sizes,
+  perhaps due to different estimated importances of their content, as in
+  &quot;pictorial summaries&quot; (Yeo and Yeung 1997, Yeung and Yeo 1997).</b></p>
+  <p><b>2.2 Comparison: direct display and indirect display</b></p>
+  <p>While direct display involves presenting actual content, indirect display
+  involves presenting meta-content that takes the place of actual content,
+  abstracting it in some way. Familiar indirect displays include icons that
+  expand into computer applications when clicked, and descriptively labeled
+  hypertext links. Note that icons and links do not necessarily meet the
+  definition of indirect displays<sup>*</sup> - they must communicate
+  meta-content. This abstracting property implies the advantages and
+  disadvantages that direct display has compared with indirect display. These
+  advantages and disadvantages are shown in Table 1.</p>
+  <table border="1" cellpadding="0" width="100%" style="width:100.0%;mso-cellspacing:
+ 1.5pt;mso-padding-alt:0in 0in 0in 0in">
+    <tr>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;</p>
+      </td>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>Direct
+        display</b></p>
+      </td>
+      <td width="34%" style="width:34.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>Indirect
+        display</b></p>
+      </td>
+    </tr>
+    <tr>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>Ease
+        of access to content</b></p>
+      </td>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="28" id="_x0000_i1027" src="./mbpaper_files/thumbsup.gif" align="top">
+        content is displayed</p>
+      </td>
+      <td width="34%" style="width:34.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="29" id="_x0000_i1028" src="./mbpaper_files/thumbsdownz.gif" align="top">
+        content is not immediately displayed</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>Clarity
+        of display</b></p>
+      </td>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="28" id="_x0000_i1029" src="./mbpaper_files/thumbsup.gif" align="top">
+        higher since actual content is displayed</p>
+      </td>
+      <td width="34%" style="width:34.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="29" id="_x0000_i1030" src="./mbpaper_files/thumbsdownz.gif" align="top">
+        lower since abstractions lose information</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>Interface
+        actions required</b></p>
+      </td>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="28" id="_x0000_i1031" src="./mbpaper_files/thumbsup.gif" align="top">
+        fewer since content is immediately present</p>
+      </td>
+      <td width="34%" style="width:34.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="29" id="_x0000_i1032" src="./mbpaper_files/thumbsdownz.gif" align="top">
+        higher since content must be explicitly requested</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>Cognitive
+        overhead</b></p>
+      </td>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="28" id="_x0000_i1033" src="./mbpaper_files/thumbsup.gif" align="top">
+        less since user can absorb information without obstacles</p>
+      </td>
+      <td width="34%" style="width:34.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="29" id="_x0000_i1034" src="./mbpaper_files/thumbsdownz.gif" align="top">
+        more since user must judge relevance of content based on
+        meta-information, and navigate more</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>Utilization
+        of future technological improvements to bandwidth and display real
+        estate</b></p>
+      </td>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="28" id="_x0000_i1035" src="./mbpaper_files/thumbsup.gif" align="top">
+        greater since more information is transmitted and displayed</p>
+      </td>
+      <td width="34%" style="width:34.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="29" id="_x0000_i1036" src="./mbpaper_files/thumbsdownz.gif" align="top">
+        less since abstractions economize on transmission and display</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>Suitability
+        for display of a limited number of items</b></p>
+      </td>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="28" id="_x0000_i1037" src="./mbpaper_files/thumbsup.gif" align="top">
+        greater since if things can be shown directly it is often useful to do
+        so</p>
+      </td>
+      <td width="34%" style="width:34.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="29" id="_x0000_i1038" src="./mbpaper_files/thumbsdownz.gif" align="top">
+        less due to less need for abstraction when a limited number of
+        information items are present</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>Summarization/preview
+        function</b></p>
+      </td>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="29" id="_x0000_i1039" src="./mbpaper_files/thumbsdownz.gif" align="top">
+        content not summarized</p>
+      </td>
+      <td width="34%" style="width:34.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="28" id="_x0000_i1040" src="./mbpaper_files/thumbsup.gif" align="top">
+        meta-content semantically compresses content</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>Bandwidth
+        required for display</b></p>
+      </td>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="29" id="_x0000_i1041" src="./mbpaper_files/thumbsdownz.gif" align="top">
+        higher since information is not abstracted</p>
+      </td>
+      <td width="34%" style="width:34.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="28" id="_x0000_i1042" src="./mbpaper_files/thumbsup.gif" align="top">
+        lower since abstractions are usually smaller</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>Display
+        footprint</b></p>
+      </td>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="29" id="_x0000_i1043" src="./mbpaper_files/thumbsdownz.gif" align="top">
+        more since full information is displayed</p>
+      </td>
+      <td width="34%" style="width:34.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="28" id="_x0000_i1044" src="./mbpaper_files/thumbsup.gif" align="top">
+        less since less is displayed</p>
+      </td>
+    </tr>
+    <tr>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>Suitability
+        for multidisplay of many items</b></p>
+      </td>
+      <td width="33%" style="width:33.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="29" id="_x0000_i1045" src="./mbpaper_files/thumbsdownz.gif" align="top">
+        less since too many items won't fit in display area</p>
+      </td>
+      <td width="34%" style="width:34.0%;padding:.75pt .75pt .75pt .75pt">
+        <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">&nbsp;<img border="0" width="23" height="28" id="_x0000_i1046" src="./mbpaper_files/thumbsup.gif" align="top">
+        greater since abstractions reduce footprints of each item, allowing more
+        to be displayed at once</p>
+      </td>
+    </tr>
+  </table>
+  <p><b>Table 1. Relative advantages and disadvantages of direct and indirect
+  display strategies. Characteristics upon which a comparison is made are listed
+  in the left column.</b></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">Table
+  1 suggests at least one possible trend. <span style="mso-bidi-font-family:Times;
+color:black">The current widespread acceptance and use of indirect display may
+  fade to some degree as network bandwidth and display device capabilities
+  increase. When network bandwidths become much faster, and computer displays
+  contain much more visible information (consider the prospect of electronic
+  paper sold in large rolls, for example), then<span style="mso-spacerun: yes">&nbsp;
+  </span>display approaches emphasizing actual content instead of links to
+  content will likely become more widely used. <O:P>
+  &nbsp;</span></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><span style="mso-bidi-font-family:Times;color:black">*</span>E.g.,
+  <a href="http://class.ee.iastate.edu/berleant/home/index.html">click here.</a></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b><span style="mso-bidi-font-family:Times;color:black">2.3
+  The Four Display Approaches: Applicability of Each</span></b><u1:p>
+  </u1:p>
+  <o:p>
+  </o:p>
+  </p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><span style="mso-bidi-font-family:Times;color:black"></O:P>
+  If we consider display approaches based on whether they use multidisplay or
+  monodisplay, and orthogonally whether they use direct or indirect display,
+  there are four possible combinations. Each is best suited to certain
+  application types.</span></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><i><span style="mso-bidi-font-family:Times;color:black">Indirect
+  monodisplay.</span></i><span style="mso-bidi-font-family:Times;color:black">
+  Good for showing an icon representing an application program not in use but
+  needing to be conveniently invoked.</span></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><i><span style="mso-bidi-font-family:Times;color:black">Direct
+  monodisplay.</span></i><span style="mso-bidi-font-family:Times;color:black">
+  Good when the user wishes to interact with a given information item (e.g. when
+  using a word processor or reading a particular Web document).</span></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><i><span style="mso-bidi-font-family:Times;color:black">Indirect
+  multidisplay.</span></i><span style="mso-bidi-font-family:Times;color:black">
+  Good when there are many competing information items, so that some abstraction
+  is needed to show them all at once in a limited amount of space (e.g. visual
+  navigation tools for use with large numbers of documents).</span></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><i><span style="mso-bidi-font-family:Times;color:black">Direct
+  multidisplay.</span></i><span style="mso-bidi-font-family:Times;color:black">
+  Good when there are several competing things to display, so that there is room
+  to display all of them simultaneously. This paper focuses on direct
+  multidisplay for text browsing.</span></p>
+  <p><b>3 Multibrowsers: Text Browsing With Direct Multidisplay</b></p>
+  <p class="MsoBodyText">We have been exploring direct multidisplay for text
+  browsing, and call direct multidisplay based browsers <i>multibrowsers</i>.
+  Multibrowsers display multiple extracts of a document simultaneously.
+  Navigation actions can result in a new display of<span style="mso-spacerun:
+yes">&nbsp; </span>multiple extracts. This simple application of direct
+  multidisplay could be useful in such everyday contexts as on-line help systems
+  and Web search engine result presentation, as well as cutting edge
+  applications such as electronic books. We have built a number of prototype
+  systems that illustrate some of the variations in functionality and diverse
+  architectures that are possible. These systems are described in this section.</p>
+  <p class="MsoBodyText"><b>3.1 A Standalone Multibrowser</b></p>
+  <p class="MsoBodyText">The first multibrowser (Potti 1996) was a standalone
+  system written in Visual Basic (Figure 3). The subwindows vary in background
+  color so that they can be distinguished from one another without expending
+  screen real estate on borders for that purpose. It featured a vertical set of
+  five document summarizing subwindows on the left, and another vertical set of
+  three retrieval subwindows on the right. All subwindows have approximately the
+  same text display area, and scroll bars appear if the displayed passage is too
+  long to fit.</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><img border="0" width="859" height="738" id="_x0000_i1047" src="./mbpaper_files/multibrowser.gif"></p>
+  <p class="MsoBodyText"><b>Figure 3. Screen shot of the Standalone Multibrowser.</b></p>
+  <p class="MsoBodyText">The document summarizing subwindows each hold a
+  sentence from the document, collectively providing a brief summary centered
+  around the sentence best matching the user query. That sentence is displayed
+  in the middle of the five left hand subwindows. The others hold sentences
+  preceding and succeeding that one, as shown in Figure 4.&nbsp;</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><img border="0" width="686" height="592" id="_x0000_i1048" src="./mbpaper_files/subwindows.jpg"></p>
+  <p class="MsoBodyText"><b>Figure 4. Algorithms for filling the subwindows in
+  the Standalone Multibrowser. The variable n-gram algorithm generates n-grams
+  of different lengths from different length words, setting n to 70% of the
+  length of a word under consideration, rounded down.&nbsp;</b></p>
+  <p class="MsoBodyText">As figure 4 shows, the three subwindows on the right
+  hand side display three sentences retrieved from the document using three
+  different algorithms. This was for robustness, and tends to ensure that good
+  matches are displayed even if a particular algorithm fails to perform well.
+  While our experience was that the algorithms generally retrieved reasonable
+  passages, they also often retrieved different passages (as in Figure 3).</p>
+  <p class="MsoBodyText">This Standalone Multibrowser features <i>forward</i>
+  and <i>backward</i> buttons to navigate among the screens that the browser has
+  displayed during a session. This capability has been found to be valuable in
+  browsers (###). The <i>font</i> button simply controls the font of the display
+  (the input document is a plain text file).</p>
+  <p class="MsoBodyText">The interface of this multibrowser interface has
+  limitations that, in hindsight, seem obvious. These include the display of
+  only one sentence per subwindow, and the non-networked nature of the system
+  which requires the displayed document to be resident on the machine. These and
+  other limitations are explored further as the paper proceeds.</p>
+  <p class="MsoBodyText"><b>3.2 A Web Client Multibrowser</b></p>
+  <p class="MsoBodyText">The Web client multibrowser (Mu 1997) provided a direct
+  multidisplay interface to documents, like the standalone multibrowser just
+  described, but was written in Java and explored some additional
+  functionalities and design characteristics. The major differences follow.</p>
+  <ul type="disc">
+    <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list .5in">Unlike the standalone
+      multibrowser it can read documents over the Web in addition to from the
+      local drives.</li>
+    <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list .5in">It has vertically oriented
+      buttons directly to the right of each major display subwindow that, when
+      clicked, use the sentence in the corresponding subwindow as the next query
+      (Figure 5).</li>
+    <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list .5in">It can take as input either a
+      single URL typed into the typein window at the top of Figure 5, or can be
+      given a list of URLs. These may be typed into the large empty subwindow on
+      the left in Figure 5, or the list may be stored in a file and the name of
+      the file typed into the small typein window just above the large empty
+      subwindow. When handling multiple URLs, it responds to queries by
+      extracting sentences from anywhere in the downloaded set.</li>
+    <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list .5in">Its main retrieval algorithm
+      is user settable to be either word based, n-gram based with constant n, or
+      n-gram based with n calculated from the length of the word from which
+      n-grams are being extracted (via the checkbox group in the lower left of
+      Figure 5), while a single best matching sentence may be retrieved for any
+      of the 3 algorithms at any time by clicking the corresponding <b>search</b>
+      button at the lower right corner of Figure 5.</li>
+    <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list .5in">The value of n for the
+      constant n-gram algorithm is user settable, and for the variable n-gram
+      algorithm, the fraction of a word length used to generate n-grams from it
+      is user settable (lower left of Figure 5).</li>
+    <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l0 level1 lfo1;tab-stops:list .5in">A display mode toggle invokes
+      an alternative display mode that allows the entire document to be
+      displayed in a large subwindow for reading (Figure 6).</li>
+  </ul>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">Like
+  the standalone multibrowser, various limitations are evident (after the
+  multibrowsers are reviewed, Table 1 will summarize their major
+  characteristics).&nbsp;</p>
+  <p><img border="0" width="992" height="560" id="_x0000_i1049" src="./mbpaper_files/screenshot1.jpg"><br>
+  <b>Figure 5. The Web client multibrowser.</b></p>
+  <p>&nbsp;</p>
+  <p><img border="0" width="992" height="560" id="_x0000_i1050" src="./mbpaper_files/screenshot2.jpg"><br>
+  <b>Figure 6. Alternative display mode for the Web client multibrowser.</b></p>
+  <p><b>3.3&nbsp;A CGI Multibrowser</b></p>
+  <p class="MsoBodyText">A self-contained program operating as a standalone or
+  client system has as disadvantage that anyone wanting to use it must find,
+  download, and install it, and then it will only work on certain platforms (or
+  in the case of Java applications, Java must also be installed). Then, if later
+  versions become available they must be installed to be used, making software
+  maintenance issues more visible than is optimal. An alternative that avoids
+  all these problems is for a program to be run at a remote site and its output
+  served to the user's computer. We have built two such multibrowsers. One is
+  termed the CGI (Common Gateway Interface) multibrowser (Zhou 1997) because it
+  uses the CGI Web protocol (###citation), and the other is termed the server
+  add-on multibrowser (Huang 1998) because it is implemented as a module of the
+  Apache Web server program. The CGI multibrowser is reviewed in this section,
+  and the server add-on multibrowser in the next.&nbsp;</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><span style="mso-bidi-font-family:Times;color:black">Figure
+  1 shows sample output of the CGI multibrowser. The multibrowser software and
+  data files are stored at the server site and called by the server when a
+  remote Web browser such as Netscape or Internet Explorer requests the
+  multibrowser's URL. The system responds to a user query by providing to the
+  client an HTML file specifying a set of frames to be displayed. Each frame
+  contains the entire document that is being browsed, but since the document is
+  normally too big to fit within the frame, each frame displays the document
+  starting at a point in it chosen to be relevant to the query. Since the frames
+  have scroll bars, it is easy to scroll around in the document using whichever
+  frame contains the passage that best catches the reader's attention.<span style="mso-spacerun: yes">&nbsp;
+  </span></span><o:p>
+  </o:p>
+  </p>
+  <O:P>
+  </O:P>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><span style="mso-bidi-font-family:Times;color:black">To
+  implement this capability, each sentence in the document is automatically
+  provided with a distinct HTML anchor (using the HTML &lt;a name=&quot;anchorName&quot;&gt;
+  command). Then each frame determines the location in the document it will
+  initially focus on via a URL specification giving not only the document but
+  the anchor as well (for example, a frame specifying the URL someFile.html#sentence47
+  will display someFile.html starting at the location in it of anchor
+  sentence47).&nbsp;</span></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><span style="mso-bidi-font-family:Times;color:black">In
+  addition to having its own anchor, each sentence is also a clickable
+  hyperlink. When the user clicks on some sentence in some frame, a CGI (Common
+  Gateway Interface) program runs at the server site. This program considers the
+  clicked sentence to be a query, identifies related sentences in the document,
+  and dynamically constructs HTML source specifying a set of frames, each
+  displaying the document with an initial focus on one of those sentences. The
+  HTML source is returned to the remote client Web browser which displays the
+  frames to the user as in Figure 1.<O:P>
+  &nbsp;</span></p>
+  <p><b>3.4 A Server Add-on Multibrowser</b></p>
+  <p>This multibrowser (Huang 1998), like the CGI multibrowser uses HTML frames
+  to display. This multibrowser is implemented as a C++ module that is compiled
+  as part of the Apache server (Figure 7). Its characteristics include the
+  following.</p>
+  <ul type="disc">
+    <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo2;tab-stops:list .5in">Words in the subwindows that
+      match words in the query are highlighted and clickable. Clicking one
+      expands the subwindow as shown in Figure 8.</li>
+    <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo2;tab-stops:list .5in">Clicking on an arrow icon uses
+      the following sentence as the next query. This leaves links embedded by
+      the document author in the sentence unaffected, which would not be the
+      case of the sentence itself was made clickable.</li>
+    <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo2;tab-stops:list .5in">Like for the CGI multibrowser,
+      the entire document is in each subwindow, providing context for the
+      retrieved sentence. The user can scroll to see that context.</li>
+  </ul>
+  <p><img border="0" width="703" height="758" id="_x0000_i1051" src="./mbpaper_files/Huang6windowsBW.gif"></p>
+  <p><b>###Figure 7. Server multibrowser output after a sentence from the
+  document has been clicked on. The sentence appears under the heading &quot;You
+  are searching for:&quot;. Below that, the search algorithm is specified as
+  &quot;with exact match&quot; meaning that only identical words (irrespective
+  of case) will match. This was specified earlier in the session, where the user
+  could alternatively have specified an n-gram based search and specified the
+  value of n. Below the search algorithm designation, the screen states that 15
+  sentences were retrieved from the document based on the input sentence. Next
+  is stated that the first 6 of the 15 are shown. Following that is a clickable
+  link to the next 6 of the 15. In the 6 document display subwindows there are a
+  number of bold, underlined words which when clicked expand the display at that
+  line (Figure 8). Clicking on one of the arrow icons uses the following
+  sentence as a query, resulting in a new window formatted as in this figure but
+  with respect to the new query.</b></p>
+  <p><img border="0" width="703" height="767" id="_x0000_i1052" src="./mbpaper_files/Huang1windowsBW.gif"></p>
+  <p><b>###Figure 8. After clicking on an underlined word in Figure 7, the
+  display of the subwindow containing it expands for a better view of its
+  context.&nbsp;</b></p>
+  <p><b>3.5 A Web Alcove Multibrowser</b></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">A
+  commonly cited deficiency of Web search engines is that they often return
+  lists of URLs that are poorly ordered and consequently hard to browse.
+  Consequently, users tend to make suboptimal use of the resources represented
+  by URLs that are returned, particularly those past the first 10 or so entries
+  in the returned list. These documents may contain relevant information that
+  goes unnoticed because of the poor structure of the returned information and
+  the lack of support for browsing it. We are developing a system that will
+  convert such a list of resources into another form, intended to support
+  browsing of the information in those resources via a direct multidisplay
+  interface approach. Figure 9 illustrates the look and feel of the system.</p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><img border="0" width="794" height="854" id="_x0000_i1053" src="./mbpaper_files/image001.png"></p>
+  <p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">###<b>Figure
+  9.<u2:p>
+  Six subwindows each display material starting at a retrieved paragraph from
+  the document set. The user can scroll to the other parts of those documents
+  with the scroll bars. Above each subwindow is a colored horizontal bar whose
+  components of red, green, and blue encode the nearness of the document whose
+  paragraph is displayed to the centroids of 3 document clusters in the set of
+  documents. Thus the three frames with similarly colored bars rendered as dark
+  gray in the b&amp;w figure contain documents related to stacks as a <i>data
+  structure</i>; the two frames with similarly colored almost black horizontal
+  bars contain documents related to stacks as <i>piles of things</i>; and the
+  one frame with a light gray bar contains a document related to the &quot;MCGV
+  Stack&quot; organization. The bars supplement retrieved paragraphs with
+  information about the relatedness of their containing documents. </b></u2:p>
+  </p>
+  <p>To navigate, the user clicks the &quot;<a href="http://vulcan.ee.iastate.edu/~djb/webSearch.html"><i>M</i>&nbsp;<b><i>o</i></b>&nbsp;r&nbsp;<i>e</i></a>&quot;
+  icon immediately following a paragraph. This causes the frames containing the
+  next 6 paragraphs to display. Thus the &quot;<a href="http://vulcan.ee.iastate.edu/~djb/webSearch.html"><i>M</i>&nbsp;<b><i>o</i></b>&nbsp;r&nbsp;<i>e</i></a>&quot;
+  icon constitutes a one-to-many hyperlink. These paragraphs are those which are
+  the most related to the paragraph associated with the clicked &quot;<a href="http://vulcan.ee.iastate.edu/~djb/webSearch.html"><i>M</i>&nbsp;<b><i>o</i></b>&nbsp;r&nbsp;<i>e</i></a>&quot;
+  icon. Relatedness is determined by applying the cosine metric to the locations
+  of paragraphs in the many-dimensional space of 5-grams (Damashek 1995).</p>
+  <p><b>3.6 A Multibrowser Based Web Search Engine Interface</b></p>
+  <p>Web search engines have significant shortcomings, as previously noted.
+  Although their relevance ordering function is frequently mentioned as such a
+  shortcoming, that is not the only one. Another is that query terms may be
+  buried within the URL so that simply clicking to obtain the URL is not enough
+  to assess it; one must scroll around in it or even use the Web browser's
+  string search utility, perhaps only to ultimately discover that the document
+  has changed and no longer even satisfies the query.</p>
+  <p>The Google search engine addresses this problem in that, when returning a
+  list of URLs, it provides a short passage from each that contains a query term
+  (unlike most search engines which provide a short passage from the beginning,
+  regardless of the query). But even Google's keyword in context (kwic) approach
+  is imperfect, because sometimes this small amount of text is not enough for
+  the user to assess the URL without downloading and looking at it, and that in
+  turn leads to the same scrolling and string search needs as with other search
+  engines. We have written a prototype multibrowser that addresses this problem
+  in a way that is complementary to Google's approach.</p>
+  <p>Our approach uses a split window technique resulting in two subwindows (Berleant
+  et al. 2000). The document is simply split into two parts, with the split
+  occurring just prior to the first occurrence of a query term in the document.
+  The two parts are each displayed in a separate frame, with the query term
+  occurrence shown at the top of one of the frames. See Figure 10.</p>
+  <p>This has a number of advantages. One is simply that a query term occurrence
+  is easily seen, eliminating the need for scrolling and string searches to find
+  it. Another is that protection from getting &quot;lost&quot; in the document
+  while scrolling around in it is provided, because the split point is so easily
+  found, by scrolling the upper frame all the way down or the lower frame all
+  the way up. Yet another advantage is that the split point depends on the
+  query, providing an information customization function (Berleant and Berghel,
+  1994). Finally, in focusing on the part of the document containing the query
+  while displaying its position in the document (via the relative lengths of the
+  scroll bars of the two subwindows) the display exhibits the desirable
+  focus+context property (### focus+context citations?).</p>
+  <p><img border="0" width="820" height="536" id="_x0000_i1054" src="./mbpaper_files/TopWindowTopOfFile.gif"></p>
+  <p><b>Figure 10. The query term was &quot;rigorousness.&quot; Alta Vista
+  returned a list of URLs, and when the user clicked on one of them, it was
+  downloaded by our proxy server, split, and sent on to the client to be
+  displayed as shown. Note that the lower subwindow begins with the sentence
+  containing the term &quot;rigorousness.&quot; The upper subwindow, if scrolled
+  downward, would end at the point in the original document where the lower
+  subwindow begins.</b><o:p>
+  </o:p>
+  </p>
+</div>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>4
+Discussion</b></p>
+<p>The multibrowser systems we have been describing instantiate some of the
+plausible design strategies such systems could have. Different design strategies
+have different intrinsic characteristics of relevance to those contemplating
+constructing such a system. These characteristics are relatively difficult to
+circumvent in an implementation. Table 2 describes the main intrinsic
+characteristics of various plausible design strategies. <u1:p>
+</u1:p>
+</p>
+<table border="1" cellpadding="0" style="mso-cellspacing:1.5pt;mso-padding-alt:
+ 0in 0in 0in 0in">
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">Design
+      strategies<o:p>
+      </o:p>
+      </span></b></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">&#8595;</span></b><i><span style="font-size:10.0pt">&nbsp;&nbsp;
+      </span><o:p>
+      </o:p>
+      </i></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">Speed&nbsp;&nbsp;
+      <o:p>
+      </o:p>
+      </span></b></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><i><span style="font-size:10.0pt">(Issues
+      impacting&nbsp;</span></i></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><i><span style="font-size:10.0pt">speed
+      of execution)</span></i></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">Hyperlinks
+      <o:p>
+      </o:p>
+      </span></b></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><i><span style="font-size:10.0pt">(The
+      ease with which clickable hyperlinks may be in the display)</span></i><b><span style="font-size:10.0pt">
+      </span></b><i><span style="font-size:10.0pt"><o:p>
+      </o:p>
+      </span></i></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">System
+      Accessibility</span></b></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><i><span style="font-size:10.0pt">(How
+      easy it is for users to obtain and use the system) <o:p>
+      </o:p>
+      </span></i></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">Document
+      Accessibility</span></b></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><i><span style="font-size:10.0pt">(How
+      easy it is for users to browse the document of their choice)</span></i><b><span style="font-size:10.0pt">
+      </span></b><i><span style="font-size:10.0pt"><o:p>
+      </o:p>
+      </span></i></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">Implementability</span></b></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><i><span style="font-size:10.0pt">(Barriers
+      to rapid development by less experienced programmers such as students)</span></i><b><span style="font-size:10.0pt">
+      </span></b><i><span style="font-size:10.0pt"><o:p>
+      </o:p>
+      </span></i></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">Standalone</span></b><span style="font-size:10.0pt">
+      <o:p>
+      </o:p>
+      </span></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">(Potti
+      1996) <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt">&nbsp;</p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Hard
+      to implement <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Must
+      download and install <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Must
+      download prior to browsing; HTML commands not necessarily stripped <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">&nbsp;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">Special
+      Web client</span></b></p>
+      <p class="MsoNormal"><![if !supportEmptyParas]>
+      &nbsp;<![endif]>
+      <o:p>
+      </o:p>
+      </p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">(Mu
+      1997) <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;
+  mso-bidi-font-size:12.0pt">&nbsp;</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&nbsp;
+      <o:p>
+      </o:p>
+      </span></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&nbsp;
+      <o:p>
+      </o:p>
+      </span></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt">&nbsp;</p>
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Can
+      get any Web document <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">&nbsp;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">Server
+      Module</span></b><span style="font-size:10.0pt"> &nbsp;</span></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">(Huang
+      1998) <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;
+  mso-bidi-font-size:12.0pt">Every new view must be sent over the internet <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Easy,
+      can use HTML</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;
+  mso-bidi-font-size:12.0pt">Usable over the Web from any ordinary Web browser <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p class="MsoNormal"><span style="font-size:10.0pt">Web server APIs pose
+      significant learning curve; implementation language is
+      restricted&nbsp;&nbsp; <o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">CGI</span></b><span style="font-size:10.0pt">
+      &nbsp;</span></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">(Zhou
+      1997) <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;
+      <o:p>
+      </o:p>
+      </span></p>
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Also,
+      system must be reloaded for every new view</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt">&quot;</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">&nbsp;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">SSI&nbsp;</span></b></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">(Server-Side
+      Includes) <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">System
+      must be reloaded for every new view<i> <o:p>
+      </o:p>
+      </i></span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p class="MsoNormal" align="center" style="text-align:center"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt">&quot;</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;&nbsp;&nbsp;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Implementation
+      language is restricted <o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">Servlet&nbsp;</span></b></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">(Berleant
+      et al. 2000) <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;</span></p>
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">####?</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p class="MsoNormal" align="center" style="text-align:center"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt">&quot;</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt">&quot;</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Implementation
+      language is restricted to Java</span></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">FastCGI
+      <o:p>
+      </o:p>
+      </span></b></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">&nbsp;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p class="MsoNormal" align="center" style="text-align:center"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt">&quot;</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">FastCGI
+      protocol presents a learning curve <o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">Large
+      applet</span></b><span style="font-size:10.0pt"> <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Entire
+      document must be sent over the internet as data in the applet <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Hard
+      to implement <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt">&quot;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Document
+      predetermined by applet <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Implementation
+      language is restricted to Java <o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">JavaScript
+      <o:p>
+      </o:p>
+      </span></b></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;
+  mso-bidi-font-size:12.0pt">Entire document must be sent over the internet</span><span style="font-size:10.0pt">&nbsp;
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Easy,
+      can use HTML</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="text-align:center"><span style="font-size:10.0pt">&quot;</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Predetermined
+      document must contain Javascript calls</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Implementation
+      language is restricted to JavaScript <o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">Communicating
+      applet and special server program</span></b><span style="font-size:10.0pt">
+      <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Depends
+      how functionality is divided between applet and server <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Easy,
+      can use HTML <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt">&quot;<i>
+      </i><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Can
+      get any Web document (via special server) <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Applet
+      implementation restricted to Java; see also <b>Server-side</b> design
+      strategy <o:p>
+      </o:p>
+      </span></p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p align="center" style="margin:0in;margin-bottom:.0001pt;text-align:center"><b><span style="font-size:10.0pt">Web
+      client plug-in</span></b><span style="font-size:
+  10.0pt"> <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt;
+  mso-bidi-font-size:12.0pt">Entire document must be sent over the internet</span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Hard
+      to implement</span><i><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt">
+      </span></i><span style="font-size:10.0pt"><o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Must
+      download and install&nbsp; <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt"><span style="font-size:10.0pt">Hard
+      to distinguish between documents to be multibrowsed and those to be
+      treated in the usual way&nbsp; <o:p>
+      </o:p>
+      </span></p>
+    </td>
+    <td style="padding:.75pt .75pt .75pt .75pt">
+      <p style="margin:0in;margin-bottom:.0001pt">&nbsp;</p>
+    </td>
+  </tr>
+</table>
+<p><b>Table 2. Comparison of different multibrowser design strategies. The
+strategies (left column) are not all mutually exclusive. Citations indicate
+implementations.</b></p>
+<p><b>4.1 Navigation Issues for Multibrowsers</b></p>
+<p>To be both useful and usable, queries to a multibrowser system should be both
+flexible and convenient. Unfortunately these tend to conflict, in that the
+expressiveness that provides flexibility in querying comes at the price of
+overhead on the part of the user who must input the query. To achieve both high
+flexibility and high convenience, two query methods can be provided, one high in
+flexibility (but correspondingly low in convenience) and one high in convenience
+(but correspondingly low in flexibility). We have done that in the CGI and Web
+server add-on multibrowsers (Sections 3.4 and 3.5) and are doing it in the Web
+alcove multibrowser (section 3.5) by providing type-in boxes for flexible input
+of queries formulated as text (words and phrases), while providing clickable
+hyperlinks that act as convenient queries. The objective in designing
+click-to-execute queries is to make them as likely as possible to be queries
+that the user would find useful. We do this by making a link retrieve passages
+that are related to the passage associated with the link. Compared to retrieval
+of one related passage, the retrieval of a number of such passages in separate
+subwindows greatly increases the probability of at least one passage of interest
+being retrieved, as well as increasing the probability of more than one passage
+of interest being retrieved from zero to quite possible.</p>
+<p>Navigation includes not only querying, but screen history navigation. History
+navigation is an important part of how people interact with web browsers
+(Catledge and Pitkow 1995; Tauscher and Greenberg 1997). Therefore this is part
+of the designs of all our multibrowser systems, and is particularly easy to
+include in systems that incorporate standard Web browsers because such browsers
+have history navigation capabilities built in.</p>
+<p>Next we discuss related work, first on interfaces, next on information
+retrieval, and last but not least on paradigms for user interaction with text.</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>4.2
+Related Work on Interfaces for Browsing Hypermedia</b></p>
+<p>Multidisplays are collages (Kaltenbach and Frasson 1989), about which
+significant work has been reported. The NoteCards system (Halasz 1988) could
+display several information items on the screen at once, although the term
+&quot;collage&quot; for such a display seems to have originated in Kaltenbach
+and Frasson (1989) which describes a display consisting of several individual
+information items in the context of presenting mathematical proofs. They later
+expand its application to hypertext (Kaltenbach et al. 1991). Since then, the
+collage display strategy has inspired a number of systems that emphasize display
+of images. Yeo and Yeung (1997) describe a system that implements a number of
+collage-based presentation schemes, all focused on supporting their digital
+video database management system (VDBMS), including support for efficient
+browsing of videos. Kerne's (1997) CollageMachine constructs collages over a
+period of time, either interactively or acting independently, using material
+from Web pages that are crawlable from a root URL provided by the user. These
+collages can be used as a kind of browser, or viewed as art. Komlodi and
+Marchionini (1998) found that collages consisting of storyboards of frames from
+a video were more effective than serial presentation of the same frames for the
+task of correctly identifying objects depicted in the frames; their experiments
+also suggest (below the level of statistical significance) that on a variety of
+measures collages are often but not always more effective than serial
+presentation. In related work Tse et al. (1998) found that users preferred key
+frames&nbsp; presented as storyboards###one word or two?Propagate### as compared
+to serially, while performance assessment results were &quot;mixed.&quot;
+Wittenburg et al. (1998) describe a Java prototype&nbsp; that presents collages
+of images taken from Web pages as previews of those pages. The collage is thus a
+compact display from which the user can make efficient navigation
+choices.&nbsp;This is used as part of the SeeHere video browsing system
+(Wittenburg et al. 1999).&nbsp;Collages can also be the output of an authoring
+system, such as a system to help users create Web pages consisting in part of
+pieces of other Web pages (octopus.com 2000, Valdés 2000).</p>
+<p>The present work focuses on collages without overlaps or spaces among
+constituent items (multidisplays) of Web documents, which typically have a large
+text component. While much previous work on collages has dealt primarily with
+non-textual information presented with overlaps or spaces, some work has
+involved collages of text without overlaps or spaces. Halasz (1988) and
+Kaltenbach et al. (1991) focus on text-based information although there are
+spaces###check that. Kerne's CollageMachine (1997) produces collages that
+contain text passages in addition to images from the URLs it extracts from, but
+overlaps occur###check that.&nbsp; The &quot;pictorial summaries&quot; described
+in Yeo and Yeung (1997) and Yeung and Yeo (1997) to support efficient video
+browsing present images rather than text, but do use a multidisplay technique.
+Like the present work, Kandogan and Schneiderman's (1997) Elastic Windows is a
+text oriented technique that uses direct multidisplay and hence could be
+classified as a multibrowser interface technique. The sophisticated approach to
+window resizing in Elastic Windows might be useful in future multibrowser
+systems.</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>4.3
+Related Work on Information Retrieval</b></p>
+<p style="tab-stops:list .25in">Because presentation of text (and more
+generally, hypermedia) in subwindows requires identification of the proper text
+to present, information retrieval and related topics constitute an important
+body of related work. For identifying passages from within documents, rather
+than identifying documents from larger sets of documents as in traditional
+information retrieval, documents need to be segmented into passages which are
+then matched against queries. Documents may be parsed into passages based on
+document structure (e.g. sentence or paragraph boundaries), arbitrary length
+criteria, or automatically detected topic or theme shifts (cite PNNL paper on
+wavelets###). We have used sentences as the text unit but are currently (Section
+3.5) working with paragraph-length passages. Kaszkiel and Zobel (1997) review
+much of the passage retrieval literature; see also Miller et al. (1998) and
+Salton et al. (1994, 1996). Whether passages or entire documents, many
+techniques useful in identifying text to present have been reported, as
+illustrated by the following list.</p>
+<p style="margin-left:1.0in"><i>Keyword vectors, boolean expressions on
+keywords, weighted boolean expressions, cosine measures (with pivoting and
+without), automatic term weighting based on document and background frequencies,
+stemming, term truncation, wildcards, thesaurus lookup and other lexicon
+lookups, sentence based retrieval, passage based retrieval (e.g. Callan 1994),
+paragraph based retrieval, word sense disambiguation based on context (e.g.
+Berleant 1995), part of speech tagging of passages, part of speech tagging of
+natural language queries, partial parsing (e.g. Yangarber and Grishman 1997),
+phrasal analysis of questions (Kupiec 1993), relevance feedback, n-gram based
+term comparisons (e.g. Damashek 1995), natural language query processing,
+automatic extracting, abstracting, and summarizing (###better reference needed
+Kupiec et al. 1995), question answering (e.g. Burke et al. 1997; Pilkington
+1992; Richardson), flexible query answering (e.g. Andreasen et al. 1998),
+keychaining (Berghel, Berleant, Foy, &amp; McGuire 1999), selective traversal
+(Salton et al. 1994), visualization of keyword collocations (Hearst 1995;
+Gershon and Eick 1995), automatic index generation (e.g. Symbolics 1985),
+iterative query refinement (citation? Kostoff?###), suffix trees (cite
+Etzioni?###), ranking algorithms, search term generalization, automatic table of
+contents generation, and more.</i></p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto">Length
+considerations prevent reviewing all of the possible techniques, but
+particularly noteworthy ones from the list above are reviewed briefly below.
+Many of these reviews focus on their use in current Web search engines because
+of the search engines have high visibility, define the de facto state of the
+practice for lay information retrieval users in a rapidly evolving and
+competitive business environment, and probably need to eventually evolve into
+sophisticated reader interaction systems, the focus of the present work.&nbsp;</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><i>Automatic
+Abstracting and Extracting.</i> This is relevant to reader interaction with
+texts because an automatically generated abstract or extract of a document could
+be displayed in one of the subwindows of a direct multidisplay, providing a
+summary in that subwindow that could be a useful component of the overall view.
+Such a summary could be either a general purpose abstract or a customized
+(Berleant and Berghel 199?###) extract generated in response to the user's
+query.&nbsp; Automatic summarization is one of the oldest topics in automatic
+text processing (Luhn 1958) and has continued to draw extensive attention (e.g.
+Mani 1998). As Salton et al. (1996) put it, summarization can support ``a type
+of speed reading where an area of interest is specified, and the best text
+passages representing that area are chosen in response.'' We describe real time
+interactive summarization of this type in Berghel et al. (1999). Automatic
+summarization is not (yet) supported by Web search engines although when
+google.com returns a list of URLs, each is annotated with a short passage from
+it containing a query term.</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><i>Natural
+language queries. </i>User friendly reader text browsing seems to require both
+easy and flexible requests for passages (Section 4.1). We have done this by
+designing multibrowsers that support mouse click (easy) and query type-in
+(flexible) interactions (Sections 3.3, 3.4, and 3.5). A natural capability to
+provide is for type-in boxes to accept natural language input and process such
+inputs in a reasonable way. The keyword and n-gram based matching algorithms
+that we have used generally meet this requirement. Web search engines have often
+relied on boolean functions of keywords implicitly or explicitly expressed in
+the query. This often does not result in reasonable behavior in response to
+natural language queries. Vector based approaches tend to be more robust with
+respect to natural language queries because partial matches are easily
+calculated, whereas boolean functions applied simply either match fully or not
+at all. However, Search engines now generally accept natural language queries
+and treat them in a reasonable manner. Some even recommend natural language
+queries. An easy way to use vectors for natural language queries and boolean
+expressions for other queries is to simply determine whether the query meets a
+specified syntax for boolean expressions, and if not, use a vector approach.
+Sophisticated natural language understand is an obvious but currently
+intractable approach to this problem. The multibrowser systems we have described
+contain vector based approaches to keywords and n-grams, and so they handle
+natural language inputs gracefully.&nbsp;</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><i>Question
+answering.</i> Reader interaction with texts can benefit from being able to
+answer user questions. Well known modern question answering systems include FAQ
+finder (Burke et al. 1997) and closely related systems (e.g. Kulyukin et al.
+1998), and MURAX (Kupiec 1993). Systems such as FAQ finder and MURAX are
+intended for use with texts composed of diverse, fairly independent text
+segments (e.g. lists of different frequently asked questions (FAQs) and their
+answers, and sets of encyclopedia articles). In contrast, our focus has been on
+supporting interaction with coherent bodies of text, as commonly found in a
+particular document.&nbsp;Question answering can also differ substantially from
+simply handling natural language queries that end in a question mark. For
+example Ask Jeeves (askjeeves.com) is a question answering system that takes as
+input a natural language question, returning a list of related questions from
+its question database for which it has answers. The user then interacts with the
+system to develop the question into one which is consistent with the user's
+needs and to which the system has one or more answers. See also Richardson
+(2000). This iterative strategy for converging on the best response to the
+user's needs is also the focus of Pilkington (1992) who addresses detecting and
+repairing human-computer communication failures.###check relevance again###.</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><i>Iterative
+query refinement. </i>The iterative techniques just mentioned exemplify the
+strategy of interacting with the user to iteratively converge on the best
+response. As another class of examples, some search engines allow a user to use
+the results of one query as input to another query. This can be a convenient way
+to refine queries that return too many URLs. In the simplest case, this is
+logically equivalent to ANDing the initial and the subsequent query to get a
+single query. However, interactive query refinement can go beyond that. For
+example, the response to a query by Northern Light (2000) includes suggestions
+for new search terms based on the returned set of URLs. Another way to
+iteratively refine a query is to allow the user to designate an entire document
+as the &quot;query,&quot; and return a list of similar documents. The capability
+to search for similar documents is now common in search engines. A variety of
+techniques for identifying similar documents are possible. For example, a
+document can be analyzed to extract keywords from it and those keywords used as
+a query. Identification of similar documents can be complemented by filtering or
+ranking those documents based on more comprehensive but computationally
+intensive (e.g. cosine based) comparisons with the query document.&nbsp;Even
+more sophisticated approaches are possible. The best response is not necessarily
+stored text; it might be a meta-response intended to elicit further input from
+the user to in turn enable better retrieval of stored text. Then, a dialogue
+much like the kind of dialogue that takes place between a reference librarian
+and a library patron could be the best way for user and system to cooperatively
+uncover useful information. Dialogue systems go all the way back to Weizenbaum's
+ELIZA system (1965). Other sophisticated approaches are also possible. For
+example, database tomography based discovery of connections between literatures
+(Kostoff ###) appears well suited to extension to the case of cooperatively
+helping the user discover implicit knowledge within a single body of text.&nbsp;</p>
+<p><i>Ambiguous search terms</i><b>. </b>Sometimes a search term is polysemous
+(its meaning is ambiguous). Where it appears, other words in its proximity can
+usually disambiguate it. For example, as just described Northern Light suggests
+possible such terms. Berleant 1995 reviews the literature on this; see also more
+recent work by Berleant (199?###)&nbsp; and Lager (199?###). By augmenting a
+query term with properly chosen cooccuring auxiliary terms that serve as meaning
+indicators for the query term, a query can be augmented to improve the
+information retrieval precision. Auxiliary terms can be ANDed into the query
+either by requiring their presence or requiring their absence. For example, a
+query for documents on banks might require the auxiliary term &quot;river&quot;
+and require the absence of such terms as &quot;money,&quot;
+&quot;institution,&quot; &quot;race,&quot; and &quot;track.&quot; Since
+polysemous terms usually occur in only one of their meanings in a particular
+document (Yarowsky 199###), filtering out documents in which a term is used in
+an undesired meaning is usually safe and will not filter out documents that are
+actually wanted. For multibrowser systems, support for using auxiliary
+disambiguating terms (or manual use of them without explicit support) would be
+useful in cases where a body of text containing a number of documents is being
+browsed, as in the Web Alcove Multibrowser, Section 3.5.</p>
+<p><i>Boolean style expressions. </i>A Boolean combination of search terms may
+be used for retrieval in many search engines. Boolean expressions provide, for
+example, a mechanism for disambiguating polysemous search terms as just
+discussed. They provide more control to the user than vector based retrieval,
+though because a document either matches a Boolean keyword expression or not, it
+lacks the graduated matching characteristic of vector based retrieval. Ranking
+may be made on the basis of other characteristics when retrieval is Boolean
+based, however. Though usually simple and intuitive to professionals with
+academic degrees in computing, Boolean expressions are not so to all users, as
+indicated by the need to teach Boolean algebra explicitly in university courses.
+This is doubtless why most search engines do not require boolean search
+expressions even when they are used for retrieval. Google.com, for example,
+automatically ANDs the search terms typed in by the user. Most other search
+engines allow users to specify search expressions that explicitly use AND and OR
+operations, either by typing them in or by filling out appropriate forms.
+Usually this is via an &quot;advanced&quot; search interface. In addition to AND
+and OR, some search engines support NEAR, which is not a Boolean operator but is
+useful. Lycos additionally supports <i>adj</i> (adjacent), <i>far</i> (opposite
+of <i>near</i>), and <i>before</i>.&nbsp;</p>
+<p><i>Document ranking. </i>Search engines usually rank the list of returned
+URLs in order of their estimated value to the user. However, the multibrowsers
+we have discussed do not rank the different subwindows. Nevertheless, rankings
+are useful because they help the user prioritize among options - they provide an
+HCI benefit of reducing the cognitive overhead of choosing.&nbsp;</p>
+<p>Ranking is easier to do when the retrieved items are all retrieved using the
+same retrieval algorithm than if different algorithms are used. Yet using
+different algorithms is arguably more robust since any limitations in one
+algorithm that causes relevant items to fall through the cracks are likely to be
+compensated for in other algorithms (Soans master's thesis, year?###). However
+the multiple algorithm approach has the additional potential problem of being
+more time consuming, since more than one algorithm would need to be run. As a
+consequence of the advantages of using one algorithm, that is the approach
+usually used in Web search engines. While multibrowsers have used multiple
+algorithms, as in the Standalone Multibrowser, we have gradually moved away from
+that. Subsequent multibrowsers allowed some user choice in algorithm, but a
+single algorithm was used to process any given query. Unfortunately, rankings
+can be deceptive, as the quality of the ranking may be low, a problem often
+mentioned as a deficiency of Web search engines. Search engines usually give few
+details about their ranking algorithms, nor do they usually comment usefully on
+their quality (for example, an on-line help page at one leading search engine
+simply states that &quot;the most relevant content will always appear at the top
+of the result pages.&quot;). A partial exception to the rule is Lycos, which
+explains its ranking algorithm and even provides an interactive interface to
+help the user customize the algorithm to the current situation. Goto does not
+explain its algorithm in detail, but does allow the user to control the
+importance of a query term by giving it a coefficient (&quot;2.0*lakes&quot;
+makes the term &quot;lakes&quot; more important). Google endeavors to make good
+rankings by taking into account numerous factors, such as number of incoming
+links and nearness of the search terms in&nbsp; retrieved documents. Many search
+engines return a numerical relevancy rating, giving the impression of measuring
+document relevance, but it is not clear what the numbers mean or if indeed they
+mean anything. Consequently, qualitative rankings that order returned items
+without numerically rating them would be easier to justify.</p>
+<p>The uncertain quality of Search engine rankings is one important motivation
+for multibrowser systems that work on sets of Web documents, such as our Web
+Alcove Multibrowser (Section 3.###). Web search engine users can benefit from
+advanced interfaces to help them deal with the long, poorly ordered lists of
+URLs that these systems often return. The problems with search engine ranking
+algorithms are exacerbated by the fact that a cottage industry has grown up
+around understanding the ranking algorithms of major search engines, to
+facilitate composing Web pages that will rank well ([7][11][12]###what were
+they??). Good rankings give commercial interests a competitive edge by bringing
+their Web pages to the attention of potential customers ahead of competitors'
+pages. Furthermore some search engines are now selling ranking priority. That
+is, their ranking algorithms are strongly affected by payments made by sites in
+returned lists! Because the contribution of the intrinsic interest of these
+pages to their rankings, uncertain to begin with, can be circumvented
+significantly by these methods, advanced browsing approaches like that proposed
+here are even more important.</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify"><i>Search term generalization. </i>Often, variant forms of a
+keyword (plurals, synonyms, etc.) are useful for retrieval although it may be
+inconvenient to explicitly put them all in a query. Here we review three ways in
+which Web search engines commonly handle this. Multibrowsers could benefit by
+using the same techniques.&nbsp;</p>
+<ol start="1" type="1">
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo3;tab-stops:list .5in"><i>Wildcards. </i>When
+    wildcards are available, a user will typically be allowed to specify the
+    query term &quot;comput*&quot; to retrieve documents containing terms
+    beginning with the string &quot;comput,&quot; such as &quot;computer,&quot;
+    &quot;computers,&quot; &quot;computation,&quot; and &quot;computing.&quot;
+    Many of the major search engines provide this capability. Some also allow
+    wild cards at the beginning and in the middle of search terms, and allow
+    either a &quot;*&quot; wild card (which matches any number of unspecified
+    characters) or a &quot;?&quot; or &quot;%&quot; wildcard (which matches
+    exactly one unspecified character).&nbsp;</li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo3;tab-stops:list .5in"><i>Stemming algorithms that
+    allow a search term to match its syntactic variants. </i>It is often
+    reasonable to return text containing the term “parachute” in response to
+    a query using the term “parachutes.” This can be done through stemming
+    algorithms. Generic stemming rules reduce various different terms to their
+    respective syntactic common denominators. Idiomatic stemming rules apply to
+    just one or a few terms, such as converting &quot;swam&quot; to
+    &quot;swum.&quot; Hotbot is one search engine that has both kinds of
+    stemming rules. A toggle is provided to use them or not. Some search engines
+    try to stem automatically as part of their processing strategy. Stemming can
+    be done well or poorly; a query to one search engine specifying one of our
+    surnames, Berleant, returned URLs relating to comedian Milton Berle.</li>
+  <li class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l1 level1 lfo3;tab-stops:list .5in"><i>Semantic generalization
+    methods. </i>Thesauri associate words of similar meaning but dissimilar
+    form. Retrieval algorithms can use thesauri to respond to a query containing
+    the keyword &quot;dog&quot; with texts containing the word
+    &quot;canine,&quot; for example. Another way to find associations among
+    related words is with collocation analysis, in which a large body of text is
+    analyzed to determine which words tend to co-occur with which other words.
+    Excite, and its partners Magellan and AOL's Netfind suggest viewing input
+    terms as concepts rather than just keywords, because they can generalize an
+    input query term to other related terms. For example, all three sites state
+    that they associate the concepts &quot;elderly people&quot; and &quot;senior
+    citizens.&quot; The application to multibrowsers is along the same lines as
+    to search engines.</li>
+</ol>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>4.4
+Metaphors and Paradigms for Reader Interaction with Text</b></p>
+<p>The present work investigates direct multidisplay as a paradigm for reader
+interaction with text. By paradigm we simply mean &quot;a pattern, example, or
+model&quot; (Webster's 1974), with or without the overarching breadth
+&quot;paradigm&quot; sometimes seems to suggest. Some paradigms for reader
+interaction with text can be defined intensionally by listing the defining
+characteristics, as with direct multidisplay (Section 2). Other paradigms are
+best characterized with a metaphor, as with electronic books, where the book
+concept is used metaphorically to describe an approach to reader interaction
+with text that does not involve actual books at all, yet is distinctly and
+purposely book-like in important ways. Placing the direct multidisplay paradigm
+for reader interaction with text in context, this section lists the other main
+paradigms for reader interaction with text (for an analysis see Berleant 2000).</p>
+<p><b>Hypermedia</b></p>
+<p>Before the Web, hypertext was usually applied to circumscribed bodies of
+related material, although from the beginning it was envisioned as a way to
+organize very large collections of information (Bush 1945; Nelson 1995).
+Hypertext tends to be author intensive, since the author must create not only
+the text but the links as well although automatically generated links are a
+continuing topic of investigation. The relatively static nature of hyperlinks
+(Halasz 1988) can be a disadvantage when the user's information-seeking goals do
+not match the author's information-presentation goals (Berghel et al. 1999).
+Hypertext has limited capability to satisfy information exploration needs in
+large collections of information (like the Web), as the typical rather
+unstructured networks of texts and links make it easy for users to get lost –
+motivating such useful facilities as directories and the bot-generated indexes
+called search engines. Differentiation between different types of links is
+typically via the descriptive labels that the user clicks on. The hypermedia
+paradigm is a natural part of a multibrowser system because of the usability
+benefit of navigation by clicking, though the links do not necessarily have to
+be statically defined during preprocessing.</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify;line-height:90%"><b style="mso-bidi-font-weight:normal"><span style="mso-bidi-font-size:10.0pt">E-books
+<u1:p>
+</u1:p>
+</span></b></p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify">The book is one of the oldest and most mature information
+presentation techniques. Aspects of books that contribute to its usefulness
+include tables of contents, indexes, sequential page numbers, and chapters. The
+book concept motivated such electronic browsing systems as SuperBook (Egan et
+al. 1989), the Book Emulator (Benest 1990), and Lector (Raymond 1992), as well
+as recent commercial offerings of hand held devices of book size, even including
+a book-shaped device that opens into two displays (like two pages) around a
+hinged “spine” (Everybook, Web site). Adherence to the book metaphor can
+both benefit system quality by suggesting useful features of books to be
+incorporated, and inhibit it by implicitly guiding design away from ways
+computers could improve on books, such as sophisticated retrieval techniques as
+well as new presentation techniques such as direct multidisplay. Perhaps the
+future will hold electronic book-like devices which improve upon printed books
+with new characteristics, such as direct multidisplay.</p>
+<p><b style="mso-bidi-font-weight:normal"><span style="mso-bidi-font-size:10.0pt">Newspapers</span></b></p>
+<p>Newspapers present news articles in a distinctive style. The most important
+information is presented first in two distinct ways. The most important articles
+are presented first, and within a particular article the most important
+information is presented first, such that a reader can stop reading a news
+article on arbitrary paragraph boundaries and know that what was left unread was
+not considered as important as what was read. Newspapers also present a number
+of discourse threads simultaneously, in that a page contains multiple articles.
+Thus, the newspaper embodies a good presentation strategy for busy readers with
+short attention spans. The newspaper metaphor as a way to present information
+electronically is explored by the KRAKATOA Web based system (Kamba et al. 1995)
+and by Golovchinsky and Chignell (1997).<u1:p>
+ &nbsp;</p>
+<p><b style="mso-bidi-font-weight:normal"><span style="mso-bidi-font-size:10.0pt">Citations<u1:p>
+ &nbsp;</span></b></p>
+<p>Citations have historically played a central role in the scholarly world as
+the mechanism for formally relying on existing foundations when building new
+material. On the Web, hyperlinks are the newly supported mechanism for
+referencing other work. Links to other documents can be regarded as citations in
+cyberspace, though the quality of such citations is uncontrolled (Simonson and
+Berleant, submitted; Simonson et al. 1998) due to both the relative impermanence
+of Web content (links can break, and document content can change, unlike for
+paper documents) and because linking is affected by factors less frequently
+found in scholarly works (for example, commercial competitors are relatively
+unlikely to link to each other even when this would be helpful to others, and
+quality of works is less easily assessed). Nevertheless, the use of hyperlinks
+on the Web has caused citations to become vastly more widespread than before,
+when they were largely limited to scholarly works. Even in scholarly works,
+hyperlinks from a paper’s reference list to the papers it cites would be a
+much more convenient implementation for citations than the traditional paper
+method because a clickable hyperlink is so easy to follow, suggesting that
+influential digital libraries such as those of ACM and IEEE would benefit users
+by providing papers (or at least their reference lists) in HTML format. Because
+of the undependability in the permanence of content on the Web, Web content
+permanence technologies such as archiving (Kahle 1997), Web based document
+version retention (Simonson et al. 1998 provides a survey; see also
+www.webdav.org), URNs (Sollin and Masinter 1994) and PURLs (www.purl.org) take
+on additional significance as potential cited sources due to the value of
+reliability in citations.<u1:p>
+ </u1:p>
+<u1:p>
+</u1:p>
+</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify"><b style="mso-bidi-font-weight:normal"><span style="mso-bidi-font-size:10.0pt">Composition<u1:p>
+ &nbsp;</span></b></p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify">By composition we refer to the incremental creation of a
+composite presentation from separately useful parts (Golovchinsky and Chignell
+1997). Halasz's &quot;browsers&quot; and &quot;fileboxes&quot; (1988) were early
+examples in which the user interactively builds up a representation, in that
+case one that abstractly describes a collection of passages. Other examples of
+the composition paradigm include Elastic Windows (Kandogan and Schneiderman
+1997), sticky portals in Pad++ (Schneiderman, Web site), the Krakatoa
+interactive newspaper system (Kamba et al. 1997), and the CollageMachine (Kerne
+1997) Web browser. More mundane applications of the composition paradigm include
+Web browser bookmark lists and browsers' maintenance of a per-session history
+list, which may be traversed by back and forward buttons. <u1:p>
+</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify">An application of the composition paradigm to interactive
+multidisplays suggests itself. Navigation from one multidisplay screen to
+another can mean leaving behind not only the less useful items but the more
+useful ones as well, but if users could conveniently select individual items to
+be &quot;sticky&quot; so they stay in the display as navigation proceeds, then
+the selected items could be retained while navigation proceeds. User-selected
+items would therefore accumulate in the display. For example, consider a Web
+search engine that returns lists of URLs 10 at a time on separate pages. It
+could be helpful if the most useful items found on the first page could be made
+&quot;sticky&quot; such that they are brought forward to the second page and
+stay present and visible while the user continues to check more items.</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify;line-height:80%"><b style="mso-bidi-font-weight:normal"><span style="mso-bidi-font-size:10.0pt">Queries<u1:p>
+ </span></u1:p>
+</b></p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify">Queries are dynamic and defined by the user, in contrast to
+typical hyperlinks which are static and defined by the author. Queries can
+retrieve multiple results, in contrast to typical hyperlinks which point to a
+single target. Yet hyperlinks have convenient point-and-click access whereas
+queries are typically typed. The query concept is a broad one. For example, a
+query can be applied to a hyperlinked structure and take the form of a request
+for a place in the structure conforming to a characterization of a sought
+node-and-link substructure, and in Halasz (1988). This has no obvious hyperlink
+counterpart. Although the hyperlink paradigm helped produce the Web, and
+information access on the Web was initially mainly by following hyperlinks
+around, queries (via the search engines) have since become an essential part of
+it. The Web without these query based search engines would be an impoverished
+environment in comparison. The relative advantages and disadvantages of queries
+and hyperlinks make it natural to use both on the Web, and we use both in the
+multibrowser systems for similar reasons.</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify"><b style="mso-bidi-font-weight:normal"><span style="mso-bidi-font-size:10.0pt">Text
+Mining</span></b></p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify">As early as 1987 the importance of mining in hypermedia
+networks was noted (Halasz 1987:358-360). The most visible example of hypermedia
+mining is probably the Web search engines, which are based on indexes derived by
+extensive mining of the Web. In addition to simply mining terms, search engines
+can mine the Web for the incoming links to a page for use in ranking returned
+lists of URLs (google.com), interactively suggest new terms that the user might
+add to the query to make it more specific, where those new terms are determined
+by mining for co-occurrences (www.excite.com, northernlight.com). A non-search
+engine example of text mining to support readers is the capability of amazon.com
+to inform the user, given a book of interest, what other books were sold most
+often to people buying a given book. Web robots that search the Web for useful
+items conforming to some user interest are other examples of text mining.</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify;line-height:80%"><b style="mso-bidi-font-weight:normal"><span style="mso-bidi-font-size:10.0pt">Directories<u1:p>
+ </span></u1:p>
+</b></p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+text-align:justify">Encyclopedias and other reference works rely on the
+directory paradigm. Books contain tables of contents, which are directories.
+Many Web sites provide small directories in a separate frame, while search
+engine sites often provide large directories serving as jump pages to the Web.
+Yahoo provides an interesting combination of the directory and query paradigms
+that allows users to query after moving down some distance into the directory
+tree. Directories have the attractive property that the &quot;drilling&quot;
+process requires user effort that is logarithmic in the total number of items
+cataloged. However they have the less attractive property of imposing a taxonomy
+that may not be suited to a given information seeking need. To apply the
+directory paradigm to a multibrowser system, a directory to the body of text
+could be placed in a subwindow; the multidisplay strategy is well suited to
+displaying a directory, which should probably contain clickable items, and be
+&quot;sticky&quot; as described above under composition so that it stays present
+when navigation actions cause the other subwindows to be refreshed with new
+material.</p>
+<p class="MsoNormal" style="mso-margin-top-alt:auto;mso-margin-bottom-alt:auto"><b>5
+Conclusion</b></p>
+<p>The value of ever more flexible, intuitive reader interaction with documents
+has motivated the development of the <i>direct multidisplay </i>paradigm. We
+have developed a number of <i>multibrowser </i>systems to demonstrate this
+paradigm using both client- and server-oriented strategies. Desirable features
+of multibrowsers are those which facilitate reader interaction with the text
+while minimizing the cognitive overhead of using the interface. Such features
+include use of links (for easy interaction) as well as type-in boxes (for
+flexible interaction), ranking of the passages displayed in separate subwindows
+(to ease deciding which order to read them in), easy access to the context of
+retrieved passages (e.g. via scroll bars in the subwindows), and use of ordinary
+Web browsers as a vehicle (to make a multibrowser system accessible and with a
+familiar look and feel). This work builds on a foundation of collage based
+systems, especially those focusing on text presentation (Section 4.2). Future
+work is needed that focuses on developing the direct multidisplay paradigm in
+the context of specific practical applications, such as help systems and
+browsing the returned URL lists from Web search engines (currently underway -
+see Section 3.5). This approach to reading forms a paradigm, direct
+multidisplay, for reader interaction with text which augments the existing set
+of paradigms which can be used in designing systems for reader interaction with
+documents.</p>
+<p><strong>References - use as needed###</strong></p>
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;tab-stops:list .5in"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol">·</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Benest, I. D., A Hypertext System with Controlled Hype, in R. McAleese
+and C. Green, eds., <i>Hypertext: State of the Art,</i> Intellect Books, Oxford,
+1990.</p>
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;tab-stops:list .5in"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol">·</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Catledge, L. D. and J. E. Pitkow: Characterizing Browsing Strategies in
+the World-Wide Web. Computer Networks and ISDN Systems 27(6): 1065-1073 (1995).</p>
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;tab-stops:list .5in"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol">·</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Egan, D. E., J. R. Remde, J. M. Gomez, T. K. Landauer, J. Eberhardt, and
+C. C. Lockbaum, Formative Design-Evaluation of SuperBook, ACM Transactions on
+Information Systems, vol. 7 no. 1, 30-57.</p>
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;tab-stops:list .5in"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol">·</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Golovchinsky, From Information Retrieval to Hypertext and Back Again: The
+Role of Interaction in the Information Exploration Interface, dissertation, U.
+of Toronto, Dept. of Mechanical and Industrial Engineering, 1997, <a href="http://anarch.ie.utoronto.ca/people/golovch/thesis/final"><tt><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">http://anarch.ie.utoronto.ca/people/golovch/thesis/final</span></tt></a><tt><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">.</span></tt></p>
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;tab-stops:list .5in"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol">·</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Golovchinsky, G. and M. H. Chignell, Queries-R-Links: Graphical Markup
+for Text Navigation, <i>Proceedings of INTERCHI '93</i> (454--460), Amsterdam,
+ACM Press.</p>
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;tab-stops:list .5in"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol">·</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Golovchinsky, G. and M. H. Chignell, The Newspaper as an Information
+Exploration Metaphor, <i>Information Processing \&amp; Management</i> <b>33</b>
+(5) (663--683), 1997.</p>
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;tab-stops:list .5in"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol">·</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kamba, T., K. Bharat, and M. C. Albers, The Krakatoa Chronical -- an
+interactive, personalized newspaper on the Web, <i>Proceedings of the Fourth
+International World Wide Web Conference (WWW4),</i> Boston, Nov. 11-14, 1995.</p>
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;tab-stops:list .5in"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol">·</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kandogan, Eser and B. Shneiderman, Elastic Windows: A Hierarchical
+Multi-Window World-Wide Web Browser, ACM UIST '97, Symposium on User Interface
+Software and Technology (Oct. 1997).</p>
+<p style="margin-top:0in;margin-right:0in;margin-bottom:0in;margin-left:.5in;
+margin-bottom:.0001pt;text-indent:-.25in;tab-stops:list .5in"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Symbol">·</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Schneiderman, B., Pad++: Zoomable User Interfaces (ZUIs), <a href="http://www.cs.umd.edu/projects/hcil/pad++/">http://www.cs.umd.edu/projects/hcil/pad++/</a>
+is a good starting point with many links to papers and other relevant items.<o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list .5in;margin-left:
+23">&nbsp;<o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list .5in;margin-left:
+23"><b>References -use as needed###</b><o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Alonso, O. and R. Baeza-Yates, Visualizations of Answers in WWW
+Retrieval, <i>GISS 1996 Internet Conference (GISSIC '96),</i> Global Information
+and Software Society, Oct. 20--24, <tt><span style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;">http://pride-i2.poly.edu/GISS/docs/gissic96proceedings.HTM</span></tt>
+(``HTM'' must be in caps). See also <tt><span style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;">http://sunsite.dcc.uchile.cl/~rbaeza/</span></tt><o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><a name="FQAS"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:FQAS"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Andreasen, T., H. Christiansen, H. L. Larsen, eds., <i>Flexible Query
+Answering Systems,</i> Proceedings of the Third International Conference, FQAS
+'98, Roskilde, Denmark, May 1998. Lecture Notes in Artificial Intelligence 1495,
+Springer-Verlag.</span><o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><a name="Benest"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:Benest"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Benest, I. D., A Hypertext System with Controlled Hype, in R. McAleese
+and C. Green, eds., <i>Hypertext: State of the Art,</i> Intellect Books, Oxford,
+1990.</span><o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><a name="BerghelBerleant"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:BerghelBerleant"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Berghel, H. and D. Berleant, The Challenge of Customizing Cybermedia, <i>Heuristics</i>
+<b>7</b> (2) (Summer/Fall 1994) 33--43.</span><o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><a name="BerghelEtAl"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:BerghelEtAl"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Berghel, H., D. Berleant, T. Foy, and T. McGuire, Cyberbrowsing:
+Information Customization on the Web, <i>Journal of the American Society for
+Information Science (JASIS),</i> to appear in 1999, <tt><span style="font-size:10.0pt;font-family:
+&quot;Courier New&quot;">http://www.acm.org/~hlb/publications/cb5/cb5.html</span></tt>.</span><o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><a name="Berleant1"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:Berleant1"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Berleant, D., Engineering Word Experts for Word Disambiguation, <i>Natural
+Language Engineering</i> <b>1</b> (4) (Dec. 1995) 339--362.</span><o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><a name="paradigms"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:paradigms"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Berleant, D., Metaphors and Other Paradigms for Reader Interaction With
+Text, submitted (2000),&nbsp; </span><a href="http://class.ee.iastate.edu/berleant/home/me/vita/papers/###.html"><span style="font-size: 10.0pt; font-family: Courier New; mso-fareast-font-family: Courier New; mso-bookmark: paradigms">http://class.ee.iastate.edu/berleant/home/me/vita/papers/###.html</span></a><span style="mso-bookmark:paradigms"><tt><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">.&nbsp;</span></tt></span><o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><a name="BerleantBerghel1">o</a><span style="mso-bookmark:BerleantBerghel1"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Berleant, D., M. Arvold, J. Brown, R. DeVries, and H.-K. Lim####Simonson,
+if he does something, title, unpublished manuscript, </span><a href="http://###"><span style="mso-bookmark:BerleantBerghel1">http://###</span></a><span style="mso-bookmark:BerleantBerghel1">.
+<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: BerleantBerghel1">o</span><span style="mso-bookmark:BerleantBerghel1"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Berleant, D. and H. Berghel, Customizing Information: Part 1, Getting
+What We Need, When We Need It, <i>Computer</i> <b>27</b> (9) (Sept. 1994)
+96--98.</span> <a name="BerleantBerghel2">Customizing Information: Part 2, How
+Successful Are We So Far?, <i>Computer</i> <b>27</b> (10) (Oct. 1994) 76--78.</a><o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><a name="BerleantEtAl2"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:BerleantEtAl2"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Burke, R. D., K. J. Hammond, V. Kulyukin, S. L. Lytinen, N. Tomuro, and
+S. Schoenberg, Question Answering from Frequently Asked Question Files:
+Experiences with the FAQ FINDER System, <i>Artificial Intelligence Magazine</i>
+18 (2) (Summer 1997) 57--66. </span><a href="http://faqfinder.cs.uchicago.edu"><span style="mso-bookmark:BerleantEtAl2">http://faqfinder.cs.uchicago.edu</span></a><span style="mso-bookmark:BerleantEtAl2">
+and </span><a href="http://faqfinder.ics.uci.edu:8001"><span style="mso-bookmark:
+BerleantEtAl2">http://faqfinder.ics.uci.edu:8001</span></a><span style="mso-bookmark:BerleantEtAl2">.&nbsp;<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: BerleantEtAl2">o</span><span style="mso-bookmark:BerleantEtAl2"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Callan, J., Passage-Level Evidence in Document Retrieval, <i>Proceedings
+of the Seventeenth Annual International ACM SIGIR Conference on Research and
+Development in Information Retrieval,</i> July 1994.</span><o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><a name="CatledgePitkow"><span style="font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:CatledgePitkow"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Catledge, L. D. and J. E. Pitkow: Characterizing Browsing Strategies in
+the World-Wide Web, <i>Computer Networks and ISDN Systems</i> 27 (6) (1995)
+1065--1073.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: CatledgePitkow">o</span><span style="mso-bookmark:CatledgePitkow"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Chimera, Richard, Value Bars: An Information Visualization and Navigation
+Tool for Multi-Attribute Listings, in Proceedings of the ACM SIGCHI Conference
+on Human Factors in Computing Systems, pp. 293--294, May 1992.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: CatledgePitkow">o</span><span style="mso-bookmark:CatledgePitkow"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Damashek, M., Gauging Similarity With N-Grams: Language-Independent
+Categorization of Text, <i>Science</i> <b>267</b> (10 Feb. 1995) 843--848.
+Abstract in <i>Science News</i> <b>147</b> (8) 124.</span><o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><a name="EganEtAl"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:EganEtAl"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Egan, D. E., J. R. Remde, J. M. Gomez, T. K. Landauer, J. Eberhardt, and
+C. C. Lockbaum, Formative Design-Evaluation of SuperBook, <i>ACM Transactions on
+Information Systems</i> <b>7</b> (1) 30--57.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: EganEtAl">o</span><span style="mso-bookmark:EganEtAl"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Eick, S. G., Graphically Displaying Text, <i>Journal of Computational and
+Graphical Statistics</i> <b>3</b> (2) (June 1994) 127--142.</span><o:p>
+</o:p>
+</p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><a name="ebook98"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;
+font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:ebook98"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Electronic Book '98, conference, <tt><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">http://www.nist.gov/itl/div895/isis/ebook98.html</span></tt>.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: ebook98">o</span><span style="mso-bookmark:ebook98"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Electronic Book '99, conference, ###.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="everybook"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:everybook"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Everybook, Inc., </span><span style="mso-bookmark:
+everybook"><tt><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">http://www.everybk.com/</span></tt>.<o:p>
+</o:p>
+</span></span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: everybook">o</span><span style="mso-bookmark:ebook98"><span style="mso-bookmark:everybook"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Gershon, N. and S. G. Eick, Visualization's New Tack: Making Sense of
+Information, <i>IEEE Spectrum</i> <b>32</b> (11) (Nov. 1995) 38--56.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="GolovchinskyChignell2"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:GolovchinskyChignell2"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Golovchinsky, G. and M. H. Chignell, Queries-R-Links: Graphical Markup
+for Text Navigation, <i>Proceedings of INTERCHI '93,</i> 454--460, Amsterdam,
+ACM Press.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="GolovchinskyChignell"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:GolovchinskyChignell"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Golovchinsky, G. and M. H. Chignell, The Newspaper as an Information
+Exploration Metaphor, <i>Information Processing &amp; Management</i> <b>33</b>
+(5) (1997) 663--683. See also Golovchinsky's dissertation, From Information
+Retrieval to Hypertext and Back Again: The Role of Interaction in the
+Information Exploration Interface, 1997, </span></span><a href="http://anarch.ie.utoronto.ca/people/golovch/thesis/final/"><span style="font-size: 10.0pt; font-family: Courier New; mso-fareast-font-family: Courier New; mso-bookmark: GolovchinskyChignell">http://anarch.ie.utoronto.ca/people/golovch/thesis/final/</span></a><span style="mso-bookmark: GolovchinskyChignell">.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark: GolovchinskyChignell">o<span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Gu, Z. and D. Berleant, title###, etc. </span><a href="http://###"><span style="mso-bookmark: GolovchinskyChignell">http://###</span></a><span style="mso-bookmark: GolovchinskyChignell">.
+<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: GolovchinskyChignell">o</span><span style="font-size: 7.0pt; mso-bookmark: GolovchinskyChignell">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="font-family: Times; mso-bookmark: GolovchinskyChignell">Halasz,
+F. G., Reflections on NoteCards: Seven Issues for the Next Generation of
+Hypermedia Systems, Communications of the ACM 31 (7) (July 1988) 836-852.
+Revised from paper of same title in Hypertext '87, 345-365.</span><span style="mso-bookmark: GolovchinskyChignell"><span style="mso-spacerun: yes; font-size: 10.0pt; font-family: Times">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span style="mso-spacerun: yes">&nbsp;</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: GolovchinskyChignell">o</span><span style="mso-bookmark: GolovchinskyChignell"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Hearst, M., TileBars: Visualization of Term Distribution Information in
+Full Text Information Access, <i>ACM SIGCHI Conference on Human Factors in
+Computing Systems,</i> 1995, pp. 59--66.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: GolovchinskyChignell">o</span><span style="mso-bookmark: GolovchinskyChignell"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Hetzler, B., M. Harris, S. Havre, and P. Whitney, Visualing the Full
+Spectrum of Document Relationships, in Structures and Relations in Knowledge
+Organization, <i>Proc. 5th Int. ISKO Conference,</i> Verlag, 1998, pp. 168--175.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: GolovchinskyChignell">o</span><span style="mso-bookmark:ebook98"><span style="mso-bookmark:GolovchinskyChignell"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Hetzler, B. and N. Miller, Four Critical Elements for Designing
+Information Exploration Systems, SIGCHI '98, ACM.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="HuangThesis"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:HuangThesis"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Huang, J., A Server Based Search Engine-Like Interface for Individual Web
+Documents, master's thesis, University of Arkansas, 1998.<o:p>
+</o:p>
+</span></span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: HuangThesis">o</span><span style="mso-bookmark: HuangThesis"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kamba, T., K. Bharat, and M. C. Albers, The Krakatoa Chronical --- an
+Interactive, Personalized Newspaper on the Web, <i>Proceedings of the Fourth
+International World Wide Web Conference (WWW4),</i> Boston, Nov. 11--14, 1995, </span><span style="mso-bookmark:ebook98"><span style="mso-bookmark:HuangThesis"><tt><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">http://www.w3.org/Conferences/WWW4/Papers/93/</span></tt>.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="KandoganSchneiderman"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kandogan, Eser and B. Schneiderman, Elastic Windows: A Hierarchical
+Multi-Window World-Wide Web Browser, <i>ACM Symposium on User Interface Software
+and Technology (UIST '97),</i> Oct. 1997.<o:p>
+</o:p>
+</span></span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark: KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kaltenbach,<b> </b>M.and C.<b> </b>Frasson, Dynaboard: User Animated
+Display of Deductive Proofs in Mathematics, International Journal of Man-Machine
+Studies, 30 (1989), p. 149-170.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark: KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kaltenbach, M., F. Robillard, and C. Frasson, Screen Management in
+Hypertext Systems with Rubber Sheet Layouts, Hypertext '91 Proceedings, ACM,
+91-105.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark: KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kaszkiel, M. and J. Zobel, Passage Retrieval Revisited, in <i>Proceedings
+of the 20th Annual International ACM SIGIR Conference on Research and
+Development in Information Retrieval,</i> July 27--31, 1997, Philadelphia, PA,
+pp. 178--185.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark: KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kerne, A., CollageMachine: Temporality and Indeterminacy in Media
+Browsing via Interface Ecology, in Human Factors in Computing Systems: CHI 97
+Extended Abstracts, also in CHI 97 Electronic Publications: Late-Breaking/Short
+Talks, </span><a href="http://www.acm.org/sigs/sigchi/chi97/proceedings/short-talk/ak.htm"><span style="mso-bookmark: KandoganSchneiderman">http://www.acm.org/sigs/sigchi/chi97/proceedings/short-talk/ak.htm</span></a><span style="mso-bookmark: KandoganSchneiderman">.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark: KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Komlodi, A. and G. Marchionini, Key Frame Preview Techniques for Video
+Browsing, Proceedings of Digital Libraries 98, ACM, 118-125.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark: KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kostoff, R. N., Database Tomography for Technical Intelligence: A Roadmap
+of the Near-Earth Space Science and Technology Literature, <i>Information
+Processing and Management</i> <b>34</b> (1), 1998.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark: KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kostoff, R. N., Hypersonic and Supersonic Flow Roadmaps using
+Bibliometrics and Database Tomography, <i>Journal of the American Society for
+Information Science</i>, April 1999.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark: KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kostoff, R. N., Science and Technology Innovation, <i>Technovation,</i>
+accepted.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark: KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kulyukin, V. A., K. J. Hammond, and R. D. Burke, Answering Questions for
+an Organization Online, in <i>Proceedings of the Fifteenth National Conference
+on Artificial Intelligence (AAAI-98),</i> AAAI Press, pp. 532--538.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark: KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kupiec, Julian, MURAX: A Robust Linguistic Approach For Question
+Answering Using an On-Line Encyclopedia, <i>16th International SIGIR '93.</i><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark: KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Kupiec, J., J. Pedersen, and F. Chen, A Trainable Document Summarizer, <i>18th
+International SIGIR '95,</i> Seattle.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark: KandoganSchneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Luhn, H. P., The Automatic Creation of Literature Abstracts, <i style="mso-bidi-font-style:
+normal">IBM Journal </i>(April 1958) 159-165.&nbsp;<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: KandoganSchneiderman">o</span><span style="mso-bookmark:ebook98"><span style="font-size: 7.0pt; mso-bookmark: KandoganSchneiderman">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Mani, I. et al, The TIPSTER SUMMAC Text Summarization Evaluation Final
+Report, Mitre Corp. technical report 98W0000138, Oct. 1998, <span style="text-decoration:none;text-underline:none" class="MsoHyperlink">http://www.itl.nist.gov/iaui/894.02/related_projects/tipster_summac/final_rpt.html</span>.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="MathewEtAl"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:MathewEtAl"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Mathew, J., J. M. Conrad, and D. Berleant, Word Sense Disambiguation by
+Constraint Satisfaction: A Feasibility Study, <i>Proceedings of the Arkansas
+Computer Conference,</i> Oct. 14--15, 1993, Little Rock, Arkansas Society for
+Computer and Information Technology, pp. 74--79.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="MUC"><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:MUC"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Message Understanding Conference (MUC) series, </span></span><span style="mso-bookmark: MUC"><tt><span style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;">http://www.muc.saic.com/index.html</span></tt>.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: MUC">o</span><span style="mso-bookmark: MUC"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Miller, N., B. Hetzler, G. Nakamura and P. Whitney, The Need for Metrics
+in Visual Information Analysis, Workshop on New Paradigms in Information
+Visualization and Manipulation, in conjunction with the Sixth ACM International
+Conference on Information and Knowledge Management (CIKM '97).<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: MUC">o</span><span style="mso-bookmark: MUC"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Miller, N. E., P. C. Wong, M. Brewster, and H. Foote, TOPIC ISLANDS --- A
+Wavelet-Based Text Visualization System, <i>IEEE Visualization '98.</i><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: MUC">o</span><span style="mso-bookmark:ebook98"><span style="mso-bookmark:MUC"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Miller, R. B., Response Time in Man-Computer Conversational Transactions,
+<i>Proceedings of AFIPS Spring Joint Computer Conference,</i> 1968, pp.
+267--277.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="MuThesis"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:MuThesis"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Mu, J., Http Client that Browses: a Standalone MultiBrowser for the Web,
+master's thesis, University of Arkansas, 1997.<o:p>
+</o:p>
+</span></span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: MuThesis">o</span><span style="mso-bookmark: MuThesis"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Nielsen, J., User Interface Directions for the Web, <i>Communications of
+the ACM</i> <b>41</b> (1) (Jan. 1999) 65--72.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: MuThesis">o</span><span style="mso-bookmark: MuThesis"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Noreault, T., M. McGill, and M. B. Koll, A Performance Evaluation of
+Similarity Measures, Document Term Weighting Schemes and Representations in a
+Boolean Environment, in R. N. Oddy, S. E. Robertson, C. J. van Rijsbergen, and
+P. W. Williams, eds., <i>Information Retrieval Research,</i> Butterworths,
+London, 1981, pp. 57--76.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark: MuThesis">&nbsp; <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Northern Light, search engine. </span><a href="http://northernlight.com"><span style="mso-bookmark: MuThesis">http://northernlight.com</span></a><span style="mso-bookmark: MuThesis">
+(July 9, 2000).<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: MuThesis">o</span><span style="mso-bookmark:ebook98"><span style="mso-bookmark:MuThesis"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>octopus.com, Web site (July 7, 2000).</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="PNL"><span style="font-size:10.0pt;
+mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:PNL"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Pacific Northwest National Laboratory, <tt><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">http://multimedia.pnl.gov:2080/infoviz/index.html</span></tt>
+is a web site with numerous papers and images relating to their information
+visualization techniques.<o:p>
+</o:p>
+</span></span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: PNL">o</span><span style="mso-bookmark:ebook98"><span style="mso-bookmark:PNL"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Pilkington, R., Question-Answering for Intelligent On-Line Help: the
+Process of Intelligent Responding, <i>Cognitive Science</i> <b>16</b> (4) (1992)
+455--491.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="PottiThesis"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:PottiThesis"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Potti, R., MultiBrowser: Information Customization with Multiple Windows
+for Multiway Lookahead Browsing, master's thesis, University of Arkansas,
+Fayetteville, 1996.<o:p>
+</o:p>
+</span></span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: PottiThesis">o</span><span style="mso-bookmark:ebook98"><span style="mso-bookmark:PottiThesis"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Raymond, D. R., Flexible Text Display With Lector, <i>IEEE Computer</i> <b>25</b>
+(8) (August 1992) 49--60.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="Raymond"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:Raymond"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Raymond, D., Visualizing Texts, <i>Proceedings of the 9th Annual
+Conference of the UW Centre for the New OED,</i> Oxford, England, September
+27--28, 1993, pp. 20--33.<o:p>
+</o:p>
+</span></span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: Raymond">o</span><span style="mso-bookmark:ebook98"><span style="mso-bookmark:Raymond"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Raymond, D. and H. Fawcett, Playing Detective With Full Text Searching
+Software, <i>SIGDOC '90 Proceedings,</i> ACM.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="Richardson"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:Richardson"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Richardson, John V., Question Master, </span></span><a href="http://purl.oclc.org/net/Question_Master"><span style="mso-bookmark:ebook98">http://purl.oclc.org/net/Question_Master</span></a><span style="mso-bookmark:ebook98">
+(July 10, 2000), and </span><a href="http://www.gseis.ucla.edu/research/oclc1.html"><span style="mso-bookmark:
+ebook98">http://www.gseis.ucla.edu/research/oclc1.html</span></a><span style="mso-bookmark:ebook98">
+(July 10, 2000). <o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="RobertsonMackinlay"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:RobertsonMackinlay"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Robertson, G. G. and J. D. Mackinlay, The Document Lens, <i>Proceedings
+of the Sixth Annual ACM Symposium on User Interface Software and Technology
+(UIST '93),</i> Nov. 3--5, 1993, Atlanta, pp. 101--107.<o:p>
+</o:p>
+</span></span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: RobertsonMackinlay">o</span><span style="mso-bookmark:ebook98"><span style="mso-bookmark:RobertsonMackinlay"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Salton, G., J. Allen, C. Buckley, and A. Singhal, Automatic Analysis,
+Theme Generation, and Summarization of Machine-Readable Texts, <i>Science</i> <b>264</b>
+(3 June 1994) 1421--1426.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="SaltonEtAl96"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:SaltonEtAl96"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Salton, G, A. Singhal, C. Buckley, and M. Mitra, Automatic Text
+Decomposition Using Text Segments and Text Themes, <i>Proceedings of the Seventh
+ACM Conference on Hypertext '96,</i> March 16--20, 1996, pp. 53--65.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="MooresLaw"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:MooresLaw"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Schaller, R. R., Moore's Law: Past, Present, and Future, <i>IEEE
+Spectrum,</i> June 1997, 53--59.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="Schneiderman"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:Schneiderman"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Schneiderman, B., Pad++: Zoomable User Interfaces (ZUIs), <tt><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">http://www.cs.umd.edu/projects/hcil/pad++/</span></tt>
+is a good starting point with many links to papers and other relevant items.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="SimonsonEtAl"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:SimonsonEtAl"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Simonson, J., D. Berleant, X. Zhang, M. Xie, and H. Vo, Version Augmented
+URI's for Reference Permanence Via an Apache Module Design, <i>Computer Networks
+and ISDN Systems</i> <b>30</b> (1--7) (April 1998) 337--345. Presented at the
+Seventh International World Wide Web Conference (WWW7), Brisbane, Australia,
+1998.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="SinghalEtAl"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:SinghalEtAl"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Singhal, A., C. Buckley, and M. Mitra, Pivoted Document Length
+Normalization, <i>Proceedings of the 19th Annual International ACM SIGIR
+Conference on Research and Development in Information Retrieval,</i> Aug.
+18--22, 1996, pp. 21--29.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="Soans"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:Soans"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Soans, U., A System for Applying Information Retrieval Techniques to
+Intra-Document Sentence Retrieval, master's thesis, University of Arkansas,
+1998.<o:p>
+</o:p>
+</span></span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: Soans">o</span><span style="mso-bookmark: Soans"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Spoerri, Anselm, InfoCrystal: A Visual Tool for Information Retrieval
+&amp; Management, in Proceedings of the Second International Conference on
+Information and Knowledge Management (CIKM) '93, Washington, D.C., pp. 11--20,
+ACM Press.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: Soans">o</span><span style="mso-bookmark:ebook98"><span style="mso-bookmark:Soans"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Symbolics, Inc., <i>System Index</i> (vol. 10), 1985. This is an
+automatically generated index to the previous 9 volumes.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="TauscherGreenberg"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:TauscherGreenberg"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Tauscher, L. and Greenberg, S. (1997). Revisitation Patterns in World
+Wide Web Navigation, <i>Proceedings of the ACM SIGCHI Conference on Human
+Factors in Computing Systems, CHI 97,</i> March, pp. 399--406, ACM Press. An
+expanded version is at <tt><span style="font-size:10.0pt;
+font-family:&quot;Courier New&quot;">http://ijhcs.open.ac.uk/tauscher/tauscher-nf.html</span></tt>.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="Tipster"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:Tipster"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Tipster Text Program, sponsored by a number of U.S. government agencies, </span><span style="mso-bookmark:
+Tipster"><tt><span style="font-size:10.0pt;font-family:&quot;Courier New&quot;">http://www.nist.gov/itl/div894/894.02/related_projects/tipster/</span></tt>
+isn't it over now?</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="fastCGI"><span style="font-size:
+10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;mso-bidi-font-family:
+&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:fastCGI"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>The Unofficial FastCGI Home Page, </span></span><a href="http://www.fastcgi.com/"><span style="font-size: 10.0pt; font-family: Courier New; mso-fareast-font-family: Courier New; mso-bookmark: fastCGI">http://www.fastcgi.com/</span></a><span style="mso-bookmark: fastCGI">.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: fastCGI">o</span><span style="mso-bookmark: fastCGI"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Tse, T., G. Marchionini, W. Ding, L. Slaughter, and A Komlodi, Dynamic
+Key Frame Presentation Techniques for Augmenting Video Browsing, Proceedings of
+AVI '98: Advanced Visual Interfaces, 185-194.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: fastCGI">o</span><span style="mso-bookmark: fastCGI"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Valdés, R., The Client-Side Conundrum, Web Techniques (Aug. 2000) 94-96.
+</span><a href="http://www.webtechniques.com"><span style="mso-bookmark: fastCGI">www.webtechniques.com</span></a><span style="mso-bookmark: fastCGI">.&nbsp;<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark: fastCGI">&nbsp; <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Webster's New World Dictionary, Second College Edition, D. C. Guralnik,
+ed., The World Publishing Co., 1972.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark: fastCGI">&nbsp; <span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+&quot;Courier New&quot;;mso-bidi-font-family:&quot;Times New Roman&quot;">o</span><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Weizenbaum, J., ELIZA --- a Computer Program for the Study of Natural
+Language Communication Between Man and Machine, <i>Communications of the ACM</i>
+<b>9</b> (1) 36--45.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: fastCGI">o</span><span style="mso-bookmark: fastCGI"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Wise, J. A., J. J. Thomas, K. Pennock, D. Lantrip, M. Pottier, A. Schur,
+and V. Crow, Visualizing the Non-Visual: Spatial Analysis and Interaction with
+Information from Text Documents, in Proceedings of the IEEE Information
+Visualization '95 Conference, 51-58.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: fastCGI">o</span><span style="mso-bookmark: fastCGI"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Wittenburg, K., W. Ali-Ahmad, D. LaLiberte, and T. Lanning, Polynesian
+Navigation: Locomotion and Previewing Aspects, </span><a href="http://www.acm.org/pubs/contents/proceedings/chi/286498/"><span style="mso-bookmark: fastCGI">Proceedings
+of the conference on CHI 98 summary: human factors in computing systems</span></a><span style="mso-bookmark: fastCGI">,
+ACM, 317-318.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: fastCGI">o</span><span style="mso-bookmark: fastCGI"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Wittenburg, K., J. Nicol, J. Paschetto, and C. Martin, Browsing with
+Dynamic Key Frame Collages in Web-Based Entertainment Video Services, IEEE
+International Conference on Multimedia Computing and Systems, 1999 (Vol. 2)
+913-918.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: fastCGI">o</span><span style="mso-bookmark:ebook98"><span style="mso-bookmark:fastCGI"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Yangarber, R. and R. Grishman, Customization of Information Extraction
+Systems, <i>Proceedings of International Workshop on Lexically Driven
+Information Extraction,</i> Frascati, Italy, 1997.</span><o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: ebook98">o</span><span style="mso-bookmark:ebook98"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Yeo, B.-L. and M. Yeung, Retrieving and Visualizing Video, Communcations
+of the ACM, 40 (12) (Dec. 1997) 43-52.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: ebook98">o</span><span style="mso-bookmark:ebook98"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Yeung, M. and B.-L. Yeo, Video Visualization for Compact Presentation and
+Fast Browsing of Pictorial Content, IEEE Trans. Circuits and Systems for Video
+Technology 7 (5) (Oct. 1997) 771-785.<o:p>
+</o:p>
+</span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="mso-bookmark:ebook98"><a name="ZhouThesis"><span style="font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:&quot;Courier New&quot;;
+mso-bidi-font-family:&quot;Times New Roman&quot;">o</span></a><span style="mso-bookmark:ZhouThesis"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Zhou, X., Web-Based Document Browser (WBDB): A MultiBrowser for the Web,
+master's thesis, University of Arkansas, 1997.<o:p>
+</o:p>
+</span></span></p>
+<p style="margin:0in;margin-bottom:.0001pt;tab-stops:list 1.0in;margin-left:
+23"><span style="font-size: 10.0pt; mso-bidi-font-size: 12.0pt; font-family: Courier New; mso-bidi-font-family: Times New Roman; mso-bookmark: ZhouThesis">o</span><span style="mso-bookmark:ebook98"><span style="mso-bookmark:ZhouThesis"><span style="font-size:7.0pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Zobel, J., A. Moffat, R. Wilkinson, and R. Sacks-Davis, Efficient
+Retrieval of Partial Documents, Information Processing &amp; Retrieval,
+31(3):361--377, 1995.</span><o:p>
+</o:p>
+</span></p>
+<p><![if !supportEmptyParas]>
+&nbsp;<![endif]>
+<o:p>
+</o:p>
+</p>
+<p class="MsoNormal"><![if !supportEmptyParas]>
+&nbsp;<![endif]>
+<o:p>
+</o:p>
+</p>
+
+</body>
+
+</html>
