@@ -158,6 +158,8 @@ color:black;background:white'>&nbsp;&nbsp;&nbsp;</span><span style='font-size:
 code that will print 5 lines: one for each row of the truth table for OR, plus
 a line containing the column labels.</span></p>
 
+<p><b>Hint: \n versus &lt;br></b>.You need to print out your truth table somehow. So, \n denotes the newline character (i.e. a line break) in JavaScript. On the other hand, &lt;br> denotes a line break in HTML. Thus, if you put a \n in a string and write the string to the innerHTML of an HTML element like &lt;p> for example, it will display in HTML as white space (in other words, it will print as a space or not at all, depending on the context). Instead, put the substring "&lt;br>" in the string and HTML will render the "&lt;br>" as the desired line break. On the other hand if you print using pure JavaScript, for example using prompt(), which creates a JavaScript popup that has nothing to do with HTML, then \n in a string will line break the string at that point. However, JavaScript does not know what &lt;br> means because JavaScript is not HTML, so if you print that to a prompt() popup, it will print out simply as the 4 characters "&lt;br>". Confused yet?? Just experiment with it and get it to work that way! 
+
 <p class=MsoListParagraph style='text-indent:-.25in'><span style='font-size:
 12.0pt;line-height:115%;color:black;background:white'>3)</span><span
 style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif;
@@ -234,35 +236,31 @@ style='font-size:12.0pt;line-height:115%;color:black;background:white'>What is
 12.0pt;line-height:115%;color:black;background:white'>8)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Pick option a, b or c.</span></p>
 
-<p class=MsoListParagraph style='margin-left:1.0in;text-indent:-.25in'><span
-style='font-size:12.0pt;line-height:115%;font-family:Symbol;color:black'>·<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
-style='font-size:12.0pt;line-height:115%;color:black;background:white'>a. Design
+<p>Hint: The following example JavaScript statement might be helpful.<br><br>
+<b>if (prompt('Is JavaScript fun?')==='yes') alert('You win'); else alert('you lose');</b>
+
+<ul>
+<li> a. Design
 a text-based game. The game should involve starting from some point in the
 universe and seeking or exploring. For example, you could start at the mouth of
 a cave and seek gold in the halls and caverns (like <a
-href="https://www.amc.com/shows/halt-and-catch-fire/exclusives/colossal-cave-adventure">Adventure</a>
+href="https://www.amc.com/shows/halt-and-catch-fire/exclusives/colossal-cave-adventure">Colossal Cave (sorry link down)</a>
 which I enjoyed a looooooong time ago). Or you could start at the entrance to a
 magic forest and explore the paths to find water, food, magical items, and so
 on. Or you could explore the Moon or Mars. Write out the logic in English
 and/or pseudocode. Write several lines of JavaScript code that will start the
-game going, containing control flow statement(s).</span></p>
+game going, containing control flow statement(s).
 
-<p class=MsoListParagraph style='margin-left:1.0in;text-indent:-.25in'><span
-style='font-size:12.0pt;line-height:115%;font-family:Symbol;color:black'>·<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
-style='font-size:12.0pt;line-height:115%;color:black;background:white'>b. Build
+<li>b. Build a program that demos the answers to the above questions. It could involve clicking buttons, or clicking the questions, or whatever you like.
 a program that demos the answers to the above questions. It could involve
 clicking buttons, or clicking the questions, or whatever you like. </span></p>
 
-<p class=MsoListParagraph style='margin-left:1.0in;text-indent:-.25in'><span
-style='font-size:12.0pt;line-height:115%;font-family:Symbol;color:black'>·<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
-style='font-size:12.0pt;line-height:115%;color:black;background:white'>c. Write
+<li>c. Write
 a game-like interactive system (or an actual game) around the questions above.
-If the player gets all the answers right they get … a 100! Or a 1 lb. solid
-gold star. Maybe if they get over 100 they get a paper hat saying “teacher’s
-pet” instead of the solid gold star. Whatever, however you want to do it. </span></p>
+If the player gets all the answers right they get ... a 100! Or a 1 lb. solid
+gold star. Maybe if they get over 100 they get a paper hat saying "teacher's
+pet" instead of the solid gold star. Whatever, however you want to do it. 
+</ul>
 
 <p class=MsoListParagraph style='margin-left:.75in;text-indent:-.25in'><span
 style='font-size:12.0pt;line-height:115%;color:black;background:white'>&nbsp;</span></p>
