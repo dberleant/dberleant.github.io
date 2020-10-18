@@ -3,95 +3,6 @@
 <head>
 <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
 <meta name=Generator content="Microsoft Word 15 (filtered)"> 
-<style>
-<!--
- /* Font Definitions */
- @font-face
-	{font-family:"Cambria Math";
-	panose-1:2 4 5 3 5 4 6 3 2 4;}
-@font-face
-	{font-family:Calibri;
-	panose-1:2 15 5 2 2 2 4 3 2 4;}
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:10.0pt;
-	margin-left:0in;
-	line-height:115%;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;}
-a:link, span.MsoHyperlink
-	{color:blue;
-	text-decoration:underline;}
-a:visited, span.MsoHyperlinkFollowed
-	{color:purple;
-	text-decoration:underline;}
-p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:10.0pt;
-	margin-left:.5in;
-	line-height:115%;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;}
-p.msonormal0, li.msonormal0, div.msonormal0
-	{mso-style-name:msonormal;
-	margin-right:0in;
-	margin-left:0in;
-	font-size:12.0pt;
-	font-family:"Times New Roman",serif;}
-p.msolistparagraphcxspfirst, li.msolistparagraphcxspfirst, div.msolistparagraphcxspfirst
-	{mso-style-name:msolistparagraphcxspfirst;
-	margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	line-height:115%;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;}
-p.msolistparagraphcxspmiddle, li.msolistparagraphcxspmiddle, div.msolistparagraphcxspmiddle
-	{mso-style-name:msolistparagraphcxspmiddle;
-	margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	line-height:115%;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;}
-p.msolistparagraphcxsplast, li.msolistparagraphcxsplast, div.msolistparagraphcxsplast
-	{mso-style-name:msolistparagraphcxsplast;
-	margin-top:0in;
-	margin-right:0in;
-	margin-bottom:10.0pt;
-	margin-left:.5in;
-	line-height:115%;
-	font-size:11.0pt;
-	font-family:"Calibri",sans-serif;}
-p.msopapdefault, li.msopapdefault, div.msopapdefault
-	{mso-style-name:msopapdefault;
-	margin-right:0in;
-	margin-bottom:10.0pt;
-	margin-left:0in;
-	line-height:115%;
-	font-size:12.0pt;
-	font-family:"Times New Roman",serif;}
-.MsoChpDefault
-	{font-size:10.0pt;}
-@page WordSection1
-	{size:8.5in 11.0in;
-	margin:1.0in 1.0in 1.0in 1.0in;}
-div.WordSection1
-	{page:WordSection1;}
- /* List Definitions */
- ol
-	{margin-bottom:0in;}
-ul
-	{margin-bottom:0in;}
--->
-</style>
 
 </head>
 
@@ -161,7 +72,7 @@ and print out each attribute and its value. An example of a for/in loop is in: <
 href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_object_for_in">https://www.w3schools.com/js/tryit.asp?filename=tryjs_object_for_in</a>.</p>
 
 <p class=MsoNormal style='margin-left:.5in'>j) What happens when you try to
-loop through the objects parts using the dot notation, as used in <b>myObj.whatever</b>?
+loop through the object's parts using the dot notation, as used in <b>myObj.whatever</b>?
 Why?</p>
 
 <p class=MsoNormal style='margin-left:.5in'>k) Why is the square bracket
@@ -170,9 +81,20 @@ notation, as in <b>myObj[x]</b>, more powerful than the dot notation, as used in
 
 <p class=MsoNormal>2. What are the attribute names and attribute values of the
 object predefined in a web page called <b>document</b>? Use a for/in loop.</p>
+<br>&nbsp;&nbsp;&nbsp;HINT: The following script,
+<pre>
+&lt;script>
+alert(document);
+&lt;/script>
+</pre>
+displays the output
+<pre>
+[object HTMLDocument]
+</pre>
+indicating that document is a predefined object. It is predefined by the web page that the code is embedded in. Since it is an object, it has parts, and those parts can be stepped through using a for/in loop.    
 
 <p class=MsoNormal>3. Now list the attribute names and attribute values for a <b>&lt;p&gt;</b>
-HTML element in a web page. Hints: A call to document.getElementById() returns an object. Use a for/in loop.</p>
+HTML element in a web page. Hints: We know from the previous question that document is an object and thus has internal parts. One of those parts is the getElementById() method. A call to document.getElementById('demo') runs that method, which runs and returns an object. That object is the JavaScript entity that stores everything about a <b>&lt;p&gt;</b> HTML element with id 'demo' (if one exists, as it does for example in the sandbox at https://www.w3schools.com/js/tryit.asp?filename=tryjs_myfirst). Once that paragraph's object has been returned, we have an object whose parts can be stepped through using a for/in loop, just like the parts of the document object were stepped through in the previous question.</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
