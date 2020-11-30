@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<p>
+Syntax to "bake" a cookie: <br>
+document.cookie = "<i>attribute</i> = <i>value</i>"<br>
+Example:<br><br>
+<b>document.cookie = "course=IFSC 3300";</b><br><br>
+Now bake your own cookie!
+<button onclick="bakeIt()">Click for prompt popup</button>
+</p>
+
+<script>
+function bakeIt(){
+   document.cookie = prompt("Prepare your cookie here. For example, type\n\n course=IFSC 3300\n\n(I will add opening and closing quotes for you).");
+}
+</script>
+
+<hr>
+<p id="printHere">
+Example code to "taste" a cookie:<br><br>
+<b>document.getElementById('printHere').innerHTML+=document.cookie</b><br><br>
+<button onclick=
+   "document.getElementById('printHere').innerHTML+=document.cookie+'<hr>'";
+>
+Click to get cookie data!</button><br>
+</p>
+
+</body>
+</html>
+
