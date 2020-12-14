@@ -13,8 +13,6 @@ Examples:<br>
 To delete it:<br>
 <b>document.cookie = "course=IFSC 3300; expires=Thu, 01 Jan 1970 00:00:00 UTC";</b><br>
 <b>document.cookie = "course=IFSC 3300; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";</b><br>
-
-<br>
 Now bake your own cookie!
 <button onclick="bakeIt()">Click for prompt popup</button>
 </p>
@@ -27,8 +25,8 @@ function bakeIt(){
 
 <hr>
 <p id="printHere">
-Example code to "taste" a cookie:<br><br>
-<b>document.getElementById('printHere').innerHTML+=document.cookie</b><br><br>
+Example code to "taste" a cookie:<br>
+<b>document.getElementById('printHere').innerHTML+=document.cookie</b><br>
 <button onclick=
    "document.getElementById('printHere').innerHTML+=document.cookie+'<hr>'";
 >
