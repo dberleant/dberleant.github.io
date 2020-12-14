@@ -1,12 +1,20 @@
+
 <!DOCTYPE html>
 <html>
 <body>
 
 <p>
 Syntax to "bake" a cookie: <br>
-document.cookie = "<i>attribute</i> = <i>value</i>"<br>
-Example:<br><br>
-<b>document.cookie = "course=IFSC 3300";</b><br><br>
+document.cookie = "<i>attribute</i> = <i>value</i>"; //Simple case without options<br>
+Examples:<br><br>
+<b>document.cookie = "course=IFSC 3300"; //Session-only cookie</b><br>
+<b>document.cookie = "course=IFSC 3300; expires=Thu, 01 Jan 2025 00:00:00 UTC";</b><br>
+<b>document.cookie = "course=IFSC 3300; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/";</b><br>
+To delete it:<br>
+<b>document.cookie = "course=IFSC 3300; expires=Thu, 01 Jan 1970 00:00:00 UTC";</b><br>
+<b>document.cookie = "course=IFSC 3300; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";</b><br>
+
+<br>
 Now bake your own cookie!
 <button onclick="bakeIt()">Click for prompt popup</button>
 </p>
