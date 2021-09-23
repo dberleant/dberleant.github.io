@@ -11,7 +11,7 @@ Notice how the local variable carName has different values in different myFuncti
 
 <script>
 function myFunction() {
-  var carName = prompt();
+  let carName = prompt();
   document.getElementById("demo").innerHTML += "<br>"+carName; 
   alert(carName);
   if (carName !== "Bugatti") myFunction();
