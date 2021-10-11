@@ -108,14 +108,14 @@ color:#500050'>&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
-color:#500050'>Let's start with 10^4 and start dividing by 10. You get
-10^3=1000, 10^2=100, 10^1=10, 1, 1/10, 1/100, ...</span></p>
+	color:#500050'>Let's start with 10<sup>4</sup> and start dividing by 10. You get
+10<sup>3</sup>=1000, 10<sup>2</sup>=100, 10<sup>1</sup>=10, 1, 1/10, 1/100, ...</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
-color:#500050'>So mathematically it seems to make sense to define 10^0 as 1,
-and 10^-1 as 1/10=1/10^1, and 10^-2 as 1/100=1/10^-2, etc.</span></p>
-
+	color:#500050'>So mathematically it seems to make sense to define 10<sup>0</sup> as 1,
+and 10<sup>-1</sup> as 1/10=1/10sup>1</sup>, and 10sup>-2</sup> as 1/100=1/10sup>2</sup>, etc.</span></p>
+	
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
 color:#500050'>So that's how it's done. Conclusion: the rightmost column is the
@@ -184,11 +184,11 @@ analogously to how we did it for columns in base 10.&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
-color:#500050'>We will let the 3rd from the right column represent 16^2=256s,
-the 4th represent 16^3=4098s, the 2nd column from the right represent 16^1=16s,
-and the rightmost column represent 16^0=1s. Thus the number sixteen is
+color:#500050'>We will let the 3rd from the right column represent 16<sup>2</sup>=256s,
+the 4th represent 16<sup>3</sup>=4098s, the 2nd column from the right represent 16<sup>1</sup>=16s,
+and the rightmost column represent 16<sup>0</sup>=1s. Thus the number sixteen is
 expressed with a 1 in the 16s (2nd) column and a 0 in the 1s column, giving
-&quot;10&quot; as the base 16 representation of the number sixteen.&nbsp;</span></p>
+&quot;10&quot; as the base 16 way to write the number sixteen.&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
@@ -211,12 +211,12 @@ color:#500050'>&nbsp;</span></p>
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
 color:#500050'>Like decimal and hexadecimal numbers, binary numbers have
 different digits in different columns. We will let the 3rd from the right
-column represent 2^2=4s, the 4th represent 2^3=8s, the 5th represent 2^4=16s,
-the 2nd column from the right represent 2^1=2s, and the rightmost column
-represent 2^0=1s. The size of the quantities expressed in a given column is
+column represent 2<sup>2</sup>=4s, the 4th represent 2<sup>3</sup>=8s, the 5th represent 2<sup>4</sup>=16s,
+the 2nd column from the right represent 2<sup>1</sup>=2s, and the rightmost column
+represent 2<sup>0</sup>=1s. The size of the quantities expressed in a given column is
 certainly considerably less than in base 16! The number two is expressed in
 binary with a 1 in the 2s (2nd) column and a 0 in the 1s column, giving &quot;10&quot;
-as the base 2 representation of the number two.&nbsp;</span></p>
+as the base 2 way to write the number two.&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
@@ -234,9 +234,10 @@ color:#500050'>&nbsp;</span></p>
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
 color:#500050'>In other words, we would like to convert a base 16 number, like
 3b7, into a more familiar decimal form. To do this, observe that the rightmost
-column contains seven 16^0=1s, the next column contains b (that is, eleven)
-16^1=16s, and the 3rd column contains 3 16^2=256s. So we add those up:
-7+11*16+3*256=768. So 3b7 in base 16 is 768 in base 10.</span></p>
+column contains seven 16<sup>0</sup>=1s, the next column contains b (that is, eleven)
+16<sup>1</sup>=16s, and the 3rd column contains 3 16<sup>2</sup>=256s. So we add those up:
+7+11*16+3*256=768. So 3b7 in base 16 is 768 in base 10 (we can write this as
+3b7<sub>16=768<sub>10).</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
@@ -245,9 +246,10 @@ color:#500050'>&nbsp;</span></p>
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif"'>The
 situation is similar in base 2. For example, suppose we want to convert the
-binary number 111111 into decimal. The rightmost column contains 1 2^0=1, the
-next column contains 1 2^1=2, the next contains 1 2^2=4. the next contains 1
-2^3=8, the next contains 1 2^4=16, and the leftmost column contains 1 2^5=32.
+binary number 111111 into decimal. The rightmost column contains 1 2<sup>0</sup>=1, the
+next column contains 1 2<sup>1</sup>=2, the next contains 1 2<sup>2</sup>=4. 
+The next contains 1
+2<sup>3</sup>=8, the next contains 1 2<sup>4</sup>=16, and the leftmost column contains 1 2<sup>5</sup>=32.
 So, adding up all those components that 111111 in base 2 contains, we get
 1+2+4+8+16+32, or 63 (in decimal notation).</span></p>
 
@@ -272,9 +274,9 @@ color:#500050'>&nbsp;</span></p>
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
 color:#500050'>This is a matter of figuring out what numeral symbol goes in the
-1s (16^0) place, the 16s (16^1) place, the 256s (16^2) place, ... for
-conversion to hexadecimal, or the 1s (2^0) place, the 2s (2^1) place, the 4s
-(2^2) place, the 8s (2^3) place, the 16s (2^4) place, ... for conversion to
+1s (16<sup>0</sup>) place, the 16s (16<sup>1</sup>) place, the 256s (16<sup>2</sup>) place, ... for
+conversion to hexadecimal, or the 1s (2<sup>0</sup>) place, the 2s (2<sup>1</sup>) place, the 4s
+(2<sup>2</sup>) place, the 8s (2<sup>3</sup>) place, the 16s (2<sup>4</sup>) place, ... for conversion to
 binary.&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
@@ -300,7 +302,7 @@ color:#500050'>&nbsp;</span></p>
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
 color:#500050'>Since the rightmost column is 1s, the 2nd-to-the-right column is
-the 16s column. The 3rd column is the 16^2=256s column. 256 is more than 100,
+the 16s column. The 3rd column is the 16<sup>2</sup>=256s column. 256 is more than 100,
 so 100 is not high enough to use the 3rd column. To need 3rd column the number
 would have to be at least 256. What about the 2nd (16s) column? 16 goes into
 100 six times, with a little left over. So we should put 6 in the 16s column.
@@ -316,16 +318,16 @@ color:#500050'>&nbsp;</span></p>
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-size:12.0pt;font-family:"Times New Roman","serif";
 color:#500050'>The process is analogous if we wanted to convert 100 into base
-2. 2^7=128 which does not fit into 100, so we don't put anything in the 128s
-column. 2^6=64 fits into 100 once, which is a good thing since in base 2 we're
+2. 2<sup>7</sup>=128 which does not fit into 100, so we don't put anything in the 128s
+column. 2<sup>6</sup>=64 fits into 100 once, which is a good thing since in base 2 we're
 only allowed to use the digits 0 or 1 in each column. So we put as 1 in the 64s
-column, removing 1*64=64 from further consideration, leaving 100-64=36. 2^5=32
+column, removing 1*64=64 from further consideration, leaving 100-64=36. 2<sup>5</sup>=32
 which fits into the remaining 36 once, putting a 1 in the 32s column, removing
-1*32 from the 36 and leaving 4 left to account for. 2^4=16 which does not fit
-into the remaining 4, so a 0 goes in the 16s column. Likewise for the 2^3=8s
-column. 2^2=4 does fit into the 4 that is left to account for so we put a 1 in
+1*32 from the 36 and leaving 4 left to account for. 2<sup>4</sup>=16 which does not fit
+into the remaining 4, so a 0 goes in the 16s column. Likewise for the 2<sup>3</sup>=8s
+column. 2<sup>2</sup>=4 does fit into the 4 that is left to account for so we put a 1 in
 the 4s column and remove 1*4 from the remaining 4, leaving 0 left to account
-for. Therefore the 2^1=2s column gets a 0, as does the 2^0=1s column. Thus, 100
+for. Therefore the 2<sup>1</sup>=2s column gets a 0, as does the 2<sup>0</sup>=1s column. Thus, 100
 in base 10 is 1100100 in base 2.&nbsp;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
