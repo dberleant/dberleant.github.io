@@ -39,12 +39,12 @@ function handleFormAction(){
 //10 
 function processFormData(){
   //11
-  var fullURLstring=document.URL
+  let fullURLstring=document.URL
   //12
   document.getElementById('demo').innerHTML
      +=  "<br>fullURLstring is: "+fullURLstring;
   //13
-  var separate_argsPassedIn=fullURLstring.split("?");
+  let separate_argsPassedIn=fullURLstring.split("?");
   //14
   document.getElementById('demo').innerHTML
      += "<br>fullURLstring is: "+ separate_argsPassedIn;
@@ -52,7 +52,7 @@ function processFormData(){
   document.getElementById('demo').innerHTML
      += "<br>Notice '?' is removed and parts are now separated by a comma";
   //16
-  var tempArray=['a','b','c','d','e'];
+  let tempArray=['a','b','c','d','e'];
   //17
   document.getElementById('demo').innerHTML
      += "<br>array ['a','b','c','d','e'] prints out as: "
@@ -61,19 +61,19 @@ function processFormData(){
   document.getElementById('demo').innerHTML
      += "<br>That should remind you what .split() returns.";
   //19
-  var argsPassedIn=separate_argsPassedIn[1];
+  let argsPassedIn=separate_argsPassedIn[1];
   //20
   document.getElementById('demo').innerHTML
      += "<br>"+argsPassedIn;
   //21
-  var arrayOfArgs=argsPassedIn.split("&");
+  let arrayOfArgs=argsPassedIn.split("&");
   //22
   document.getElementById('demo').innerHTML
      += "<br>"+arrayOfArgs;
   //23
-  var arg1=arrayOfArgs[0];
+  let arg1=arrayOfArgs[0];
   //24
-  var arg2=arrayOfArgs[1];
+  let arg2=arrayOfArgs[1];
   //25
   document.getElementById('demo').innerHTML
      += "<br>"+arg1;
@@ -81,13 +81,13 @@ function processFormData(){
   document.getElementById('demo').innerHTML
      += "<br>"+arg2;
   //27
-  var separate_firstName = arg1.split("=");
+  let separate_firstName = arg1.split("=");
   //28
-  var separate_lastName  = arg2.split("=");
+  let separate_lastName  = arg2.split("=");
   //29
-  var firstName=separate_firstName[1];
+  let firstName=separate_firstName[1];
   //30
-  var lastName =separate_lastName [1];
+  let lastName =separate_lastName [1];
   //31
   document.getElementById('demo').innerHTML
      += "<br>"+firstName;
@@ -101,4 +101,4 @@ function processFormData(){
 </script>
 
 </body>
-</html> 
+</html>
