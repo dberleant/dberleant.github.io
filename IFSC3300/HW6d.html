@@ -50,8 +50,15 @@ displays the output
 </pre>
 indicating that document is a predefined object. It is predefined by the web page that the code is embedded in. Since it is an object, it has parts, and those parts can be stepped through using a for/in loop.    
 
-<p>3. Now list the attribute names and attribute values for a <b>&lt;p&gt;</b>
-HTML element in a web page. Hints: We know from the previous question that document is an object and thus has internal parts. One of those parts is the getElementById() method. A call to document.getElementById('demo') runs that method, which runs and returns an object. That object is the JavaScript entity that stores everything about a <b>&lt;p&gt;</b> HTML element with id 'demo' (if one exists, as it does for example in the sandbox at https://www.w3schools.com/js/tryit.asp?filename=tryjs_myfirst). Once that paragraph's object has been returned, we have an object whose parts can be stepped through using a for/in loop, just like the parts of the document object were stepped through in the previous question.</p>
+<p>3. Now list the attribute names and attribute values for the data structure, which is implemented as an object,
+that stores some specific <b>&lt;p&gt;</b>
+HTML element in a web page. Every <b>&lt;p&gt;</b> element in a web page is stored by the browser,
+using JavaScript, as an object. Hints: A call to document.getElementById("demo") returns the object behind
+the HTML <b>&lt;p&gt;</b> element with the id "demo" if there is one. 
+That object is the JavaScript entity that stores everything about 
+that <b>&lt;p&gt;</b> HTML element.  
+Once that object has been returned, we have an object whose parts can be stepped through using a for/in loop, 
+just like the parts of the document object were stepped through in the previous question.</p>
 
 <p>4. Optional (you don't have to do this one). Do the following object step-by-step exercise.</p>
 
