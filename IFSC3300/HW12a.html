@@ -32,6 +32,27 @@ href="https://www.w3schools.com/js/tryit.asp?filename=tryjs_dom_elementcreate"><
 style='color:purple'>first &quot;Try It Yourself&quot; exercise</span></a>&nbsp;in
 the DOM Nodes lesson on w3schools.com:</span></p>
 
+<pre>
+<!DOCTYPE html>
+<html>
+<body>
+<div id="div1">
+<p id="p1">This is a paragraph.</p>
+<p id="p2">This is another paragraph.</p>
+</div>
+<script>
+var paragraphNode = document.createElement("b");
+var textNode = document.createTextNode(paragraphNode.nodeType);
+textNode = document.createTextNode(textNode.nodeName);
+paragraphNode.appendChild(textNode);
+var divisionNode = document.getElementById("div1");
+var someChild = divisionNode.childNodes[3];
+divisionNode.insertBefore(paragraphNode,someChild);
+</script>
+</body>
+</html>
+</pre>
+
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-family:"Times New Roman",serif;color:black'>&lt;!DOCTYPE
 html&gt;</span></p>
