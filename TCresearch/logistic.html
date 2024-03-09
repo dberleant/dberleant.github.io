@@ -31,13 +31,20 @@ DB's "yearlyKidneyData-12-17-2023.xlsx", sheet "SummarizedData", cells A1:B21</h
 
 <p id="log"></p>
 
+* Asterisk indicates suspected floating point roundoff error during steepness bisection. It is probably alright if steepnesses are closely spaced and middle SSR is lowest. If middle SSR equals another one, that actually was connected in one case to incorrect determination of the steepness with minimum SSR, probably due to another instance of roundoff error connected to asteepnessMultiplier being too close to 1.
 
 <script>
 const supremum = 10; //If the survival period for the data is 10 years, then the maximum average survival time is 10.
 const tMidStart = 2000; //year to begin searching upward for midpoint of the logistic curve. Should undercut the midpoint, or it will lead to a non-termination condition.
 const minPositiveSteepness = 0.000001; //0.000001 seems smaller than necessary. 0.0001 is probably plenty small.
-const steepnessMultiplier=1.1; //1.01 seems awfully small. 2 might be good. But they all seem to work ok.
-const minDeltaSSR = 0.00001;
+const steepnessMultiplier=2; //1.01 led to longer execution times, as well as 
+                             //errors in finding the minimum for very small steepnesses, 
+                             //possibly due to getting stuck at false local minima
+							 //caused by bumpiness from roundoff error due to large bisectionEpsilon=0.00001.
+							 //2 is good because the initial steepnesses tested
+							 //are 0, minPositiveSteepness and 2*minPositiveSteepness which are evenly spaced.
+const minDeltaSSR = 0.00000001;
+const bisectionEpsilon=0.0000001; //This turns out to matter in cases where steepness is close to zero.
 
 logLifetimeData      = {        name : "LogLifetimeData",
                             populate : // Initialize dataTable's column of lifetime data log values ("LogLifetimeData")
@@ -165,24 +172,33 @@ function getSteepnessSign(tMid){
 //alert("getSteepnessSign(2001)="+getSteepnessSign(2001));
 
 function searchSteepnessForMinSSR(tMid, steepnessMultiplier){
- if (!isFinite(tMid)||!isFinite(steepnessMultiplier)) alert("Error in searchSteepnessForMinSSR: non-numeric arg(s)");
+   if (!isFinite(tMid)||!isFinite(steepnessMultiplier)) alert("Error in searchSteepnessForMinSSR: non-numeric arg(s)");
+   //Initialize for steepnesses by getting ready to crawl upward or downward from 0, unless 0 is already optimal 
    let dataPointLsteepness, dataPointMsteepness, dataPointHsteepness; //L,M,H for low, middle, high absolute value.
    let dataPointTemp; 
    let dataPointLMsteepness, dataPointMHsteepness; //Midway between L&M, M&H, used to focus in on the min.
    let steepness=getSteepnessSign(tMid); //Make it more precise later.
-   if      (steepness=="positive") dataPointMsteepness = fillInSSR(steepness= minPositiveSteepness, tMid);
-   else if (steepness=="negative") dataPointMsteepness = fillInSSR(steepness=-minPositiveSteepness, tMid);
+   if      (steepness=="positive") {dataPointLsteepness = fillInSSR(steepness= 0, tMid);
+                                    dataPointMsteepness = fillInSSR(steepness= minPositiveSteepness, tMid);
+									dataPointHsteepness = fillInSSR(steepness= minPositiveSteepness*steepnessMultiplier, tMid);
+								   }
+   else if (steepness=="negative") {dataPointLsteepness = fillInSSR(steepness= 0, tMid);
+                                    dataPointMsteepness = fillInSSR(steepness=-minPositiveSteepness, tMid);
+								    dataPointHsteepness = fillInSSR(steepness=-minPositiveSteepness*steepnessMultiplier, tMid);
+								   }
+   else if (steepness=="zero or near zero") 
+                                   {dataPointLsteepness = fillInSSR(steepness=-minPositiveSteepness, tMid);
+								    dataPointMsteepness = fillInSSR(steepness=0, tMid);
+									dataPointHsteepness = fillInSSR(steepness= minPositiveSteepness, tMid);
+								   }
    else alert("Unhandled return value from getSteepnessSign: "+steepness);
-   dataPointLsteepness = fillInSSR(0, tMid);
- if (dataPointLsteepness.SSR < dataPointMsteepness.SSR) {alert("Error #3"); return "Error #3";}
- dataPointHsteepness = fillInSSR(steepness*=steepnessMultiplier, tMid);
-   while(!(dataPointMsteepness.SSR <= dataPointHsteepness.SSR)){ //exit when min SSR occurs between steepnesses L and H
-//alert("starting while");
+   if (dataPointLsteepness.SSR < dataPointMsteepness.SSR) {alert("Error #3"); return "Error #3";}
+   //Crawl upward or downward searching for a steepness interval containing the minimum SSR
+   while((dataPointMsteepness.SSR>=dataPointHsteepness.SSR)){ //exit when min SSR occurs between steepnesses L and H
+   //alert("starting while");
 	  dataPointLsteepness = dataPointMsteepness;
 	  dataPointMsteepness = dataPointHsteepness;
-//alert("about to call fillInSSR ");
       dataPointHsteepness = fillInSSR(steepness*=steepnessMultiplier, tMid);
-//alert("finished call to fillInSSR");
    }
 /*
 alert( dataPointLsteepness.steepness
@@ -197,42 +213,45 @@ alert( dataPointLsteepness.SSR
 	  +dataPointHsteepness.SSR);
 */
 //alert("before for");
-
-   for (var deltaSSR=dataPointLsteepness.SSR-dataPointMsteepness.SSR ; 
-        !(deltaSSR<minDeltaSSR)                                      ; 
-		deltaSSR    =dataPointLsteepness.SSR-dataPointMsteepness.SSR ){
-//alert("deltaSSR is "+deltaSSR+", !(deltaSSR<minDeltaSSR) is "+!(deltaSSR<minDeltaSSR));
-      dataPointLMsteepness = fillInSSR((dataPointLsteepness.steepness+dataPointMsteepness.steepness)/2, tMid);
-      dataPointMHsteepness = fillInSSR((dataPointMsteepness.steepness+dataPointHsteepness.steepness)/2, tMid);
-//alert(dataPointLsteepness.SSR+","+dataPointLMsteepness.SSR+","+dataPointMsteepness.SSR+","
-//      +dataPointMHsteepness.SSR+","+dataPointHsteepness.SSR);
-      if (  dataPointLsteepness.SSR>dataPointLMsteepness.SSR && dataPointLMsteepness.SSR>dataPointMsteepness.SSR
-		 && dataPointMsteepness.SSR<dataPointMHsteepness.SSR && dataPointMHsteepness.SSR<dataPointHsteepness.SSR)
-	     {dataPointLsteepness=dataPointLMsteepness;    //M  is lowest, so trim L and H
-		  dataPointHsteepness=dataPointMHsteepness;}
-      else if 
-	     (  dataPointLsteepness.SSR>dataPointLMsteepness.SSR && dataPointLMsteepness.SSR>dataPointMsteepness.SSR
-		 && dataPointMsteepness.SSR>dataPointMHsteepness.SSR && dataPointMHsteepness.SSR<dataPointHsteepness.SSR)
-	     {dataPointLsteepness=dataPointMsteepness ;    //MH is lowest, so trim L and LM
-		  dataPointMsteepness=dataPointMHsteepness;}
-      else if 
-	     (  dataPointLsteepness.SSR>dataPointLMsteepness.SSR && dataPointLMsteepness.SSR<dataPointMsteepness.SSR
-		 && dataPointMsteepness.SSR<dataPointMHsteepness.SSR && dataPointMHsteepness.SSR<dataPointHsteepness.SSR)
-	     {dataPointHsteepness=dataPointMsteepness ;    //LM is lowest, so trim H and MH
-		  dataPointMsteepness=dataPointLMsteepness;}
-	  else{alert("Error in searchSteepnessForMinSSR; anomalous SSR pattern");
-           alert(dataPointLsteepness.SSR+","+dataPointLMsteepness.SSR+","+dataPointMsteepness.SSR+","
-                 +dataPointMHsteepness.SSR+","+dataPointHsteepness.SSR);
-           alert(dataPointLsteepness.steepness+","+dataPointLMsteepness.steepness+","+dataPointMsteepness.steepness+","
-                 +dataPointMHsteepness.steepness+","+dataPointHsteepness.steepness);
-          }
+   //Subdivide steepness interval containing minimum SSR until a sufficiently accurate best steepness is found
+   for (var deltaSSR=dataPointLsteepness.SSR-dataPointMsteepness.SSR; 
+        !(deltaSSR<minDeltaSSR)                                     ; //2/15/24: unlikely to trigger before the final else's break
+		deltaSSR    =dataPointLsteepness.SSR-dataPointMsteepness.SSR
+	   ){
+       //alert("deltaSSR is "+deltaSSR+", !(deltaSSR<minDeltaSSR) is "+!(deltaSSR<minDeltaSSR));
+       dataPointLMsteepness = fillInSSR((dataPointLsteepness.steepness+dataPointMsteepness.steepness)/2, tMid);
+       dataPointMHsteepness = fillInSSR((dataPointMsteepness.steepness+dataPointHsteepness.steepness)/2, tMid);
+       //alert(dataPointLsteepness.SSR+","+dataPointLMsteepness.SSR+","+dataPointMsteepness.SSR+","
+       //      +dataPointMHsteepness.SSR+","+dataPointHsteepness.SSR);
+       if (  dataPointLsteepness.SSR>dataPointLMsteepness.SSR && dataPointLMsteepness.SSR>dataPointMsteepness.SSR
+		  && dataPointMsteepness.SSR<=dataPointMHsteepness.SSR && dataPointMHsteepness.SSR<dataPointHsteepness.SSR)
+	      {dataPointLsteepness=dataPointLMsteepness;    //M  is lowest, so trim L and H
+		   dataPointHsteepness=dataPointMHsteepness;}
+       else if 
+	      (  dataPointLsteepness.SSR>dataPointLMsteepness.SSR && dataPointLMsteepness.SSR>dataPointMsteepness.SSR
+	      && dataPointMsteepness.SSR>dataPointMHsteepness.SSR && dataPointMHsteepness.SSR<dataPointHsteepness.SSR)
+	      {dataPointLsteepness=dataPointMsteepness ;    //MH is lowest, so trim L and LM
+		   dataPointMsteepness=dataPointMHsteepness;}
+       else if 
+	      (  dataPointLsteepness.SSR>dataPointLMsteepness.SSR && dataPointLMsteepness.SSR<dataPointMsteepness.SSR
+	      && dataPointMsteepness.SSR<dataPointMHsteepness.SSR && dataPointMHsteepness.SSR<dataPointHsteepness.SSR)
+	      {dataPointHsteepness=dataPointMsteepness ;    //LM is lowest, so trim H and MH
+		   dataPointMsteepness=dataPointLMsteepness;}
+       else{//alert("Error in searchSteepnessForMinSSR; anomalous SSR pattern "+tMid);
+            //alert(dataPointLsteepness.SSR+","+dataPointLMsteepness.SSR+","+dataPointMsteepness.SSR+","
+            //      +dataPointMHsteepness.SSR+","+dataPointHsteepness.SSR);
+            //alert(dataPointLsteepness.steepness+","+dataPointLMsteepness.steepness+","+dataPointMsteepness.steepness+","
+            //      +dataPointMHsteepness.steepness+","+dataPointHsteepness.steepness);
+		    log("* "); break; //The point here is to keep looping until floating point roundoff error starts creating anomalies
+           }
    }
-//alert("after for");
+   //print out region of steepness with lowest SSR
    log("For midpoint year " + tMid + ":<br>" 
        + "steepness " + dataPointLsteepness.steepness + " has SSR " + dataPointLsteepness.SSR + "<br>"
 	   + "steepness " + dataPointMsteepness.steepness + " has SSR " + dataPointMsteepness.SSR + "<br>"
-	   + "steepness " + dataPointHsteepness.steepness + " has SSR " + dataPointHsteepness.SSR + "<br>"
+	   + "steepness " + dataPointHsteepness.steepness + " has SSR " + dataPointHsteepness.SSR + "<hr>"
 	  );
+   //return data steepness with lowest SSR
    return(dataPointMsteepness);
 }
 
@@ -247,7 +266,7 @@ function searchtMidForMinSSR(steepnessMultiplier){
    };
    for (nexttMid=dataPointHtMid.tMid+1 ; 
         (dataPointMtMid.SSR > dataPointHtMid.SSR)||(dataPointMtMid.steepness<0) ; 
-		nexttMid++){
+		nexttMid+=1){
 //alert(nexttMid);
 	  dataPointLtMid = dataPointMtMid;
 	  dataPointMtMid = dataPointHtMid;
@@ -255,31 +274,34 @@ function searchtMidForMinSSR(steepnessMultiplier){
       //log("For midpoint year "+dataPointLtMid.tMid+", steepness with lowest SSR is "
 	  //    +dataPointLtMid.steepness+" with SSR "+dataPointLtMid.SSR);
    }
-   log("<hr><hr><b>Summary: here is the region of best tMid (that is, the midpoint time with lowest SSR):</b>");
-   log("For midpoint year "+dataPointLtMid.tMid+", steepness with lowest SSR is "+dataPointLtMid.steepness+" with SSR "+dataPointLtMid.SSR);
+   log("<b>Summary: here is the region of best tMid (that is, the midpoint time with lowest SSR):</b><br>");
+   log("For midpoint year "+dataPointLtMid.tMid+", steepness with lowest SSR is "+dataPointLtMid.steepness+" with SSR "
+        +dataPointLtMid.SSR+"<br>");
    log('<span style="background-color: yellow;"><b>For midpoint time ' 
         + dataPointMtMid.tMid 
 		+ ", steepness with lowest SSR is " 
 		+ dataPointMtMid.steepness 
 		+ " and SSR " 
 		+ dataPointMtMid.SSR 
-		+ " (best midpoint time and steepness with lowest SSR!)</b></span>"
+		+ "<br>&nbsp;&nbsp;&nbsp;&nbsp;(Best midpoint time and steepness with lowest SSR!)</b></span><br>"
 	  );
-   log("For midpoint time "+dataPointHtMid.tMid+", steepness with lowest SSR is "+dataPointHtMid.steepness+" with SSR "+dataPointHtMid.SSR);
+   log("For midpoint time "+dataPointHtMid.tMid+", steepness with lowest SSR is "+dataPointHtMid.steepness+" with SSR "
+        +dataPointHtMid.SSR+"<hr>");
 }
 
 function log(messageLine){
-   document.getElementById("log").innerHTML+=messageLine+"<br>";
+   document.getElementById("log").innerHTML+=messageLine+"";
 }
 
 //alert(Math.sign(-7));
 
 // *** Use bisection method ***
 function lifetimeFromFaildate(failDate, steepness, tMid, supremum) { 
-  const envelope=0.00001;
+  const envelope=bisectionEpsilon; //0.0000001 worked, while 0.00001 led to noticeable issues
   var loBound=0, hiBound=supremum, guessedLife=(hiBound+loBound)/2;
   if (!isFinite(failDate)||!isFinite(steepness)||!isFinite(tMid)) alert("Error in lifetimeFromFaildate, nonnumeric arg(s)");
-  if (steepness==0) return(supremum/2); //Special treatment needed since the general formula used in the loop is undefined for steepness 0
+  if (steepness==0) return(supremum/2); //Special treatment needed since the general formula 
+                                        //used in the loop is undefined for steepness 0
   else 
      while ((hiBound-loBound)>envelope){
        ( Math.log(guessedLife)/steepness + guessedLife + tMid - Math.log(supremum - guessedLife)/steepness
@@ -296,9 +318,8 @@ function lifetimeFromFaildate(failDate, steepness, tMid, supremum) {
 }
 //alert(lifetimeFromFaildate(2036, -.01, 2031,10));
 
-alert("Javascript code loaded");
+//alert("Javascript code loaded");
 </script>
 
 </body>
 </html>
-
