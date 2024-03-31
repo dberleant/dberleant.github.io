@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Curve fitting</title>
+</head>
+<body>
+
+<h1>Data from TC's "1992 Database - Data Analysis_Dec16.xlsx", 
+    DB's "yearlyKidneyData-12-17-2023.xlsx, sheet "SummarizedData", cells A1:B21</h1>
+<h2><pre> 
+<u>Linear model</u>:
+lifetime(startTime) =  slope*(startTime - T0) + lifetimeAtT0
+lifetime(endTime)   = (slope*(  endTime - T0) + lifetimeAtT0)/(slope + 1)
+</pre>
+</h2>
+
+<button onclick="document.getElementById('log').innerHTML=''; 
+                 searchSlopeforMinSSR();">
+	Click to find the line with the values of parameters slope and lifeAtT0 yielding the best fit (lowest SSR)
+</button>
+<br><br>
+
+<button onclick="document.getElementById('log').innerHTML=''; 
+                 searchLifeAtT0forMinSSRmultipass(parseFloat(prompt('Type value for slope:'), 10),
+				                           lifeAtT0min);">
+	Click to find the line with a given slope and the lifeAtT0 yielding the best fit for that slope
+</button>
+<br><br>
+
+<button onclick="document.getElementById('log').innerHTML=''; 
+                 log('SSR = ' + fillInSSR(parseFloat (prompt('Type value for slope:'), 10),
+                                          parseFloat (prompt('Type value for lifeAtT0:'), 10)
+					                     ).SSR
+				    );">
+	Click to input the slope and start value lifeAtT0, and find the SSR
+</button>
+
+<p id="log"></p>
+
+<script>
+const lifeAtT0incrementFactor           = 2;     //Must be > 1. When searching for the c with minimum SSR, multiply c by this constant each iteration
+const lifeAtT0incrementFactorRefinement = 5;     //Must be > 1. Make lifeAtT0incrementFactor this many times closer to 1.
+const lifeAtT0incrementFactorMin        = 1.001; //If lifeAtT0incrementFactor decreases below the threshold, it is small enough to produce accurate enough results
+const lifeAtT0min                       = 0.001; //Should be low enough to undercut the lifeAtT0 values with min SSR for any slope, but higher values will speed things up
+
+logLifetimeData      = {        name : "LogLifetimeData",
+                            populate : // Initialize dataTable's column of lifetime data log values ("LogLifetimeData")
+   function(){
+      for (dataTableIndex=0; dataTableIndex<dataTable.lifetimeData.length; dataTableIndex++){
+         dataTable.logLifetimeData[dataTableIndex]=Math.log2(dataTable.lifetimeData[dataTableIndex]);
+      }				 
+   }
+}    
+predictedLifetimes   = {        name : "PredictedLifetimes",
+                               slope : 0.1                 , //initial guess
+                                  T0 : 1990                , //initial guess
+					        lifeAtT0 : 0.5                 , //initial guess
+						    populate : // Calculate dataTable's column of lifetime predictions from fail dates (predictedLifetimes)
+   function (){
+      for (dataTableIndex=0; dataTableIndex<dataTable.endYear.length; dataTableIndex++){
+         dataTable.predictedLifetimes[dataTableIndex]
+            =lifetimeFromFaildateAnyT0(dataTable.endYear[dataTableIndex],
+	                                   predictedLifetimes.slope,
+			                           predictedLifetimes.lifeAtT0,
+                                       predictedLifetimes.T0);
+      }
+   }
+}
+logPredictedLifetimes= {        name     : "LogPredictedLifetime",
+                                populate : // Calculate dataTable's column of logs of lifetime predictions ("LogPredictedLifetimes")
+   function (){
+      for (dataTableIndex=0; dataTableIndex<dataTable.predictedLifetimes.length; dataTableIndex++){
+		dataTable.logPredictedLifetimes[dataTableIndex]
+            =Math.log2(dataTable.predictedLifetimes[dataTableIndex]);
+      }
+   }
+}
+fittingErrors        = {        name: "FittingErrors",
+                           populate : // Calculate dataTable's column of fitting errors between lifetime data and lifetime model ("fittingErrors")
+   function calcFittingErrors(){
+      for (dataTableIndex=0; dataTableIndex<dataTable.logPredictedLifetimes.length; dataTableIndex++){
+	     dataTable.fittingErrors[dataTableIndex]  
+	        = dataTable.predictedLifetimes[dataTableIndex] < dataTable.lifetimeData[dataTableIndex]
+	            ?
+	            (dataTable.lifetimeData[dataTableIndex] - dataTable.predictedLifetimes[dataTableIndex]) 
+		            / dataTable.lifetimeData[dataTableIndex]
+		        :
+		        (dataTable.predictedLifetimes[dataTableIndex] - dataTable.lifetimeData[dataTableIndex]) 
+		            / dataTable.predictedLifetimes[dataTableIndex]
+      }
+   }
+}
+squaredFittingErrors = {        name : "SquaredFittingErrors",
+                                 SSR : "uninitialized",
+						    populate : // Calculate dataTable's column of squared fitting errors (squaredFittingErrors)
+   function (){
+      for (dataTableIndex=0; dataTableIndex<dataTable.fittingErrors.length; dataTableIndex++){
+         dataTable.squaredFittingErrors[dataTableIndex]
+            =dataTable.fittingErrors[dataTableIndex]**2;
+      }
+   },                        calcSSR : // Calculate SSR
+   function (){
+      squaredFittingErrors.SSR=0;
+      for (dataTableIndex=0; dataTableIndex<dataTable.squaredFittingErrors.length; dataTableIndex++){
+          squaredFittingErrors.SSR += dataTable.squaredFittingErrors[dataTableIndex];
+      }
+   }
+}
+predictedStartDates = {         name : "PredictedStartDates",
+                            populate : // Calculate dataTable's column of start dates ("predictedStartDates")
+   function (){
+      for (dataTableIndex=0; dataTableIndex<dataTable.predictedLifetimes.length; dataTableIndex++){
+         dataTable.predictedStartDates[dataTableIndex]
+            = dataTable.endYear[dataTableIndex] - dataTable.predictedLifetimes[dataTableIndex];
+      }
+   }
+}
+
+let dataTable = {
+   key                  : [2002 , 2003 , 2004 , 2005 , 2006 , 2007 , 2008 , 2009 , 2010 , 2011 , 2012 , 2013 , 2014 , 2015 , 2016 , 2017 , 2018 , 2019 , 2020],
+   endYear              : [2002 , 2003 , 2004 , 2005 , 2006 , 2007 , 2008 , 2009 , 2010 , 2011 , 2012 , 2013 , 2014 , 2015 , 2016 , 2017 , 2018 , 2019 , 2020],
+   lifetimeData         : [2.611, 2.576, 2.559, 2.771, 2.655, 2.712, 2.709, 2.882, 2.877, 2.954, 2.973, 3.115, 3.108, 3.192, 3.239, 3.331, 3.273, 3.329, 3.37],
+   logLifetimeData      : [], //to be initialized once
+   predictedLifetimes   : [], //to be calculated by the regression process
+   logPredictedLifetimes: [], //to be calculated by the regression process
+   fittingErrors        : [], //to be calculated by the regression process
+   squaredFittingErrors : [], //to be calculated by the regression process
+   predictedStartDates  : []  //to be calculated by the regression process
+}
+logLifetimeData.populate(); //Calculate once as part of initialization.
+
+function updateDataTableFromModelParams(){
+   predictedLifetimes   .populate();
+//alert("dataTable.predictedLifetimes="+dataTable.predictedLifetimes);
+   logPredictedLifetimes.populate();
+ //  alert("dataTable.logPredictedLifetimes="+dataTable.logPredictedLifetimes);
+   fittingErrors        .populate();
+   //   alert("dataTable.fittingErrors="+dataTable.fittingErrors);
+   squaredFittingErrors .populate(); squaredFittingErrors.calcSSR();
+     // alert("dataTable.squaredFittingErrors="+dataTable.squaredFittingErrors);
+   predictedStartDates  .populate();
+    //  alert("dataTable.predictedStartDates="+dataTable.predictedStartDates);
+}
+updateDataTableFromModelParams();
+						
+function fillInSSR(slope, lifeAtT0){
+   predictedLifetimes.slope    = slope;
+   predictedLifetimes.lifeAtT0 = lifeAtT0;
+   updateDataTableFromModelParams();
+   return({slope : slope, lifeAtT0 : lifeAtT0, SSR : squaredFittingErrors.SSR});
+}
+
+function searchLifeAtT0forSSRdip1pass(slope, lifeAtT0, lifeAtT0increment){
+   let dataPointLlifeAtT0, dataPointMlifeAtT0, dataPointHlifeAtT0, dataPointTemp; 
+   dataPointLlifeAtT0 = fillInSSR(slope, lifeAtT0);
+   dataPointMlifeAtT0 = fillInSSR(slope, lifeAtT0*=lifeAtT0increment)
+   while(true){
+     dataPointHlifeAtT0 = fillInSSR(slope, lifeAtT0*=lifeAtT0increment);
+     if (dataPointLlifeAtT0.SSR < dataPointMlifeAtT0.SSR) {
+	    log("<hr><b>Error, no dip, possibly due to an unreasonable value for slope:</b><br>dataPointLlifeAtT0.SSR < dataPointMlifeAtT0.SSR in searchlifeAtT0forSSRdip1pass: slope="
+		    +slope+", lifeAtT0increment="+lifeAtT0increment+",<br>dataPointLlifeAtT0 .lifeAtT0="+dataPointLlifeAtT0.lifeAtT0
+			+", dataPointLlifeAtT0 .SSR="+dataPointLlifeAtT0.SSR+"<br>dataPointMlifeAtT0.lifeAtT0="
+			+dataPointMlifeAtT0.lifeAtT0+", dataPointMlifeAtT0.SSR="+dataPointMlifeAtT0.SSR);break;}
+        else if (dataPointMlifeAtT0.SSR < dataPointHlifeAtT0.SSR) {break;} //The min SSR occurs somewhere between L(ow) and H(igh) values of calcFittingErrors
+        else {dataPointTemp        = dataPointLlifeAtT0;
+	          dataPointLlifeAtT0   = dataPointMlifeAtT0;
+              dataPointMlifeAtT0   = dataPointHlifeAtT0;
+		      dataPointHlifeAtT0   = dataPointTemp;
+		     }
+    }
+	return({dataPointLlifeAtT0 : dataPointLlifeAtT0, dataPointMlifeAtT0 : dataPointMlifeAtT0, dataPointHlifeAtT0 : dataPointHlifeAtT0});
+}
+
+function searchLifeAtT0forMinSSRmultipass(slope, loBoundLifeAtT0){
+   let lifeAtT0increment = lifeAtT0incrementFactor;   //if lifeAtT0increment is 2, and lifeAtT0incrementFactorRefinement is 5, 
+									    //then the updated lifeAtT0increment is 1.2
+   for (lifeAtT0increment ; lifeAtT0increment>lifeAtT0incrementFactorMin ; lifeAtT0increment=1+(lifeAtT0increment-1)/lifeAtT0incrementFactorRefinement){
+	 loBoundLifeAtT0 = searchLifeAtT0forSSRdip1pass(slope, loBoundLifeAtT0, lifeAtT0increment).dataPointLlifeAtT0.lifeAtT0; 
+   }
+   let u = searchLifeAtT0forSSRdip1pass(slope, loBoundLifeAtT0, lifeAtT0increment); //u is set to the three data points of the u-shaped dip
+   log("<hr>Here is the region of lifeAtT0 giving lowest SSR for slope="+slope+":");
+   log("For lifeAtT0="+u.dataPointLlifeAtT0.lifeAtT0+", SSR="+u.dataPointLlifeAtT0.SSR);
+   log("For lifeAtT0="+u.dataPointMlifeAtT0.lifeAtT0+", SSR="+u.dataPointMlifeAtT0.SSR+" <b>(best)</b>");
+   log("For lifeAtT0="+u.dataPointHlifeAtT0.lifeAtT0+", SSR="+u.dataPointHlifeAtT0.SSR);
+   return(u.dataPointMlifeAtT0);
+}
+
+function searchSlopeforMinSSR(){
+   let dataPointLslope = searchLifeAtT0forMinSSRmultipass(0   ,lifeAtT0min);
+   let dataPointMslope = searchLifeAtT0forMinSSRmultipass(0.01,lifeAtT0min);
+   let dataPointHslope = searchLifeAtT0forMinSSRmultipass(0.02,lifeAtT0min);
+   let nextSlope;
+   if (dataPointLslope.SSR < dataPointMslope.SSR) { 
+      log("Possibly an error.");
+   };
+   for (nextSlope = dataPointHslope.slope+0.01 ; dataPointMslope.SSR > dataPointHslope.SSR ; nextSlope += 0.0001){  
+	  dataPointLslope = dataPointMslope;
+	  dataPointMslope = dataPointHslope;
+	  dataPointHslope = searchLifeAtT0forMinSSRmultipass(nextSlope,lifeAtT0min);  //Could use a number above lifeAtT0min for efficiency?
+   }
+   log("<hr><hr><b>Summary: here is the region of best slope (that is, the slope with lowest SSR):</b>");
+   log("For slope="+dataPointLslope.slope+",    lifeAtT0 with lowest SSR is "+dataPointLslope.lifeAtT0+" with SSR="+dataPointLslope.SSR);
+   log('<span style="background-color: violet;");><b>For slope' + dataPointMslope.slope + ", lifeAtT0 with lowest SSR is " + dataPointMslope.lifeAtT0 + " and SSR=" + dataPointMslope.SSR + " (best slope and lifeAtT0 with lowest SSR!)</span>");
+   log("For slope="+dataPointHslope.d+",    lifeAtT0 with lowest SSR is "+dataPointHslope.lifeAtT0+" with SSR="+dataPointHslope.SSR);
+   return(dataPointMslope.slope);
+}
+
+
+function log(messageLine){
+   document.getElementById("log").innerHTML+=messageLine+"<br>";
+}
+
+function lifetimeFromFaildateAnyT0(failDate, slope, lifeAtT0, yearOfT0) {
+   return((slope*(failDate-yearOfT0)+lifeAtT0)/(1+slope));
+}
+   
+
+</script>
+
+</body>
+</html>
+
