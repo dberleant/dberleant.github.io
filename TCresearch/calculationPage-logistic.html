@@ -7,7 +7,8 @@
 <body>
 
 <h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 5 Year Cause-Specific Survival Time of Lung & Bronchus Cancer Patients That Died in Years 1997-2020</h1>
-<h2>Logistic Model</h2>
+<h2>Logistic Model with Survival Time Set to:&nbsp;&nbsp;&nbsp; <kbd>const supremum = <span id="supremum">ERROR</span>;</kbd>
+<br>(this should be set in the code to match the data)</h2>
 
 <button onclick="document.getElementById('log').innerHTML=''; 
                  searchtMidForMinSSR(steepnessMultiplier);">
@@ -35,6 +36,7 @@
 
 <script>
 const supremum = 10; //If the survival period for the data is 10 years, then the maximum average survival time is 10.
+   document.getElementById("supremum").innerHTML="<mark>"+supremum+"</mark>"; //Write the supremum prominently on the web page
 const tMidStart = 2005; //year to begin searching upward for midpoint of the logistic curve. Should undercut the midpoint, or it will lead to a non-termination condition.
 const minPositiveSteepness = 0.000001; //0.000001 seems smaller than necessary. 0.0001 is probably plenty small.
 const steepnessMultiplier=2; //1.01 led to longer execution times, as well as 
