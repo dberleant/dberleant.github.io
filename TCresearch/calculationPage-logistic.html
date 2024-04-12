@@ -1,12 +1,13 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>LC Curve fitting</title>
+<title>BC Curve fitting</title>
 </head>
 <body>
 
-<h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 5 Year Cause-Specific Survival Time of Lung & Bronchus Cancer Patients That Died in Years 1997-2020</h1>
+<h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 10 Year Cause-Specific Survival Time of Breast Cancer Patients That Died in Years 2002-2020</h1>
 <h2>Logistic Model with Survival Time Set to:&nbsp;&nbsp;&nbsp; <kbd>const supremum = <span id="supremum">ERROR</span>;</kbd>
 <br>(this should be set in the code to match the data)</h2>
 
@@ -30,24 +31,39 @@
 	Click to input the steepness and midpoint year, and find the SSR
 </button>
 
+<br><br>
+<button id="tMidStart"
+        onclick= "tMidStartChange();">
+	Change the value of midpoint variable <kbd>tMidStart</kbd>
+</button>
+<br><br>
+
 <p id="log"></p>
+<br>
 
 * Asterisk indicates suspected floating point roundoff error during steepness bisection. It is probably alright if steepnesses are closely spaced and middle SSR is lowest. If middle SSR equals another one, that actually was connected in one case to incorrect determination of the steepness with minimum SSR, probably due to another instance of roundoff error connected to a steepnessMultiplier being too close to 1.
 
 <script>
-const supremum = 5; //If the survival period for the data is 10 years, then the maximum average survival time is 10.
+const supremum = 10; //If the survival period for the data is 10 years, then the maximum average survival time is 10.
    document.getElementById("supremum").innerHTML="<mark>"+supremum+"</mark>"; //Write the supremum prominently on the web page
-const tMidStart = 2015; //year to begin searching upward for midpoint of the logistic curve. Should undercut the midpoint, or it will lead to a non-termination condition.
+
+let tMidStart = 2015; //year to begin searching upward for midpoint of the logistic curve. Should undercut the midpoint, or it will lead to a non-termination condition.
+tMidStartChange = function(){
+   tMidStart = parseInt(prompt("What is the new integer value of tMidStart?"));
+   document.getElementById('tMidStart').innerHTML="The new value of tMidStart is: "  + tMidStart +  ". Click again to change it."
+}
+
 const minPositiveSteepness = 0.000001; //0.000001 seems smaller than necessary. 0.0001 is probably plenty small.
 const steepnessMultiplier=2; //1.01 led to longer execution times, as well as 
                              //errors in finding the minimum for very small steepnesses, 
                              //possibly due to getting stuck at false local minima
 							 //caused by bumpiness from roundoff error due to large bisectionEpsilon=0.00001.
 							 //2 is good because the initial steepnesses tested
-							 //are 0, minPositiveSteepness and 2*minPositiveSteepness which are evenly spaced.
-const minDeltaSSR = 0.00000001;
-const bisectionEpsilon=0.0000001; //This turns out to matter in cases where steepness is close to zero.
-
+					 		 //are 0, minPositiveSteepness and 2*minPositiveSteepness which are evenly spaced.
+const minDeltaSSR      = 0.00000001;
+const bisectionEpsilon = 0.00000001; //This turns out to matter in cases where steepness is close to zero. 
+                                     //The current value is 1/10 of one that caused a problem.
+ 
 predictedLifetimes   = {        name : "PredictedLifetimes",
                            steepness : 1,             //initial guess
                                 tMid : 2025,          //initial guess
@@ -102,9 +118,9 @@ predictedStartDates = {         name : "PredictedStartDates",
 }
 
 let dataTable = {
-   key                  : [1997,1998 ,1999 ,2000 , 2001,2002 ,2003 ,2004 ,2005 ,2006 ,2007 ,2008 ,2009 ,2010 ,2011 ,2012 ,2013 ,2014 ,2015 ,2016 ,2017 ,2018 ,2019 ,2020],
-   endYear              : [1997,1998 ,1999 ,2000 , 2001,2002 ,2003 ,2004 ,2005 ,2006 ,2007 ,2008 ,2009 ,2010 ,2011 ,2012 ,2013 ,2014 ,2015 ,2016 ,2017 ,2018 ,2019 ,2020],
-   lifetimeData         : [0.806 ,0.816 ,0.832 ,0.844 ,0.837 ,0.839 ,0.860 ,0.851 ,0.859 ,0.874 ,0.892 ,0.908 ,0.918 ,0.933 ,0.963 ,0.961 ,0.952 ,0.971 ,0.981 ,0.971 ,0.991 ,1.032 ,1.057 ,1.091],
+   key                  : [2002 ,2003 ,2004 ,2005 ,2006 ,2007 ,2008 ,2009 ,2010 ,2011 ,2012 ,2013 ,2014 ,2015 ,2016 ,2017 ,2018 ,2019 ,2020],
+   endYear              : [2002 ,2003 ,2004 ,2005 ,2006 ,2007 ,2008 ,2009 ,2010 ,2011 ,2012 ,2013 ,2014 ,2015 ,2016 ,2017 ,2018 ,2019 ,2020],
+   lifetimeData         : [3.818 ,3.850 ,3.996 ,3.887 ,3.986 ,3.906 ,3.990 ,4.016 ,3.817 ,3.807 ,3.831 ,3.751 ,3.618 ,3.724 ,3.762 ,3.812 ,3.744 ,3.769 ,3.720],
    predictedLifetimes   : [], //to be calculated by the regression process
    fittingErrors        : [], //to be calculated by the regression process
    squaredFittingErrors : [], //to be calculated by the regression process
