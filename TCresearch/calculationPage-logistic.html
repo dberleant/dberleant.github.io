@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +32,7 @@
 <br><br>
 <button id="tMidStart"
         onclick= "tMidStartChange();">
-	Change the value of midpoint variable <kbd>tMidStart</kbd>
+	Error: button not initilized as expected.
 </button>
 <br><br>
 
@@ -47,11 +45,14 @@
 const supremum = 10; //If the survival period for the data is 10 years, then the maximum average survival time is 10.
    document.getElementById("supremum").innerHTML="<mark>"+supremum+"</mark>"; //Write the supremum prominently on the web page
 
+///////tMidStart control//////////////
 let tMidStart = 2015; //year to begin searching upward for midpoint of the logistic curve. Should undercut the midpoint, or it will lead to a non-termination condition.
 tMidStartChange = function(){
    tMidStart = parseInt(prompt("What is the new integer value of tMidStart?"));
-   document.getElementById('tMidStart').innerHTML="The new value of tMidStart is: "  + tMidStart +  ". Click again to change it."
+   document.getElementById('tMidStart').innerHTML="The new value of tMidStart is: "  + tMidStart +  ". Click again to change it.";
 }
+document.getElementById('tMidStart').innerHTML="The value of <kbd>tMidStart</kbd> is: "  + tMidStart +  ". Click to change it."
+//////////////////////////////////////
 
 const minPositiveSteepness = 0.000001; //0.000001 seems smaller than necessary. 0.0001 is probably plenty small.
 const steepnessMultiplier=2; //1.01 led to longer execution times, as well as 
