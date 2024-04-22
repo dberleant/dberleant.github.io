@@ -1,12 +1,12 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Curve fitting</title>
+<title>KC Curve fitting</title>
 </head>
 <body>
 
-<h1>Data from TC's "1992 Database - Data Analysis_Dec16.xlsx", 
-DB's "yearlyKidneyData-12-17-2023.xlsx", sheet "SummarizedData", cells A1:B21</h1>
+<h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 20 Year Non-Cause-Specific Survival Time of Kidney & Renal Cancer Patients That Died in Years 2012-2020</h1>
 <h2>Exponential Model</h2>
 
 <button onclick="document.getElementById('log').innerHTML=''; 
@@ -112,9 +112,9 @@ predictedStartDates = {         name : "PredictedStartDates",
 }
 
 let dataTable = {
-   key                  : [2002 , 2003 , 2004 , 2005 , 2006 , 2007 , 2008 , 2009 , 2010 , 2011 , 2012 , 2013 , 2014 , 2015 , 2016 , 2017 , 2018 , 2019 , 2020],
-   endYear              : [2002 , 2003 , 2004 , 2005 , 2006 , 2007 , 2008 , 2009 , 2010 , 2011 , 2012 , 2013 , 2014 , 2015 , 2016 , 2017 , 2018 , 2019 , 2020],
-   lifetimeData         : [2.611, 2.576, 2.559, 2.771, 2.655, 2.712, 2.709, 2.882, 2.877, 2.954, 2.973, 3.115, 3.108, 3.192, 3.239, 3.331, 3.273, 3.329, 3.37],
+   key                  : [2012 , 2013 , 2014 , 2015 , 2016 , 2017 , 2018 , 2019 , 2020],
+   endYear              : [2012 , 2013 , 2014 , 2015 , 2016 , 2017 , 2018 , 2019 , 2020],
+   lifetimeData         : [4.838,5.067,4.989,5.145,5.393,5.577,5.638,5.789,5.859],
    logLifetimeData      : [], //to be initialized once
    predictedLifetimes   : [], //to be calculated by the regression process
    logPredictedLifetimes: [], //to be calculated by the regression process
@@ -186,7 +186,12 @@ function searchDforMinSSR(){
    }
    log("<hr><hr><b>Summary: here is the region of best d (that is, the d with lowest SSR):</b>");
    log("For d="+dataPointLd.d+",    c with lowest SSR is "+dataPointLd.c+" with SSR="+dataPointLd.SSR);
-   log('<span style="background-color: yellow;");><b>For d=' + dataPointMd.d + ", c with lowest SSR is " + dataPointMd.c + " and SSR=" + dataPointMd.SSR + " (best d and c with lowest SSR!)</span>");
+   log('<span style="background-color: yellow;");><b>For d=' + dataPointMd.d + ", c with lowest SSR is " + dataPointMd.c + " and SSR=" + dataPointMd.SSR + " (best d and c with lowest SSR!)</span>");   
+   for (let i=0; i<dataTable.endYear.length; i++){
+     log(  '<span style="background-color: yellow;"><b>'
+         + "For end year " + dataTable.endYear[i] + ", ave. lifetime = " + dataTable.lifetimeData[i]
+         + ", regressed model prediction = " + dataTable.predictedLifetimes[i]
+	     + "</span>"); };
    log("For d="+dataPointHd.d+",    c with lowest SSR is "+dataPointHd.c+" with SSR="+dataPointHd.SSR);
    return(dataPointMd.d);
 }
