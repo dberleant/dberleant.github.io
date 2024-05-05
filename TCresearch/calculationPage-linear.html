@@ -1,14 +1,16 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Curve fitting</title>
+<title>BC Curve fitting</title>
 </head>
 <body>
 
-<h1>Data from TC's "1992 Database - Data Analysis_Dec16.xlsx", 
-    DB's "yearlyKidneyData-12-17-2023.xlsx, sheet "SummarizedData", cells A1:B21</h1>
+<h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 20 Year Non-Cause-Specific Survival Time of Breast Cancer Patients That Died in Years 2012-2020</h1>
+
 <h2><pre> 
-<u>Linear model</u>:
+<u>Linear Model</u>:
 lifetime(startTime) =  slope*(startTime - T0) + lifetimeAtT0
 lifetime(endTime)   = (slope*(  endTime - T0) + lifetimeAtT0)/(slope + 1)
 </pre>
@@ -41,7 +43,9 @@ lifetime(endTime)   = (slope*(  endTime - T0) + lifetimeAtT0)/(slope + 1)
 const lifeAtT0incrementFactor           = 2;     //Must be > 1. When searching for the c with minimum SSR, multiply c by this constant each iteration
 const lifeAtT0incrementFactorRefinement = 5;     //Must be > 1. Make lifeAtT0incrementFactor this many times closer to 1.
 const lifeAtT0incrementFactorMin        = 1.001; //If lifeAtT0incrementFactor decreases below the threshold, it is small enough to produce accurate enough results
-const lifeAtT0min                       = 0.001; //Should be low enough to undercut the lifeAtT0 values with min SSR for any slope, but higher values will speed things up
+const lifeAtT0min                       = 0.001; //Should be low enough to undercut the lifeAtT0 values with min SSR for any slope, but higher values will speed things up 
+const minPosSlope = 0.0001;
+const slopeIncrement = 1.05; //Is this so close to 1 that numerical error could cause a false trough in SSR? Hopefully not.
 
 logLifetimeData      = {        name : "LogLifetimeData",
                             populate : // Initialize dataTable's column of lifetime data log values ("LogLifetimeData")
@@ -117,9 +121,9 @@ predictedStartDates = {         name : "PredictedStartDates",
 }
 
 let dataTable = {
-   key                  : [2002 , 2003 , 2004 , 2005 , 2006 , 2007 , 2008 , 2009 , 2010 , 2011 , 2012 , 2013 , 2014 , 2015 , 2016 , 2017 , 2018 , 2019 , 2020],
-   endYear              : [2002 , 2003 , 2004 , 2005 , 2006 , 2007 , 2008 , 2009 , 2010 , 2011 , 2012 , 2013 , 2014 , 2015 , 2016 , 2017 , 2018 , 2019 , 2020],
-   lifetimeData         : [2.611, 2.576, 2.559, 2.771, 2.655, 2.712, 2.709, 2.882, 2.877, 2.954, 2.973, 3.115, 3.108, 3.192, 3.239, 3.331, 3.273, 3.329, 3.37],
+   key                  : [2012 , 2013 , 2014 , 2015 , 2016 , 2017 , 2018 , 2019 , 2020],
+   endYear              : [2012 , 2013 , 2014 , 2015 , 2016 , 2017 , 2018 , 2019 , 2020],
+   lifetimeData         : [8.436 ,8.359 ,8.333 ,8.393 ,8.487 ,8.540 ,8.464 ,8.506 ,8.347],
    logLifetimeData      : [], //to be initialized once
    predictedLifetimes   : [], //to be calculated by the regression process
    logPredictedLifetimes: [], //to be calculated by the regression process
@@ -185,15 +189,18 @@ function searchLifeAtT0forMinSSRmultipass(slope, loBoundLifeAtT0){
    return(u.dataPointMlifeAtT0);
 }
 
+
 function searchSlopeforMinSSR(){
-   let dataPointLslope = searchLifeAtT0forMinSSRmultipass(0   ,lifeAtT0min);
-   let dataPointMslope = searchLifeAtT0forMinSSRmultipass(0.01,lifeAtT0min);
-   let dataPointHslope = searchLifeAtT0forMinSSRmultipass(0.02,lifeAtT0min);
+   let dataPointLslope = searchLifeAtT0forMinSSRmultipass(0                         ,lifeAtT0min);
+   let dataPointMslope = searchLifeAtT0forMinSSRmultipass(minPosSlope               ,lifeAtT0min);
+   let dataPointHslope = searchLifeAtT0forMinSSRmultipass(minPosSlope*slopeIncrement,lifeAtT0min);
    let nextSlope;
    if (dataPointLslope.SSR < dataPointMslope.SSR) { 
       log("Possibly an error.");
    };
-   for (nextSlope = dataPointHslope.slope+0.01 ; dataPointMslope.SSR > dataPointHslope.SSR ; nextSlope += 0.0001){  
+   for (nextSlope =   dataPointHslope.slope*slopeIncrement 
+                    ; dataPointMslope.SSR > dataPointHslope.SSR   //";" is not a statement separator here
+                    ; nextSlope *= slopeIncrement){  
 	  dataPointLslope = dataPointMslope;
 	  dataPointMslope = dataPointHslope;
 	  dataPointHslope = searchLifeAtT0forMinSSRmultipass(nextSlope,lifeAtT0min);  //Could use a number above lifeAtT0min for efficiency?
@@ -206,7 +213,7 @@ function searchSlopeforMinSSR(){
          + "For end year " + dataTable.endYear[i] + ", ave. lifetime = " + dataTable.lifetimeData[i]
          + ", regressed model prediction = " + dataTable.predictedLifetimes[i]
 	 + "</span>"); }; 
-   log("For slope="+dataPointHslope.d+",    lifeAtT0 with lowest SSR is "+dataPointHslope.lifeAtT0+" with SSR="+dataPointHslope.SSR);
+   log("For slope="+dataPointHslope.slope+",    lifeAtT0 with lowest SSR is "+dataPointHslope.lifeAtT0+" with SSR="+dataPointHslope.SSR);
    return(dataPointMslope.slope);
 }
 
