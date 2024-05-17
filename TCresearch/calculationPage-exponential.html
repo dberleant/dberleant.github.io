@@ -8,6 +8,8 @@
 
 <h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 20 Year Non-Cause-Specific Survival Time of Kidney & Renal Cancer Patients That Died in Years 2012-2020</h1>
 <h2>Exponential Model</h2>
+<h3><i>Model update of 5/17/2024</i></h3>
+
 
 <button onclick="document.getElementById('log').innerHTML=''; 
                  searchDforMinSSR();">
@@ -37,6 +39,7 @@ const cIncrementFactor           = 2;     //Must be > 1. When searching for the 
 const cIncrementFactorRefinement = 5;     //Must be > 1. Make cIncrementFactor this many times closer to 1.
 const cIncrementFactorThreshold  = 1.001; //If cIncrementFactor decreases below the threshold, it is small enough to produce accurate enough results
 const cStart                     = 0.001; //0.001 undercuts the c with min SSR even for slope=1, but higher values will speed things up
+const T0 = 1990;
 
 logLifetimeData      = {        name : "LogLifetimeData",
                             populate : // Initialize dataTable's column of lifetime data log values ("LogLifetimeData")
@@ -48,7 +51,7 @@ logLifetimeData      = {        name : "LogLifetimeData",
 }    
 predictedLifetimes   = {        name : "PredictedLifetimes",
                         doublingTime : 11,     //initial guess
-                                  T0 : 1990,   //initial guess
+                                  T0 : T0,     //initial guess
 					    lifetimeAtT0 : 0.5,    //initial guess
 						    populate : // Calculate dataTable's column of lifetime predictions from fail dates (predictedLifetimes)
    function (){
@@ -192,6 +195,15 @@ function searchDforMinSSR(){
          + "For end year " + dataTable.endYear[i] + ", ave. lifetime = " + dataTable.lifetimeData[i]
          + ", regressed model prediction = " + dataTable.predictedLifetimes[i]
 	     + "</span>"); };
+   {let firstFutureYear = dataTable.endYear[dataTable.endYear.length-1]+1;
+    for (let i=firstFutureYear ; i<=firstFutureYear+50 ; i++){
+         log(  '<span style="background-color: yellow;"><b>'
+              + "For end year " + i + ", ave. lifetime = (data not present), regressed model prediction = "
+              + lifetimeFromFaildateAnyT0(i, dataPointMd.d, dataPointMd.c, T0)
+              + "</span>");
+    }
+   }
+
    log("For d="+dataPointHd.d+",    c with lowest SSR is "+dataPointHd.c+" with SSR="+dataPointHd.SSR);
    return(dataPointMd.d);
 }
