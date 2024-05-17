@@ -15,6 +15,8 @@ lifetime(startTime) =  slope*(startTime - T0) + lifetimeAtT0
 lifetime(endTime)   = (slope*(  endTime - T0) + lifetimeAtT0)/(slope + 1)
 </pre>
 </h2>
+<h3><i>Model update of 5/17/2024</i></h3>
+
 
 <button onclick="document.getElementById('log').innerHTML=''; 
                  searchSlopeforMinSSR();">
@@ -46,6 +48,7 @@ const lifeAtT0incrementFactorMin        = 1.001; //If lifeAtT0incrementFactor de
 const lifeAtT0min                       = 0.001; //Should be low enough to undercut the lifeAtT0 values with min SSR for any slope, but higher values will speed things up 
 const minPosSlope = 0.0001;
 const slopeIncrement = 1.05; //Is this so close to 1 that numerical error could cause a false trough in SSR? Hopefully not.
+const T0 = 1990;
 
 logLifetimeData      = {        name : "LogLifetimeData",
                             populate : // Initialize dataTable's column of lifetime data log values ("LogLifetimeData")
@@ -57,7 +60,7 @@ logLifetimeData      = {        name : "LogLifetimeData",
 }    
 predictedLifetimes   = {        name : "PredictedLifetimes",
                                slope : 0.1                 , //initial guess
-                                  T0 : 1990                , //initial guess
+                                  T0 : T0                  , //initial guess
 					        lifeAtT0 : 0.5                 , //initial guess
 						    populate : // Calculate dataTable's column of lifetime predictions from fail dates (predictedLifetimes)
    function (){
@@ -212,7 +215,15 @@ function searchSlopeforMinSSR(){
      log(  '<span style="background-color: violet;"><b>'
          + "For end year " + dataTable.endYear[i] + ", ave. lifetime = " + dataTable.lifetimeData[i]
          + ", regressed model prediction = " + dataTable.predictedLifetimes[i]
-	 + "</span>"); }; 
+	 + "</span>"); };
+   {let firstFutureYear = dataTable.endYear[dataTable.endYear.length-1]+1;
+    for (let i=firstFutureYear ; i<=firstFutureYear+50 ; i++){
+         log(  '<span style="background-color: violet;"><b>'
+              + "For end year " + i + ", ave. lifetime = (data not present), regressed model prediction = "
+              + lifetimeFromFaildateAnyT0(i, dataPointMslope.slope, dataPointMslope.lifeAtT0, T0)
+              + "</span>");
+    }	
+   }
    log("For slope="+dataPointHslope.slope+",    lifeAtT0 with lowest SSR is "+dataPointHslope.lifeAtT0+" with SSR="+dataPointHslope.SSR);
    return(dataPointMslope.slope);
 }
