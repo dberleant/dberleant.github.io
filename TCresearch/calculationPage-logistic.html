@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +9,7 @@
 <h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 10 Year Non-Cause-Specific Survival Time of Breast Cancer Patients That Died in Years 2002-2020</h1>
 <h2>Logistic Model with Survival Time Set to:&nbsp;&nbsp;&nbsp; <kbd>const supremum = <span id="supremum">ERROR</span>;</kbd>
 <br>(this should be set in the code to match the data)</h2>
-<h3><i>Model update of 5/8/2024</i></h3>
+<h3><i>Model update of 5/17/2024</i></h3>
 
 <button onclick="document.getElementById('log').innerHTML=''; 
                  searchtMidForMinSSR(steepnessMultiplier);">
@@ -39,7 +37,7 @@
 		         document.getElementById('tMidStart').innerHTML 
 				    =   'Midpoint year search will now start from <mark><b>'
 					  + tMidStart
-					  + '</b></mark>. Consider changing it in the code. Click to change it again.'; ">
+					  + '</b></mark>. Consider changing it in the code. Click to try another value.'; ">
 	Error 17
 </button>
 
@@ -297,11 +295,19 @@ function searchtMidForMinSSR(steepnessMultiplier){
 		+ dataPointMtMid.SSR 
 		+ "<br>&nbsp;&nbsp;&nbsp;&nbsp;Best midpoint time and steepness with lowest SSR (unless asymptoting)!</b></span><br>"
 	  );
-   for (let i=0; i<dataTable.endYear.length; i++){
+   for (let i=0 ; i<dataTable.endYear.length ; i++){
      log(  '<span style="background-color: yellow;"><b>'
          + "For end year " + dataTable.endYear[i] + ", ave. lifetime = " + dataTable.lifetimeData[i]
          + ", regressed model prediction = " + dataTable.predictedLifetimes[i]
 	     + "</span><br>"); };
+   {let firstFutureYear = dataTable.endYear[dataTable.endYear.length-1]+1;
+    for (let i=firstFutureYear ; i<=firstFutureYear+50 ; i++){
+         log(  '<span style="background-color: yellow;"><b>'
+              + "For end year " + i + ", ave. lifetime = (data not present), regressed model prediction = "
+              + lifetimeFromFaildate(i, dataPointMtMid.steepness, dataPointMtMid.tMid, supremum)
+              + "</span><br>");
+    }
+   }
    log("For midpoint time "+dataPointHtMid.tMid+", steepness with lowest SSR is "+dataPointHtMid.steepness+" with SSR "
         +dataPointHtMid.SSR+"<hr>");
 }
