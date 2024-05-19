@@ -8,7 +8,7 @@
 
 <h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 20 Year Non-Cause-Specific Survival Time of Kidney & Renal Cancer Patients That Died in Years 2012-2020</h1>
 <h2>Exponential Model</h2>
-<h3><i>Model update of 5/17/2024</i></h3>
+<h3><i>Model update of 5/19/2024</i></h3>
 
 
 <button onclick="document.getElementById('log').innerHTML=''; 
@@ -214,20 +214,18 @@ function log(messageLine){
 }
 
 
-
 // *** Use bisection method ***
 function lifetimeFromFaildateAnyT0(failDate, doublingTime, lifetimeAtT0, yearOfT0) {
   //alert("faildate="+failDate+"  doublingTime="+doublingTime+"  lifetimeAtT0="+lifetimeAtT0+"  yearOfT0="+yearOfT0);
   const minLife=.0005, maxLife=1000000, envelope=0.00001;
-  var loBound=minLife, hiBound=maxLife, guessedLife=(hiBound+loBound)/2, 
-      dlogL_T0=doublingTime*Math.log2(lifetimeAtT0);
+  var loBound=minLife, hiBound=maxLife, guessedLife=(hiBound+loBound)/2;
 
   if (doublingTime===0) return "Error, doubling time cannot be zero.";
   if (doublingTime<0) return "Error, negative doubling times can lead to two answers, and this function doesn't do that.";
   if ((typeof failDate!=="number")||(typeof doublingTime!=="number")||(typeof lifetimeAtT0!=="number")) return "error, nonnumeric arg(s)";
 
   while ((hiBound-loBound)>envelope){
-      ((yearOfT0+guessedLife+doublingTime*Math.log2(guessedLife)-dlogL_T0) 
+      ((yearOfT0+guessedLife+doublingTime*Math.log2(guessedLife/lifetimeAtT0)) //This is the eq. for lifetime given fail date
         < 
         failDate
       ) 
@@ -239,7 +237,6 @@ function lifetimeFromFaildateAnyT0(failDate, doublingTime, lifetimeAtT0, yearOfT
   else if (guessedLife >= maxLife-envelope) return "error, lifetime not found, approaching high bound";
   else return guessedLife; //Has converged on the answer
 }
-
 </script>
 
 </body>
