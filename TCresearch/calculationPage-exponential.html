@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>KC Curve fitting</title>
+<title>Exponential</title>
 </head>
 <body>
 
 <h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 20 Year Non-Cause-Specific Survival Time of Kidney & Renal Cancer Patients That Died in Years 2012-2020</h1>
 <h2>Exponential Model</h2>
-<h3><i>Model update of 5/19/2024</i></h3>
+<h3><i>Model update of 6/17/2024</i></h3>
 
 
 <button onclick="document.getElementById('log').innerHTML=''; 
@@ -154,9 +154,10 @@ function searchCforSSRdip1pass(d, c, cIncrement){
         else {dataPointTemp = dataPointLc;
 	          dataPointLc   = dataPointMc;
               dataPointMc   = dataPointHc;
-		      dataPointHc   = dataPointTemp;
+		      dataPointHc   = null;
 		     }
     }
+	fillInSSR(dataPointMc.d, dataPointMc.c); //Make dataTable reflect dip, not H after the dip
 	return({dataPointLc : dataPointLc, dataPointMc : dataPointMc, dataPointHc : dataPointHc});
 }
 
@@ -187,25 +188,26 @@ function searchDforMinSSR(){
 	  dataPointMd = dataPointHd;
 	  dataPointHd = searchCforMinSSRmultipass(nextD,cStart);  //Could use a number above cStart for efficiency, since d<>1 here, I think
    }
+   fillInSSR(dataPointMd.d, dataPointMd.c); //Make dataTable reflect the dip, not H after the dip
    log("<hr><hr><b>Summary: here is the region of best d (that is, the d with lowest SSR):</b>");
-   log("For d="+dataPointLd.d+",    c with lowest SSR is "+dataPointLd.c+" with SSR="+dataPointLd.SSR);
-   log('<span style="background-color: yellow;");><b>For d=' + dataPointMd.d + ", c with lowest SSR is " + dataPointMd.c + " and SSR=" + dataPointMd.SSR + " (best d and c with lowest SSR!)</span>");   
+   log("For doubling time d just below the best value, d="+dataPointLd.d+",    c with lowest SSR is "+dataPointLd.c+" with SSR="+dataPointLd.SSR);
+   log('<span style="background-color: yellow;");><b>For doubling time d that is best, d=' + dataPointMd.d + ", c with lowest SSR is " + dataPointMd.c + " and SSR=" + dataPointMd.SSR + " (best d and c with lowest SSR!)</span>");   
    for (let i=0; i<dataTable.endYear.length; i++){
-     log(  '<span style="background-color: yellow;"><b>'
+     log(  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: yellow;"><b>'
          + "For end year " + dataTable.endYear[i] + ", ave. lifetime = " + dataTable.lifetimeData[i]
          + ", regressed model prediction = " + dataTable.predictedLifetimes[i]
 	     + "</span>"); };
-   {let firstFutureYear = dataTable.endYear[dataTable.endYear.length-1]+1;
+   log("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next line checks previous line: predictions should be equal.");
+   {let firstFutureYear = dataTable.endYear[dataTable.endYear.length-1];
     for (let i=firstFutureYear ; i<=firstFutureYear+50 ; i++){
-         log(  '<span style="background-color: yellow;"><b>'
+         log(  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: yellow;"><b>'
               + "For end year " + i + ", ave. lifetime = (data not present), regressed model prediction = "
               + lifetimeFromFaildateAnyT0(i, dataPointMd.d, dataPointMd.c, T0)
               + "</span>");
     }
    }
-
-   log("For d="+dataPointHd.d+",    c with lowest SSR is "+dataPointHd.c+" with SSR="+dataPointHd.SSR);
-   return(dataPointMd.d);
+   log("For doubling time d just above the best value, d="+dataPointHd.d+",    c with lowest SSR is "+dataPointHd.c+" with SSR="+dataPointHd.SSR);
+   // return(dataPointMd.d); //Not used, so why return it.
 }
 
 

@@ -15,7 +15,7 @@ lifetime(startTime) =  slope*(startTime - T0) + lifetimeAtT0
 lifetime(endTime)   = (slope*(  endTime - T0) + lifetimeAtT0)/(slope + 1)
 </pre>
 </h2>
-<h3><i>Model update of 5/17/2024</i></h3>
+<h3><i>Model update of 6/17/2024</i></h3>
 
 
 <button onclick="document.getElementById('log').innerHTML=''; 
@@ -62,7 +62,8 @@ predictedLifetimes   = {        name : "PredictedLifetimes",
                                slope : 0.1                 , //initial guess
                                   T0 : T0                  , //initial guess
 					        lifeAtT0 : 0.5                 , //initial guess
-						    populate : // Calculate dataTable's column of lifetime predictions from fail dates (predictedLifetimes)
+						    populate : // Calculate dataTable's column of lifetime predictions from fail dates,
+                                       // i.e., predictedLifetimes
    function (){
       for (dataTableIndex=0; dataTableIndex<dataTable.endYear.length; dataTableIndex++){
          dataTable.predictedLifetimes[dataTableIndex]
@@ -172,9 +173,10 @@ function searchLifeAtT0forSSRdip1pass(slope, lifeAtT0, lifeAtT0increment){
         else {dataPointTemp        = dataPointLlifeAtT0;
 	          dataPointLlifeAtT0   = dataPointMlifeAtT0;
               dataPointMlifeAtT0   = dataPointHlifeAtT0;
-		      dataPointHlifeAtT0   = dataPointTemp;
+		      dataPointHlifeAtT0   = null;
 		     }
     }
+	// Next, enforce that on exit, dataTable contains data from the dip (not rejected data from dataPointHlifeAtT0)	fillInSSR(slope, dataPointMlifeAtT0.lifeAtT0);
 	return({dataPointLlifeAtT0 : dataPointLlifeAtT0, dataPointMlifeAtT0 : dataPointMlifeAtT0, dataPointHlifeAtT0 : dataPointHlifeAtT0});
 }
 
@@ -201,31 +203,33 @@ function searchSlopeforMinSSR(){
    if (dataPointLslope.SSR < dataPointMslope.SSR) { 
       log("Possibly an error.");
    };
-   for (nextSlope =   dataPointHslope.slope*slopeIncrement 
-                    ; dataPointMslope.SSR > dataPointHslope.SSR   //";" is not a statement separator here
-                    ; nextSlope *= slopeIncrement){  
+   for (nextSlope = dataPointHslope.slope*slopeIncrement 
+                  ; dataPointMslope.SSR > dataPointHslope.SSR   //";" is not a statement separator here
+                  ; nextSlope *= slopeIncrement){  
 	  dataPointLslope = dataPointMslope;
 	  dataPointMslope = dataPointHslope;
-	  dataPointHslope = searchLifeAtT0forMinSSRmultipass(nextSlope,lifeAtT0min);  //Could use a number above lifeAtT0min for efficiency?
+	  dataPointHslope = searchLifeAtT0forMinSSRmultipass(nextSlope,lifeAtT0min);  // Could use a number above lifeAtT0min for efficiency?
    }
+   fillInSSR(dataPointMslope.slope, dataPointMslope.lifeAtT0); // Reset dataTable to dip 
    log("<hr><hr><b>Summary: here is the region of best slope (that is, the slope with lowest SSR):</b>");
-   log("For slope="+dataPointLslope.slope+",    lifeAtT0 with lowest SSR is "+dataPointLslope.lifeAtT0+" with SSR="+dataPointLslope.SSR);
-   log('<span style="background-color: violet;");><b>For slope ' + dataPointMslope.slope + ", lifeAtT0 with lowest SSR is " + dataPointMslope.lifeAtT0 + " and SSR=" + dataPointMslope.SSR + " (best slope and lifeAtT0 with lowest SSR!)</span>");
+   log("Slope just below the best slope: slope = "+dataPointLslope.slope+",    lifeAtT0 with lowest SSR is "+dataPointLslope.lifeAtT0+" with SSR="+dataPointLslope.SSR);
+   log('<span style="background-color: violet;");><b>Best slope: slope = ' + dataPointMslope.slope + ", lifeAtT0 with lowest SSR is " + dataPointMslope.lifeAtT0 + " and SSR=" + dataPointMslope.SSR + " (best slope and lifeAtT0 with lowest SSR!)</span>");
    for (let i=0; i<dataTable.endYear.length; i++){
-     log(  '<span style="background-color: violet;"><b>'
+     log(  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: violet;"><b>'
          + "For end year " + dataTable.endYear[i] + ", ave. lifetime = " + dataTable.lifetimeData[i]
          + ", regressed model prediction = " + dataTable.predictedLifetimes[i]
 	 + "</span>"); };
-   {let firstFutureYear = dataTable.endYear[dataTable.endYear.length-1]+1;
+   log("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next line checks previous line: predictions should be equal.");
+   {let firstFutureYear = dataTable.endYear[dataTable.endYear.length-1]  // +1;
     for (let i=firstFutureYear ; i<=firstFutureYear+50 ; i++){
-         log(  '<span style="background-color: violet;"><b>'
+         log(  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: violet;"><b>'
               + "For end year " + i + ", ave. lifetime = (data not present), regressed model prediction = "
               + lifetimeFromFaildateAnyT0(i, dataPointMslope.slope, dataPointMslope.lifeAtT0, T0)
               + "</span>");
     }	
    }
-   log("For slope="+dataPointHslope.slope+",    lifeAtT0 with lowest SSR is "+dataPointHslope.lifeAtT0+" with SSR="+dataPointHslope.SSR);
-   return(dataPointMslope.slope);
+   log("Slope just above best slope: slope = "+dataPointHslope.slope+",    lifeAtT0 with lowest SSR is "+dataPointHslope.lifeAtT0+" with SSR="+dataPointHslope.SSR);
+   // return(dataPointMslope.slope); //not used, so why have it
 }
 
 
