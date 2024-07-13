@@ -13,9 +13,10 @@
 <u>Linear Model</u>:
 lifetime(startTime) =  slope*(startTime - T0) + lifetimeAtT0
 lifetime(endTime)   = (slope*(  endTime - T0) + lifetimeAtT0)/(slope + 1)
+T0                  = <span id="T0">Error 98: The value of T0 should be shown here.</span>
 </pre>
 </h2>
-<h3><i>Model update of 6/17/2024</i></h3>
+<h3><i>Model update of 7/12/2024</i></h3>
 
 
 <button onclick="document.getElementById('log').innerHTML=''; 
@@ -48,7 +49,8 @@ const lifeAtT0incrementFactorMin        = 1.001; //If lifeAtT0incrementFactor de
 const lifeAtT0min                       = 0.001; //Should be low enough to undercut the lifeAtT0 values with min SSR for any slope, but higher values will speed things up 
 const minPosSlope = 0.0001;
 const slopeIncrement = 1.05; //Is this so close to 1 that numerical error could cause a false trough in SSR? Hopefully not.
-const T0 = 1990;
+const T0 = 1992;
+document.getElementById("T0").innerHTML=T0;
 
 logLifetimeData      = {        name : "LogLifetimeData",
                             populate : // Initialize dataTable's column of lifetime data log values ("LogLifetimeData")
@@ -60,7 +62,7 @@ logLifetimeData      = {        name : "LogLifetimeData",
 }    
 predictedLifetimes   = {        name : "PredictedLifetimes",
                                slope : 0.1                 , //initial guess
-                                  T0 : T0                  , //initial guess
+                                  T0 : T0                  , //taken from the global constant
 					        lifeAtT0 : 0.5                 , //initial guess
 						    populate : // Calculate dataTable's column of lifetime predictions from fail dates,
                                        // i.e., predictedLifetimes
@@ -214,6 +216,12 @@ function searchSlopeforMinSSR(){
    log("<hr><hr><b>Summary: here is the region of best slope (that is, the slope with lowest SSR):</b>");
    log("Slope just below the best slope: slope = "+dataPointLslope.slope+",    lifeAtT0 with lowest SSR is "+dataPointLslope.lifeAtT0+" with SSR="+dataPointLslope.SSR);
    log('<span style="background-color: violet;");><b>Best slope: slope = ' + dataPointMslope.slope + ", lifeAtT0 with lowest SSR is " + dataPointMslope.lifeAtT0 + " and SSR=" + dataPointMslope.SSR + " (best slope and lifeAtT0 with lowest SSR!)</span>");
+   log(  '<span style="background-color: violet;"><b>'
+       + "Equation of best fit curve is:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>"
+	   + "lifetime(endTime) = y = ["+dataPointMslope.slope+"*(x - " + T0 + ") + " + dataPointMslope.lifeAtT0 + "]"
+       + " / "
+       + "[1 + " + dataPointMslope.slope + "]" 
+	   + "</span>");
    for (let i=0; i<dataTable.endYear.length; i++){
      log(  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: violet;"><b>'
          + "For end year " + dataTable.endYear[i] + ", ave. lifetime = " + dataTable.lifetimeData[i]
