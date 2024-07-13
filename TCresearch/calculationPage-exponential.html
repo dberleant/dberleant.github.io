@@ -8,7 +8,8 @@
 
 <h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 20 Year Non-Cause-Specific Survival Time of Kidney & Renal Cancer Patients That Died in Years 2012-2020</h1>
 <h2>Exponential Model</h2>
-<h3><i>Model update of 6/17/2024</i></h3>
+<h3>T0=<span id="T0">[Error 98: The value of T0 should appear here.]</span></h3>
+<h3><i>Model update of 7/12/2024</i></h3>
 
 
 <button onclick="document.getElementById('log').innerHTML=''; 
@@ -39,7 +40,8 @@ const cIncrementFactor           = 2;     //Must be > 1. When searching for the 
 const cIncrementFactorRefinement = 5;     //Must be > 1. Make cIncrementFactor this many times closer to 1.
 const cIncrementFactorThreshold  = 1.001; //If cIncrementFactor decreases below the threshold, it is small enough to produce accurate enough results
 const cStart                     = 0.001; //0.001 undercuts the c with min SSR even for slope=1, but higher values will speed things up
-const T0 = 1990;
+const T0 = 1992;
+document.getElementById("T0").innerHTML=T0;
 
 logLifetimeData      = {        name : "LogLifetimeData",
                             populate : // Initialize dataTable's column of lifetime data log values ("LogLifetimeData")
@@ -51,7 +53,7 @@ logLifetimeData      = {        name : "LogLifetimeData",
 }    
 predictedLifetimes   = {        name : "PredictedLifetimes",
                         doublingTime : 11,     //initial guess
-                                  T0 : T0,     //initial guess
+                                  T0 : T0,     //taken from the global constant
 					    lifetimeAtT0 : 0.5,    //initial guess
 						    populate : // Calculate dataTable's column of lifetime predictions from fail dates (predictedLifetimes)
    function (){
@@ -192,6 +194,11 @@ function searchDforMinSSR(){
    log("<hr><hr><b>Summary: here is the region of best d (that is, the d with lowest SSR):</b>");
    log("For doubling time d just below the best value, d="+dataPointLd.d+",    c with lowest SSR is "+dataPointLd.c+" with SSR="+dataPointLd.SSR);
    log('<span style="background-color: yellow;");><b>For doubling time d that is best, d=' + dataPointMd.d + ", c with lowest SSR is " + dataPointMd.c + " and SSR=" + dataPointMd.SSR + " (best d and c with lowest SSR!)</span>");   
+   log(  '<span style="background-color: yellow;"><b>'
+       + "Equation of best fit curve is:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>"
+	   + " x = " + T0 + " + y + " + dataPointMd.d + "*log2(y/" + dataPointMd.c + ")" 
+	   + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where x is the INdependent variable despite the form of the equation."
+	   + "</span>");
    for (let i=0; i<dataTable.endYear.length; i++){
      log(  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: yellow;"><b>'
          + "For end year " + dataTable.endYear[i] + ", ave. lifetime = " + dataTable.lifetimeData[i]
