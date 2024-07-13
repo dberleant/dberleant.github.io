@@ -9,7 +9,7 @@
 <h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 10 Year Non-Cause-Specific Survival Time of Breast Cancer Patients That Died in Years 2002-2020</h1>
 <h2>Logistic Model with Survival Time Set to:&nbsp;&nbsp;&nbsp; <kbd>const supremum = <span id="supremum">ERROR</span>;</kbd>
 <br>(this should be set in the code to match the data)</h2>
-<h3><i>Model update of 6/17/2024</i></h3>
+<h3><i>Model update of 7/12/2024</i></h3>
 
 <button onclick="document.getElementById('log').innerHTML=''; 
                  searchtMidForMinSSR(steepnessMultiplier);">
@@ -297,6 +297,13 @@ function searchtMidForMinSSR(steepnessMultiplier){
 		+ dataPointMtMid.SSR 
 		+ "<br>&nbsp;&nbsp;&nbsp;&nbsp;This is the best midpoint time and steepness with lowest SSR (unless asymptoting)!</b></span><br>"
 	  );
+   log(  '<span style="background-color: yellow;"><b>'
+       + "Equation of best fit curve is:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>"
+	   + "x = ln(y)/" + dataPointMtMid.steepness + " + y + " + dataPointMtMid.tMid  
+	          + " - ln(" + supremum + " - y)/" + dataPointMtMid.steepness
+	   + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where x is the INdependent variable despite the form of the equation."
+	   + "</span><br>");
+
    for (let i=0 ; i<dataTable.endYear.length ; i++){
      log(  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: yellow;"><b>'
          + "For end year " + dataTable.endYear[i] + ", ave. lifetime = " + dataTable.lifetimeData[i]
