@@ -9,19 +9,31 @@
 <h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 20 Year Non-Cause-Specific Survival Time of Kidney & Renal Cancer Patients That Died in Years 2012-2020</h1>
 <h2>Exponential Model</h2>
 <h3>T0=<span id="T0">[Error 98: The value of T0 should appear here.]</span></h3>
-<h3><i>Model update of 7/12/2024</i></h3>
+<h3>lifeAtT0            = <span id="lifeAtT0">Error 99: not yet initialized</span></h3> <!-If set manually, the number will be shown here->
+<h3><i>Model update of 7/16/2024</i></h3>
 
 
-<button onclick="document.getElementById('log').innerHTML=''; 
-                 searchDforMinSSR();">
-	Click to find the exponential curve with the values of parameters d and c yielding the best fit (lowest SSR)
+<button onclick='if (typeof lifeAtT0!=="number")
+                    alert(`lifeAtT0 is not a number. Set it to one to use this button. Hint: also set T0.`);
+				 else{
+                    document.getElementById("log").innerHTML=""; 
+                    searchDforMinSSR();}'>
+	Click to find the line with the value of <b>doubling time</b> yielding the best fit (lowest SSR) for a given lifeAtT0
+</button>
+<br><br>
+<button onclick='if (lifeAtT0!=="Determined algorithmically")
+                    alert(`lifeAtT0 is a number. Set it to the string "Determined algorithmically" instead.`);
+				 else{
+                    document.getElementById("log").innerHTML=""; 
+                    searchDforMinSSR();}'>
+	Click to find the line with the <b>doubling time</b> and <b>lifeAtT0</b> yielding the best fit (lowest SSR)
 </button>
 <br><br>
 
 <button onclick="document.getElementById('log').innerHTML=''; 
                  searchCforMinSSRmultipass(parseInt(prompt('Type value for d:'), 10),
 				                           cStart);">
-	Click to find the exponential curve with a given doubling time d and the c yielding the best fit for that d
+	Click to find the exponential curve with a given doubling time d and the lifeAtT0, c, yielding the best fit for that d
 </button>
 <br><br>
 
@@ -30,12 +42,13 @@
                                           parseFloat(prompt('Type value for c:'), 10)
 					                     ).SSR
 				    );">
-	Click to input the doubling time d and start value c, and find the SSR
+	Click to input the doubling time d and lifeAtT0 (start value c), and find the SSR
 </button>
 
 <p id="log"></p>
 <script>
-
+let lifeAtT0 = 3.1265;//"Determined algorithmically"; //Set it manually by changing this line to a number
+document.getElementById("lifeAtT0").innerHTML = lifeAtT0;
 const cIncrementFactor           = 2;     //Must be > 1. When searching for the c with minimum SSR, multiply c by this constant each iteration
 const cIncrementFactorRefinement = 5;     //Must be > 1. Make cIncrementFactor this many times closer to 1.
 const cIncrementFactorThreshold  = 1.001; //If cIncrementFactor decreases below the threshold, it is small enough to produce accurate enough results
@@ -177,10 +190,17 @@ function searchCforMinSSRmultipass(d, loBoundC){
    return(u.dataPointMc);
 }
 
+function getLifeAtT0byDispatch(d){
+   if (lifeAtT0 === "Determined algorithmically")
+      return searchCforMinSSRmultipass(d, cStart);
+   else if (typeof lifeAtT0 === "number")
+	  return fillInSSR(d, lifeAtT0);
+   else alert("Error 101: lifeAtT0 === " + lifeAtT0 + ": bad value");
+}
 function searchDforMinSSR(){
-   let dataPointLd = searchCforMinSSRmultipass(1,cStart);
-   let dataPointMd = searchCforMinSSRmultipass(2,cStart);
-   let dataPointHd = searchCforMinSSRmultipass(3,cStart);
+   let dataPointLd = getLifeAtT0byDispatch(1);
+   let dataPointMd = getLifeAtT0byDispatch(2);
+   let dataPointHd = getLifeAtT0byDispatch(3);
    let nextD;
    if (dataPointLd.SSR < dataPointMd.SSR) { //Presumably, d=1 is not better than d=2, but check anyway
       log("Probably an error, as d<2 seems unlikely.");
@@ -188,7 +208,7 @@ function searchDforMinSSR(){
    for (nextD = dataPointHd.d+1 ; dataPointMd.SSR > dataPointHd.SSR ; nextD++){  
 	  dataPointLd = dataPointMd;
 	  dataPointMd = dataPointHd;
-	  dataPointHd = searchCforMinSSRmultipass(nextD,cStart);  //Could use a number above cStart for efficiency, since d<>1 here, I think
+	  dataPointHd = getLifeAtT0byDispatch(nextD);  //Could use a number above cStart for efficiency, since d<>1 here, I think
    }
    fillInSSR(dataPointMd.d, dataPointMd.c); //Make dataTable reflect the dip, not H after the dip
    log("<hr><hr><b>Summary: here is the region of best d (that is, the d with lowest SSR):</b>");
