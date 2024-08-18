@@ -10,7 +10,7 @@
 <h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 5 Year Cause-Specific Survival Time of Breast Cancer Patients That Died in Years 1997-2020</h1>
 <h2>Logistic Model with Survival Time Set to:&nbsp;&nbsp;&nbsp; <kbd>const supremum = <span id="supremum">ERROR</span>;</kbd>
 <br>(this should be set in the code to match the data)</h2>
-<h3><i>Model update of 8/17/2024</i></h3>
+<h3><i>Model update of 8/17/2024 9:00 p.m.</i></h3>
 
 <button onclick="document.getElementById('log').innerHTML=''; 
                  searchtMidForMinSSR(steepnessMultiplier);">
@@ -320,7 +320,7 @@ function searchtMidForMinSSR(steepnessMultiplier){
 	log(  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: yellow;"><b>'
               + "START LONG TERM PROJECTION WITH 200-YEAR TIME STEPS (USEFUL IN RARE CASES)"
               + "</span><br>");
-    for (let i=firstFutureYear+50+200 ; i<=firstFutureYear+20000 ; i+=200){  //50 due to previous loop
+    for (let i=firstFutureYear+50+200 ; i<=firstFutureYear+40000 ; i+=200){  //50 due to previous loop
          log(  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: yellow;"><b>'
               + "For end year " + i + ", ave. lifetime = (data not present), regressed model prediction = "
               + lifetimeFromFaildate(i, dataPointMtMid.steepness, dataPointMtMid.tMid, supremum)
