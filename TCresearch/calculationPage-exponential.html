@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,11 +7,11 @@
 </head>
 <body>
 
-<h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 20 Year Non-Cause-Specific Survival Time of Kidney & Renal Cancer Patients That Died in Years 2012-2020</h1>
+<h1>Data from SEER Nov 2022 Sub (1992-2020) Database - 20 Year Cause-Specific Survival Time of Kidney & Renal Cancer Patients That Died in Years 2012-2020</h1>
 <h2>Exponential Model</h2>
 <h3>T0=<span id="T0">[Error 98: The value of T0 should appear here.]</span></h3>
 <h3>lifeAtT0            = <span id="lifeAtT0">Error 99: not yet initialized</span></h3> <!-If set manually, the number will be shown here->
-<h3><i>Model update of 7/16/2024</i></h3>
+<h3><i>Model update of 9/19/2024 (hindcasting added)</i></h3>
 
 
 <button onclick='if (typeof lifeAtT0!=="number")
@@ -33,7 +34,7 @@
 <button onclick="document.getElementById('log').innerHTML=''; 
                  searchCforMinSSRmultipass(parseInt(prompt('Type value for d:'), 10),
 				                           cStart);">
-	Click to find the exponential curve with a given doubling time d and the lifeAtT0, c, yielding the best fit for that d
+	Click to find the exponential curve with a given doubling time d and the c yielding the best fit for that d
 </button>
 <br><br>
 
@@ -42,18 +43,18 @@
                                           parseFloat(prompt('Type value for c:'), 10)
 					                     ).SSR
 				    );">
-	Click to input the doubling time d and lifeAtT0 (start value c), and find the SSR
+	Click to input the doubling time d and start value c, and find the SSR
 </button>
 
 <p id="log"></p>
 <script>
-let lifeAtT0 = 3.1265;//"Determined algorithmically"; //Set it manually by changing this line to a number
+let lifeAtT0 = 3.26232411;//"Determined algorithmically"; //Set it manually by changing this line to a number
 document.getElementById("lifeAtT0").innerHTML = lifeAtT0;
 const cIncrementFactor           = 2;     //Must be > 1. When searching for the c with minimum SSR, multiply c by this constant each iteration
 const cIncrementFactorRefinement = 5;     //Must be > 1. Make cIncrementFactor this many times closer to 1.
 const cIncrementFactorThreshold  = 1.001; //If cIncrementFactor decreases below the threshold, it is small enough to produce accurate enough results
 const cStart                     = 0.001; //0.001 undercuts the c with min SSR even for slope=1, but higher values will speed things up
-const T0 = 1992;
+const T0 = 2000;
 document.getElementById("T0").innerHTML=T0;
 
 logLifetimeData      = {        name : "LogLifetimeData",
@@ -132,7 +133,7 @@ predictedStartDates = {         name : "PredictedStartDates",
 let dataTable = {
    key                  : [2012 , 2013 , 2014 , 2015 , 2016 , 2017 , 2018 , 2019 , 2020],
    endYear              : [2012 , 2013 , 2014 , 2015 , 2016 , 2017 , 2018 , 2019 , 2020],
-   lifetimeData         : [4.838,5.067,4.989,5.145,5.393,5.577,5.638,5.789,5.859],
+   lifetimeData         : [3.379 ,3.289 ,3.256 ,3.363 ,3.579 ,3.571 ,3.760 ,3.861 ,3.636],
    logLifetimeData      : [], //to be initialized once
    predictedLifetimes   : [], //to be calculated by the regression process
    logPredictedLifetimes: [], //to be calculated by the regression process
@@ -219,6 +220,16 @@ function searchDforMinSSR(){
 	   + " x = " + T0 + " + y + " + dataPointMd.d + "*log2(y/" + dataPointMd.c + ")" 
 	   + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; where x is the INdependent variable despite the form of the equation."
 	   + "</span>");
+   {let firstYearOf25yearHindcast = dataTable.endYear[0]-25;
+    for (let i=firstYearOf25yearHindcast ; i<=dataTable.endYear[0] ; i++){
+         log(  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: yellow;"><b>'
+              + "For end year " + i 
+			  + ", ave. lifetime = (data not present or used), regressed model hindcast = "
+              + lifetimeFromFaildateAnyT0(i, dataPointMd.d, dataPointMd.c, T0)
+              + "</span>");
+    }
+   }
+   log("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Previous line checks next line: predictions should be equal.");
    for (let i=0; i<dataTable.endYear.length; i++){
      log(  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: yellow;"><b>'
          + "For end year " + dataTable.endYear[i] + ", ave. lifetime = " + dataTable.lifetimeData[i]
@@ -228,7 +239,8 @@ function searchDforMinSSR(){
    {let firstFutureYear = dataTable.endYear[dataTable.endYear.length-1];
     for (let i=firstFutureYear ; i<=firstFutureYear+50 ; i++){
          log(  '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="background-color: yellow;"><b>'
-              + "For end year " + i + ", ave. lifetime = (data not present), regressed model prediction = "
+              + "For end year " + i 
+			  + ", ave. lifetime = (data not present or used), regressed model forecast = "
               + lifetimeFromFaildateAnyT0(i, dataPointMd.d, dataPointMd.c, T0)
               + "</span>");
     }
@@ -236,7 +248,6 @@ function searchDforMinSSR(){
    log("For doubling time d just above the best value, d="+dataPointHd.d+",    c with lowest SSR is "+dataPointHd.c+" with SSR="+dataPointHd.SSR);
    // return(dataPointMd.d); //Not used, so why return it.
 }
-
 
 function log(messageLine){
    document.getElementById("log").innerHTML+=messageLine+"<br>";
