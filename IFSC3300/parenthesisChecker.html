@@ -6,24 +6,41 @@
 
 <p id="demo"></p>
 
+<button onclick="check();">Check for balanced parentheses</button>
+
 <script>
 let parenStack = [];
-let expression = prompt("type in an arithmetic expression!");
-expression = expression.split("");
+let expression = "Expression has not yet been set.";   
 
-document.getElementById('demo').innerHTML = expression+"<br>";
-for (index = 0 ; index < expression.length ; index++){
-    if (expression[index]==="(" ){
-       parenStack.push("(");
-    }
-    else if (expression[index]===")" ){
-       if (parenStack.pop()===undefined){
-          document.getElementById('demo').innerHTML += "Unbalanced!";}
+function check(){
+   expression = prompt("type in an arithmetic expression!");
+   document.getElementById('demo').innerHTML 
+      = "You typed: "+expression+"<br>";
+   expression = expression.split("");
+   document.getElementById('demo').innerHTML 
+      += "Converted to an array of chars: "+expression+"<br>";
+
+   for (index = 0 ; index < expression.length ; index++){
+       if (expression[index]=== "(" ){
+          document.getElementById("demo").innerHTML += "Pushing a '('"+"<br>";
+          parenStack.push( "(" );
        }
-}
-
-if (parenStack[0]==="(" ){
-   document.getElementById('demo').innerHTML += "Unbalanced!!!";
+       else if (expression[index]=== ")" ){
+          if (parenStack.pop()===undefined){
+             document.getElementById('demo').innerHTML 
+                += "No '(' to pop: Unbalanced!<br>";
+          }
+          else {document.getElementById("demo").innerHTML += "Popping a '('"+"<br>";
+          }
+       }
+   }
+   if (parenStack[0]=== "(" ){
+      document.getElementById('demo').innerHTML 
+         += "One or more ')' needed--&nbsp;&nbsp;&nbsp;"
+            + parenStack
+            + "&nbsp;&nbsp;&nbsp;--unbalanced!!!";
+   }
+   else {document.getElementById('demo').innerHTML += "Finished."}
 }
 </script>
 
