@@ -8,12 +8,10 @@
 
 <p><b>
 IFSC 3300&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  HW6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Due by Wednesday Oct. 5, 2022</b></p>
+Due by Wednesday Oct. 2, 2024</b></p>
 
-<p>Directions: Email your assignment to IFSC3300HW@gmail.com. </p>
+<p>Directions: Email to IFSC3300HW@gmail.com. </p>
 
-<!--  Update this HW to get higher scores as students scores were significantly below desired levels
-  
 <p>
 Do question 1A or 1B.
   <p>
@@ -29,8 +27,11 @@ Do question 1A or 1B.
   <li>h. One should demonstrate a 3D array.
   <li>i. One should demonstrate the length attribute of an array.
   <li>j. One should show how the typeof of an array is "object".
-  <li>k,l,m,n,o. Five should demonstrate different things about objects.
+<!--
+<li>k,l,m,n,o. Five should demonstrate different things about objects.
+-->
   </ul>  
+  
 If you saved a program with buttons demonstrating things about JavaScript from a previous HW, why not combine them with this HW to build a more comprehensive page of 
 buttons showing how JavaScript works! In either case, save this HW so you can add the buttons to a future HW. By the end of the course you can have 
 a page with lots of buttons showing a kind of encyclopedia of JavaScript.
@@ -53,17 +54,9 @@ displays the output
 </pre>
 indicating that document is a predefined object. It is predefined by the web page that the code is embedded in. Since it is an object, it has parts, and those parts can be stepped through using a for/in loop.    
 
-<p>3. Now list the attribute names and attribute values for the data structure, which is implemented as an object,
-that stores some specific <b>&lt;p&gt;</b>
-HTML element in a web page. Every <b>&lt;p&gt;</b> element in a web page is stored by the browser,
-using JavaScript, as an object. Hints: A call to document.getElementById("demo") returns the object behind
-the HTML <b>&lt;p&gt;</b> element with the id "demo" if there is one. 
-That object is the JavaScript entity that stores everything about 
-that <b>&lt;p&gt;</b> HTML element.  
-Once that object has been returned, we have an object whose parts can be stepped through using a for/in loop, 
-just like the parts of the document object were stepped through in the previous question.</p>
+<p>3. Call document.getElementById("demo") to get a paragraph (a &lt;p&gt;) object. Store it in a variable called x or whatever you want. Use a "for in" loop to list out its attributes (components) and their values. For example, one of its attributes is named "innerHTML," which you know of, but there are a bunch of others too.
 
-<p>4. Optional (you don't have to do this one). Do the following object step-by-step exercise.</p>
+<p>4. Optional (you don't have to do this one). Do the following object step-by-step exercise. Do as many steps as you can.</p>
 
 <p class=MsoNormal style='margin-left:.5in'>a) In a sandbox, declare an object <b>myObj</b>
 with an attribute (property, local variable, member, member variable) called <b>name</b>.
