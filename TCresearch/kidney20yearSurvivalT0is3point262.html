@@ -12,8 +12,8 @@
 <h3>T0=<span id="T0">[Error 98: The value of T0 should appear here.]</span></h3>
 <h3>lifeAtT0            = <span id="lifeAtT0">Error 99: not yet initialized</span></h3> <!-If set manually, the number will be shown here->
 <h3><i>Model update of 9/19/2024 (hindcasting added)</i></h3>
-<h4><i>(Linked from article)</i></h4>
-
+<h5>(Linked from article)</h5>
+<br>
 
 <button onclick='if (typeof lifeAtT0!=="number")
                     alert(`lifeAtT0 is not a number. Set it to one to use this button. Hint: also set T0.`);
@@ -21,7 +21,7 @@
                     document.getElementById("log").innerHTML=""; 
                     searchDforMinSSR();}'>
 	Click to find the line with the value of <b>doubling time</b> yielding the best fit (lowest SSR) for a given lifeAtT0
-</button>
+</button><b>--Reading the article? Then click this button!</b>
 <br><br>
 <button onclick='if (lifeAtT0!=="Determined algorithmically")
                     alert(`lifeAtT0 is a number. Set it to the string "Determined algorithmically" instead.`);
