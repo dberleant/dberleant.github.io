@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 id="id01">Welcome to DOM navigator V0!</h1>
+<p id="id02">Output is shown here</p>
+
+<script>
+let here=document.getElementById("id01");
+</script>
+
+<button onclick="document.getElementById('id02').innerHTML=here.nodeName;">Show current nodeName</button>
+<button onclick="document.getElementById('id02').innerHTML=here.nodeType;">Show current nodeType</button>
+<button onclick="document.getElementById('id02').innerHTML=here.nodeValue;">Show current nodeValue</button>
+<br><br>
+<button onclick="here=here.parentNode;">Go to parentNode</button>
+<button onclick="here=here.firstChild;">Go to firstChild</button>
+<button onclick="here=here.nextSibling;">Go to nextSibling</button>
+<button onclick="here=here.previousSibling;">Go to previousSibling</button>
+
+</body>
+</html>
