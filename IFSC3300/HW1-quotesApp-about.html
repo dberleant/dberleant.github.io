@@ -1,0 +1,362 @@
+<html>
+  <body>
+    <pre>
+Claude.ai Account jdberleant@ualr.edu
+
+Chatbot URL:
+v1 (10 Qs): https://claude.ai/public/artifacts/f0548bdc-b484-4dd6-a5e0-75b2850e063c
+v2 (20 Qs): https://claude.ai/public/artifacts/830f3187-24ba-45bd-ad97-899d668d6541
+
+Artifact name:
+JavaScript Quote Characters Tutor
+
+Initial prompt:
+This app tutors students on the uses of quote characters in JavaScript, in a fun way. 
+It interacts with them 10 times, and then gives them a rating of how well they 
+learned about quote characters in JavaScript.
+
+Followup prompt:
+The kind of interactions include a mix of: short answer questions, multiple choice
+questions, true-false questions, code completion, and occasionally asking the 
+student if they have a question they would like answered. The students are just 
+learning JavaScript. For a vibe or style, go for gamified, and be encouraging.
+
+import React, { useState, useEffect } from 'react';
+import { Check, X, Star, Trophy, BookOpen } from 'lucide-react';
+
+const QuoteTutorApp = () => {
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+  const [userAnswer, setUserAnswer] = useState('');
+  const [feedback, setFeedback] = useState('');
+  const [showFeedback, setShowFeedback] = useState(false);
+  const [isComplete, setIsComplete] = useState(false);
+  const [studentQuestion, setStudentQuestion] = useState('');
+  const [showStudentQuestionModal, setShowStudentQuestionModal] = useState(false);
+
+  const questions = [
+    {
+      type: 'multiple-choice',
+      question: 'In JavaScript, which of these are valid ways to create a string?',
+      options: [
+        'Only "double quotes"',
+        'Only \'single quotes\'',
+        'Both "double" and \'single\' quotes',
+        'Only `backticks`'
+      ],
+      correct: 2,
+      explanation: 'Great! JavaScript accepts both single quotes (\') and double quotes (") for strings. Backticks (`) are also valid for template literals!'
+    },
+    {
+      type: 'true-false',
+      question: 'True or False: "Hello World" and \'Hello World\' create identical strings in JavaScript.',
+      correct: true,
+      explanation: 'Exactly right! Both create the same string value - JavaScript treats them identically.'
+    },
+    {
+      type: 'code-completion',
+      question: 'Complete this code to print a message with an apostrophe:',
+      code: 'console.log("I___ learning JavaScript!");',
+      placeholder: 'Fill in the blank to make "I\'m learning JavaScript!"',
+      correct: 'm',
+      explanation: 'Perfect! Since we\'re inside double quotes, we can use the apostrophe directly without escaping.'
+    },
+    {
+      type: 'multiple-choice',
+      question: 'What happens if you try to use an apostrophe inside single quotes without escaping?',
+      options: [
+        'It works perfectly fine',
+        'It causes a syntax error',
+        'It creates two separate strings',
+        'JavaScript automatically fixes it'
+      ],
+      correct: 1,
+      explanation: 'Correct! JavaScript would see the apostrophe as the end of the string, causing a syntax error. You\'d need to escape it with a backslash: \'I\\\'m learning\''
+    },
+    {
+      type: 'short-answer',
+      question: 'How would you include a double quote character inside a double-quoted string? (Show the escape sequence)',
+      correct: '\\"',
+      explanation: 'Excellent! The backslash (\\) is the escape character, so \\" lets you include a literal double quote inside a double-quoted string.'
+    },
+    {
+      type: 'student-question',
+      question: 'You\'re doing great! Do you have any questions about quotes in JavaScript so far?',
+      explanation: 'Thanks for asking! Remember: single and double quotes work the same, but be consistent in your code style. Use escaping (\\) when you need the same quote type inside a string.'
+    },
+    {
+      type: 'code-completion',
+      question: 'Complete this template literal to include a variable:',
+      code: 'const name = "Alex";\nconsole.log(`Hello, _____ world!`);',
+      placeholder: 'Use template literal syntax to insert the name variable',
+      correct: '${name}',
+      explanation: 'Perfect! Template literals use ${} syntax to embed expressions. This is one of the coolest features of backticks!'
+    },
+    {
+      type: 'multiple-choice',
+      question: 'Which quote type allows you to embed variables directly in the string?',
+      options: [
+        'Single quotes (\'))',
+        'Double quotes (")',
+        'Backticks (`)',
+        'All of them work the same'
+      ],
+      correct: 2,
+      explanation: 'Right on! Backticks create template literals, which let you embed variables with ${variable} syntax. Super handy!'
+    },
+    {
+      type: 'true-false',
+      question: 'True or False: You should always use the same type of quotes consistently throughout your JavaScript code.',
+      correct: true,
+      explanation: 'Great thinking! While JavaScript doesn\'t care, consistent quote usage makes your code more readable and professional. Pick a style and stick with it!'
+    },
+    {
+      type: 'short-answer',
+      question: 'What are the three types of quotes in JavaScript? (separate with commas)',
+      correct: 'single, double, backticks',
+      explanation: 'Fantastic! You\'ve mastered all three: single quotes (\'), double quotes ("), and backticks (`) for template literals. You\'re ready to quote like a pro!'
+    }
+  ];
+
+  const encouragingMessages = [
+    "You're crushing it! 🌟",
+    "Amazing work! 🎉",
+    "Keep it up, superstar! ⭐",
+    "You're getting so good at this! 🚀",
+    "Fantastic job! 💪",
+    "You're a JavaScript quote master in the making! 🏆"
+  ];
+
+  const handleAnswer = (answer) => {
+    const current = questions[currentQuestion];
+    let isCorrect = false;
+
+    if (current.type === 'multiple-choice') {
+      isCorrect = answer === current.correct;
+    } else if (current.type === 'true-false') {
+      isCorrect = answer === current.correct;
+    } else if (current.type === 'short-answer' || current.type === 'code-completion') {
+      const normalizedAnswer = answer.toLowerCase().trim();
+      const normalizedCorrect = current.correct.toLowerCase().trim();
+      isCorrect = normalizedAnswer.includes(normalizedCorrect) || normalizedCorrect.includes(normalizedAnswer);
+    } else if (current.type === 'student-question') {
+      isCorrect = true; // Always correct for asking questions!
+    }
+
+    if (isCorrect) {
+      setScore(score + 1);
+      setFeedback(`${encouragingMessages[Math.floor(Math.random() * encouragingMessages.length)]} ${current.explanation}`);
+    } else {
+      setFeedback(`Not quite, but you're learning! ${current.explanation}`);
+    }
+
+    setShowFeedback(true);
+  };
+
+  const nextQuestion = () => {
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+      setUserAnswer('');
+      setShowFeedback(false);
+      setFeedback('');
+    } else {
+      setIsComplete(true);
+    }
+  };
+
+  const getFinalRating = () => {
+    const percentage = (score / questions.length) * 100;
+    if (percentage >= 90) return { rating: "JavaScript Quote Master! 🏆", message: "You absolutely nailed it! You understand JavaScript quotes like a pro!" };
+    if (percentage >= 80) return { rating: "Quote Champion! 🌟", message: "Excellent work! You've got a solid grasp on JavaScript quotes!" };
+    if (percentage >= 70) return { rating: "Quote Apprentice! ⭐", message: "Great job! You're well on your way to mastering JavaScript quotes!" };
+    if (percentage >= 60) return { rating: "Quote Explorer! 🚀", message: "Good effort! Keep practicing and you'll be a quote expert soon!" };
+    return { rating: "Quote Beginner! 📚", message: "Nice start! Practice makes perfect - keep exploring JavaScript quotes!" };
+  };
+
+  const renderQuestion = () => {
+    const current = questions[currentQuestion];
+
+    if (current.type === 'student-question') {
+      return (
+        <div className="space-y-4">
+          <p className="text-lg text-gray-700 leading-relaxed">{current.question}</p>
+          <textarea
+            value={studentQuestion}
+            onChange={(e) => setStudentQuestion(e.target.value)}
+            placeholder="Type your question here, or just say 'no questions' if you're good to go!"
+            className="w-full p-3 border-2 border-blue-200 rounded-lg focus:border-blue-400 focus:outline-none"
+            rows={3}
+          />
+          <button
+            onClick={() => handleAnswer(studentQuestion)}
+            className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+          >
+            Continue
+          </button>
+        </div>
+      );
+    }
+
+    if (current.type === 'multiple-choice') {
+      return (
+        <div className="space-y-4">
+          <p className="text-lg text-gray-700 leading-relaxed">{current.question}</p>
+          <div className="space-y-2">
+            {current.options.map((option, index) => (
+              <button
+                key={index}
+                onClick={() => handleAnswer(index)}
+                className="w-full p-3 text-left bg-gray-50 hover:bg-blue-50 border-2 border-gray-200 hover:border-blue-300 rounded-lg transition-colors"
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    if (current.type === 'true-false') {
+      return (
+        <div className="space-y-4">
+          <p className="text-lg text-gray-700 leading-relaxed">{current.question}</p>
+          <div className="flex space-x-4">
+            <button
+              onClick={() => handleAnswer(true)}
+              className="flex-1 p-3 bg-green-50 hover:bg-green-100 border-2 border-green-200 hover:border-green-400 rounded-lg transition-colors"
+            >
+              <Check className="inline mr-2" size={20} />
+              True
+            </button>
+            <button
+              onClick={() => handleAnswer(false)}
+              className="flex-1 p-3 bg-red-50 hover:bg-red-100 border-2 border-red-200 hover:border-red-400 rounded-lg transition-colors"
+            >
+              <X className="inline mr-2" size={20} />
+              False
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    if (current.type === 'short-answer' || current.type === 'code-completion') {
+      return (
+        <div className="space-y-4">
+          <p className="text-lg text-gray-700 leading-relaxed">{current.question}</p>
+          {current.code && (
+            <div className="bg-gray-900 text-green-400 p-4 rounded-lg font-mono text-sm">
+              <pre>{current.code}</pre>
+            </div>
+          )}
+          <input
+            type="text"
+            value={userAnswer}
+            onChange={(e) => setUserAnswer(e.target.value)}
+            placeholder={current.placeholder || "Type your answer here..."}
+            className="w-full p-3 border-2 border-blue-200 rounded-lg focus:border-blue-400 focus:outline-none"
+          />
+          <button
+            onClick={() => handleAnswer(userAnswer)}
+            className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+          >
+            Submit Answer
+          </button>
+        </div>
+      );
+    }
+  };
+
+  if (isComplete) {
+    const finalRating = getFinalRating();
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 p-4">
+        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-2xl p-8">
+          <div className="text-center space-y-6">
+            <Trophy className="mx-auto text-yellow-500" size={80} />
+            <h1 className="text-3xl font-bold text-gray-800">Congratulations! 🎉</h1>
+            <div className="bg-gradient-to-r from-yellow-200 to-orange-200 p-6 rounded-lg">
+              <h2 className="text-2xl font-semibold text-gray-800 mb-2">{finalRating.rating}</h2>
+              <p className="text-lg text-gray-700">{finalRating.message}</p>
+            </div>
+            <div className="bg-blue-50 p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Your Score</h3>
+              <p className="text-3xl font-bold text-blue-600">{score}/10</p>
+              <p className="text-gray-600">({Math.round((score/10) * 100)}% correct)</p>
+            </div>
+            <div className="text-left bg-gray-50 p-6 rounded-lg">
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">Key Takeaways:</h3>
+              <ul className="space-y-2 text-gray-700">
+                <li>• Use single (') or double (") quotes for regular strings</li>
+                <li>• Use backticks (`) for template literals with ${} variables</li>
+                <li>• Escape quotes with backslash when needed: \\" or \\'</li>
+                <li>• Stay consistent with your quote style throughout your code</li>
+              </ul>
+            </div>
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105"
+            >
+              Practice Again! 🔄
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 p-4">
+      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-2xl p-8">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center space-x-3">
+            <BookOpen className="text-blue-500" size={32} />
+            <h1 className="text-2xl font-bold text-gray-800">JavaScript Quote Tutor</h1>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Star className="text-yellow-500" size={20} />
+            <span className="text-lg font-semibold text-gray-700">{score}/10</span>
+          </div>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="mb-8">
+          <div className="flex justify-between text-sm text-gray-600 mb-2">
+            <span>Question {currentQuestion + 1} of 10</span>
+            <span>{Math.round(((currentQuestion + 1) / 10) * 100)}% Complete</span>
+          </div>
+          <div className="w-full bg-gray-200 rounded-full h-3">
+            <div 
+              className="bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-500"
+              style={{ width: `${((currentQuestion + 1) / 10) * 100}%` }}
+            ></div>
+          </div>
+        </div>
+
+        {/* Question */}
+        <div className="mb-8">
+          {renderQuestion()}
+        </div>
+
+        {/* Feedback */}
+        {showFeedback && (
+          <div className="bg-gradient-to-r from-green-50 to-blue-50 border-l-4 border-green-400 p-6 mb-6 rounded-r-lg">
+            <p className="text-gray-700 leading-relaxed">{feedback}</p>
+            <button
+              onClick={nextQuestion}
+              className="mt-4 bg-gradient-to-r from-green-500 to-blue-500 text-white px-6 py-2 rounded-lg hover:from-green-600 hover:to-blue-600 transition-all transform hover:scale-105"
+            >
+              {currentQuestion < questions.length - 1 ? 'Next Question! 🚀' : 'See Results! 🎉'}
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default QuoteTutorApp; 
+    </pre>
+  </body>
+</html>
