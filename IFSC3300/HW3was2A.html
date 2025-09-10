@@ -26,10 +26,9 @@ try to reason them out, then try them in JavaScript to check your reasoning.
 You can use a sandbox to test JavaScript statement. 
 You can hand it in an email with as few attachments as is feasible.</span></b></p>
 
-<p><b>(1)</b> Give four examples of OR from daily life
-illustrating the four cases of true or false, false or true, true or true, and false or false. (Do not give an example of an
-if-then statement from daily life, and its contrapositive. Do not explain why
-you agree or disagree that the two if-then statements say the same thing.)</span></p>
+<p><b>(1)</b> Give four examples of the logical OR (written in JavaScript as ||) from daily life
+illustrating the four cases of true or false, false or true, true or true, and false or false. 
+(Avoid using examples of if-then statement from daily life, as these are not the same.
 
 <p> <b>(2)</b> Using JavaScript, write
 code that will print 5 lines: one for each row of the truth table for OR, plus
@@ -46,28 +45,28 @@ F     T           T
 F     F           F
 </pre>
 
-<p><b>Hint: \n versus &lt;br></b>. You need to print out your truth table somehow.
-So, \n denotes the newline character (i.e. a line break) in JavaScript.
-On the other hand, &lt;br> denotes a line break in HTML.
+<p><b>Hint:</b> You need to print out your truth table somehow.
+So, \n denotes the newline character (i.e. a line break) in <u>JavaScript</u>.
+On the other hand, &lt;br> denotes a line break in <u>HTML</u>.
 Thus, if you put a \n in a string and write the string to the innerHTML 
-of an HTML element like &lt;p>, it will display in HTML as white 
-space (in other words, it will print as a space or a line wrap.
+of an HTML element like a &lt;p>, it will display in HTML as white 
+space (in other words, it will print as a space or a line wrap, as decided by HTML).
 Instead, put the substring "&lt;br>" in the string and HTML will render the "&lt;br>" 
 as the desired line break.
 On the other hand if you print using pure JavaScript,
-for example using prompt(),
-which creates a JavaScript popup that has nothing to do with HTML,
-then \n in a string will line break the string at that point.
-However, JavaScript does not know what &lt;br> means because JavaScript is not HTML,
-so if you print that to a prompt() popup, it will print out simply as the 4 characters "&lt;br>".
+for example using alert(),
+which creates a popup that contains text, not HTML,
+then \n in a string that you print using alert() will line break the string at that point.
+On the other hand, if you use alert() to print in its popup, if the string you print there
+contains the substring &lt;br>, it will print out simply as the 4 characters "&lt;br>".
 Confused yet?? It will become clearer when you try it, just like so many things in programming.
 
 <p><b>(3)</b> Using JavaScript, write
 code that will print 5 lines: one for each row of the truth table for AND, plus
 a line containing the column labels.</span></p>
 
-<p><b>(4)</b> What is the integer value
-of an 8-bit byte containing the following bit sequences? 
+<p><b>(4)</b> (Optional in 2025, not required)
+What is the integer value of an 8-bit byte containing the following bit sequences? 
   (<a href="https://dberleant.github.io/IFSC3300/HW3was2A-bases.jpg">Hint</a>)&nbsp; </span></p>
 
 <p class=MsoListParagraph style='margin-left:1.0in;text-indent:-.25in'><span
@@ -106,8 +105,8 @@ style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif;
 color:black;background:white'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</span><span
 style='font-size:12.0pt;line-height:115%;color:black;background:white'>00001111</span></p>
 
-<p><b>(5)</b><br>
-a. What is
+<p><b>(5)</b> (Optional in 2025, not required)
+<p>a. What is
 7^7 in JavaScript? Explain. See https://www.w3schools.com/js/js_bitwise.asp for more information.</span></p>
 
 <p>b. What is
@@ -116,8 +115,7 @@ a. What is
 <p>c. What is
 7 | 7? Explain.</span></p>
 
-<p><b>(6)</b>
-<p>What is the minimum score on a HW assigment in this course?</p>
+<p><b>(6)</b> What is the minimum score on a HW assigment in this course?</p>
                     
 <p><p><b>(7)</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 Pick option a, b or c.</span></p>
