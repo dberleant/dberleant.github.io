@@ -1,0 +1,17 @@
+These are the two Claude.ai artifacts made for HW 3.
+
+
+https://claude.ai/public/artifacts/af242f43-0243-4187-9d17-4b34b9295435 from account jdberleant@ualr.edu
+
+Please teach students about JavaScript object syntax. Tell them basic facts and make them ask questions so you can answer them in a way that helps them to learn. Continue until they have asked 12 questions. Give them an evaluation as expert, wizard, novice, getting there, etc. Encourage them using short Kahlil Gibran style sayings. Keep track of their progress. Also, the output should scroll upward so the most recent output is visible on the screen. Include red, green and blue colors.
+
+---------------------------------------------------------------------------------------
+https://claude.ai/public/artifacts/a42c5fe1-e8c0-4db4-aa99-3e618ea45a93
+
+Please teach students about the Boolean operations AND, OR, and NOT. Use JavaScript symbols &&, ||  and !. Tell them basic facts and  ask questions so you teach them using Socratic questioning. Continue until they have answered 12 questions. Give them an evaluation as expert, wizard, novice, getting there, etc. Encourage them using short Bob Dylan style sayings. Keep track of their progress. Also, the output should scroll upward so the most recent output is visible on the screen. Include red, yellow and green colors.
+
+What adjustments can you suggest?
+
+Please add your idea of Interactive code examples, Adaptive difficulty, Enhanced Feedback, and Dylan Sayings Enhancements.
+
+Add a hint for each question.
