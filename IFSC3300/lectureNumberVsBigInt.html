@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Numbers & Representation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #86beea 0%, #aaaaaa 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        
+        .section h3 {
+            color: #34495e;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .interactive-demo {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        .demo-output {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+        
+        ul li {
+            margin: 10px 0;
+        }
+        
+        .bit-demo {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        
+        .bit-box {
+            background: #3498db;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<pre>
+  How many numbers can you represent with
+1 bit?
+2 bits?
+N bits?
+
+JavaScript number limits
+Number.MAX_VALUE
+Number.MIN_VALUE
+Note the object related approach JavaScript uses
+
+It gets worse...
+Number.MAX_SAFE_INTEGER
+Number.MIN_SAFE_INTEGER
+What happens between Number.MAX_SAFE_INTEGER and Number.MAX_VALUE
+
+More down-to-Earth example
+0.1+0.2 does not give 0.3
+0.3 is not really 0.3
+Printing tries to be nice
+There are ways to force a "not-nice" printed value
+Same with big enough integers
+
+BigInt type
+Computationally more expensive
+Works for "any" integers
+Not for decimal numbers
+There is no good way to do decimals exactly
+You could do rationals
+Notation: end the number in "n"
+Let's try it
+</pre>
+ 
+    <div class="container">
+        <div class="header">
+            <h1>JavaScript Numbers & Representation</h1>
+            <p>Understanding the limits and quirks of numerical data in JavaScript</p>
+        </div>
+        
+        <div class="content">
+            <!-- Binary Representation Fundamentals -->
+            <div class="section">
+                <h2>🔢 Binary Representation Basics</h2>
+                
+                <h3>How many numbers can you represent?</h3>
+                
+                <div class="bit-demo">
+                    <div class="bit-box">1 bit → 2¹ = 2 numbers</div>
+                    <div class="bit-box">2 bits → 2² = 4 numbers</div>
+                    <div class="bit-box">N bits → 2ᴺ numbers</div>
+                </div>
+                
+                <div class="interactive-demo">
+                    <h4>Try it yourself:</h4>
+                    <button onclick="showBitDemo(1)">1 Bit</button>
+                    <button onclick="showBitDemo(2)">2 Bits</button>
+                    <button onclick="showBitDemo(3)">3 Bits</button>
+                    <button onclick="showBitDemo(4)">4 Bits</button>
+                    <div id="bitOutput" class="demo-output">Click a button to see the possible values!</div>
+                </div>
+            </div>
+
+            <!-- JavaScript Number Limits -->
+            <div class="section">
+                <h2>⚠️ JavaScript Number Limits</h2>
+                
+                <div class="highlight">
+                    <strong>Note:</strong> JavaScript uses an object-oriented approach for number properties and methods.
+                </div>
+                
+                <h3>Basic Limits</h3>
+                <div class="code">
+console.log(Number.MAX_VALUE);
+// 1.7976931348623157e+308
+
+console.log(Number.MIN_VALUE);
+// 5e-324 (smallest positive number, not most negative!)
+                </div>
+                
+                <div class="interactive-demo">
+                    <button onclick="showNumberLimits()">Show Number Limits</button>
+                    <div id="limitsOutput" class="demo-output"></div>
+                </div>
+            </div>
+
+            <!-- The Problem Gets Worse -->
+            <div class="section">
+                <h2>😱 It Gets Worse...</h2>
+                
+                <h3>Safe Integer Limits</h3>
+                <div class="code">
+console.log(Number.MAX_SAFE_INTEGER);
+// 9007199254740991
+
+console.log(Number.MIN_SAFE_INTEGER);
+// -9007199254740991
+                </div>
+                
+                <div class="warning">
+                    <strong>What happens between Number.MAX_SAFE_INTEGER and Number.MAX_VALUE?</strong><br>
+                    JavaScript loses precision! Integers beyond the safe range may not be represented accurately.
+                </div>
+                
+                <div class="interactive-demo">
+                    <button onclick="showUnsafeIntegers()">Demonstrate Unsafe Integers</button>
+                    <div id="unsafeOutput" class="demo-output"></div>
+                </div>
+            </div>
+
+            <!-- Floating Point Reality -->
+            <div class="section">
+                <h2>🤯 More Down-to-Earth Examples</h2>
+                
+                <h3>The Famous 0.1 + 0.2 Problem</h3>
+                <div class="code">
+console.log(0.1 + 0.2);          // 0.30000000000000004
+console.log(0.1 + 0.2 === 0.3);  // false
+console.log(0.3);                // 0.3 (but 0.3 is not really 0.3!)
+                </div>
+                
+                <div class="highlight">
+                    <strong>JavaScript's printing tries to be "nice"</strong> - it rounds display values to hide floating-point errors.
+                </div>
+                
+                <h3>Forcing "Not-Nice" Printed Values</h3>
+                <div class="code">
+console.log((0.1 + 0.2).toPrecision(20));
+// "0.30000000000000004441"
+
+console.log((0.3).toPrecision(20));
+// "0.29999999999999998890"
+                </div>
+                
+                <div class="interactive-demo">
+                    <button onclick="showFloatingPointIssues()">Demonstrate Floating Point Issues</button>
+                    <div id="floatOutput" class="demo-output"></div>
+                </div>
+            </div>
+
+            <!-- BigInt Solution -->
+            <div class="section">
+                <h2>🔧 BigInt to the Rescue (Sort of)</h2>
+                
+                <ul>
+                    <li><strong>Computationally more expensive</strong> than regular numbers</li>
+                    <li><strong>Works for "any" integers</strong> - no upper limit</li>
+                    <li><strong>Does NOT work for decimal numbers</strong></li>
+                    <li><strong>No good way to do decimals exactly</strong> in JavaScript</li>
+                    <li><strong>Alternative:</strong> You could implement rational numbers (fractions)</li>
+                </ul>
+                
+                <h3>BigInt Notation</h3>
+                <div class="code">
+const bigNumber = 123456789012345678901234567890n;
+// Notice the "n" at the end!
+
+const anotherBig = BigInt("987654321098765432109876543210");
+                </div>
+                
+                <div class="interactive-demo">
+                    <h4>Let's try BigInt:</h4>
+                    <button onclick="demonstrateBigInt()">BigInt Demo</button>
+                    <div id="bigIntOutput" class="demo-output"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showBitDemo(bits) {
+            const maxValue = Math.pow(2, bits);
+            let output = `With ${bits} bit(s), you can represent ${maxValue} different values:\n`;
+            output += `Range: 0 to ${maxValue - 1}\n`;
+            output += `Values: `;
+            
+            for (let i = 0; i < maxValue; i++) {
+                output += i + (i < maxValue - 1 ? ", " : "");
+            }
+            
+            document.getElementById('bitOutput').textContent = output;
+        }
+        
+        function showNumberLimits() {
+            let output = `Number.MAX_VALUE: ${Number.MAX_VALUE}\n`;
+            output += `Number.MIN_VALUE: ${Number.MIN_VALUE}\n`;
+            output += `Number.MAX_SAFE_INTEGER: ${Number.MAX_SAFE_INTEGER}\n`;
+            output += `Number.MIN_SAFE_INTEGER: ${Number.MIN_SAFE_INTEGER}\n`;
+            
+            document.getElementById('limitsOutput').textContent = output;
+        }
+        
+        function showUnsafeIntegers() {
+            const safe = Number.MAX_SAFE_INTEGER;
+            let output = `MAX_SAFE_INTEGER: ${safe}\n`;
+            output += `MAX_SAFE_INTEGER + 1: ${safe + 1}\n`;
+            output += `MAX_SAFE_INTEGER + 2: ${safe + 2}\n`;
+            output += `Notice: ${safe + 1} === ${safe + 2}: ${safe + 1 === safe + 2}\n`;
+            output += `JavaScript has lost precision!`;
+            
+            document.getElementById('unsafeOutput').textContent = output;
+        }
+        
+        function showFloatingPointIssues() {
+            let output = `0.1 + 0.2 = ${0.1 + 0.2}\n`;
+            output += `0.1 + 0.2 === 0.3: ${0.1 + 0.2 === 0.3}\n`;
+            output += `\nWith full precision:\n`;
+            output += `(0.1 + 0.2).toPrecision(20): ${(0.1 + 0.2).toPrecision(20)}\n`;
+            output += `(0.3).toPrecision(20): ${(0.3).toPrecision(20)}\n`;
+            output += `\nEven 0.3 isn't exactly 0.3!`;
+            
+            document.getElementById('floatOutput').textContent = output;
+        }
+        
+        function demonstrateBigInt() {
+            const hugeBig = 12345678901234567890123456789012345678901234567890n;
+            const anotherBig = 98765432109876543210987654321098765432109876543210n;
+            
+            let output = `BigInt can handle huge integers:\n`;
+            output += `hugeBig: ${hugeBig}\n`;
+            output += `anotherBig: ${anotherBig}\n`;
+            output += `hugeBig + anotherBig: ${hugeBig + anotherBig}\n`;
+            output += `\nBut BigInt can't do decimals:\n`;
+            output += `Try: 10.5n → SyntaxError!\n`;
+            output += `BigInts end with 'n' and only work with integers.`;
+            
+            document.getElementById('bigIntOutput').textContent = output;
+        }
+    </script>
+</body>
+</html>
