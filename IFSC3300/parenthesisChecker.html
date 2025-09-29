@@ -9,10 +9,11 @@
 <button onclick="check();">Check for balanced parentheses</button>
 
 <script>
-let parenStack = [];
+let parenStack;
 let expression = "Expression has not yet been set.";   
 
 function check(){
+   parenStack = [];
    expression = prompt("type in an arithmetic expression!");
    document.getElementById('demo').innerHTML 
       = "You typed: "+expression+"<br>";
@@ -28,21 +29,25 @@ function check(){
        else if (expression[index]=== ")" ){
           if (parenStack.pop()===undefined){
              document.getElementById('demo').innerHTML 
-                += "No '(' to pop: Unbalanced!<br>";
+                += "<b>No '(' to pop: Unbalanced!</b>";
+             return;
           }
-          else {document.getElementById("demo").innerHTML += "Popping a '('"+"<br>";
+          else {document.getElementById("demo").innerHTML 
+                += "Popping a '('"+"<br>";
           }
        }
    }
    if (parenStack[0]=== "(" ){
       document.getElementById('demo').innerHTML 
-         += "One or more ')' needed--&nbsp;&nbsp;&nbsp;"
-            + parenStack
-            + "&nbsp;&nbsp;&nbsp;--unbalanced!!!";
+         += "<b>One or more ')' needed--&nbsp;&nbsp;&nbsp;"
+            + "parenStack=="+parenStack
+            + "&nbsp;&nbsp;&nbsp;--unbalanced!!!</b>";
    }
-   else {document.getElementById('demo').innerHTML += "Finished."}
+   else //If there was an extra ")" it would have 
+        //returned earlier when that was detected
+        {document.getElementById('demo').innerHTML 
+        += "<b>Parentheses are balanced.</b>"}
 }
 </script>
-
 </body>
 </html> 
