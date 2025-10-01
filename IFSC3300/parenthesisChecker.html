@@ -2,52 +2,54 @@
 <html>
 <body>
 
-<h2>Parenthesis Checker v3</h2>
+<h2>Parenthesis Checker v4</h2>
 
 <p id="demo"></p>
 
 <button onclick="check();">Check for balanced parentheses</button>
 
 <script>
-let parenStack;
-let expression = "Expression has not yet been set.";   
+/* Line 1 */ let parenStack;
+/* Line 2 */ let expression = "Expression has not yet been set.";   
 
-function check(){
-   parenStack = [];
-   expression = prompt("type in an arithmetic expression!");
-   document.getElementById('demo').innerHTML 
-      = "You typed: "+expression+"<br>";
-   expression = expression.split("");
-   document.getElementById('demo').innerHTML 
-      += "Converted to an array of chars: "+expression+"<br>";
+/* Line 3 */ function check(){
+/* Line 4 */    parenStack = [];
+/* Line 5 */    expression = prompt("type in an arithmetic expression!");
+/* Line 6 */    document.getElementById('demo').innerHTML 
+/* Line 8 */       = "You typed: "+expression+"<br>";
+/* Line 9 */    expression = expression.split("");
+/* Line 10*/    document.getElementById('demo').innerHTML 
+/* Line 11*/       += "Converted to an array of chars: "
+/* Line 12*/          + expression+"<br>";
 
-   for (index = 0 ; index < expression.length ; index++){
-       if (expression[index]=== "(" ){
-          document.getElementById("demo").innerHTML += "Pushing a '('"+"<br>";
-          parenStack.push( "(" );
-       }
-       else if (expression[index]=== ")" ){
-          if (parenStack.pop()===undefined){
-             document.getElementById('demo').innerHTML 
-                += "<b>No '(' to pop: Unbalanced!</b>";
-             return;
-          }
-          else {document.getElementById("demo").innerHTML 
-                += "Popping a '('"+"<br>";
-          }
-       }
-   }
-   if (parenStack[0]=== "(" ){
-      document.getElementById('demo').innerHTML 
-         += "<b>One or more ')' needed--&nbsp;&nbsp;&nbsp;"
-            + "parenStack=="+parenStack
-            + "&nbsp;&nbsp;&nbsp;--unbalanced!!!</b>";
-   }
-   else //If there was an extra ")" it would have 
-        //returned earlier when that was detected
-        {document.getElementById('demo').innerHTML 
-        += "<b>Parentheses are balanced.</b>"}
-}
+/* Line 13*/    for (index = 0 ; index < expression.length ; index++){
+/* Line 14*/        if (expression[index]=== "(" ){
+/* Line 15*/           document.getElementById("demo").innerHTML 
+/* Line 16*/           += "Pushing a '('"+"<br>";
+/* Line 17*/           parenStack.push( "(" );
+/* Line 18*/        }
+/* Line 19*/        else if (expression[index]=== ")" ){
+/* Line 20*/           if (parenStack.pop()===undefined){
+/* Line 21*/              document.getElementById('demo').innerHTML 
+/* Line 22*/                 += "<b>No '(' to pop: Unbalanced!</b>";
+/* Line 23*/              return;
+/* Line 24*/           }
+/* Line 25*/           else {document.getElementById("demo").innerHTML 
+/* Line 26*/                 += "Popping a '('"+"<br>";
+/* Line 27*/           }
+/* Line 28*/        }
+/* Line 29*/    }
+/* Line 30*/    if (parenStack[0]=== "(" ){
+/* Line 31*/       document.getElementById('demo').innerHTML 
+/* Line 33*/          += "<b>One or more ')' needed--&nbsp;&nbsp;&nbsp;"
+/* Line 34*/             + "parenStack=="+parenStack
+/* Line 35*/             + "&nbsp;&nbsp;&nbsp;--unbalanced!!!</b>";
+/* Line 36*/    }
+/* Line 37*/    else //If there was an extra ")" it would have 
+                     //returned earlier when that was detected
+/* Line 38*/         {document.getElementById('demo').innerHTML 
+/* Line 39*/         += "<b>Parentheses are balanced.</b>"}
+/* Line 40*/ }
 </script>
 </body>
 </html> 
