@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Conditional & Loop Code Bubble Game</title>
+<title>Object Code Bubble Game</title>
 <style>
   body {
     margin: 0;
@@ -131,12 +131,12 @@
     <div id="hud">
       Time Left: <span id="time">30</span>s<br>
       Score: <span id="score">0</span><br>
-      <small>+1 for invalid conditionals/loops, -1 for valid ones</small>
+      <small>+1 for invalid code snippets, -1 for valid ones</small>
     </div>
     <div id="instructions">
       <strong>How to Play:</strong><br>
-      Pop bubbles with <strong>invalid</strong> conditional/loop code to gain points (+1)<br>
-      Avoid bubbles with <strong>valid</strong> conditional/loop code (-1)
+      Pop bubbles with <strong>invalid</strong> object code to gain points (+1)<br>
+      Avoid bubbles with <strong>valid</strong> object code (-1)
     </div>
     <div id="controls">
       <strong>Game Speed:</strong><br>
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   let currentSpeed = 3;
   
-  // Conditional statements and loops code snippets
+  // object code snippets
 const codes = [
   // ✅ VALID object syntax (easy)
   { code: "const person = { name: 'Alice', age: 25 };", valid: true },
@@ -346,12 +346,12 @@ const codes = [
     
     const timeSpent = Math.round((Date.now() - startTime) / 1000);
     
-    let message = "💡 Keep practicing conditionals and loops!";
-    if (score > 15) message = "🏆 Conditional & Loop Master!";
-    else if (score > 10) message = "🎉 Great control flow skills!";
+    let message = "💡 Keep practicing objects!";
+    if (score > 15) message = "🏆 objects Master!";
+    else if (score > 10) message = "🎉 Great skills!";
     else if (score > 5) message = "👍 Good grasp of syntax!";
-    else if (score > 0) message = "📚 Nice effort with loops and conditionals!";
-    else if (score < 0) message = "🤔 Review your conditional/loop syntax!";
+    else if (score > 0) message = "📚 Nice effort!";
+    else if (score < 0) message = "🤔 Review your syntax!";
     
     resultEl.innerHTML = `
       <h2>Time's Up!</h2>
