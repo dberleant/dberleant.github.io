@@ -173,52 +173,43 @@ document.addEventListener('DOMContentLoaded', function() {
   };
   
   let currentSpeed = 3;
+
 const codes = [
-  // ✅ VALID
-  { code: "red light + green light = yellow", valid: true },
-  { code: "red light + blue light  = violet", valid: true },
-  { code: "green light + blue light = cyan", valid: true },
-  { code: "red + yellow = orange", valid: true },
-  { code: "no or little light = black", valid: true },
-  { code: "all colors mixed equally = white", valid: true },
-  { code: "dim light = gray", valid: true },
-  { code: "RGB means red, green, blue'", valid: true },
-  { code: "in HTML, #000000 is black", valid: true },
-  { code: "in HTML, #FFFFFF is white", valid: true },
-  { code: "in HTML, #550000 is dark red", valid: true },
-  { code: "in HTML, #00FF00 is bright green", valid: true },
-  { code: "in HTML, #0000F0 is bright blue", valid: true },
-  { code: "in HTML, #E000E0 is violet", valid: true },
-  { code: "0xFF is 255 in decimal", valid: true },
-  { code: "0xF0 is 240 in decimal", valid: true },
-  { code: "0x0F is 15 in decimal", valid: true },
-  { code: "0xE is 14 in decimal", valid: true },
-  { code: "0x9 is 9 in decimal", valid: true },
-  { code: "3 in decimal is 0b11", valid: true },
-  { code: "0b10 is 2 in decimal", valid: true },
-  // ❌ INVALID
-  { code: "red light + green light = reddish green", valid: false },
-  { code: "red light + blue light  = green", valid: false },
-  { code: "green light + blue light = olo", valid: false },
-  { code: "red + yellow = brown", valid: false },
-  { code: "no or little light = white", valid: false },
-  { code: "all colors mixed equally = black", valid: false },
-  { code: "dim light = chartreuse", valid: false },
-  { code: "RGB means red, blue, green'", valid: false },
-  { code: "in HTML, #000000 is white", valid: false },
-  { code: "in HTML, #FFFFFF is black", valid: false },
-  { code: "in HTML, #550000 is dark green", valid: false },
-  { code: "in HTML, #00FF00 is dark green", valid: false },
-  { code: "in HTML, #0000F0 is dark blue", valid: false },
-  { code: "in HTML, #E000E0 is gray", valid: false },
-  { code: "0xFF is 15 in decimal", valid: false },
-  { code: "0xF0 is 15 in decimal", valid: false },
-  { code: "0x0F is invalid in JS", valid: false },
-  { code: "0xE is 10 in decimal", valid: false },
-  { code: "0x9 is 10 in decimal", valid: false },
-  { code: "5 is 0b11", valid: false },
-  { code: "0b10 is 16 in decimal", valid: false }
-];
+  // ✅ VALID Python syntax
+  { code: "x = 5", valid: true },
+  { code: "name = 'Alice'", valid: true },
+  { code: "print('Hello, world!')", valid: true },
+  { code: "total = x + 10", valid: true },
+  { code: "if x > 0:\n    print('Positive')", valid: true },
+  { code: "for i in range(3):\n    print(i)", valid: true },
+  { code: "def greet():\n    print('Hi!')", valid: true },
+  { code: "text = 'Python is fun!'", valid: true },
+  { code: "number = 3.14", valid: true },
+  { code: "is_sunny = True", valid: true },
+  { code: "items = ['apple', 'banana']", valid: true },
+  { code: "age = int('42')", valid: true },
+  { code: "while x < 10:\n    x += 1", valid: true },
+  { code: "name = input('Enter your name: ')", valid: true },
+  { code: "print(2 * (3 + 4))", valid: true },
+  { code: "message = 'Good job!'", valid: true },
+  // ❌ INVALID Python syntax
+  { code: "x == 5", valid: false },
+  { code: "name = Alice", valid: false },
+  { code: "print('Hello, world!'", valid: false },
+  { code: "if x > 0\n    print('Positive')", valid: false },
+  { code: "for i in range(3)\n    print(i)", valid: false },
+  { code: "def greet()\n    print('Hi!')", valid: false },
+  { code: "text = Python is fun!", valid: false },
+  { code: "number = 3,14", valid: false },
+  { code: "is_sunny = true", valid: false },
+  { code: "items = 'apple', 'banana']", valid: false },
+  { code: "age = int('42'", valid: false },
+  { code: "while x < 10 print(x)", valid: false },
+  { code: "name input('Enter your name: ')", valid: false },
+  { code: "print(2 * 3 + 4))", valid: false },
+  { code: "message == 'Good job!'", valid: false },
+  { code: "x = 5 print(x)", valid: false }
+];	
 
   // Get DOM elements
   const gameEl = document.getElementById('game');
