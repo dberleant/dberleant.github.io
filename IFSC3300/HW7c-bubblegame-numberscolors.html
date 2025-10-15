@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Object Code Bubble Game</title>
+<title>Numbers and Colors Bubble Game</title>
 <style>
   body {
     margin: 0;
@@ -135,8 +135,8 @@
     </div>
     <div id="instructions">
       <strong>How to Play:</strong><br>
-      Pop bubbles with <strong>invalid</strong> object code to gain points (+1)<br>
-      Avoid bubbles with <strong>valid</strong> object code (-1)
+      Pop bubbles with <strong>invalid</strong> contents to gain points (+1)<br>
+      Avoid bubbles with <strong>valid</strong> false content (-1)
     </div>
     <div id="controls">
       <strong>Game Speed:</strong><br>
@@ -173,28 +173,51 @@ document.addEventListener('DOMContentLoaded', function() {
   };
   
   let currentSpeed = 3;
-  
-  // object code snippets
 const codes = [
-  // ✅ VALID object syntax (easy)
-  { code: "const person = { name: 'Alice', age: 25 };", valid: true },
-  { code: "let car = { make: 'Ford', model: 'Fiesta' };", valid: true },
-  { code: "const empty = {};", valid: true },
-  { code: "const point = { x: 10, y: 20 };", valid: true },
-  { code: "const settings = { darkMode: true };", valid: true },
-  { code: "let user = { username: 'bob' };", valid: true },
-  { code: "const obj = { color: 'red', size: 'M' };", valid: true },
-  { code: "const fruit = { name: 'apple' };", valid: true },
-  
-  // ❌ INVALID object syntax (easy to spot)
-  { code: "const person = { name: 'Alice', age: };", valid: false }, // missing value
-  { code: "let car = { make = 'Ford' };", valid: false },           // wrong assignment
-  { code: "const obj = { 'name' 'Alice' };", valid: false },        // missing colon
-  { code: "const point = { x 10, y 20 };", valid: false },           // missing colons
-  { code: "const settings = { darkMode true };", valid: false },    // missing colon
-  { code: "let user = { username }", valid: false },                 // missing value
-  { code: "const obj = { color: 'red', size 'M' };", valid: false },// missing colon
-  { code: "const fruit = { name = 'apple' };", valid: false }       // assignment instead of colon
+  // ✅ VALID
+  { code: "red light + green light = yellow", valid: true },
+  { code: "red light + blue light  = violet", valid: true },
+  { code: "green light + blue light = cyan", valid: true },
+  { code: "red + yellow = orange", valid: true },
+  { code: "no or little light = black", valid: true },
+  { code: "all colors mixed equally = white", valid: true },
+  { code: "dim light = gray", valid: true },
+  { code: "RGB means red, green, blue'", valid: true },
+  { code: "in HTML, #000000 is black", valid: true },
+  { code: "in HTML, #FFFFFF is white", valid: true },
+  { code: "in HTML, #550000 is dark red", valid: true },
+  { code: "in HTML, #00FF00 is bright green", valid: true },
+  { code: "in HTML, #0000F0 is bright blue", valid: true },
+  { code: "in HTML, #E000E0 is violet", valid: true },
+  { code: "0xFF is 255 in decimal", valid: true },
+  { code: "0xF0 is 240 in decimal", valid: true },
+  { code: "0x0F is 15 in decimal", valid: true },
+  { code: "0xE is 14 in decimal", valid: true },
+  { code: "0x9 is 9 in decimal", valid: true },
+  { code: "3 in decimal is 0b11", valid: true },
+  { code: "0b10 is 2 in decimal", valid: true },
+  // ❌ INVALID
+  { code: "red light + green light = reddish green", valid: false },
+  { code: "red light + blue light  = green", valid: false },
+  { code: "green light + blue light = olo", valid: false },
+  { code: "red + yellow = brown", valid: false },
+  { code: "no or little light = white", valid: false },
+  { code: "all colors mixed equally = black", valid: false },
+  { code: "dim light = chartreuse", valid: false },
+  { code: "RGB means red, blue, green'", valid: false },
+  { code: "in HTML, #000000 is white", valid: false },
+  { code: "in HTML, #FFFFFF is black", valid: false },
+  { code: "in HTML, #550000 is dark green", valid: false },
+  { code: "in HTML, #00FF00 is dark green", valid: false },
+  { code: "in HTML, #0000F0 is dark blue", valid: false },
+  { code: "in HTML, #E000E0 is gray", valid: false },
+  { code: "0xFF is 15 in decimal", valid: false },
+  { code: "0xF0 is 15 in decimal", valid: false },
+  { code: "0x0F is invalid in JS", valid: false },
+  { code: "0xE is 10 in decimal", valid: false },
+  { code: "0x9 is 10 in decimal", valid: false },
+  { code: "5 is 0b11", valid: false },
+  { code: "0b10 is 16 in decimal", valid: false }
 ];
 
   // Get DOM elements
