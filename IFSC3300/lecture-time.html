@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time and UTC</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      line-height: 1.8;
+    }
+
+    main {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 3rem 4rem;
+      margin: 4rem;
+      max-width: 900px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease-out;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 4rem;
+      color: #00d4ff;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 15px #00d4ff;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1.8rem;
+      margin: 1.2rem 0;
+    }
+
+    ul {
+      margin-left: 1.8rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.7rem;
+      list-style-type: "⏰ ";
+    }
+
+    b {
+      color: #ffd166;
+    }
+
+    a {
+      color: #06d6a0;
+      text-decoration: none;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #fff;
+      border-bottom: 3px solid #06d6a0;
+      text-shadow: 0 0 15px #06d6a0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* For very large displays (e.g. 1080p projector) */
+    @media (min-width: 1400px) {
+      main {
+        max-width: 1100px;
+        padding: 4rem 5rem;
+      }
+      h1 { font-size: 4.5rem; }
+      p, ul { font-size: 2rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Time</h1>
+
+    <p><b>UTC</b> is a worldwide time standard.</p>
+    <p><b>UTC</b> = Coordinated Universal Time.</p>
+    <p>Why UTC, not CUT? There is no clean and simple answer!</p>
+    <p>See: <a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">Wikipedia: Coordinated Universal Time</a></p>
+
+    <p>Time zones are defined as offsets from UTC:</p>
+
+    <ul>
+      <li><b>Central Time Zone</b></li>
+      <ul>
+        <li>Map: <a href="https://en.wikipedia.org/wiki/Central_Time_Zone">Wikipedia: Central Time Zone</a></li>
+        <li>Uses Central Daylight Time (UTC−5) — <i>Spring ahead!</i></li>
+        <li>Uses Central Standard Time (UTC−6) — <i>Fall back!</i></li>
+      </ul>
+    </ul>
+
+    <p><b>Daylight Saving Time</b>:</p>
+    <ul>
+      <li>Proposed in 1895 by George Hudson in New Zealand.</li>
+      <li>Used by many countries — e.g. New Zealand.</li>
+      <li>Not used by many countries.</li>
+      <li>Has been found to be <a href="https://en.wikipedia.org/wiki/Daylight_saving_time">unhealthy</a>.</li>
+      <li>Recommendation: use <a href="https://www.amazon.com/Human-Race-Future-Could-Happen-ebook/dp/B083XH9X8R">sunrise-linked local times</a>!</li>
+    </ul>
+  </main>
+</body>
+</html>
+
