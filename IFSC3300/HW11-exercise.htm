@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Input Attributes Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .timer {
+            text-align: center;
+            font-size: 24px;
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .question-text {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .code-snippet {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+        
+        .code-snippet .keyword {
+            color: #c678dd;
+        }
+        
+        .code-snippet .attr {
+            color: #d19a66;
+        }
+        
+        .code-snippet .string {
+            color: #98c379;
+        }
+        
+        .blank-input {
+            padding: 8px 12px;
+            border: 2px solid #61afef;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            background: #1e2127;
+            color: #61afef;
+            width: 200px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .blank-input:focus {
+            outline: none;
+            border-color: #98c379;
+        }
+        
+        .blank-input.correct {
+            border-color: #28a745;
+            background-color: #1e4d2b;
+        }
+        
+        .blank-input.incorrect {
+            border-color: #dc3545;
+            background-color: #4d1e1e;
+        }
+        
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .results {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .results.show {
+            display: block;
+        }
+        
+        .score {
+            font-size: 48px;
+            color: #667eea;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .restart-btn {
+            padding: 12px 30px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        
+        .restart-btn:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HTML Input Attributes Quiz</h1>
+        <div class="timer" id="timer">Time: 0s</div>
+        
+        <form id="quizForm">
+            <div class="question">
+                <div class="question-text">1. Fill in the attribute to set an initial value:</div>
+                <input type="text" id="q1" class="blank-input" autocomplete="off">
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span style="color: #61afef">_____</span>=<span class="string">"John"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">2. Fill in the attribute to make the field read-only:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <input type="text" id="q2" class="blank-input" autocomplete="off">&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">3. Fill in the attribute to disable the input field:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"field"</span> <input type="text" id="q3" class="blank-input" autocomplete="off">&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">4. Fill in the attribute to set the visible width to 50 characters:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"address"</span> <input type="text" id="q4" class="blank-input" autocomplete="off">=<span class="string">"50"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">5. Fill in the attribute to limit input to 10 characters:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pin"</span> <input type="text" id="q5" class="blank-input" autocomplete="off">=<span class="string">"10"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">6. Fill in the attribute to set minimum value for a number input:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"age"</span> <input type="text" id="q6" class="blank-input" autocomplete="off">=<span class="string">"18"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">7. Fill in the attribute to set maximum value for a number input:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"quantity"</span> <input type="text" id="q7" class="blank-input" autocomplete="off">=<span class="string">"100"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">8. Fill in the attribute to show a hint text in the field:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"phone"</span> <input type="text" id="q8" class="blank-input" autocomplete="off">=<span class="string">"555-1234"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">9. Fill in the attribute to make the field mandatory:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <input type="text" id="q9" class="blank-input" autocomplete="off">&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">10. Fill in the attribute to specify a validation pattern:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"code"</span> <input type="text" id="q10" class="blank-input" autocomplete="off">=<span class="string">"[0-9]{3}"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">11. Fill in the attribute to set number intervals (e.g., 5, 10, 15):</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"points"</span> <input type="text" id="q11" class="blank-input" autocomplete="off">=<span class="string">"5"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">12. Fill in the attribute to automatically focus this field on page load:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"search"</span> <input type="text" id="q12" class="blank-input" autocomplete="off">&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">13. Fill in the attribute to enable browser autocomplete:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span> <input type="text" id="q13" class="blank-input" autocomplete="off">=<span class="string">"on"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">14. Fill in the attribute to link to a datalist:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"browser"</span> <input type="text" id="q14" class="blank-input" autocomplete="off">=<span class="string">"browsers"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">15. Fill in the attribute to allow multiple file uploads:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"files"</span> <input type="text" id="q15" class="blank-input" autocomplete="off">&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">16. Fill in the attribute to set image height:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"image"</span> <span class="attr">src</span>=<span class="string">"btn.png"</span> <input type="text" id="q16" class="blank-input" autocomplete="off">=<span class="string">"48"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">17. Fill in the attribute to set image width:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"image"</span> <span class="attr">src</span>=<span class="string">"btn.png"</span> <input type="text" id="q17" class="blank-input" autocomplete="off">=<span class="string">"48"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">18. Fill in the attribute to disable autocomplete:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">autocomplete</span>=<input type="text" id="q18" class="blank-input" autocomplete="off">&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">19. Fill in the attribute to set a minimum date:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">name</span>=<span class="string">"start"</span> <input type="text" id="q19" class="blank-input" autocomplete="off">=<span class="string">"2024-01-01"</span>&gt;</div>
+            </div>
+            
+            <div class="question">
+                <div class="question-text">20. Fill in the attribute to set a maximum date:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">name</span>=<span class="string">"end"</span> <input type="text" id="q20" class="blank-input" autocomplete="off">=<span class="string">"2024-12-31"</span>&gt;</div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Submit Answers</button>
+        </form>
+        
+        <div class="results" id="results">
+            <h2>Quiz Complete!</h2>
+            <div>Points Earned: <span id="pointsEarned"></span> / 200</div>
+            <div>Time Taken: <span id="timeTaken"></span> seconds</div>
+            <div class="score" id="finalScore"></div>
+            <button class="restart-btn" onclick="location.reload()">Try Again</button>
+        </div>
+    </div>
+
+    <script>
+        const answers = {
+            q1: ['value'],
+            q2: ['readonly'],
+            q3: ['disabled'],
+            q4: ['size'],
+            q5: ['maxlength'],
+            q6: ['min'],
+            q7: ['max'],
+            q8: ['placeholder'],
+            q9: ['required'],
+            q10: ['pattern'],
+            q11: ['step'],
+            q12: ['autofocus'],
+            q13: ['autocomplete'],
+            q14: ['list'],
+            q15: ['multiple'],
+            q16: ['height'],
+            q17: ['width'],
+            q18: ['"off"', 'off', '"off"'],
+            q19: ['min'],
+            q20: ['max']
+        };
+
+        let startTime = Date.now();
+        let timerInterval;
+
+        // Start timer
+        timerInterval = setInterval(() => {
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            document.getElementById('timer').textContent = `Time: ${elapsed}s`;
+        }, 1000);
+
+        // Handle form submission
+        document.getElementById('quizForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            clearInterval(timerInterval);
+            
+            const endTime = Date.now();
+            const timeInSeconds = Math.floor((endTime - startTime) / 1000);
+            
+            let points = 0;
+            
+            // Check each answer
+            for (let i = 1; i <= 20; i++) {
+                const input = document.getElementById(`q${i}`);
+                const userAnswer = input.value.trim().toLowerCase();
+                const correctAnswers = answers[`q${i}`].map(a => a.toLowerCase());
+                
+                if (correctAnswers.includes(userAnswer)) {
+                    input.classList.add('correct');
+                    input.classList.remove('incorrect');
+                    points += 10;
+                } else {
+                    input.classList.add('incorrect');
+                    input.classList.remove('correct');
+                }
+                
+                input.disabled = true;
+            }
+            
+            // Calculate final score
+            const finalScore = (points / timeInSeconds * 1000).toFixed(2);
+            
+            // Display results
+            document.getElementById('pointsEarned').textContent = points;
+            document.getElementById('timeTaken').textContent = timeInSeconds;
+            document.getElementById('finalScore').textContent = finalScore;
+            document.getElementById('results').classList.add('show');
+            
+            // Disable submit button
+            e.target.querySelector('.submit-btn').disabled = true;
+        });
+    </script>
+</body>
+</html>
