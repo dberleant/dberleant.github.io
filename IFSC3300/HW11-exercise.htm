@@ -64,6 +64,7 @@
             font-size: 14px;
             line-height: 1.6;
             margin-top: 10px;
+            margin-bottom: 10px;
             overflow-x: auto;
         }
         
@@ -88,7 +89,6 @@
             background: #1e2127;
             color: #61afef;
             width: 200px;
-            margin-bottom: 10px;
             display: block;
         }
         
@@ -165,6 +165,64 @@
         .restart-btn:hover {
             background: #218838;
         }
+        
+        .hint-btn {
+            padding: 6px 12px;
+            background: #ffc107;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+        
+        .hint-btn:hover {
+            background: #ffb300;
+        }
+        
+        .hint-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .answer-btn {
+            padding: 6px 12px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 8px;
+            font-weight: 600;
+        }
+        
+        .answer-btn:hover {
+            background: #c82333;
+        }
+        
+        .answer-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .hint-text {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 5px;
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        .hint-text.show {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -172,110 +230,169 @@
         <h1>HTML Input Attributes Quiz</h1>
         <div class="timer" id="timer">Time: 0s</div>
         
-        <form id="quizForm">
+        <div id="quizContainer">
             <div class="question">
                 <div class="question-text">1. Fill in the attribute to set an initial value:</div>
-                <input type="text" id="q1" class="blank-input" autocomplete="off">
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span style="color: #61afef">_____</span>=<span class="string">"John"</span>&gt;</div>
+                <input type="text" id="q1" class="blank-input">
+                <button class="hint-btn" onclick="showHint(1)">Show Hint</button>
+                <div class="hint-text" id="hint1">This attribute sets the default text that appears in the input field.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">2. Fill in the attribute to make the field read-only:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <input type="text" id="q2" class="blank-input" autocomplete="off">&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span style="color: #61afef">_____</span>&gt;</div>
+                <input type="text" id="q2" class="blank-input">
+                <button class="hint-btn" onclick="showHint(2)">Show Hint</button>
+                <div class="hint-text" id="hint2">This attribute prevents users from editing the field, but they can still select and copy the text.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">3. Fill in the attribute to disable the input field:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"field"</span> <input type="text" id="q3" class="blank-input" autocomplete="off">&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"field"</span> <span style="color: #61afel">_____</span>&gt;</div>
+                <input type="text" id="q3" class="blank-input">
+                <button class="hint-btn" onclick="showHint(3)">Show Hint</button>
+                <div class="hint-text" id="hint3">This attribute makes the field completely unusable and grayed out.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">4. Fill in the attribute to set the visible width to 50 characters:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"address"</span> <input type="text" id="q4" class="blank-input" autocomplete="off">=<span class="string">"50"</span>&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"address"</span> <span style="color: #61afef">_____</span>=<span class="string">"50"</span>&gt;</div>
+                <input type="text" id="q4" class="blank-input">
+                <button class="hint-btn" onclick="showHint(4)">Show Hint</button>
+                <div class="hint-text" id="hint4">This attribute controls how wide the input field appears on screen.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">5. Fill in the attribute to limit input to 10 characters:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pin"</span> <input type="text" id="q5" class="blank-input" autocomplete="off">=<span class="string">"10"</span>&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pin"</span> <span style="color: #61afef">_____</span>=<span class="string">"10"</span>&gt;</div>
+                <input type="text" id="q5" class="blank-input">
+                <button class="hint-btn" onclick="showHint(5)">Show Hint</button>
+                <div class="hint-text" id="hint5">This attribute sets the maximum number of characters a user can type.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">6. Fill in the attribute to set minimum value for a number input:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"age"</span> <input type="text" id="q6" class="blank-input" autocomplete="off">=<span class="string">"18"</span>&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"age"</span> <span style="color: #61afef">_____</span>=<span class="string">"18"</span>&gt;</div>
+                <input type="text" id="q6" class="blank-input">
+                <button class="hint-btn" onclick="showHint(6)">Show Hint</button>
+                <div class="hint-text" id="hint6">This attribute sets the smallest allowed value for number inputs.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">7. Fill in the attribute to set maximum value for a number input:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"quantity"</span> <input type="text" id="q7" class="blank-input" autocomplete="off">=<span class="string">"100"</span>&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"quantity"</span> <span style="color: #61afef">_____</span>=<span class="string">"100"</span>&gt;</div>
+                <input type="text" id="q7" class="blank-input">
+                <button class="hint-btn" onclick="showHint(7)">Show Hint</button>
+                <div class="hint-text" id="hint7">This attribute sets the largest allowed value for number inputs.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">8. Fill in the attribute to show a hint text in the field:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"phone"</span> <input type="text" id="q8" class="blank-input" autocomplete="off">=<span class="string">"555-1234"</span>&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"phone"</span> <span style="color: #61afef">_____</span>=<span class="string">"555-1234"</span>&gt;</div>
+                <input type="text" id="q8" class="blank-input">
+                <button class="hint-btn" onclick="showHint(8)">Show Hint</button>
+                <div class="hint-text" id="hint8">This attribute displays gray text inside the field that disappears when typing starts.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">9. Fill in the attribute to make the field mandatory:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <input type="text" id="q9" class="blank-input" autocomplete="off">&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span style="color: #61afel">_____</span>&gt;</div>
+                <input type="text" id="q9" class="blank-input">
+                <button class="hint-btn" onclick="showHint(9)">Show Hint</button>
+                <div class="hint-text" id="hint9">This attribute forces the user to fill in the field before submitting.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">10. Fill in the attribute to specify a validation pattern:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"code"</span> <input type="text" id="q10" class="blank-input" autocomplete="off">=<span class="string">"[0-9]{3}"</span>&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"code"</span> <span style="color: #61afef">_____</span>=<span class="string">"[0-9]{3}"</span>&gt;</div>
+                <input type="text" id="q10" class="blank-input">
+                <button class="hint-btn" onclick="showHint(10)">Show Hint</button>
+                <div class="hint-text" id="hint10">This attribute uses regular expressions to validate the input format.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">11. Fill in the attribute to set number intervals (e.g., 5, 10, 15):</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"points"</span> <input type="text" id="q11" class="blank-input" autocomplete="off">=<span class="string">"5"</span>&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"points"</span> <span style="color: #61afef">_____</span>=<span class="string">"5"</span>&gt;</div>
+                <input type="text" id="q11" class="blank-input">
+                <button class="hint-btn" onclick="showHint(11)">Show Hint</button>
+                <div class="hint-text" id="hint11">This attribute defines the increment/decrement value when using arrow buttons.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">12. Fill in the attribute to automatically focus this field on page load:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"search"</span> <input type="text" id="q12" class="blank-input" autocomplete="off">&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"search"</span> <span style="color: #61afef">_____</span>&gt;</div>
+                <input type="text" id="q12" class="blank-input">
+                <button class="hint-btn" onclick="showHint(12)">Show Hint</button>
+                <div class="hint-text" id="hint12">This attribute makes the cursor appear in this field when the page loads.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">13. Fill in the attribute to enable browser autocomplete:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span> <input type="text" id="q13" class="blank-input" autocomplete="off">=<span class="string">"on"</span>&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span> <span style="color: #61afef">_____</span>=<span class="string">"on"</span>&gt;</div>
+                <input type="text" id="q13" class="blank-input">
+                <button class="hint-btn" onclick="showHint(13)">Show Hint</button>
+                <div class="hint-text" id="hint13">This attribute controls whether the browser suggests previously entered values.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">14. Fill in the attribute to link to a datalist:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"browser"</span> <input type="text" id="q14" class="blank-input" autocomplete="off">=<span class="string">"browsers"</span>&gt;</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"browser"</span> <span style="color: #61afef">_____</span>=<span class="string">"browsers"</span>&gt;</div>
+                <input type="text" id="q14" class="blank-input">
+                <button class="hint-btn" onclick="showHint(14)">Show Hint</button>
+                <div class="hint-text" id="hint14">This attribute connects the input to a dropdown list of predefined options.</div>
             </div>
             
             <div class="question">
-                <div class="question-text">15. Fill in the attribute to allow multiple file uploads:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"files"</span> <input type="text" id="q15" class="blank-input" autocomplete="off">&gt;</div>
+                <div class="question-text">15. Fill in the attribute to set the minimum length of input:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span style="color: #61afef">_____</span>=<span class="string">"5"</span>&gt;</div>
+                <input type="text" id="q15" class="blank-input">
+                <button class="hint-btn" onclick="showHint(15)">Show Hint</button>
+                <div class="hint-text" id="hint15">This attribute requires the user to enter at least this many characters.</div>
             </div>
             
             <div class="question">
-                <div class="question-text">16. Fill in the attribute to set image height:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"image"</span> <span class="attr">src</span>=<span class="string">"btn.png"</span> <input type="text" id="q16" class="blank-input" autocomplete="off">=<span class="string">"48"</span>&gt;</div>
+                <div class="question-text">16. Fill in the attribute to provide a title/tooltip on hover:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"code"</span> <span style="color: #61afef">_____</span>=<span class="string">"Enter three digits"</span>&gt;</div>
+                <input type="text" id="q16" class="blank-input">
+                <button class="hint-btn" onclick="showHint(16)">Show Hint</button>
+                <div class="hint-text" id="hint16">This attribute shows extra information when you hover over the element.</div>
             </div>
             
             <div class="question">
-                <div class="question-text">17. Fill in the attribute to set image width:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"image"</span> <span class="attr">src</span>=<span class="string">"btn.png"</span> <input type="text" id="q17" class="blank-input" autocomplete="off">=<span class="string">"48"</span>&gt;</div>
+                <div class="question-text">17. Fill in the attribute to specify the form this input belongs to:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span style="color: #61afef">_____</span>=<span class="string">"myform"</span>&gt;</div>
+                <input type="text" id="q17" class="blank-input">
+                <button class="hint-btn" onclick="showHint(17)">Show Hint</button>
+                <div class="hint-text" id="hint17">This attribute associates an input with a form element by ID.</div>
             </div>
             
             <div class="question">
-                <div class="question-text">18. Fill in the attribute to disable autocomplete:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span class="attr">autocomplete</span>=<input type="text" id="q18" class="blank-input" autocomplete="off">&gt;</div>
+                <div class="question-text">18. Fill in the attribute to set input direction (left-to-right or right-to-left):</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"text"</span> <span style="color: #61afef">_____</span>=<span class="string">"rtl"</span>&gt;</div>
+                <input type="text" id="q18" class="blank-input">
+                <button class="hint-btn" onclick="showHint(18)">Show Hint</button>
+                <div class="hint-text" id="hint18">This attribute controls text direction, useful for languages like Arabic or Hebrew.</div>
             </div>
             
             <div class="question">
-                <div class="question-text">19. Fill in the attribute to set a minimum date:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">name</span>=<span class="string">"start"</span> <input type="text" id="q19" class="blank-input" autocomplete="off">=<span class="string">"2024-01-01"</span>&gt;</div>
+                <div class="question-text">19. Fill in the attribute to associate a label with this input:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span style="color: #61afef">_____</span>=<span class="string">"user"</span>&gt;</div>
+                <input type="text" id="q19" class="blank-input">
+                <button class="hint-btn" onclick="showHint(19)">Show Hint</button>
+                <div class="hint-text" id="hint19">This attribute provides a unique identifier that labels can reference with "for".</div>
             </div>
             
             <div class="question">
-                <div class="question-text">20. Fill in the attribute to set a maximum date:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"date"</span> <span class="attr">name</span>=<span class="string">"end"</span> <input type="text" id="q20" class="blank-input" autocomplete="off">=<span class="string">"2024-12-31"</span>&gt;</div>
+                <div class="question-text">20. Fill in the attribute to add a CSS class to the input:</div>
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"field"</span> <span style="color: #61afef">_____</span>=<span class="string">"input-large"</span>&gt;</div>
+                <input type="text" id="q20" class="blank-input">
+                <button class="hint-btn" onclick="showHint(20)">Show Hint</button>
+                <div class="hint-text" id="hint20">This attribute assigns CSS class names for styling purposes.</div>
             </div>
             
-            <button type="submit" class="submit-btn">Submit Answers</button>
-        </form>
+            <button class="submit-btn" id="submitBtn">Submit Answers</button>
+        </div>
         
         <div class="results" id="results">
             <h2>Quiz Complete!</h2>
@@ -302,16 +419,23 @@
             q12: ['autofocus'],
             q13: ['autocomplete'],
             q14: ['list'],
-            q15: ['multiple'],
-            q16: ['height'],
-            q17: ['width'],
-            q18: ['"off"', 'off', '"off"'],
-            q19: ['min'],
-            q20: ['max']
+            q15: ['minlength'],
+            q16: ['title'],
+            q17: ['form'],
+            q18: ['dir'],
+            q19: ['id'],
+            q20: ['class']
         };
 
         let startTime = Date.now();
         let timerInterval;
+
+        // Function to show hints
+        function showHint(questionNum) {
+            const hint = document.getElementById(`hint${questionNum}`);
+            hint.classList.toggle('show');
+            event.target.textContent = hint.classList.contains('show') ? 'Hide Hint' : 'Show Hint';
+        }
 
         // Start timer
         timerInterval = setInterval(() => {
@@ -319,9 +443,8 @@
             document.getElementById('timer').textContent = `Time: ${elapsed}s`;
         }, 1000);
 
-        // Handle form submission
-        document.getElementById('quizForm').addEventListener('submit', (e) => {
-            e.preventDefault();
+        // Handle button click
+        document.getElementById('submitBtn').addEventListener('click', () => {
             clearInterval(timerInterval);
             
             const endTime = Date.now();
@@ -356,8 +479,11 @@
             document.getElementById('finalScore').textContent = finalScore;
             document.getElementById('results').classList.add('show');
             
+            // Scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
             // Disable submit button
-            e.target.querySelector('.submit-btn').disabled = true;
+            document.getElementById('submitBtn').disabled = true;
         });
     </script>
 </body>
