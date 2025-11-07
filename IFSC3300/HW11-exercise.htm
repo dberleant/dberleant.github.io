@@ -62,6 +62,7 @@
             border-radius: 5px;
             font-family: 'Courier New', monospace;
             font-size: 14px;
+            font-weight: bold;
             line-height: 1.6;
             margin-top: 10px;
             margin-bottom: 10px;
@@ -82,14 +83,17 @@
         
         .blank-input {
             padding: 8px 12px;
+            padding-right: 35px;
             border: 2px solid #61afef;
             border-radius: 3px;
             font-family: 'Courier New', monospace;
             font-size: 14px;
+            font-weight: bold;
             background: #1e2127;
             color: #61afef;
             width: 200px;
             display: block;
+            position: relative;
         }
         
         .blank-input:focus {
@@ -149,6 +153,13 @@
             color: #667eea;
             font-weight: bold;
             margin: 20px 0;
+        }
+        
+        .rating {
+            font-size: 24px;
+            color: #764ba2;
+            font-weight: bold;
+            margin-top: 10px;
         }
         
         .restart-btn {
@@ -223,6 +234,29 @@
         .hint-text.show {
             display: block;
         }
+        
+        .input-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .feedback-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            font-weight: bold;
+            pointer-events: none;
+        }
+        
+        .feedback-icon.correct {
+            color: #28a745;
+        }
+        
+        .feedback-icon.incorrect {
+            color: #dc3545;
+        }
     </style>
 </head>
 <body>
@@ -234,80 +268,120 @@
             <div class="question">
                 <div class="question-text">1. Fill in the attribute to set an initial value:</div>
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span style="color: #61afef">_____</span>=<span class="string">"John"</span>&gt;</div>
-                <input type="text" id="q1" class="blank-input">
+                <div class="input-wrapper">
+                    <input type="text" id="q1" class="blank-input" oninput="checkAnswer(1)">
+                    <span class="feedback-icon" id="feedback1"></span>
+                </div>
                 <button class="hint-btn" onclick="showHint(1)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(1)">Get Answer</button>
                 <div class="hint-text" id="hint1">This attribute sets the default text that appears in the input field.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">2. Fill in the attribute to make the field read-only:</div>
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span style="color: #61afef">_____</span>&gt;</div>
-                <input type="text" id="q2" class="blank-input">
+                <div class="input-wrapper">
+                    <input type="text" id="q2" class="blank-input" oninput="checkAnswer(2)">
+                    <span class="feedback-icon" id="feedback2"></span>
+                </div>
                 <button class="hint-btn" onclick="showHint(2)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(2)">Get Answer</button>
                 <div class="hint-text" id="hint2">This attribute prevents users from editing the field, but they can still select and copy the text.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">3. Fill in the attribute to disable the input field:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"field"</span> <span style="color: #61afel">_____</span>&gt;</div>
-                <input type="text" id="q3" class="blank-input">
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"field"</span> <span style="color: #61afef">_____</span>&gt;</div>
+                <div class="input-wrapper">
+                    <input type="text" id="q3" class="blank-input" oninput="checkAnswer(3)">
+                    <span class="feedback-icon" id="feedback3"></span>
+                </div>
                 <button class="hint-btn" onclick="showHint(3)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(3)">Get Answer</button>
                 <div class="hint-text" id="hint3">This attribute makes the field completely unusable and grayed out.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">4. Fill in the attribute to set the visible width to 50 characters:</div>
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"address"</span> <span style="color: #61afef">_____</span>=<span class="string">"50"</span>&gt;</div>
-                <input type="text" id="q4" class="blank-input">
+                <div class="input-wrapper">
+                    <input type="text" id="q4" class="blank-input" oninput="checkAnswer(4)">
+                    <span class="feedback-icon" id="feedback4"></span>
+                </div>
                 <button class="hint-btn" onclick="showHint(4)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(4)">Get Answer</button>
                 <div class="hint-text" id="hint4">This attribute controls how wide the input field appears on screen.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">5. Fill in the attribute to limit input to 10 characters:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pin"</span> <span style="color: #61afef">_____</span>=<span class="string">"10"</span>&gt;</div>
-                <input type="text" id="q5" class="blank-input">
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pin"</span> <span style="color: #61afel">_____</span>=<span class="string">"10"</span>&gt;</div>
+                <div class="input-wrapper">
+                    <input type="text" id="q5" class="blank-input" oninput="checkAnswer(5)">
+                    <span class="feedback-icon" id="feedback5"></span>
+                </div>
                 <button class="hint-btn" onclick="showHint(5)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(5)">Get Answer</button>
                 <div class="hint-text" id="hint5">This attribute sets the maximum number of characters a user can type.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">6. Fill in the attribute to set minimum value for a number input:</div>
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"age"</span> <span style="color: #61afef">_____</span>=<span class="string">"18"</span>&gt;</div>
-                <input type="text" id="q6" class="blank-input">
+                <div class="input-wrapper">
+                    <input type="text" id="q6" class="blank-input" oninput="checkAnswer(6)">
+                    <span class="feedback-icon" id="feedback6"></span>
+                </div>
                 <button class="hint-btn" onclick="showHint(6)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(6)">Get Answer</button>
                 <div class="hint-text" id="hint6">This attribute sets the smallest allowed value for number inputs.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">7. Fill in the attribute to set maximum value for a number input:</div>
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"quantity"</span> <span style="color: #61afef">_____</span>=<span class="string">"100"</span>&gt;</div>
-                <input type="text" id="q7" class="blank-input">
+                <div class="input-wrapper">
+                    <input type="text" id="q7" class="blank-input" oninput="checkAnswer(7)">
+                    <span class="feedback-icon" id="feedback7"></span>
+                </div>
                 <button class="hint-btn" onclick="showHint(7)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(7)">Get Answer</button>
                 <div class="hint-text" id="hint7">This attribute sets the largest allowed value for number inputs.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">8. Fill in the attribute to show a hint text in the field:</div>
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"phone"</span> <span style="color: #61afef">_____</span>=<span class="string">"555-1234"</span>&gt;</div>
-                <input type="text" id="q8" class="blank-input">
+                <div class="input-wrapper">
+                    <input type="text" id="q8" class="blank-input" oninput="checkAnswer(8)">
+                    <span class="feedback-icon" id="feedback8"></span>
+                </div>
                 <button class="hint-btn" onclick="showHint(8)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(8)">Get Answer</button>
                 <div class="hint-text" id="hint8">This attribute displays gray text inside the field that disappears when typing starts.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">9. Fill in the attribute to make the field mandatory:</div>
-                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span style="color: #61afel">_____</span>&gt;</div>
-                <input type="text" id="q9" class="blank-input">
+                <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span style="color: #61afef">_____</span>&gt;</div>
+                <div class="input-wrapper">
+                    <input type="text" id="q9" class="blank-input" oninput="checkAnswer(9)">
+                    <span class="feedback-icon" id="feedback9"></span>
+                </div>
                 <button class="hint-btn" onclick="showHint(9)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(9)">Get Answer</button>
                 <div class="hint-text" id="hint9">This attribute forces the user to fill in the field before submitting.</div>
             </div>
             
             <div class="question">
                 <div class="question-text">10. Fill in the attribute to specify a validation pattern:</div>
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"code"</span> <span style="color: #61afef">_____</span>=<span class="string">"[0-9]{3}"</span>&gt;</div>
-                <input type="text" id="q10" class="blank-input">
+                <div class="input-wrapper">
+                    <input type="text" id="q10" class="blank-input" oninput="checkAnswer(10)">
+                    <span class="feedback-icon" id="feedback10"></span>
+                </div>
                 <button class="hint-btn" onclick="showHint(10)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(10)">Get Answer</button>
                 <div class="hint-text" id="hint10">This attribute uses regular expressions to validate the input format.</div>
             </div>
             
@@ -316,6 +390,7 @@
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"points"</span> <span style="color: #61afef">_____</span>=<span class="string">"5"</span>&gt;</div>
                 <input type="text" id="q11" class="blank-input">
                 <button class="hint-btn" onclick="showHint(11)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(11)">Get Answer</button>
                 <div class="hint-text" id="hint11">This attribute defines the increment/decrement value when using arrow buttons.</div>
             </div>
             
@@ -324,6 +399,7 @@
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"search"</span> <span style="color: #61afef">_____</span>&gt;</div>
                 <input type="text" id="q12" class="blank-input">
                 <button class="hint-btn" onclick="showHint(12)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(12)">Get Answer</button>
                 <div class="hint-text" id="hint12">This attribute makes the cursor appear in this field when the page loads.</div>
             </div>
             
@@ -332,6 +408,7 @@
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span> <span style="color: #61afef">_____</span>=<span class="string">"on"</span>&gt;</div>
                 <input type="text" id="q13" class="blank-input">
                 <button class="hint-btn" onclick="showHint(13)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(13)">Get Answer</button>
                 <div class="hint-text" id="hint13">This attribute controls whether the browser suggests previously entered values.</div>
             </div>
             
@@ -340,6 +417,7 @@
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"browser"</span> <span style="color: #61afef">_____</span>=<span class="string">"browsers"</span>&gt;</div>
                 <input type="text" id="q14" class="blank-input">
                 <button class="hint-btn" onclick="showHint(14)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(14)">Get Answer</button>
                 <div class="hint-text" id="hint14">This attribute connects the input to a dropdown list of predefined options.</div>
             </div>
             
@@ -348,6 +426,7 @@
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span style="color: #61afef">_____</span>=<span class="string">"5"</span>&gt;</div>
                 <input type="text" id="q15" class="blank-input">
                 <button class="hint-btn" onclick="showHint(15)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(15)">Get Answer</button>
                 <div class="hint-text" id="hint15">This attribute requires the user to enter at least this many characters.</div>
             </div>
             
@@ -356,6 +435,7 @@
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"code"</span> <span style="color: #61afef">_____</span>=<span class="string">"Enter three digits"</span>&gt;</div>
                 <input type="text" id="q16" class="blank-input">
                 <button class="hint-btn" onclick="showHint(16)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(16)">Get Answer</button>
                 <div class="hint-text" id="hint16">This attribute shows extra information when you hover over the element.</div>
             </div>
             
@@ -364,6 +444,7 @@
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"email"</span> <span style="color: #61afef">_____</span>=<span class="string">"myform"</span>&gt;</div>
                 <input type="text" id="q17" class="blank-input">
                 <button class="hint-btn" onclick="showHint(17)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(17)">Get Answer</button>
                 <div class="hint-text" id="hint17">This attribute associates an input with a form element by ID.</div>
             </div>
             
@@ -372,6 +453,7 @@
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"text"</span> <span style="color: #61afef">_____</span>=<span class="string">"rtl"</span>&gt;</div>
                 <input type="text" id="q18" class="blank-input">
                 <button class="hint-btn" onclick="showHint(18)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(18)">Get Answer</button>
                 <div class="hint-text" id="hint18">This attribute controls text direction, useful for languages like Arabic or Hebrew.</div>
             </div>
             
@@ -380,6 +462,7 @@
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span style="color: #61afef">_____</span>=<span class="string">"user"</span>&gt;</div>
                 <input type="text" id="q19" class="blank-input">
                 <button class="hint-btn" onclick="showHint(19)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(19)">Get Answer</button>
                 <div class="hint-text" id="hint19">This attribute provides a unique identifier that labels can reference with "for".</div>
             </div>
             
@@ -388,6 +471,7 @@
                 <div class="code-snippet">&lt;<span class="keyword">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"field"</span> <span style="color: #61afef">_____</span>=<span class="string">"input-large"</span>&gt;</div>
                 <input type="text" id="q20" class="blank-input">
                 <button class="hint-btn" onclick="showHint(20)">Show Hint</button>
+                <button class="answer-btn" onclick="getAnswer(20)">Get Answer</button>
                 <div class="hint-text" id="hint20">This attribute assigns CSS class names for styling purposes.</div>
             </div>
             
@@ -399,7 +483,8 @@
             <div>Points Earned: <span id="pointsEarned"></span> / 200</div>
             <div>Time Taken: <span id="timeTaken"></span> seconds</div>
             <div class="score" id="finalScore"></div>
-            <button class="restart-btn" onclick="location.reload()">Try Again</button>
+            <div class="rating" id="rating"></div>
+            <button class="restart-btn" onclick="restartQuiz()">Try Again</button>
         </div>
     </div>
 
@@ -429,12 +514,114 @@
 
         let startTime = Date.now();
         let timerInterval;
+        let answersRevealed = new Set(); // Track which questions had answers revealed
+
+        // Function to get rating based on score
+        function getRating(score) {
+            if (score < 10) return "Newbie";
+            else if (score < 50) return "Beginner";
+            else if (score < 100) return "Learner";
+            else if (score < 200) return "Student";
+            else if (score < 300) return "Apprentice";
+            else if (score < 400) return "Practitioner";
+            else if (score < 500) return "Skilled";
+            else if (score < 600) return "Proficient";
+            else if (score < 700) return "Advanced";
+            else if (score < 800) return "Expert";
+            else if (score < 900) return "Master";
+            else if (score < 1000) return "Virtuoso";
+            else return "Genius";
+        }
+
+        // Function to restart quiz
+        function restartQuiz() {
+            // Clear all inputs and feedback
+            for (let i = 1; i <= 20; i++) {
+                const input = document.getElementById(`q${i}`);
+                const feedback = document.getElementById(`feedback${i}`);
+                
+                if (input) {
+                    input.value = '';
+                    input.disabled = false;
+                    input.classList.remove('correct', 'incorrect');
+                }
+                
+                if (feedback) {
+                    feedback.textContent = '';
+                    feedback.className = 'feedback-icon';
+                }
+            }
+            
+            // Reset answer revealed tracking
+            answersRevealed.clear();
+            
+            // Re-enable all "Get Answer" buttons
+            const answerButtons = document.querySelectorAll('.answer-btn');
+            answerButtons.forEach(btn => {
+                btn.disabled = false;
+                btn.textContent = 'Get Answer';
+            });
+            
+            // Hide all hints
+            const hints = document.querySelectorAll('.hint-text');
+            hints.forEach(hint => hint.classList.remove('show'));
+            
+            // Reset hint buttons
+            const hintButtons = document.querySelectorAll('.hint-btn');
+            hintButtons.forEach(btn => btn.textContent = 'Show Hint');
+            
+            // Hide results
+            document.getElementById('results').classList.remove('show');
+            
+            // Re-enable submit button
+            document.getElementById('submitBtn').disabled = false;
+            
+            // Reset timer
+            startTime = Date.now();
+            clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                document.getElementById('timer').textContent = `Time: ${elapsed}s`;
+            }, 1000);
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
         // Function to show hints
         function showHint(questionNum) {
             const hint = document.getElementById(`hint${questionNum}`);
             hint.classList.toggle('show');
             event.target.textContent = hint.classList.contains('show') ? 'Hide Hint' : 'Show Hint';
+        }
+
+        // Function to check answer in real-time
+        function checkAnswer(questionNum) {
+            const input = document.getElementById(`q${questionNum}`);
+            const feedback = document.getElementById(`feedback${questionNum}`);
+            const userAnswer = input.value.trim().toLowerCase();
+            const correctAnswers = answers[`q${questionNum}`].map(a => a.toLowerCase());
+            
+            if (userAnswer === '') {
+                feedback.textContent = '';
+                feedback.className = 'feedback-icon';
+            } else if (correctAnswers.includes(userAnswer)) {
+                feedback.textContent = '✓';
+                feedback.className = 'feedback-icon correct';
+            } else {
+                feedback.textContent = '✗';
+                feedback.className = 'feedback-icon incorrect';
+            }
+        }
+
+        // Function to get answer (no points for this question)
+        function getAnswer(questionNum) {
+            const input = document.getElementById(`q${questionNum}`);
+            const answer = answers[`q${questionNum}`][0];
+            input.value = answer;
+            answersRevealed.add(`q${questionNum}`);
+            event.target.disabled = true;
+            event.target.textContent = 'Answer Revealed';
         }
 
         // Start timer
@@ -458,10 +645,15 @@
                 const userAnswer = input.value.trim().toLowerCase();
                 const correctAnswers = answers[`q${i}`].map(a => a.toLowerCase());
                 
-                if (correctAnswers.includes(userAnswer)) {
+                // Check if answer is correct and wasn't revealed
+                if (correctAnswers.includes(userAnswer) && !answersRevealed.has(`q${i}`)) {
                     input.classList.add('correct');
                     input.classList.remove('incorrect');
                     points += 10;
+                } else if (correctAnswers.includes(userAnswer) && answersRevealed.has(`q${i}`)) {
+                    // Correct but revealed - no points
+                    input.classList.add('correct');
+                    input.classList.remove('incorrect');
                 } else {
                     input.classList.add('incorrect');
                     input.classList.remove('correct');
@@ -471,12 +663,14 @@
             }
             
             // Calculate final score
-            const finalScore = (points / timeInSeconds * 1000).toFixed(2);
+            const finalScore = ((points / timeInSeconds) * points).toFixed(2);
+            const rating = getRating(parseFloat(finalScore));
             
             // Display results
             document.getElementById('pointsEarned').textContent = points;
             document.getElementById('timeTaken').textContent = timeInSeconds;
             document.getElementById('finalScore').textContent = finalScore;
+            document.getElementById('rating').textContent = rating;
             document.getElementById('results').classList.add('show');
             
             // Scroll to results
