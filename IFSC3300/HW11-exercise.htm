@@ -518,18 +518,18 @@
 
         // Function to get rating based on score
         function getRating(score) {
-            if (score < 10) return "Newbie";
-            else if (score < 50) return "Beginner";
-            else if (score < 100) return "Learner";
-            else if (score < 200) return "Student";
-            else if (score < 300) return "Apprentice";
-            else if (score < 400) return "Practitioner";
-            else if (score < 500) return "Skilled";
-            else if (score < 600) return "Proficient";
-            else if (score < 700) return "Advanced";
-            else if (score < 800) return "Expert";
-            else if (score < 900) return "Master";
-            else if (score < 1000) return "Virtuoso";
+            if (score < 20) return "Newbie";
+            else if (score < 100) return "Beginner";
+            else if (score < 200) return "Learner";
+            else if (score < 400) return "Student";
+            else if (score < 600) return "Apprentice";
+            else if (score < 800) return "Practitioner";
+            else if (score < 1000) return "Skilled";
+            else if (score < 1200) return "Proficient";
+            else if (score < 1400) return "Advanced";
+            else if (score < 1600) return "Expert";
+            else if (score < 1800) return "Master";
+            else if (score < 2000) return "Virtuoso";
             else return "Genius";
         }
 
@@ -663,7 +663,7 @@
             }
             
             // Calculate final score
-            const finalScore = ((points / timeInSeconds) * points).toFixed(2);
+            const finalScore = ((points / timeInSeconds) * points * 2).toFixed(2);
             const rating = getRating(parseFloat(finalScore));
             
             // Display results
