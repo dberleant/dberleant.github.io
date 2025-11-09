@@ -484,7 +484,39 @@
             <div>Time Taken: <span id="timeTaken"></span> seconds</div>
             <div class="score" id="finalScore"></div>
             <div class="rating" id="rating"></div>
-            <button class="restart-btn" onclick="restartQuiz()">Try Again</button>
+            <div style="margin-top: 20px;">
+                <button class="restart-btn" onclick="restartQuiz()">Try Again</button>
+                <button class="score-info-btn" onclick="toggleScoreInfo()">Raise My Score!</button>
+                <button class="yogi-btn" onclick="showYogiSaying()">Yogi Berra</button>
+                <button class="dylan-btn" onclick="showDylanSaying()">Bob Dylan</button>
+                <button class="gibran-btn" onclick="showGibranSaying()">Kahlil Gibran</button>
+                <button class="aristotle-btn" onclick="showAristotleSaying()">Aristotle</button>
+                <button class="maimonides-btn" onclick="showMaimonidesSaying()">Maimonides</button>
+                <button class="aquinas-btn" onclick="showAquinasSaying()">Thomas Aquinas</button>
+                <button class="augustine-btn" onclick="showAugustineSaying()">St. Augustine</button>
+                <button class="laotzu-btn" onclick="showLaoTzuSaying()">Lao Tzu</button>
+                <button class="swift-btn" onclick="showSwiftSaying()">Taylor Swift</button>
+                <button class="ualr-btn" onclick="showUALRSaying()">UALR</button>
+            </div>
+            <div class="yogi-saying" id="yogiSaying"></div>
+            <div class="dylan-saying" id="dylanSaying"></div>
+            <div class="gibran-saying" id="gibranSaying"></div>
+            <div class="aristotle-saying" id="aristotleSaying"></div>
+            <div class="maimonides-saying" id="maimonidesSaying"></div>
+            <div class="aquinas-saying" id="aquinasSaying"></div>
+            <div class="augustine-saying" id="augustineSaying"></div>
+            <div class="laotzu-saying" id="laotzuSaying"></div>
+            <div class="swift-saying" id="swiftSaying"></div>
+            <div class="ualr-saying" id="ualrSaying"></div>
+            <div class="score-explanation" id="scoreExplanation" style="display: none;">
+                <h3>How to Raise Your Score</h3>
+                <p><strong>Scoring Formula:</strong></p>
+                <p>Final Score = (Points Earned ÷ Time Taken) × Points Earned × 2</p>
+                <p><strong>To increase your score:</strong></p>
+                <p>📈 <strong>Increase Points Earned:</strong> Answer more questions correctly! Each correct answer is worth 10 points (max 200 points).</p>
+                <p>⚡ <strong>Reduce Time Taken:</strong> Work faster! The quicker you complete the quiz, the higher your score.</p>
+                <p>💡 <strong>Tip:</strong> Practice makes perfect! The better you know the HTML input attributes, the faster and more accurately you can answer.</p>
+            </div>
         </div>
     </div>
 
@@ -533,6 +565,350 @@
             else return "Genius";
         }
 
+        // Function to toggle score explanation
+        function toggleScoreInfo() {
+            const explanation = document.getElementById('scoreExplanation');
+            const btn = document.querySelector('.score-info-btn');
+            
+            if (explanation.style.display === 'none' || explanation.style.display === '') {
+                explanation.style.display = 'block';
+                if (btn) btn.textContent = 'Hide Info';
+            } else {
+                explanation.style.display = 'none';
+                if (btn) btn.textContent = 'Raise My Score!';
+            }
+        }
+
+        // Function to show Yogi Berra saying
+        function showYogiSaying() {
+            const yogiDiv = document.getElementById('yogiSaying');
+            const ratingText = document.getElementById('rating').textContent;
+            
+            const sayings = [
+                `If you're a ${ratingText}, you're gonna be a ${ratingText}. That's just how it is.`,
+                `You can observe a lot by watching ${ratingText}s code.`,
+                `It ain't over 'til a ${ratingText} finishes the quiz.`,
+                `When you come to a fork in the code, take it - that's what a ${ratingText} would do.`,
+                `The future ain't what it used to be, especially for a ${ratingText}.`,
+                `Nobody goes to that quiz anymore, it's too crowded with ${ratingText}s.`,
+                `It's like déjà vu all over again, being a ${ratingText}.`,
+                `A ${ratingText} can get pretty far just by being there.`,
+                `You've got to be very careful if you're a ${ratingText}, otherwise you might make a wrong mistake.`,
+                `In theory there's no difference between a ${ratingText} and everyone else. In practice there is.`,
+                `It gets late early out there when you're a ${ratingText}.`,
+                `If you can't imitate a ${ratingText}, don't copy them.`,
+                `I never said most of the things I said about being a ${ratingText}.`,
+                `${ratingText}? That's too coincidental to be a coincidence.`,
+                `Always go to ${ratingText} quizzes. You never know when you might not show up.`
+            ];
+            
+            const randomSaying = sayings[Math.floor(Math.random() * sayings.length)];
+            yogiDiv.textContent = `"${randomSaying}" - Yogi Berra (probably)`;
+            yogiDiv.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                yogiDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Function to show Bob Dylan saying
+        function showDylanSaying() {
+            const dylanDiv = document.getElementById('dylanSaying');
+            const ratingText = document.getElementById('rating').textContent;
+            
+            const sayings = [
+                `A ${ratingText} knows something is happening here, but they don't know what it is.`,
+                `You don't need a keyboard to know which way the ${ratingText} codes.`,
+                `A ${ratingText}'s head is like a freight train running through the middle of their thoughts.`,
+                `The ${ratingText} who's not busy learning is busy forgetting.`,
+                `Behind every beautiful line of code, there's some kind of ${ratingText} who wrote it.`,
+                `A ${ratingText} used to care so much, and now they care even more.`,
+                `May your hands always be busy coding, may your feet always be swift - signed, a ${ratingText}.`,
+                `A ${ratingText} is busy being born in knowledge every single day.`,
+                `Come gather 'round, ${ratingText}s, wherever you code.`,
+                `When you ain't got nothing as a ${ratingText}, you got nothing to lose.`,
+                `A ${ratingText} can see through walls with eyes made of code.`,
+                `All the tired horses in the ${ratingText}'s mind won't pull the load tonight.`,
+                `The ${ratingText} keeps on walking through valleys dark as coal.`,
+                `A hard rain's gonna fall on every ${ratingText} who doesn't practice.`,
+                `Every ${ratingText}'s got a hungry heart looking for answers in the code.`
+            ];
+            
+            const randomSaying = sayings[Math.floor(Math.random() * sayings.length)];
+            dylanDiv.textContent = `"${randomSaying}" - Bob Dylan (sort of)`;
+            dylanDiv.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                dylanDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Function to show Kahlil Gibran saying
+        function showGibranSaying() {
+            const gibranDiv = document.getElementById('gibranSaying');
+            const ratingText = document.getElementById('rating').textContent;
+            
+            const sayings = [
+                `A ${ratingText} walks between what was and what shall be, gathering wisdom with each step.`,
+                `In the garden of learning, even a ${ratingText} becomes a tender of knowledge.`,
+                `The ${ratingText} discovers that silence speaks louder than rushed answers.`,
+                `Each ${ratingText} carries within them a flame that neither wind nor rain can extinguish.`,
+                `To understand code is to understand oneself, whispers the ${ratingText} to the morning.`,
+                `A ${ratingText} plants seeds today that will bloom into understanding tomorrow.`,
+                `The river of knowledge flows endlessly, and every ${ratingText} drinks from its waters.`,
+                `Between confusion and clarity stands the ${ratingText}, learning to bridge the distance.`,
+                `A ${ratingText} finds beauty not in perfection, but in the journey toward it.`,
+                `The mountains teach patience to the ${ratingText} who climbs them.`,
+                `In every error, a ${ratingText} discovers a hidden teacher.`,
+                `The ${ratingText} who seeks wisdom first learns to ask better questions.`,
+                `Like the oak from an acorn, greatness grows from the humble ${ratingText}.`,
+                `A ${ratingText} understands that today's struggle becomes tomorrow's strength.`,
+                `The wise ${ratingText} knows that learning never truly ends, only transforms.`
+            ];
+            
+            const randomSaying = sayings[Math.floor(Math.random() * sayings.length)];
+            gibranDiv.textContent = `"${randomSaying}" - In the spirit of Kahlil Gibran`;
+            gibranDiv.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                gibranDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Function to show Aristotle saying
+        function showAristotleSaying() {
+            const aristotleDiv = document.getElementById('aristotleSaying');
+            const ratingText = document.getElementById('rating').textContent;
+            
+            const sayings = [
+                `The ${ratingText} achieves excellence through the repeated practice of virtue in coding.`,
+                `Knowledge is the beginning, but a ${ratingText} must apply it to reach understanding.`,
+                `The educated ${ratingText} differs from the untrained by their capacity for systematic thought.`,
+                `A ${ratingText} demonstrates practical wisdom by choosing the mean between excess and deficiency.`,
+                `The function of a ${ratingText} is to actualize their potential through deliberate practice.`,
+                `True learning for a ${ratingText} consists not in passive reception but active inquiry.`,
+                `The ${ratingText} pursues knowledge for its own sake, which is the mark of free intellect.`,
+                `Habit shapes character, and thus the ${ratingText} must cultivate good habits of study.`,
+                `The ${ratingText} who masters fundamentals builds a foundation for higher reasoning.`,
+                `Logic serves the ${ratingText} as an instrument for distinguishing truth from falsehood.`,
+                `A ${ratingText} progresses from potentiality to actuality through sustained effort.`,
+                `The contemplative life of the ${ratingText} represents the highest form of human activity.`,
+                `Every ${ratingText} begins with wonder, which is the origin of all philosophy.`,
+                `The ${ratingText} understands that particular examples lead to universal principles.`,
+                `A rational ${ratingText} orders their learning according to natural categories of thought.`
+            ];
+            
+            const randomSaying = sayings[Math.floor(Math.random() * sayings.length)];
+            aristotleDiv.textContent = `"${randomSaying}" - In the manner of Aristotle`;
+            aristotleDiv.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                aristotleDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Function to show Maimonides saying
+        function showMaimonidesSaying() {
+            const maimonideDiv = document.getElementById('maimonidesSaying');
+            const ratingText = document.getElementById('rating').textContent;
+            
+            const sayings = [
+                `The ${ratingText} must ascend the ladder of knowledge step by step, not leaping to hasty conclusions.`,
+                `Study without reflection leads the ${ratingText} to confusion; reflection without study leaves them in doubt.`,
+                `A ${ratingText} should pursue truth wherever it leads, from whatever source it comes.`,
+                `The perfection of the ${ratingText} lies first in moral virtue, then in intellectual attainment.`,
+                `Teach the ${ratingText} according to their capacity, neither overwhelming nor underestimating them.`,
+                `The ${ratingText} who seeks wisdom must first acquire the tools of logic and language.`,
+                `For the ${ratingText}, doubt is the beginning of wisdom, not its enemy.`,
+                `A ${ratingText} harmonizes reason and tradition through patient, systematic inquiry.`,
+                `The ${ratingText} understands that true knowledge requires both study and contemplation.`,
+                `Let the ${ratingText} not be discouraged by difficulty, for the greatest truths require the greatest effort.`,
+                `A wise ${ratingText} knows that questions often illuminate more than hasty answers.`,
+                `The ${ratingText} progresses through degrees of understanding, each building upon the last.`,
+                `For the ${ratingText}, intellectual humility opens doors that arrogance keeps closed.`,
+                `A ${ratingText} must distinguish between essential knowledge and peripheral matters.`,
+                `The path of the ${ratingText} is guided by reason, moderated by ethics, and sustained by discipline.`
+            ];
+            
+            const randomSaying = sayings[Math.floor(Math.random() * sayings.length)];
+            maimonideDiv.textContent = `"${randomSaying}" - In the tradition of Maimonides`;
+            maimonideDiv.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                maimonideDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Function to show Thomas Aquinas saying
+        function showAquinasSaying() {
+            const aquinasDiv = document.getElementById('aquinasSaying');
+            const ratingText = document.getElementById('rating').textContent;
+            
+            const sayings = [
+                `The ${ratingText} must order their intellect through the proper use of first principles.`,
+                `For the ${ratingText}, grace builds upon nature, and knowledge upon prior understanding.`,
+                `A ${ratingText} distinguishes between what is self-evident and what requires demonstration.`,
+                `The ${ratingText} recognizes that all truth participates in the eternal Truth.`,
+                `Error in the ${ratingText} often arises from confusing different orders of causality.`,
+                `The prudent ${ratingText} acts according to right reason applied to particular circumstances.`,
+                `A ${ratingText} moves from sense experience to universal principles through abstraction.`,
+                `The ${ratingText} who seeks wisdom must first possess moral virtue to judge rightly.`,
+                `For the ${ratingText}, the end of learning is not mere knowledge but understanding and wisdom.`,
+                `A ${ratingText} resolves apparent contradictions by distinguishing the senses of terms.`,
+                `The ${ratingText} progresses through the liberal arts to philosophy, and philosophy toward wisdom.`,
+                `Humility guides the ${ratingText} to acknowledge the limits of human understanding.`,
+                `A ${ratingText} synthesizes faith and reason, recognizing each has its proper domain.`,
+                `The ${ratingText} understands that effects reveal their causes through careful reasoning.`,
+                `For the ${ratingText}, the contemplation of truth represents the highest human perfection.`
+            ];
+            
+            const randomSaying = sayings[Math.floor(Math.random() * sayings.length)];
+            aquinasDiv.textContent = `"${randomSaying}" - In the manner of Thomas Aquinas`;
+            aquinasDiv.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                aquinasDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Function to show St. Augustine saying
+        function showAugustineSaying() {
+            const augustineDiv = document.getElementById('augustineSaying');
+            const ratingText = document.getElementById('rating').textContent;
+            
+            const sayings = [
+                `The heart of the ${ratingText} is restless until it rests in understanding.`,
+                `A ${ratingText} discovers truth not without, but within the depths of their own soul.`,
+                `For the ${ratingText}, to err is human, but to persist in error is devilish.`,
+                `The ${ratingText} learns that faith seeks understanding, not as substitute but as foundation.`,
+                `Love, and as a ${ratingText} do what you will - for love guides rightly.`,
+                `The ${ratingText} finds that memory, understanding, and will reflect the divine image within.`,
+                `A ${ratingText} distinguishes between the eternal truths and temporal shadows.`,
+                `The proud ${ratingText} stumbles, but the humble ${ratingText} advances in wisdom.`,
+                `For the ${ratingText}, time is the moving image of eternity's stillness.`,
+                `A ${ratingText} must confess ignorance before claiming knowledge.`,
+                `The ${ratingText} illuminated by divine light sees clearly what was once obscure.`,
+                `Patience, O ${ratingText}, for God's timing perfects what haste would ruin.`,
+                `A ${ratingText} transforms through renewal of mind, not mere accumulation of facts.`,
+                `The restless ${ratingText} seeks peace in knowing, not in endless questioning.`,
+                `For the ${ratingText}, true learning requires both intellectual assent and will's consent.`
+            ];
+            
+            const randomSaying = sayings[Math.floor(Math.random() * sayings.length)];
+            augustineDiv.textContent = `"${randomSaying}" - In the spirit of St. Augustine`;
+            augustineDiv.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                augustineDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Function to show Lao Tzu saying
+        function showLaoTzuSaying() {
+            const laotzuDiv = document.getElementById('laotzuSaying');
+            const ratingText = document.getElementById('rating').textContent;
+            
+            const sayings = [
+                `The ${ratingText} who knows does not speak; the ${ratingText} who speaks does not know.`,
+                `A journey of mastery begins with the ${ratingText} taking a single step.`,
+                `The ${ratingText} who learns to yield becomes strong.`,
+                `When the ${ratingText} does nothing, nothing remains undone.`,
+                `The ${ratingText} embraces simplicity, for complexity obscures the way.`,
+                `Water flows around obstacles; so too does the wise ${ratingText}.`,
+                `The ${ratingText} acts without claiming, achieves without boasting.`,
+                `Empty yourself, and the ${ratingText} within shall be filled.`,
+                `The ${ratingText} knows contentment is the greatest treasure.`,
+                `Soft words overcome hard resistance, as the ${ratingText} understands.`,
+                `The ${ratingText} who seeks mastery must first master themselves.`,
+                `In stillness, the ${ratingText} finds clarity; in motion, confusion.`,
+                `The ${ratingText} bends like bamboo but does not break.`,
+                `Nature does not hurry, yet everything is accomplished - even for the ${ratingText}.`,
+                `The ${ratingText} follows the way of water: humble, flowing, persistent.`
+            ];
+            
+            const randomSaying = sayings[Math.floor(Math.random() * sayings.length)];
+            laotzuDiv.textContent = `"${randomSaying}" - In the way of Lao Tzu`;
+            laotzuDiv.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                laotzuDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Function to show Taylor Swift saying
+        function showSwiftSaying() {
+            const swiftDiv = document.getElementById('swiftSaying');
+            const ratingText = document.getElementById('rating').textContent;
+            
+            const sayings = [
+                `Being a ${ratingText} means writing your own story, one line of code at a time.`,
+                `Every ${ratingText} has their own journey - shake off the mistakes and keep coding.`,
+                `You're a ${ratingText} and that's perfectly fine - growth happens with every try.`,
+                `The best ${ratingText}s know that practice makes progress, not perfection.`,
+                `A ${ratingText} learns that every error message is just feedback, not failure.`,
+                `Being a ${ratingText} is all about showing up and doing the work, even when it's hard.`,
+                `Every ${ratingText} starts somewhere - the magic is in not giving up.`,
+                `A ${ratingText} discovers that the real victory is in the learning, not just the score.`,
+                `For a ${ratingText}, every challenge is just another chapter in their coding story.`,
+                `The ${ratingText} who keeps trying is already winning, no matter what the timer says.`,
+                `A ${ratingText} learns to be fearless in the face of debugging.`,
+                `You're a ${ratingText} and that means you're brave enough to keep learning.`,
+                `Every ${ratingText} writes their own success story through persistence.`,
+                `Being a ${ratingText} means celebrating small wins on the way to bigger goals.`,
+                `A ${ratingText} knows that mistakes are just plot twists in their learning journey.`
+            ];
+            
+            const randomSaying = sayings[Math.floor(Math.random() * sayings.length)];
+            swiftDiv.textContent = `"${randomSaying}" - Taylor Swift vibes`;
+            swiftDiv.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                swiftDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Function to show UALR saying
+        function showUALRSaying() {
+            const ualrDiv = document.getElementById('ualrSaying');
+            const ratingText = document.getElementById('rating').textContent;
+            
+            const sayings = [
+                `At UALR, every ${ratingText} is part of our tradition of innovation and excellence.`,
+                `The ${ratingText} embodies the Trojan spirit: determination, integrity, and continuous growth.`,
+                `UALR believes that a ${ratingText} today becomes tomorrow's technology leader.`,
+                `As a ${ratingText}, you're building skills that will serve Little Rock and beyond.`,
+                `The ${ratingText} represents UALR's commitment to accessible, quality education.`,
+                `At UALR, we transform every ${ratingText} through hands-on, practical learning.`,
+                `A ${ratingText} at UALR is never alone - our community supports your success.`,
+                `The ${ratingText} journey at UALR prepares you for real-world challenges.`,
+                `UALR empowers every ${ratingText} to achieve their full potential in technology.`,
+                `As a ${ratingText}, you're part of UALR's mission to serve our region through education.`,
+                `The ${ratingText} finds opportunity at UALR: affordable, flexible, and career-focused.`,
+                `UALR's ${ratingText}s become the problem-solvers Arkansas needs.`,
+                `Every ${ratingText} at UALR contributes to our metropolitan university mission.`,
+                `The ${ratingText} represents UALR's dedication to student success and workforce development.`,
+                `At UALR, a ${ratingText} gains both knowledge and confidence for their future.`
+            ];
+            
+            const randomSaying = sayings[Math.floor(Math.random() * sayings.length)];
+            ualrDiv.textContent = `"${randomSaying}" - UALR Pride`;
+            ualrDiv.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                ualrDiv.style.display = 'none';
+            }, 5000);
+        }
+
         // Function to restart quiz
         function restartQuiz() {
             // Clear all inputs and feedback
@@ -572,6 +948,16 @@
             
             // Hide results
             document.getElementById('results').classList.remove('show');
+            
+            // Hide score explanation
+            const scoreExplanation = document.getElementById('scoreExplanation');
+            if (scoreExplanation) {
+                scoreExplanation.classList.remove('show');
+            }
+            const scoreInfoBtn = document.querySelector('.score-info-btn');
+            if (scoreInfoBtn) {
+                scoreInfoBtn.textContent = 'Raise My Score!';
+            }
             
             // Re-enable submit button
             document.getElementById('submitBtn').disabled = false;
