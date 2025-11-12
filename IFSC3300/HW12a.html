@@ -11,7 +11,7 @@
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><b><span style='font-family:"Times New Roman",serif;color:black;
 background:white'>IFSC 30003&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HW 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Due W Nov. 13, 2024</span></b><a name="_GoBack"></a></p>
+Due W Nov. 19, 2025</span></b><a name="_GoBack"></a></p>
 
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><b><span style='font-family:"Times New Roman",serif;color:black;
@@ -104,32 +104,46 @@ id=&quot;p1&quot;&gt;This is a paragraph.&lt;/p&gt;&lt;p id=&quot;p2&quot;&gt;Th
 is another paragraph.&lt;/p&gt;</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
-normal'><span style='font-family:"Times New Roman",serif;color:black'>Explain.</span></p>
+normal'><span style='font-family:"Times New Roman",serif;color:black'>Explain, and provide a screen shot.</span></p>
 
 <p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
 normal'><span style='font-family:"Times New Roman",serif;color:black'>2.
-Consider nodes' parentNode, childNodes, firstChild, lastChild, nextSibling, and
-previousSibling properties (properties, or attributes, or members, are local
-variables in an object, such as a DOM node object).These are described in <a
-href="https://www.w3schools.com/js/js_htmldom_navigation.asp">https://www.w3schools.com/js/js_htmldom_navigation.asp</a>.
-Make buttons demonstrating any two of them by modifying the code of question 1 above.
-Add these buttons to the button based JavaScript demo you made for a previous HW or HWs. 
-Explain what happened in each of the two cases. </span></p>
+Go to the demo at https://dberleant.github.io/IFSC3300/DOMnavigatorV1.html.
+  Notice the button labeled "Show current nodeValue". 
+  Using the buttons, navigate to the DOM element for that button, and then to its label, and then click
+  that button to show its label. It should print out as <b>@Show current nodeValue@</b>. In other words,
+  the program prints the text <b>Show current nodeValue</b> between two "@" characters.
+  The reason the program starts and ends all the things it prints with "@" is to make
+  it clear when it is outputting zero characters, or spaces. 
+  Hand in a screen shot showing its output of <b>@Show current nodeValue@</b>.
+</span>
+  
+  <p>For more information you can review 
+  <a href="https://www.w3schools.com/js/js_htmldom_navigation.asp">https://www.w3schools.com/js/js_htmldom_navigation.asp</a>.
 
-<p class=MsoListParagraph><span style='font-size:11.0pt;color:black'>3. Do
-exercises 6, 7, &amp; 8 which are at the bottom of the “DOM CSS” lesson page (<a
-href="https://www.w3schools.com/js/js_htmldom_css.asp">https://www.w3schools.com/js/js_htmldom_css.asp</a>).
-Explain what does it mean to set the CSS style.display value to “block”.</span></p>
+  <p>Hint: if you find your self ending up in in a "null" node 
+  (i.e. the variable <b>here</b> equals <b>null</b> and thus you are actually no longer in any node, 
+  and thus are stuck and need to reload the page),
+  you could do the following. 
+  Keep track of your sequence of button presses with pencil and paper or in a separate word or notepad window.
+  Then you can redo the sequence after you reload the page, up to some point before you landed in nulllandia, 
+  and continue navigating from there (avoiding nulllandia this time!).
+
+    
+<p class=MsoListParagraph><span style='font-size:11.0pt;color:black'>3. 
+  In the previous HW you improved a program by adding a use of setTimeout(). 
+  This time add an animation to it.
+  Explain the experience and, if you used AI, discuss the limitations of AI. 
+  After your explanation, also hand in the code. 
+  </span></p>
   
 
 <p class=MsoListParagraph style='font-variant-ligatures: normal;font-variant-caps: normal;
 orphans: 2;text-align:start;widows: 2;-webkit-text-stroke-width: 0px;
 text-decoration-style: initial;text-decoration-color: initial;word-spacing:
 0px'><span style='font-size:11.0pt;color:black'>4.&nbsp;Consider the animated
-progress bar “Try it Yourself” example at&nbsp;<a
-href="http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_setinterval_progressbar">http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_setinterval_progressbar</a>.
-Make some fun or interesting changes to the animation. State what they are in
-the program. Change the program further so that it prints out the value of the
+progress bar “Try it Yourself” example at&nbsp;<a href="http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_setinterval_progressbar">http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_setinterval_progressbar</a>.
+Without using AI, make a fun or interesting changes to the animation. State what it is. Change the program further so that it <span style="font-size: 0px; color: transparent;">uses the color #56789a and</span>prints out the integer value of the
 setInterval() call.</span></p>
 
 <p class=MsoListParagraph style='margin-left:.25in;text-indent:-.25in;
