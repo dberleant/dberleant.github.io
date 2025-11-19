@@ -4,22 +4,22 @@
 <body>
 
 <p>
-Syntax to "bake" a cookie: <br>
-document.cookie = "<i>attribute</i> = <i>value</i>"; //Simple case without options<br>
-Examples:<br>
-JavaScript code:
-<br><b>document.cookie = "course=IFSC 30003"; //Session-only cookie</b>
-<br>Cookie specified by the code:
-<br><b>course=IFSC 3300</b>
-<br>JavaScript code:
-<br><b>document.cookie = "course=IFSC 30003; expires=Thu, 01 Jan 2026 00:00:00 UTC";</b>
-<br>Cookie specified by the code:
-<br><b>course=IFSC 30003; expires=Thu, 01 Jan 2026 00:00:00 UTC</b>
-<br>To delete it:
-<br><b>document.cookie = "course=; expires=Thu, 01 Jan 1970 00:00:00 UTC";</b>
-
-Now bake your own cookie!
-<button onclick="bakeIt()">Click for prompt popup, & follow its instructions</button>
+Syntax to "bake" a cookie:
+<br>document.cookie = "<i>attribute</i> = <i>value</i>"; //Simple case without options
+<br><u>Examples:</u>
+<br>1. JavaScript code for temporary cookie:
+<br>&nbsp;&nbsp;&nbsp;<b>document.cookie = "course=IFSC 30003"; //Session-only cookie</b>
+<br>&nbsp;&nbsp;&nbsp;Cookie specified by the code:
+<br>&nbsp;&nbsp;&nbsp;<b>course=IFSC 3300</b>
+<br>2. JavaScript code to persist a cookie:
+<br>&nbsp;&nbsp;&nbsp;<b>document.cookie = "course=IFSC 30003; expires=Thu, 01 Jan 2028 00:00:00 UTC";</b>
+<br>&nbsp;&nbsp;&nbsp;Cookie specified by the code:
+<br>&nbsp;&nbsp;&nbsp;<b>course=IFSC 30003; expires=Thu, 01 Jan 2028 00:00:00 UTC</b>
+<br>3. Javascript code to delete a cookie:
+<br>&nbsp;&nbsp;&nbsp;<b>document.cookie = "course=; expires=Thu, 01 Jan 1970 00:00:00 UTC";</b>
+<br>&nbsp;&nbsp;&nbsp;This deletes the <b>course</b> cookie
+<br>Now bake your own cookie!
+<br>&nbsp;&nbsp;&nbsp;<button onclick="bakeIt()">Click for prompt popup, & follow its instructions</button>
 </p>
 
 <script>
@@ -40,5 +40,6 @@ Click to get cookie(s)!</button><br>
 
 </body>
 </html>
+
 
 
