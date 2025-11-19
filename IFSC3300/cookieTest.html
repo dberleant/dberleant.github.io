@@ -7,19 +7,24 @@
 Syntax to "bake" a cookie: <br>
 document.cookie = "<i>attribute</i> = <i>value</i>"; //Simple case without options<br>
 Examples:<br>
-<b>document.cookie = "course=IFSC 3300"; //Session-only cookie</b><br>
-<b>document.cookie = "course=IFSC 3300; expires=Thu, 01 Jan 2025 00:00:00 UTC";</b><br>
-<b>document.cookie = "course=IFSC 3300; expires=Thu, 01 Jan 2025 00:00:00 UTC; path=/";</b><br>
-To delete it:<br>
-<b>document.cookie = "course=IFSC 3300; expires=Thu, 01 Jan 1970 00:00:00 UTC";</b><br>
-<b>document.cookie = "course=IFSC 3300; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";</b><br>
+JavaScript code:
+<br><b>document.cookie = "course=IFSC 30003"; //Session-only cookie</b>
+<br>Cookie specified by the code:
+<br><b>course=IFSC 3300</b>
+<br>JavaScript code:
+<br><b>document.cookie = "course=IFSC 30003; expires=Thu, 01 Jan 2026 00:00:00 UTC";</b>
+<br>Cookie specified by the code:
+<br><b>course=IFSC 30003; expires=Thu, 01 Jan 2026 00:00:00 UTC</b>
+<br>To delete it:
+<br><b>document.cookie = "course=; expires=Thu, 01 Jan 1970 00:00:00 UTC";</b>
+
 Now bake your own cookie!
-<button onclick="bakeIt()">Click for prompt popup</button>
+<button onclick="bakeIt()">Click for prompt popup, & follow its instructions</button>
 </p>
 
 <script>
 function bakeIt(){
-   document.cookie = prompt("Prepare your cookie here. For example, type\n course=IFSC 3300\nto create a cookie.\n(I will add the quotes to make your input a string)");  
+   document.cookie = prompt("Prepare your cookie here. For example, type\n course=IFSC 30003\nto create a cookie.\n(I will add the quotes to make your input a string)");  
 }
 </script>
 
@@ -30,9 +35,10 @@ Example code to "taste" a cookie:<br>
 <button onclick=
    "document.getElementById('printHere').innerHTML += '<hr>' + document.cookie";
 >
-Click to get cookie data!</button><br>
+Click to get cookie(s)!</button><br>
 </p>
 
 </body>
 </html>
+
 
