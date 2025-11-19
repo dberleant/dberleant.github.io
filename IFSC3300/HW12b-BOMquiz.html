@@ -1,0 +1,502 @@
+                        <div class="result-value" id="correctCount">0/20</div>        <h1>Window Object (BOM) Quiz</h1><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Object (BOM) Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .quiz-section {
+            display: none;
+        }
+        .quiz-section.active {
+            display: block;
+        }
+        .question-container {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+        .question-number {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .question-text {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .option:hover {
+            background: #f0f0f0;
+            border-color: #667eea;
+        }
+        .option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .option label {
+            cursor: pointer;
+            flex: 1;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        .btn-submit {
+            background: #667eea;
+            color: white;
+        }
+        .btn-submit:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .btn-restart {
+            background: #764ba2;
+            color: white;
+        }
+        .btn-restart:hover {
+            background: #653a89;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+        }
+        .results-section {
+            text-align: center;
+        }
+        .results-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .result-item {
+            font-size: 24px;
+            margin: 15px 0;
+        }
+        .result-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        .result-value {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .score-display {
+            font-size: 64px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .sandbox-container {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 14px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .sandbox-output {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            border-left: 3px solid #667eea;
+        }
+        progress {
+            width: 100%;
+            height: 8px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Window Object & DOM Quiz</h1>
+        
+        <!-- Quiz Section -->
+        <div class="quiz-section active" id="quizSection">
+            <progress id="progress" value="0" max="20"></progress>
+            
+            <div id="questionsContainer"></div>
+            
+            <div class="button-group">
+                <button class="btn-submit" onclick="submitQuiz()">Submit Quiz</button>
+            </div>
+        </div>
+        
+        <!-- Results Section -->
+        <div class="quiz-section" id="resultsSection">
+            <div class="results-section">
+                <h2>Quiz Complete!</h2>
+                <div class="results-box">
+                    <div class="result-item">
+                        <div class="result-label">Correct Answers</div>
+                        <div class="result-value" id="correctCount">0/20</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Time Taken</div>
+                        <div class="result-value" id="timeElapsed">0s</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Final Score</div>
+                        <div class="score-display" id="finalScore">0</div>
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="btn-restart" onclick="restartQuiz()">Take Quiz Again</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "Does window.document.getElementById() do the same thing as document.getElementById()?",
+                options: [
+                    "Yes, they are identical",
+                    "No, window.document refers to a different object",
+                    "Yes, because document is a property of window",
+                    "No, getElementById doesn't exist on window"
+                ],
+                correct: 2,
+                explanation: "document is a global property of the window object, so window.document.getElementById() and document.getElementById() are equivalent. The document object is automatically a property of window."
+            },
+            {
+                question: "Does window.innerHeight have the same value as screen.height?",
+                options: [
+                    "Yes, they always have the same value",
+                    "No, innerHeight is the viewport height while screen.height is total screen height",
+                    "It depends on the browser",
+                    "No, innerHeight includes browser chrome"
+                ],
+                correct: 1,
+                explanation: "window.innerHeight is the height of the visible viewport, while screen.height is the total height of the user's display. They're different measurements."
+            },
+            {
+                question: "Does screen.height have the same value as screen.availHeight?",
+                options: [
+                    "Yes, they are always identical",
+                    "No, availHeight excludes taskbars and system menus",
+                    "No, screen.height is always larger",
+                    "Only on Windows systems"
+                ],
+                correct: 1,
+                explanation: "screen.availHeight returns the available screen height excluding system elements like taskbars, while screen.height returns the total screen height including all areas."
+            },
+            {
+                question: "What does window.location.href typically contain?",
+                options: [
+                    "The domain name only",
+                    "The complete URL of the current page",
+                    "The file path on the server",
+                    "The protocol only (http or https)"
+                ],
+                correct: 1,
+                explanation: "window.location.href contains the complete URL of the current page, including protocol, domain, path, and any query parameters."
+            },
+            {
+                question: "What does navigator.cookieEnabled tell you?",
+                options: [
+                    "Whether the current page has set cookies",
+                    "Whether cookies are enabled in the browser",
+                    "The number of cookies stored",
+                    "Whether third-party cookies are allowed"
+                ],
+                correct: 1,
+                explanation: "navigator.cookieEnabled returns a boolean value indicating whether cookies are enabled in the browser, not whether a specific page has cookies."
+            },
+            {
+                question: "Does window.alert('Hi!') do the same thing as alert('Hi!')?",
+                options: [
+                    "No, they do different things",
+                    "No, alert is not a valid function",
+                    "Yes, alert is a property of window so they're equivalent",
+                    "Only in modern browsers"
+                ],
+                correct: 2,
+                explanation: "alert() is a global function that is actually window.alert(). They're equivalent because alert is a method of the window object."
+            },
+            {
+                question: "Which statement about window.scrollY is true?",
+                options: [
+                    "It returns the horizontal scroll position",
+                    "It returns the vertical scroll position of the page",
+                    "It sets the scroll position",
+                    "It only works in Firefox"
+                ],
+                correct: 1,
+                explanation: "window.scrollY returns the number of pixels the document has been scrolled vertically. window.scrollX returns the horizontal scroll position."
+            },
+            {
+                question: "What does window.matchMedia() do?",
+                options: [
+                    "Matches text patterns in the page",
+                    "Tests if a CSS media query matches the current device",
+                    "Finds matching elements in the DOM",
+                    "Matches regular expressions"
+                ],
+                correct: 1,
+                explanation: "window.matchMedia() returns a MediaQueryList object that can tell you whether a given CSS media query matches the current display device."
+            },
+            {
+                question: "What is the purpose of window.requestAnimationFrame()?",
+                options: [
+                    "To animate CSS properties automatically",
+                    "To schedule a function to run before the browser repaints the screen",
+                    "To create animations in Canvas elements only",
+                    "To request permission to use animations"
+                ],
+                correct: 1,
+                explanation: "window.requestAnimationFrame() schedules a function to be called before the next repaint, making it ideal for smooth animations synced with the browser's refresh rate."
+            },
+            {
+                question: "What does window.typeof return?",
+                options: [
+                    "The type of the window object",
+                    "'object' because window is an object",
+                    "typeof is not a valid window method; it's an operator",
+                    "'function'"
+                ],
+                correct: 2,
+                explanation: "typeof is a JavaScript operator, not a method. You'd write typeof window (which returns 'object'), not window.typeof()."
+            },
+            {
+                question: "What is the relationship between window.outerHeight and window.innerHeight?",
+                options: [
+                    "They are identical",
+                    "outerHeight includes browser chrome; innerHeight does not",
+                    "innerHeight is always larger",
+                    "outerHeight only works on mobile devices"
+                ],
+                correct: 1,
+                explanation: "window.outerHeight is the height of the entire browser window including toolbars and scrollbars, while window.innerHeight is just the viewport height."
+            },
+            {
+                question: "What does window.devicePixelRatio represent?",
+                options: [
+                    "The ratio of physical to logical screen resolution",
+                    "The aspect ratio of the screen",
+                    "The color depth of the display",
+                    "The refresh rate of the monitor"
+                ],
+                correct: 0,
+                explanation: "window.devicePixelRatio is the ratio of physical pixels to CSS pixels, useful for high-DPI displays like Retina screens where it might be 2 or higher."
+            },
+            {
+                question: "What is localStorage primarily used for?",
+                options: [
+                    "Temporarily storing session data",
+                    "Persisting data in the browser across sessions",
+                    "Caching remote server files",
+                    "Storing files on the user's hard drive"
+                ],
+                correct: 1,
+                explanation: "localStorage persists data on the user's browser indefinitely (until explicitly cleared), whereas sessionStorage only lasts for the current browser session."
+            },
+            {
+                question: "What does window.isSecureContext tell you?",
+                options: [
+                    "Whether the page is served over HTTPS",
+                    "Whether the user is logged in securely",
+                    "Whether the browser has security features enabled",
+                    "Whether cookies are secure"
+                ],
+                correct: 0,
+                explanation: "window.isSecureContext returns true if the page is served over HTTPS (or localhost), indicating a secure context for sensitive APIs."
+            },
+            {
+                question: "What is the purpose of window.performance?",
+                options: [
+                    "To monitor computer system performance",
+                    "To measure and analyze page loading and execution performance",
+                    "To optimize browser rendering speed",
+                    "To check if the browser is running smoothly"
+                ],
+                correct: 1,
+                explanation: "window.performance provides access to performance data about page load times, resource timing, and navigation timing for performance analysis."
+            },
+            {
+                question: "Which JavaScript statement is correct for redirecting to a new page?",
+                options: [
+                    "window.redirect('https://example.com');",
+                    "window.location = 'https://example.com';",
+                    "window.url = 'https://example.com';",
+                    "navigate('https://example.com');"
+                ],
+                correct: 1,
+                explanation: "window.location can be assigned a new URL string to redirect. window.redirect() doesn't exist, and window.url is not the correct property."
+            },
+            {
+                question: "Which statement correctly opens a new browser window?",
+                options: [
+                    "window.newWindow('https://example.com');",
+                    "window.open('https://example.com');",
+                    "window.openNewTab('https://example.com');",
+                    "createNewWindow('https://example.com');"
+                ],
+                correct: 1,
+                explanation: "window.open() is the correct method to open a new browser window or tab. The other methods don't exist in the BOM."
+            },
+            {
+                question: "Which statement correctly gets the current URL?",
+                options: [
+                    "let url = window.url;",
+                    "let url = document.url;",
+                    "let url = window.location.href;",
+                    "let url = location.currentUrl;"
+                ],
+                correct: 2,
+                explanation: "window.location.href returns the complete current URL. window.url and document.url don't exist, and location.currentUrl is not a valid property."
+            },
+            {
+                question: "Which statement correctly checks if the browser supports localStorage?",
+                options: [
+                    "if (window.storageAvailable) { }",
+                    "if (typeof(Storage) !== 'undefined') { }",
+                    "if (window.localStorage.exists()) { }",
+                    "if (navigator.hasStorage) { }"
+                ],
+                correct: 1,
+                explanation: "The correct way to check for localStorage support is to test if Storage is defined using typeof. The other methods are not standard BOM features."
+            },
+            {
+                question: "Which statement correctly sets a value in sessionStorage?",
+                options: [
+                    "sessionStorage.set('key', 'value');",
+                    "sessionStorage['key'] = 'value';",
+                    "window.setSessionData('key', 'value');",
+                    "sessionStorage.put('key', 'value');"
+                ],
+                correct: 1,
+                explanation: "sessionStorage uses bracket notation or setItem() method. sessionStorage.set() doesn't exist, and window.setSessionData() is not a valid method."
+            }
+        ];
+
+        let startTime;
+        let answers = new Array(15).fill(null);
+
+        function initQuiz() {
+            startTime = Date.now();
+            renderQuestions();
+        }
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            container.innerHTML = '';
+            
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question-container';
+                
+                let optionsHtml = '';
+                q.options.forEach((option, optIndex) => {
+                    optionsHtml += `
+                        <div class="option">
+                            <input type="radio" id="q${index}_opt${optIndex}" name="q${index}" value="${optIndex}" 
+                                   ${answers[index] === optIndex ? 'checked' : ''}>
+                            <label for="q${index}_opt${optIndex}">${option}</label>
+                        </div>
+                    `;
+                });
+                
+                questionDiv.innerHTML = `
+                    <div class="question-number">Question ${index + 1} of ${questions.length}</div>
+                    <div class="question-text">${q.question}</div>
+                    <div class="options">${optionsHtml}</div>
+                `;
+                
+                container.appendChild(questionDiv);
+                
+                // Add change listeners
+                q.options.forEach((_, optIndex) => {
+                    document.getElementById(`q${index}_opt${optIndex}`).addEventListener('change', () => {
+                        answers[index] = optIndex;
+                        document.getElementById('progress').value = answers.filter(a => a !== null).length;
+                    });
+                });
+            });
+        }
+
+        function submitQuiz() {
+            if (answers.some(a => a === null)) {
+                alert('Please answer all questions before submitting.');
+                return;
+            }
+            
+            const endTime = Date.now();
+            const timeTaken = Math.round((endTime - startTime) / 1000);
+            const correct = answers.filter((answer, index) => answer === questions[index].correct).length;
+            const score = Math.round((correct / timeTaken) * 2000);
+            
+            document.getElementById('correctCount').textContent = `${correct}/${questions.length}`;
+            document.getElementById('timeElapsed').textContent = `${timeTaken}s`;
+            document.getElementById('finalScore').textContent = score;
+            
+            document.getElementById('quizSection').classList.remove('active');
+            document.getElementById('resultsSection').classList.add('active');
+        }
+
+        function restartQuiz() {
+            answers = new Array(20).fill(null);
+            document.getElementById('quizSection').classList.add('active');
+            document.getElementById('resultsSection').classList.remove('active');
+            document.getElementById('progress').value = 0;
+            initQuiz();
+        }
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>
