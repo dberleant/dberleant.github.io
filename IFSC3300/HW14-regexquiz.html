@@ -1,0 +1,794 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Regular Expressions Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 30px;
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+        
+        .timer {
+            text-align: center;
+            font-size: 1.2em;
+            color: #764ba2;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin: 25px 0 15px 0;
+            font-size: 1.1em;
+        }
+        
+        .question {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .question-text {
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        
+        .options {
+            margin: 10px 0;
+        }
+        
+        .option {
+            margin: 8px 0;
+            display: block;
+        }
+        
+        .option input {
+            margin-right: 8px;
+        }
+        
+        .option label {
+            cursor: pointer;
+        }
+        
+        .fill-blank input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+            margin: 10px 0;
+        }
+        
+        .fill-blank input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+        
+        .hint-btn {
+            background: #ffd93d;
+            color: #333;
+        }
+        
+        .hint-btn:hover {
+            background: #ffc107;
+            transform: translateY(-2px);
+        }
+        
+        .answer-btn {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .answer-btn:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            display: block;
+            margin: 30px auto;
+            width: 200px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .hint, .answer {
+            margin-top: 10px;
+            padding: 12px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .hint {
+            background: #fff9e6;
+            border-left: 4px solid #ffd93d;
+        }
+        
+        .answer {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+        }
+        
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .correct {
+            background: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+        
+        .incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .results {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .results h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .results p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript Regular Expressions Quiz</h1>
+        <div class="timer">Time: <span id="timer">00:00</span></div>
+        
+        <div id="quiz-container">
+            <div class="section-title">Section 1: True/False Questions</div>
+            
+            <div class="question" data-question="0" data-type="tf">
+                <div class="question-text">1. The <code>i</code> flag in a regular expression makes the pattern case-insensitive.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q0" value="true"> True</label>
+                    <label class="option"><input type="radio" name="q0" value="false"> False</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(0)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(0)">See Answer</button>
+                </div>
+                <div class="hint" id="hint0">The <code>i</code> flag stands for "ignore case".</div>
+                <div class="answer" id="answer0">True - The <code>i</code> flag makes the regex match both uppercase and lowercase letters.</div>
+                <div class="feedback" id="feedback0"></div>
+            </div>
+
+            <div class="question" data-question="1" data-type="tf">
+                <div class="question-text">2. The <code>g</code> flag causes the regex to stop after finding the first match.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="true"> True</label>
+                    <label class="option"><input type="radio" name="q1" value="false"> False</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(1)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(1)">See Answer</button>
+                </div>
+                <div class="hint" id="hint1">The <code>g</code> stands for "global".</div>
+                <div class="answer" id="answer1">False - The <code>g</code> flag makes the regex find all matches, not just the first one.</div>
+                <div class="feedback" id="feedback1"></div>
+            </div>
+
+            <div class="question" data-question="2" data-type="tf">
+                <div class="question-text">3. The <code>*</code> quantifier matches zero or more occurrences of the preceding element.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="true"> True</label>
+                    <label class="option"><input type="radio" name="q2" value="false"> False</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(2)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(2)">See Answer</button>
+                </div>
+                <div class="hint" id="hint2">Think about how many times the preceding character can appear.</div>
+                <div class="answer" id="answer2">True - The <code>*</code> matches 0 or more occurrences.</div>
+                <div class="feedback" id="feedback2"></div>
+            </div>
+
+            <div class="question" data-question="3" data-type="tf">
+                <div class="question-text">4. The <code>?</code> quantifier matches exactly two occurrences of the preceding element.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q3" value="true"> True</label>
+                    <label class="option"><input type="radio" name="q3" value="false"> False</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(3)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(3)">See Answer</button>
+                </div>
+                <div class="hint" id="hint3">The <code>?</code> makes something optional.</div>
+                <div class="answer" id="answer3">False - The <code>?</code> matches 0 or 1 occurrence (makes it optional).</div>
+                <div class="feedback" id="feedback3"></div>
+            </div>
+
+            <div class="question" data-question="4" data-type="tf">
+                <div class="question-text">5. The <code>+</code> quantifier matches one or more occurrences of the preceding element.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q4" value="true"> True</label>
+                    <label class="option"><input type="radio" name="q4" value="false"> False</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(4)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(4)">See Answer</button>
+                </div>
+                <div class="hint" id="hint4">Compare this to <code>*</code> which includes zero occurrences.</div>
+                <div class="answer" id="answer4">True - The <code>+</code> requires at least one occurrence.</div>
+                <div class="feedback" id="feedback4"></div>
+            </div>
+
+            <div class="question" data-question="5" data-type="tf">
+                <div class="question-text">6. In JavaScript, regular expression literals are enclosed in forward slashes <code>/</code>.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q5" value="true"> True</label>
+                    <label class="option"><input type="radio" name="q5" value="false"> False</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(5)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(5)">See Answer</button>
+                </div>
+                <div class="hint" id="hint5">Think about the syntax: <code>/pattern/flags</code></div>
+                <div class="answer" id="answer5">True - JavaScript regex literals use forward slashes as delimiters.</div>
+                <div class="feedback" id="feedback5"></div>
+            </div>
+
+            <div class="question" data-question="6" data-type="tf">
+                <div class="question-text">7. The character class <code>[acg]</code> matches any single character that is 'a', 'c', or 'g'.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q6" value="true"> True</label>
+                    <label class="option"><input type="radio" name="q6" value="false"> False</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(6)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(6)">See Answer</button>
+                </div>
+                <div class="hint" id="hint6">Square brackets define a character class.</div>
+                <div class="answer" id="answer6">True - Character classes match any one of the characters inside the brackets.</div>
+                <div class="feedback" id="feedback6"></div>
+            </div>
+
+            <div class="question" data-question="7" data-type="tf">
+                <div class="question-text">8. The pattern <code>[a-z]</code> matches only lowercase letters from 'a' to 'z'.</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q7" value="true"> True</label>
+                    <label class="option"><input type="radio" name="q7" value="false"> False</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(7)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(7)">See Answer</button>
+                </div>
+                <div class="hint" id="hint7">The hyphen in a character class indicates a range.</div>
+                <div class="answer" id="answer7">True - The <code>a-z</code> range matches lowercase letters only.</div>
+                <div class="feedback" id="feedback7"></div>
+            </div>
+
+            <div class="section-title">Section 2: Multiple Choice Questions</div>
+
+            <div class="question" data-question="8" data-type="mc">
+                <div class="question-text">9. What does the <code>i</code> flag do in the regex <code>/hello/i</code>?</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q8" value="a"> Makes the regex match only integers</label>
+                    <label class="option"><input type="radio" name="q8" value="b"> Makes the regex case-insensitive</label>
+                    <label class="option"><input type="radio" name="q8" value="c"> Makes the regex match inline only</label>
+                    <label class="option"><input type="radio" name="q8" value="d"> Makes the regex ignore whitespace</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(8)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(8)">See Answer</button>
+                </div>
+                <div class="hint" id="hint8">This flag affects how the regex treats uppercase vs lowercase.</div>
+                <div class="answer" id="answer8">B - The <code>i</code> flag makes the pattern case-insensitive.</div>
+                <div class="feedback" id="feedback8"></div>
+            </div>
+
+            <div class="question" data-question="9" data-type="mc">
+                <div class="question-text">10. What is the purpose of the <code>g</code> flag in JavaScript regex?</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q9" value="a"> To match only groups</label>
+                    <label class="option"><input type="radio" name="q9" value="b"> To find all matches instead of just the first</label>
+                    <label class="option"><input type="radio" name="q9" value="c"> To make the regex greedy</label>
+                    <label class="option"><input type="radio" name="q9" value="d"> To group characters together</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(9)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(9)">See Answer</button>
+                </div>
+                <div class="hint" id="hint9">Think about "global" searching.</div>
+                <div class="answer" id="answer9">B - The <code>g</code> flag performs a global search (finds all matches).</div>
+                <div class="feedback" id="feedback9"></div>
+            </div>
+
+            <div class="question" data-question="10" data-type="mc">
+                <div class="question-text">11. How many times does <code>a*</code> match the letter 'a'?</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q10" value="a"> Exactly once</label>
+                    <label class="option"><input type="radio" name="q10" value="b"> At least once</label>
+                    <label class="option"><input type="radio" name="q10" value="c"> Zero or more times</label>
+                    <label class="option"><input type="radio" name="q10" value="d"> Exactly twice</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(10)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(10)">See Answer</button>
+                </div>
+                <div class="hint" id="hint10">The <code>*</code> includes the possibility of zero matches.</div>
+                <div class="answer" id="answer10">C - The <code>*</code> quantifier matches zero or more occurrences.</div>
+                <div class="feedback" id="feedback10"></div>
+            </div>
+
+            <div class="question" data-question="11" data-type="mc">
+                <div class="question-text">12. What does the <code>?</code> quantifier mean in regex?</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q11" value="a"> Match two or more times</label>
+                    <label class="option"><input type="radio" name="q11" value="b"> Match zero or one time</label>
+                    <label class="option"><input type="radio" name="q11" value="c"> Match any character</label>
+                    <label class="option"><input type="radio" name="q11" value="d"> End of pattern</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(11)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(11)">See Answer</button>
+                </div>
+                <div class="hint" id="hint11">The <code>?</code> makes the preceding element optional.</div>
+                <div class="answer" id="answer11">B - The <code>?</code> matches zero or one occurrence (optional).</div>
+                <div class="feedback" id="feedback11"></div>
+            </div>
+
+            <div class="question" data-question="12" data-type="mc">
+                <div class="question-text">13. What is the minimum number of matches for the <code>+</code> quantifier?</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q12" value="a"> Zero</label>
+                    <label class="option"><input type="radio" name="q12" value="b"> One</label>
+                    <label class="option"><input type="radio" name="q12" value="c"> Two</label>
+                    <label class="option"><input type="radio" name="q12" value="d"> Three</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(12)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(12)">See Answer</button>
+                </div>
+                <div class="hint" id="hint12">The <code>+</code> requires at least one match.</div>
+                <div class="answer" id="answer12">B - The <code>+</code> matches one or more times (minimum of 1).</div>
+                <div class="feedback" id="feedback12"></div>
+            </div>
+
+            <div class="question" data-question="13" data-type="mc">
+                <div class="question-text">14. Which of the following is the correct syntax for a regex literal in JavaScript?</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q13" value="a"> "pattern"</label>
+                    <label class="option"><input type="radio" name="q13" value="b"> /pattern/</label>
+                    <label class="option"><input type="radio" name="q13" value="c"> (pattern)</label>
+                    <label class="option"><input type="radio" name="q13" value="d"> [pattern]</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(13)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(13)">See Answer</button>
+                </div>
+                <div class="hint" id="hint13">Regex literals use a special delimiter character.</div>
+                <div class="answer" id="answer13">B - Forward slashes enclose regex patterns in JavaScript.</div>
+                <div class="feedback" id="feedback13"></div>
+            </div>
+
+            <div class="question" data-question="14" data-type="mc">
+                <div class="question-text">15. What will <code>[acg]</code> match in the string "bag"?</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q14" value="a"> Only 'a'</label>
+                    <label class="option"><input type="radio" name="q14" value="b"> 'a' and 'g'</label>
+                    <label class="option"><input type="radio" name="q14" value="c"> The entire string "acg"</label>
+                    <label class="option"><input type="radio" name="q14" value="d"> Nothing</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(14)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(14)">See Answer</button>
+                </div>
+                <div class="hint" id="hint14">Character classes match individual characters that are in the set.</div>
+                <div class="answer" id="answer14">B - It matches 'a' and 'g' (any character in the brackets).</div>
+                <div class="feedback" id="feedback14"></div>
+            </div>
+
+            <div class="question" data-question="15" data-type="mc">
+                <div class="question-text">16. What does <code>[a-z]</code> NOT match?</div>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q15" value="a"> 'm'</label>
+                    <label class="option"><input type="radio" name="q15" value="b"> 'z'</label>
+                    <label class="option"><input type="radio" name="q15" value="c"> 'A'</label>
+                    <label class="option"><input type="radio" name="q15" value="d"> 'a'</label>
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(15)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(15)">See Answer</button>
+                </div>
+                <div class="hint" id="hint15">Pay attention to uppercase vs lowercase.</div>
+                <div class="answer" id="answer15">C - <code>[a-z]</code> matches lowercase only, not uppercase 'A'.</div>
+                <div class="feedback" id="feedback15"></div>
+            </div>
+
+            <div class="section-title">Section 3: Fill in the Blank Questions</div>
+
+            <div class="question" data-question="16" data-type="fill">
+                <div class="question-text">17. To make a regex pattern case-insensitive, you add the ____ flag.</div>
+                <div class="fill-blank">
+                    <input type="text" id="q16" placeholder="Type your answer here">
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(16)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(16)">See Answer</button>
+                </div>
+                <div class="hint" id="hint16">This flag stands for "ignore case".</div>
+                <div class="answer" id="answer16">i</div>
+                <div class="feedback" id="feedback16"></div>
+            </div>
+
+            <div class="question" data-question="17" data-type="fill">
+                <div class="question-text">18. The ____ flag is used to find all matches in a string, not just the first one.</div>
+                <div class="fill-blank">
+                    <input type="text" id="q17" placeholder="Type your answer here">
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(17)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(17)">See Answer</button>
+                </div>
+                <div class="hint" id="hint17">This flag stands for "global".</div>
+                <div class="answer" id="answer17">g</div>
+                <div class="feedback" id="feedback17"></div>
+            </div>
+
+            <div class="question" data-question="18" data-type="fill">
+                <div class="question-text">19. The ____ quantifier matches zero or more occurrences of the preceding element.</div>
+                <div class="fill-blank">
+                    <input type="text" id="q18" placeholder="Type your answer here">
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(18)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(18)">See Answer</button>
+                </div>
+                <div class="hint" id="hint18">This symbol is commonly called an asterisk or star.</div>
+                <div class="answer" id="answer18">*</div>
+                <div class="feedback" id="feedback18"></div>
+            </div>
+
+            <div class="question" data-question="19" data-type="fill">
+                <div class="question-text">20. To make a character optional in a regex, use the ____ quantifier.</div>
+                <div class="fill-blank">
+                    <input type="text" id="q19" placeholder="Type your answer here">
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(19)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(19)">See Answer</button>
+                </div>
+                <div class="hint" id="hint19">This symbol is a question mark.</div>
+                <div class="answer" id="answer19">?</div>
+                <div class="feedback" id="feedback19"></div>
+            </div>
+
+            <div class="question" data-question="20" data-type="fill">
+                <div class="question-text">21. The ____ quantifier matches one or more occurrences of the preceding element.</div>
+                <div class="fill-blank">
+                    <input type="text" id="q20" placeholder="Type your answer here">
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(20)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(20)">See Answer</button>
+                </div>
+                <div class="hint" id="hint20">This symbol is a plus sign.</div>
+                <div class="answer" id="answer20">+</div>
+                <div class="feedback" id="feedback20"></div>
+            </div>
+
+            <div class="question" data-question="21" data-type="fill">
+                <div class="question-text">22. In JavaScript, regex literals are enclosed in ____ characters.</div>
+                <div class="fill-blank">
+                    <input type="text" id="q21" placeholder="Type your answer here">
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(21)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(21)">See Answer</button>
+                </div>
+                <div class="hint" id="hint21">These are the same characters used in division and URLs.</div>
+                <div class="answer" id="answer21">/</div>
+                <div class="feedback" id="feedback21"></div>
+            </div>
+
+            <div class="question" data-question="22" data-type="fill">
+                <div class="question-text">23. To match any one of the characters a, c, or g, you would write ____.</div>
+                <div class="fill-blank">
+                    <input type="text" id="q22" placeholder="Type your answer here">
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(22)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(22)">See Answer</button>
+                </div>
+                <div class="hint" id="hint22">Use square brackets to create a character class.</div>
+                <div class="answer" id="answer22">[acg]</div>
+                <div class="feedback" id="feedback22"></div>
+            </div>
+
+            <div class="question" data-question="23" data-type="fill">
+                <div class="question-text">24. To match any lowercase letter from a to z, write ____.</div>
+                <div class="fill-blank">
+                    <input type="text" id="q23" placeholder="Type your answer here">
+                </div>
+                <div class="button-group">
+                    <button class="hint-btn" onclick="toggleHint(23)">Hints</button>
+                    <button class="answer-btn" onclick="showAnswer(23)">See Answer</button>
+                </div>
+                <div class="hint" id="hint23">Use a hyphen to indicate a range within square brackets.</div>
+                <div class="answer" id="answer23">[a-z]</div>
+                <div class="feedback" id="feedback23"></div>
+            </div>
+
+            <button class="submit-btn" onclick="submitQuiz()">Submit Quiz</button>
+        </div>
+
+        <div id="results" style="display: none;"></div>
+    </div>
+
+    <script>
+        let startTime = Date.now();
+        let timerInterval;
+        let answersShown = new Set();
+
+        // Start timer
+        timerInterval = setInterval(updateTimer, 1000);
+
+        function updateTimer() {
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function toggleHint(qNum) {
+            const hint = document.getElementById(`hint${qNum}`);
+            if (hint.style.display === 'block') {
+                hint.style.display = 'none';
+            } else {
+                hint.style.display = 'block';
+            }
+        }
+
+        function showAnswer(qNum) {
+            const answer = document.getElementById(`answer${qNum}`);
+            answer.style.display = 'block';
+            answersShown.add(qNum);
+
+            // Set the correct answer for the question
+            const question = document.querySelector(`[data-question="${qNum}"]`);
+            const type = question.getAttribute('data-type');
+
+            if (type === 'tf') {
+                const correctAnswers = {
+                    0: 'true', 1: 'false', 2: 'true', 3: 'false',
+                    4: 'true', 5: 'true', 6: 'true', 7: 'true'
+                };
+                const radios = document.getElementsByName(`q${qNum}`);
+                radios.forEach(radio => {
+                    if (radio.value === correctAnswers[qNum]) {
+                        radio.checked = true;
+                    }
+                });
+            } else if (type === 'mc') {
+                const correctAnswers = {
+                    8: 'b', 9: 'b', 10: 'c', 11: 'b',
+                    12: 'b', 13: 'b', 14: 'b', 15: 'c'
+                };
+                const radios = document.getElementsByName(`q${qNum}`);
+                radios.forEach(radio => {
+                    if (radio.value === correctAnswers[qNum]) {
+                        radio.checked = true;
+                    }
+                });
+            } else if (type === 'fill') {
+                const correctAnswers = {
+                    16: 'i', 17: 'g', 18: '*', 19: '?',
+                    20: '+', 21: '/', 22: '[acg]', 23: '[a-z]'
+                };
+                document.getElementById(`q${qNum}`).value = correctAnswers[qNum];
+            }
+        }
+
+        function submitQuiz() {
+            clearInterval(timerInterval);
+            
+            let score = 0;
+            let totalQuestions = 24;
+            let correctCount = 0;
+
+            const tfAnswers = ['true', 'false', 'true', 'false', 'true', 'true', 'true', 'true'];
+            const mcAnswers = ['b', 'b', 'c', 'b', 'b', 'b', 'b', 'c'];
+            const fillAnswers = ['i', 'g', '*', '?', '+', '/', '[acg]', '[a-z]'];
+
+            // Check True/False (questions 0-7)
+            for (let i = 0; i < 8; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                const feedback = document.getElementById(`feedback${i}`);
+                
+                if (selected && selected.value === tfAnswers[i]) {
+                    if (!answersShown.has(i)) {
+                        score += 100;
+                        correctCount++;
+                        feedback.textContent = '✓ Correct! (+100 points)';
+                        feedback.className = 'feedback correct';
+                    } else {
+                        feedback.textContent = '✓ Correct (no points - answer was shown)';
+                        feedback.className = 'feedback correct';
+                    }
+                } else if (selected) {
+                    feedback.textContent = '✗ Incorrect';
+                    feedback.className = 'feedback incorrect';
+                } else {
+                    feedback.textContent = '- No answer selected';
+                    feedback.className = 'feedback';
+                }
+                feedback.style.display = 'block';
+            }
+
+            // Check Multiple Choice (questions 8-15)
+            for (let i = 0; i < 8; i++) {
+                const qNum = i + 8;
+                const selected = document.querySelector(`input[name="q${qNum}"]:checked`);
+                const feedback = document.getElementById(`feedback${qNum}`);
+                
+                if (selected && selected.value === mcAnswers[i]) {
+                    if (!answersShown.has(qNum)) {
+                        score += 100;
+                        correctCount++;
+                        feedback.textContent = '✓ Correct! (+100 points)';
+                        feedback.className = 'feedback correct';
+                    } else {
+                        feedback.textContent = '✓ Correct (no points - answer was shown)';
+                        feedback.className = 'feedback correct';
+                    }
+                } else if (selected) {
+                    feedback.textContent = '✗ Incorrect';
+                    feedback.className = 'feedback incorrect';
+                } else {
+                    feedback.textContent = '- No answer selected';
+                    feedback.className = 'feedback';
+                }
+                feedback.style.display = 'block';
+            }
+
+            // Check Fill in the Blank (questions 16-23)
+            for (let i = 0; i < 8; i++) {
+                const qNum = i + 16;
+                const answer = document.getElementById(`q${qNum}`).value.trim().toLowerCase();
+                const feedback = document.getElementById(`feedback${qNum}`);
+                const correctAnswer = fillAnswers[i].toLowerCase();
+                
+                let isCorrect = false;
+                if (qNum === 16 && answer === 'i') isCorrect = true;
+                else if (qNum === 17 && answer === 'g') isCorrect = true;
+                else if (qNum === 18 && answer === '*') isCorrect = true;
+                else if (qNum === 19 && answer === '?') isCorrect = true;
+                else if (qNum === 20 && answer === '+') isCorrect = true;
+                else if (qNum === 21 && (answer === '/' || answer === 'forward slash' || answer === 'slashes' || answer === 'forward slashes')) isCorrect = true;
+                else if (qNum === 22 && answer === '[acg]') isCorrect = true;
+                else if (qNum === 23 && answer === '[a-z]') isCorrect = true;
+                
+                if (isCorrect) {
+                    if (!answersShown.has(qNum)) {
+                        score += 100;
+                        correctCount++;
+                        feedback.textContent = '✓ Correct! (+100 points)';
+                        feedback.className = 'feedback correct';
+                    } else {
+                        feedback.textContent = '✓ Correct (no points - answer was shown)';
+                        feedback.className = 'feedback correct';
+                    }
+                } else if (answer) {
+                    feedback.textContent = `✗ Incorrect (Correct answer: ${fillAnswers[i]})`;
+                    feedback.className = 'feedback incorrect';
+                } else {
+                    feedback.textContent = '- No answer provided';
+                    feedback.className = 'feedback';
+                }
+                feedback.style.display = 'block';
+            }
+
+            // Calculate time bonus
+            const timeElapsed = Math.floor((Date.now() - startTime) / 1000);
+            const minutes = Math.floor(timeElapsed / 60);
+            const seconds = timeElapsed % 60;
+            
+            let timeBonus = 0;
+            if (timeElapsed > 120) {
+                timeBonus = -Math.floor((timeElapsed - 120) / 10) * 10;
+            }
+            
+            const finalScore = Math.max(0, score + timeBonus);
+
+            // Display results
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `
+                <div class="results">
+                    <h2>Quiz Complete!</h2>
+                    <p><strong>Correct Answers:</strong> ${correctCount} / ${totalQuestions}</p>
+                    <p><strong>Points from Correct Answers:</strong> ${score}</p>
+                    <p><strong>Time:</strong> ${minutes}:${seconds.toString().padStart(2, '0')}</p>
+                    <p><strong>Time Adjustment:</strong> ${timeBonus} points</p>
+                    <p><strong>Final Score:</strong> ${finalScore} / 2400</p>
+                </div>
+            `;
+            resultsDiv.style.display = 'block';
+
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
