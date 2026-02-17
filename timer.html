@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Background Beeping Timer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+    }
+    label, input, button {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Background Beeping Timer</h1>
+
+  <label for="minutes">Minutes between beeps:</label>
+  <input id="minutes" type="number" value="2" min="0.1" step="0.1" />
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+
+  <script>
+    let timerId = null;
+    let countdownId = null;
+    let intervalMs = 0;
+    let endTime = 0;
+
+    const beep = () => {
+      // Use Web Audio API oscillator (works reliably across browsers)
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = "sine";
+      osc.frequency.value = 880; // beep tone
+      gain.gain.value = 0.2;     // volume
+
+      osc.connect(gain).connect(ctx.destination);
+
+      osc.start();
+      osc.stop(ctx.currentTime + 0.2); // 200 ms beep
+    };
+
+    const updateCountdown = () => {
+      const remainingMs = endTime - Date.now();
+      const seconds = Math.max(0, Math.ceil(remainingMs / 1000));
+      document.getElementById("countdown").textContent = `Next beep in: ${seconds} seconds`;
+      if (remainingMs <= 0) endTime = Date.now() + intervalMs;
+    };
+
+    document.getElementById("start").addEventListener("click", () => {
+      const minutes = parseFloat(document.getElementById("minutes").value);
+      if (isNaN(minutes) || minutes <= 0) {
+        alert("Please enter a valid number of minutes.");
+        return;
+      }
+
+      if (timerId) clearInterval(timerId);
+      if (countdownId) clearInterval(countdownId);
+
+      intervalMs = minutes * 60 * 1000;
+
+      // First beep immediately
+      beep();
+
+      // Set next beep time
+      endTime = Date.now() + intervalMs;
+
+      // Start countdown
+      updateCountdown();
+      countdownId = setInterval(updateCountdown, 1000);
+
+      // Schedule repeated beeps
+      timerId = setInterval(() => {
+        beep();
+        endTime = Date.now() + intervalMs;
+      }, intervalMs);
+    });
+
+    document.getElementById("stop").addEventListener("click", () => {
+      if (timerId) clearInterval(timerId);
+      if (countdownId) clearInterval(countdownId);
+      document.getElementById("countdown").textContent = "Next beep in: -- seconds";
+    });
+  </script>
+  <p id="countdown" style="font-size:1.5rem; margin-top:1rem;">Next beep in: -- seconds</p>
+
+  <script>
+    let timerId = null;
+    let countdownId = null;
+    let remainingMs = 0;
+
+    const beep = () => {
+      const audio = new Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAIlYAACJWAAACABAAZGF0YQAAAAAAgICAf39/fwAAAP///wD///8A////AP///wD///8A////AP///wD///8A");
+      audio.play();
+    };
+
+    const updateCountdown = () => {
+      remainingMs -= 1000;
+      if (remainingMs < 0) remainingMs = 0;
+      const seconds = Math.ceil(remainingMs / 1000);
+      document.getElementById("countdown").textContent = `Next beep in: ${seconds} seconds`;
+    };
+
+    document.getElementById("start").addEventListener("click", () => {
+      const minutes = parseFloat(document.getElementById("minutes").value);
+      if (isNaN(minutes) || minutes <= 0) {
+        alert("Please enter a valid number of minutes.");
+        return;
+      }
+
+      if (timerId) clearInterval(timerId);
+      if (countdownId) clearInterval(countdownId);
+
+      const intervalMs = minutes * 60 * 1000;
+
+      beep();
+      remainingMs = intervalMs;
+      document.getElementById("countdown").textContent = `Next beep in: ${Math.ceil(remainingMs/1000)} seconds`;
+
+      countdownId = setInterval(updateCountdown, 1000);
+      timerId = setInterval(() => {
+        beep();
+        remainingMs = intervalMs;
+      }, intervalMs);
+    });
+
+    document.getElementById("stop").addEventListener("click", () => {
+      if (timerId) clearInterval(timerId);
+      if (countdownId) clearInterval(countdownId);
+      timerId = null;
+      countdownId = null;
+      document.getElementById("countdown").textContent = "Next beep in: -- seconds";
+    });
+  </script>
+</body>
+</html>
