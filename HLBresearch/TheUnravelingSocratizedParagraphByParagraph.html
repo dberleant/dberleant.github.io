@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Unraveling: SDT Tutorial</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; background-color: #f4f7f6; }
+        h2, h3 { color: #2c3e50; border-bottom: 2px solid #2c3e50; padding-bottom: 10px; margin-top: 40px; }
+        .sentence-block { background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 40px; }
+        .source-line { display: block; margin-bottom: 20px; font-style: italic; color: #555; border-left: 4px solid #3182ce; padding-left: 15px; }
+        .interaction-box { background: #edf2f7; padding: 20px; border-radius: 6px; border: 1px solid #e2e8f0; margin-top: 15px; }
+        .question-group { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #cbd5e0; }
+        .question-group:last-child { border-bottom: none; }
+        .question-text { font-weight: bold; display: block; margin-bottom: 10px; color: #2d3748; }
+        button { background: #3182ce; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; margin-right: 5px; margin-bottom: 5px; transition: background 0.2s; }
+        button:hover { background: #2b6cb0; }
+        button.hint-btn { background: #718096; }
+        button.comm-btn { background: #4a5568; }
+        .fb { font-size: 0.95em; margin-top: 10px; font-weight: 500; }
+        #score-board { position: fixed; bottom: 20px; right: 20px; background: #2d3748; color: white; padding: 15px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+
+<br><br>
+<center>
+<table border="2" style="font-weight: bold; border-collapse: collapse; max-width: 900px;">
+  <tr>
+    <td style="padding: 10px; text-align: center;">
+      <a href="TheUnraveling.html">Original version</a>
+    </td>
+    <td style="padding: 10px; text-align: center;">
+      <a href="TheUnravelingSocratizedSentenceBySentence.html">Sentence-by-sentence Socratic tutorial version</a>
+    </td>
+    <td style="padding: 10px; text-align: center;">
+      <a href="TheUnravelingSocratizedParagraphByParagraph.html">Paragraph-by-paragraph Socratic tutorial version</a>
+    </td>
+  </tr>
+</table>
+</center>
+<div id="score-board">Score: <span id="score">0</span> / 18</div>
+
+<h2>The Unraveling: Structural-Demographic Theory and the Crisis of Modern America</h2>
+
+<div class="sentence-block">
+    <span class="source-line">Source: <strong>Structural-demographic theory (SDT), developed principally by the historian and complexity scientist Peter Turchin, offers a rigorous quantitative framework for understanding why complex societies periodically descend into political crisis, fragmentation, and even collapse. Drawing on centuries of historical data from agrarian empires to modern nation-states, SDT identifies recurring cycles in which population pressures, elite overproduction, and state fiscal stress interact to produce waves of instability lasting decades. The United States today, Turchin and his colleagues argue, is deep inside one of these crisis phases — a conclusion that feels less controversial with each passing year. At the core of SDT is a simple but powerful observation: the long-run stability of any society depends on a rough balance between the productive capacity of its economy and the material expectations of its population, particularly its elites. When that balance breaks down, the consequences ripple outward through institutions, culture, and politics in ways that appear chaotic but are in fact structurally predictable.</strong></span>
+    
+    <div class="interaction-box">
+        <div class="question-group">
+            <span class="question-text">Q1: True or False: According to the passage, SDT suggests that social collapse is a random, unpredictable event that cannot be studied using quantitative data.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text calls SDT a “rigorous quantitative framework” and states that the consequences are “structurally predictable.”')">True</button>
+            <button onclick="handleResponse(this, true, 'Correct! SDT treats historical instability as a recurring cycle driven by measurable factors rather than random chance.')">False</button>
+            <button class="hint-btn" onclick="this.innerHTML='Hint: Look for “structurally predictable” in the last sentence.'">Hint</button>
+            <button class="comm-btn" onclick="alert('Commentary: Turchin treats human societies like weather systems—complex, yet following feedback loops.')">Commentary</button>
+        </div>
+        <div class="question-group">
+            <span class="question-text">Q2: True or False: The text claims that the stability of a society relies on a balance between economic productive capacity and the expectations of its population.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, true, 'Correct! The text identifies this rough balance as the “core of SDT.”')">True</button>
+            <button onclick="handleResponse(this, false, 'Incorrect. The passage explicitly states that long-run stability depends on this specific balance.')">False</button>
+            <button class="hint-btn" onclick="this.innerHTML='Hint: Look at the fourth sentence.'">Hint</button>
+        </div>
+        <div class="question-group">
+            <span class="question-text">Q3: True or False: Turchin argues that the United States is currently in the early, stable phase of its structural-demographic cycle.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text says the U.S. is “deep inside one of these crisis phases.”')">True</button>
+            <button onclick="handleResponse(this, true, 'Correct! Turchin believes the U.S. is currently in a period of intense structural instability.')">False</button>
+            <button class="hint-btn" onclick="this.innerHTML='Hint: Check the third sentence.'">Hint</button>
+        </div>
+    </div>
+</div>
+
+<h3>The Wealth Pump</h3>
+<div class="sentence-block">
+    <span class="source-line">Source: <strong>The "wealth pump" is one of SDT's most clarifying concepts, describing the systemic transfer of income and assets upward from working people to elites over extended periods. In healthy societies, the relationship between labor and capital is modestly reciprocal — wages rise alongside productivity, and a broad middle class enjoys improving material conditions. But when the wealth pump activates, productivity gains are increasingly captured by a narrow ownership class while real wages for workers stagnate or decline. The United States has run a vigorous wealth pump since roughly the 1970s, when the postwar social compact between capital and labor began to erode under the combined pressures of deregulation, financialization, union decline, and globalization. Over the subsequent five decades, the share of national income flowing to the bottom half of the distribution collapsed while the top one percent's share nearly tripled.</strong></span>
+    
+    <div class="interaction-box">
+        <div class="question-group">
+            <span class="question-text">Q1: True or False: According to the passage, the "wealth pump" involves a systemic upward transfer of assets from the working class to the elite class.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, true, 'Correct! The first sentence defines it as a “systemic transfer... upward.”')">True</button>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text states that assets move upward.')">False</button>
+            <button class="hint-btn" onclick="this.innerHTML='Hint: Check sentence 1.'">Hint</button>
+        </div>
+        <div class="question-group">
+            <span class="question-text">Q2: True or False: The passage asserts that the "postwar social compact" began to erode in the 1970s due to factors like deregulation and union decline.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, true, 'Correct! The text explicitly lists deregulation and union decline as factors.')">True</button>
+            <button onclick="handleResponse(this, false, 'Incorrect. The passage credits these factors with eroding the social compact.')">False</button>
+        </div>
+        <div class="question-group">
+            <span class="question-text">Q3: True or False: According to the text, the top 1% saw their share of national income nearly triple over the last five decades.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, true, 'Correct! The text highlights this near-tripling while the bottom half share collapsed.')">True</button>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text confirms this tripling in the final sentence.')">False</button>
+        </div>
+    </div>
+</div>
+
+<div class="sentence-block">
+    <span class="source-line">Source: <strong>This process is what SDT calls the "relative immiseration" of the working and middle classes — a term that does not necessarily imply absolute destitution but rather a progressive deterioration in security, opportunity, and social status relative to expectations and to elites. Relative immiseration is particularly destabilizing, psychologically and politically, because it unfolds against a backdrop of visible elite prosperity, generating corrosive feelings of betrayal, resentment, and status anxiety. American workers today are, by many measures, dramatically more productive than their counterparts in 1980, yet median real wages have grown only modestly, housing costs have soared, healthcare is ruinously expensive, higher education has become a debt trap, and retirement security has evaporated for millions. The professional middle class — lawyers, academics, journalists, managers, engineers — has fared better in absolute terms but faces its own squeeze: credential inflation, intensifying competition for diminishing positions of security and prestige, and a growing awareness that the ladders of upward mobility their parents climbed are being pulled up. This class has not been spared the wealth pump; it has simply been positioned closer to the intake valve while the discharge flows to those far above.</strong></span>
+    
+    <div class="interaction-box">
+        <div class="question-group">
+            <span class="question-text">Q1: True or False: "Relative immiseration" means that the population is facing absolute destitution and starvation.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text explicitly says it does NOT necessarily imply absolute destitution, but a decline relative to expectations.')">True</button>
+            <button onclick="handleResponse(this, true, 'Correct! It is about a deterioration in security and status compared to the elites and past expectations.')">False</button>
+            <button class="hint-btn" onclick="this.innerHTML='Hint: Read the first sentence carefully.'">Hint</button>
+        </div>
+        <div class="question-group">
+            <span class="question-text">Q2: True or False: The text suggests that the professional middle class is also affected by the wealth pump through intensifying competition and credential inflation.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, true, 'Correct! The text states this class has not been spared the pump.')">True</button>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text mentions their struggle with credential inflation and competition.')">False</button>
+        </div>
+        <div class="question-group">
+            <span class="question-text">Q3: True or False: Relative immiseration is psychologically destabilizing because it occurs while elite prosperity is visible.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, true, 'Correct! The text says it unfolds against a “backdrop of visible elite prosperity.”')">True</button>
+            <button onclick="handleResponse(this, false, 'Incorrect. This visibility is cited as the source of resentment and betrayal.')">False</button>
+        </div>
+    </div>
+</div>
+
+<h3>Too Crowded at the Top</h3>
+<div class="sentence-block">
+    <span class="source-line">Source: <strong>Elite overproduction is the mechanism through which relative immiseration of the upper-middle class transmits into political catastrophe. As Turchin defines it, elite overproduction occurs when a society generates more aspirants to elite status — more lawyers, more MBAs, more political operatives, more financiers, more credentialed professionals — than the existing institutional order can absorb into positions of genuine power and reward. The result is a swelling class of frustrated counter-elites: highly educated, ambitious individuals who possess the cultural capital and social networks of elites but are blocked from the wealth and institutional authority they feel entitled to. Historically, this class has been the primary recruiting ground for revolutionary movements, factional insurgencies, and political demagogues — not because its members are uniquely wicked, but because they are structurally incentivized to attack institutions that have failed to accommodate them. In contemporary America, elite overproduction is visible in the radicalization of both left and right factions of the professional class, in the explosion of political media ecosystems that monetize outrage, and in the emergence of billionaire-funded political movements that deploy frustrated elites as shock troops against the established order.</strong></span>
+    
+    <div class="interaction-box">
+        <div class="question-group">
+            <span class="question-text">Q1: True or False: "Elite Overproduction" occurs when a society generates more aspirants to elite status than the institutional order can absorb.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, true, 'Correct! This is the definition provided in the text.')">True</button>
+            <button onclick="handleResponse(this, false, 'Incorrect. This is exactly what the text describes.')">False</button>
+        </div>
+        <div class="question-group">
+            <span class="question-text">Q2: True or False: The text argues that "counter-elites" attack institutions because they are uniquely wicked or immoral.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text says it is because they are “structurally incentivized,” not wicked.')">True</button>
+            <button onclick="handleResponse(this, true, 'Correct! The problem is structural (too many aspirants, too few spots).')">False</button>
+        </div>
+        <div class="question-group">
+            <span class="question-text">Q3: True or False: Frustrated elites are historically the primary recruiting ground for revolutionary movements and political demagogues.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, true, 'Correct! The text identifies this group as the “primary recruiting ground.”')">True</button>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text explicitly links this class to revolutionary movements.')">False</button>
+        </div>
+    </div>
+</div>
+
+<h3>The Golden Rule</h3>
+<div class="sentence-block">
+    <span class="source-line">Source: <strong>The "golden rule" in SDT's framework refers to the informal norm — essential to stable governance — that elites broadly accept the rules of the political game, refrain from using their wealth to capture institutions outright, maintain a threshold of investment in the common good that sustains their own prosperity, and avoid extracting so much of the nation's wealth that others are impoverished to the point that deeper moral and philosophical principles are violated. When elite extraction crosses this threshold, it collides not only with the classical golden rule... but also with Kant's categorical imperative... The Founders did not imagine happiness as a lottery prize for the fortunate few; they framed its pursuit as a universal right that legitimate government exists precisely to protect and enable. When elite overproduction and the wealth pump combine to systematically foreclose that pursuit... they do not merely destabilize the polity... they betray the foundational moral contract on which the American project was staked.</strong></span>
+    
+    <div class="interaction-box">
+        <div class="question-group">
+            <span class="question-text">Q1: True or False: The "Golden Rule" includes elites refraining from using their wealth to capture institutions outright.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, true, 'Correct! This is a core part of the informal norm described.')">True</button>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text includes institutional capture as a violation.')">False</button>
+        </div>
+        <div class="question-group">
+            <span class="question-text">Q2: True or False: The text claims that treating citizens as mere "factors of production" is a violation of Kant's categorical imperative.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, true, 'Correct! Kant’s rule demands people be treated as ends in themselves.')">True</button>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text explicitly links this to Kantian ethics.')">False</button>
+        </div>
+        <div class="question-group">
+            <span class="question-text">Q3: True or False: The text suggests that the pursuit of happiness requires only the absence of legal restraint, not actual resources.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text says it requires the “actual presence of material resources.”')">True</button>
+            <button onclick="handleResponse(this, true, 'Correct! The text argues for a positive presence of opportunity.')">False</button>
+        </div>
+    </div>
+</div>
+
+<h3>The Path Forward</h3>
+<div class="sentence-block">
+    <span class="source-line">Source: <strong>None of this implies that collapse is inevitable or that the trajectory is fixed. SDT is explicitly cyclical — it describes how societies fall into crisis and how, through painful renegotiation of elite bargains and redistribution of resources, they eventually reconstitute a new equilibrium. The New Deal, in Turchin's reading, was precisely such a renegotiation: faced with the threat of revolutionary upheaval, American elites accepted a dramatic compression of the wealth distribution, a strengthening of labor's bargaining power, and a vast expansion of state capacity, buying several decades of unusual social cohesion in return. Whether a comparable renegotiation is possible in the current environment... is the defining political question of this era. What structural-demographic theory tells us, with uncomfortable clarity, is that the forces now operating on American society... will not resolve themselves without deliberate, structural, and probably painful intervention.</strong></span>
+    
+    <div class="interaction-box">
+        <div class="question-group">
+            <span class="question-text">Q1: True or False: The New Deal is cited as an example of a successful renegotiation of elite bargains.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, true, 'Correct! It is used as a historical proof of concept for resetting the cycle.')">True</button>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text explicitly names the New Deal.')">False</button>
+        </div>
+        <div class="question-group">
+            <span class="question-text">Q2: True or False: SDT suggests that these social forces will resolve themselves naturally without any structural intervention.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, false, 'Incorrect. The text says they “will not resolve themselves without deliberate intervention.”')">True</button>
+            <button onclick="handleResponse(this, true, 'Correct! The theory argues that deliberate and often painful action is required.')">False</button>
+        </div>
+        <div class="question-group">
+            <span class="question-text">Q3: True or False: According to the text, SDT identifies the trajectory as fixed and collapse as inevitable.</span>
+            <div class="fb" style="display:none; padding:10px; border-radius:4px;"></div>
+            <button onclick="handleResponse(this, false, 'Incorrect. The first sentence says neither is true.')">True</button>
+            <button onclick="handleResponse(this, true, 'Correct! The text says neither collapse is inevitable nor the trajectory fixed.')">False</button>
+        </div>
+    </div>
+</div>
+
+<p align="center">The End. And the beginning.</p>
+
+<script>
+    let correctAnswers = 0;
+    const answeredQuestions = new Set();
+
+    function handleResponse(btn, isCorrect, message) {
+        const questionGroup = btn.parentElement;
+        const feedbackDiv = questionGroup.querySelector('.fb');
+        const questionId = questionGroup.querySelector('.question-text').innerText;
+        
+        feedbackDiv.innerHTML = message;
+        feedbackDiv.style.display = 'block';
+        
+        if (isCorrect) {
+            feedbackDiv.style.background = '#f0fff4';
+            feedbackDiv.style.color = '#276749';
+            feedbackDiv.style.border = '1px solid #9ae6b4';
+            
+            if (!answeredQuestions.has(questionId)) {
+                correctAnswers++;
+                answeredQuestions.add(questionId);
+                document.getElementById('score').innerText = correctAnswers;
+            }
+        } else {
+            feedbackDiv.style.background = '#fff5f5';
+            feedbackDiv.style.color = '#c53030';
+            feedbackDiv.style.border = '1px solid #feb2b2';
+        }
+    }
+</script>
+
+</body>
+</html>
