@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Sandbox + Help</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify-html.min.js"></script>
+    <style>
+        /* --- CORE STYLES --- */
+        * { box-sizing: border-box; }
+        body { 
+            margin: 0; padding: 0; height: 100vh; 
+            display: flex; flex-direction: column; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background-color: #202124; color: #fff; 
+            overflow: hidden;
+        }
+
+        /* --- HEADER --- */
+        header {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 15px; background-color: #2d2e31; border-bottom: 1px solid #3c4043; height: 45px; flex-shrink: 0;
+        }
+        h1 { font-size: 0.85rem; margin: 0; font-weight: bold; color: #a8c7fa; letter-spacing: 1px; }
+        .controls { display: flex; gap: 5px; align-items: center; }
+        
+        button { 
+            padding: 5px 8px; border: none; border-radius: 4px; 
+            cursor: pointer; font-weight: 600; font-size: 0.68rem; 
+            color: white; background-color: #444; transition: all 0.2s;
+            white-space: nowrap;
+        }
+        button:hover { background-color: #555; }
+        
+        .btn-run { background-color: #2da44e; }
+        .btn-format { background-color: #6e7681; }
+        .btn-save { background-color: #0969da; }      
+        .btn-help { background-color: #f39c12; }
+        .btn-toggle { background-color: #3e444d; } 
+        .btn-download { background-color: #8250df; }  
+        .btn-reset { background-color: #cf222e; }      
+
+        label { font-size: 0.65rem; user-select: none; cursor: pointer; color: #9aa0a6; margin-right: 5px; }
+
+        /* --- WORKSPACE & PANELS --- */
+        .workspace { display: flex; flex: 1; overflow: hidden; width: 100%; }
+        .gutter { background-color: #111; flex-shrink: 0; z-index: 10; }
+        .gutter:hover, .gutter.dragging { background-color: #a8c7fa; }
+        .gutter-h { width: 6px; cursor: col-resize; border-left: 1px solid #3c4043; border-right: 1px solid #3c4043; }
+        .gutter-v { height: 6px; cursor: row-resize; border-top: 1px solid #3c4043; border-bottom: 1px solid #3c4043; }
+
+        .editor-pane { width: 50%; display: flex; flex-direction: column; min-width: 100px; }
+        .right-pane { flex: 1; display: flex; flex-direction: column; min-width: 100px; }
+        
+        .preview-pane { height: 60%; display: flex; flex-direction: column; background-color: white; min-height: 50px; }
+        .preview-pane.dark-mode { background-color: #121212; }
+        .preview-pane.dark-mode iframe { filter: invert(90%) hue-rotate(180deg); background-color: #fff; }
+
+        .console-pane { flex: 1; display: flex; flex-direction: column; background-color: #0d0d0d; min-height: 50px; }
+        
+        textarea {
+            flex: 1; width: 100%; resize: none; border: none; outline: none; padding: 15px;
+            background-color: #1e1e1e; color: #d4d4d4;
+            font-family: 'SFMono-Regular', Consolas, monospace; font-size: 13px; line-height: 1.6;
+        }
+
+        iframe { flex: 1; width: 100%; border: none; display: block; }
+
+        .console-output { flex: 1; overflow-y: auto; padding: 10px; font-family: monospace; font-size: 12px; }
+        .log-entry { margin-bottom: 4px; border-bottom: 1px solid #222; padding-bottom: 2px; white-space: pre-wrap; word-break: break-all; }
+        .log-info { color: #ccc; }
+        .log-warn { color: #cca700; background: #2d2a16; border-left: 3px solid #cca700; padding-left: 5px; }
+        .log-error { color: #f85149; background: #2d1616; border-left: 3px solid #f85149; padding-left: 5px; }
+        .timestamp { color: #555; font-size: 0.85em; margin-right: 8px; }
+
+        .iframe-pointer-none { pointer-events: none; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SANDBOX</h1>
+        <div class="controls">
+            <label><input type="checkbox" id="autoRun"> Auto-Run</label>
+            <button class="btn-run" onclick="runCode()">Run ▶</button>
+            <button class="btn-format" onclick="formatCode()">Format code</button>
+            <button class="btn-save" onclick="saveAll()">Save code</button>
+            <button class="btn-help" onclick="showHelp()">Help</button>
+            <!-- FIX 2: Button now shows current mode state -->
+            <button class="btn-toggle" id="toggleBtn" onclick="togglePreviewMode()">☀️ Light mode</button>
+            <button class="btn-download" onclick="downloadCode()">Download .html</button>
+            <button class="btn-reset" onclick="clearCode()">Reset</button>
+        </div>
+    </header>
+
+    <div class="workspace">
+        <div class="editor-pane" id="editorPane">
+            <textarea id="codeEditor" spellcheck="false" autocomplete="off"></textarea>
+        </div>
+        <div class="gutter gutter-h" id="resizerH"></div>
+        <div class="right-pane" id="rightPane">
+            <!-- FIX 2 & 4: dark-mode class removed from HTML; state is applied via JS on load from storage -->
+            <div class="preview-pane" id="previewPane">
+                <iframe id="previewFrame"></iframe>
+            </div>
+            <div class="gutter gutter-v" id="resizerV"></div>
+            <div class="console-pane" id="consolePane">
+                <div id="consoleOutput" class="console-output"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const editor = document.getElementById('codeEditor');
+        const previewPane = document.getElementById('previewPane');
+        const consoleOutput = document.getElementById('consoleOutput');
+        const autoRunCheckbox = document.getElementById('autoRun');
+        const toggleBtn = document.getElementById('toggleBtn');
+        
+        const STORAGE_CODE = 'sandbox_code';
+        const STORAGE_LAYOUT = 'sandbox_layout';
+        const STORAGE_DARK = 'sandbox_darkmode'; // FIX 4: new key for dark mode persistence
+
+        // 1. HELP FUNCTION
+        function showHelp() {
+            if(confirm("Replace current code with the Help Guide?")) {
+                const helpHTML = `<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: sans-serif; line-height: 1.6; padding: 25px; color: #333; max-width: 800px; margin: auto; }
+    h1 { color: #0969da; border-bottom: 2px solid #eaecef; padding-bottom: 10px; }
+    h3 { margin-top: 25px; color: #24292f; display: flex; align-items: center; }
+    code { background: #f6f8fa; padding: 3px 6px; border-radius: 6px; font-family: monospace; font-size: 90%; }
+    .btn-ref { display: inline-block; padding: 2px 8px; border-radius: 4px; color: white; font-size: 0.8em; font-weight: bold; margin-right: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Sandbox Toolbar Guide</h1>
+  
+  <h3><span class="btn-ref" style="background:#888888">Auto-run</span> Execute Code Automatically When Edited</h3>
+  <p>When this checkbox is checked, runs the code when the edit area is edited. When unchecked, user must click the "Run" button to run the code.</p>
+
+  <h3><span class="btn-ref" style="background:#2da44e">Run ▶</span> Execute Code</h3>
+  <p>Manually refreshes the <b>Live Preview</b> and clears the <b>Console</b>. Use this if Auto-Run is turned off.</p>
+
+  <h3><span class="btn-ref" style="background:#6e7681">Format code</span> Tidy Indentation</h3>
+  <p>Uses the <code>js-beautify</code> library to fix messy indentation and align HTML tags automatically.</p>
+
+  <h3><span class="btn-ref" style="background:#0969da">Save code</span> Local Storage</h3>
+  <p>Saves your current work to the browser's <code>localStorage</code>. It will stay there even if you refresh the page or close the browser.</p>
+
+  <h3><span class="btn-ref" style="background:#3e444d">dark/light toggle</span> Preview Theme</h3>
+  <p>Flips the <b>Live Preview</b> pane background. <b>Dark mode</b> uses a CSS filter to invert colors safely for night coding. Your preference is saved automatically.</p>
+
+  <h3><span class="btn-ref" style="background:#8250df">Download .html</span> Export File</h3>
+  <p>Prompts you for a filename and downloads your code as a standalone <code>.html</code> file to your computer.</p>
+
+  <h3><span class="btn-ref" style="background:#cf222e">Reset</span> Wipe Editor</h3>
+  <p>Deletes everything in the editor, clears saved code, and loads a clean, empty HTML5 boilerplate.</p>
+
+  <hr>
+  <p><i><b>Pro Tip:</b> Press <code>Tab</code> to indent code by 2 spaces, and use <code>Ctrl + S</code> to quickly save.</i></p>
+  
+  <script>console.log("Help Guide Loaded.");<\/script>
+</body>
+</html>`;
+                editor.value = helpHTML;
+                runCode();
+                updateCustomConsole('info', 'Help guide loaded into editor.');
+            }
+        }
+
+        function formatCode() {
+            if (typeof html_beautify === 'undefined') return;
+            const cleanCode = html_beautify(editor.value, { indent_size: 2, indent_inner_html: true });
+            editor.value = cleanCode;
+            updateCustomConsole('info', 'Code formatted.');
+            runCode();
+        }
+
+        // TAB KEY SUPPORT
+        editor.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                const start = this.selectionStart;
+                this.value = this.value.substring(0, start) + "  " + this.value.substring(this.selectionEnd);
+                this.selectionStart = this.selectionEnd = start + 2;
+            }
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                saveAll();
+            }
+        });
+
+        // LAYOUT & RESIZING
+        function saveLayout() {
+            const layout = {
+                editorWidth: document.getElementById('editorPane').style.width,
+                previewHeight: document.getElementById('previewPane').style.height
+            };
+            localStorage.setItem(STORAGE_LAYOUT, JSON.stringify(layout));
+        }
+
+        function restoreLayout() {
+            const saved = localStorage.getItem(STORAGE_LAYOUT);
+            if (saved) {
+                const layout = JSON.parse(saved);
+                if (layout.editorWidth) document.getElementById('editorPane').style.width = layout.editorWidth;
+                if (layout.previewHeight) document.getElementById('previewPane').style.height = layout.previewHeight;
+            }
+        }
+
+        function initResizer(resizerID, prevSiblingID, nextSiblingID, direction) {
+            const resizer = document.getElementById(resizerID);
+            const prevSibling = document.getElementById(prevSiblingID);
+            const nextSibling = document.getElementById(nextSiblingID);
+            let x, y, prevSize;
+
+            const mouseDownHandler = (e) => {
+                x = e.clientX; y = e.clientY;
+                const rectPrev = prevSibling.getBoundingClientRect();
+                if (direction === 'H') { prevSize = rectPrev.width; }
+                else { prevSize = rectPrev.height; }
+                resizer.classList.add('dragging');
+                document.getElementById('previewFrame').classList.add('iframe-pointer-none');
+                document.addEventListener('mousemove', mouseMoveHandler);
+                document.addEventListener('mouseup', mouseUpHandler);
+            };
+
+            const mouseMoveHandler = (e) => {
+                const dx = e.clientX - x;
+                const dy = e.clientY - y;
+                if (direction === 'H') {
+                    // FIX 1: Use workspace total width as base for percentage
+                    const parent = prevSibling.parentElement;
+                    const totalWidth = parent.getBoundingClientRect().width;
+                    const newPct = Math.min(Math.max(((prevSize + dx) / totalWidth) * 100, 10), 90);
+                    prevSibling.style.width = newPct + '%';
+                } else {
+                    // FIX 1: Use parent container height as base — fixes broken vertical resize math
+                    const parent = prevSibling.parentElement;
+                    const totalHeight = parent.getBoundingClientRect().height;
+                    const newPct = Math.min(Math.max(((prevSize + dy) / totalHeight) * 100, 10), 90);
+                    prevSibling.style.height = newPct + '%';
+                }
+            };
+
+            const mouseUpHandler = () => {
+                resizer.classList.remove('dragging');
+                document.getElementById('previewFrame').classList.remove('iframe-pointer-none');
+                document.removeEventListener('mousemove', mouseMoveHandler);
+                document.removeEventListener('mouseup', mouseUpHandler);
+                saveLayout();
+            };
+            resizer.addEventListener('mousedown', mouseDownHandler);
+        }
+
+        // CONSOLE & RUN
+        window.updateCustomConsole = (type, message) => {
+            const div = document.createElement('div');
+            const time = new Date().toLocaleTimeString([], { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            div.className = `log-entry log-${type}`;
+            div.innerHTML = `<span class="timestamp">${time}</span> ${message}`;
+            consoleOutput.appendChild(div);
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        };
+
+        function runCode() {
+            consoleOutput.innerHTML = '';
+            let finalCode = editor.value;
+
+            // FIX 7: Replace iframe with a fresh one each run to get a clean JS context.
+            // Reusing the same iframe causes "already declared" errors for let/const variables.
+            const oldFrame = document.getElementById('previewFrame');
+            const newFrame = document.createElement('iframe');
+            newFrame.id = 'previewFrame';
+            oldFrame.parentNode.replaceChild(newFrame, oldFrame);
+
+            const doc = newFrame.contentWindow.document;
+
+            const consoleShim = `<script>
+                (function() {
+                    const sendToParent = (type, args) => {
+                        const msg = Array.from(args).map(arg => (arg instanceof Error ? arg.message : (typeof arg === 'object' ? JSON.stringify(arg) : String(arg)))).join(' ');
+                        window.parent.updateCustomConsole(type, msg);
+                    };
+                    console.log = (...args) => sendToParent('info', args);
+                    console.warn = (...args) => sendToParent('warn', args);
+                    console.error = (...args) => sendToParent('error', args);
+                    window.onerror = (msg, url, line) => { sendToParent('error', [msg + " (Line: " + line + ")"]); return false; };
+                })();
+            <\/script>`;
+
+            // FIX 3: Regex now handles <head> tags with attributes e.g. <head lang="en">
+            if (finalCode.match(/<head(\s[^>]*)?>/i)) {
+                finalCode = finalCode.replace(/<head(\s[^>]*)?>/i, (m) => m + consoleShim);
+            } else if (finalCode.match(/<body(\s[^>]*)?>/i)) {
+                finalCode = finalCode.replace(/<body(\s[^>]*)?>/i, (m) => m + consoleShim);
+            } else {
+                finalCode = consoleShim + finalCode;
+            }
+
+            doc.open(); doc.write(finalCode); doc.close();
+        }
+
+        function saveAll() {
+            localStorage.setItem(STORAGE_CODE, editor.value);
+            updateCustomConsole('info', 'Saved to browser.');
+        }
+
+        // FIX 2 & 4: Toggle updates button label and persists dark mode preference
+        function togglePreviewMode() {
+            const isDark = previewPane.classList.toggle('dark-mode');
+            toggleBtn.textContent = isDark ? '☀️ Light mode' : '🌙 Dark mode';
+            localStorage.setItem(STORAGE_DARK, isDark ? '1' : '0');
+        }
+
+        function downloadCode() {
+            let name = prompt("Filename:", "index.html");
+            if (!name) return;
+            if (!name.toLowerCase().endsWith(".html")) name += ".html";
+            // FIX 5: Wrapped in try/catch for safer download handling
+            try {
+                const blob = new Blob([editor.value], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = name;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } catch(err) {
+                updateCustomConsole('error', 'Download failed: ' + err.message);
+            }
+        }
+
+        // FIX 6: clearCode now also wipes localStorage so refresh doesn't reload old code
+        function clearCode() {
+            if(confirm("Wipe editor and clear saved code?")) {
+                editor.value = `<!DOCTYPE html>\n<html>\n<head>\n  <style>\n  </style>\n</head>\n<body>\n  \n</body>\n</html>`;
+                localStorage.removeItem(STORAGE_CODE);
+                runCode();
+                updateCustomConsole('info', 'Editor reset. Saved code cleared.');
+            }
+        }
+
+        let timeout;
+        editor.addEventListener('input', () => {
+            if (autoRunCheckbox.checked) {
+                clearTimeout(timeout);
+                timeout = setTimeout(runCode, 800); 
+            }
+        });
+
+        window.onload = () => {
+            restoreLayout();
+
+            // FIX 4: Restore dark mode preference from storage (default: dark)
+            const savedDark = localStorage.getItem(STORAGE_DARK);
+            const isDark = savedDark === null ? true : savedDark === '1';
+            if (isDark) {
+                previewPane.classList.add('dark-mode');
+                toggleBtn.textContent = '☀️ Light mode';
+            } else {
+                toggleBtn.textContent = '🌙 Dark mode';
+            }
+
+            editor.value = localStorage.getItem(STORAGE_CODE) || `<!DOCTYPE html>\n<html>\n<body>\n  <h1>Ready.</h1>\n</body>\n</html>`;
+            initResizer('resizerH', 'editorPane', 'rightPane', 'H');
+            initResizer('resizerV', 'previewPane', 'consolePane', 'V');
+            runCode();
+        };
+    </script>
+</body>
+</html>
