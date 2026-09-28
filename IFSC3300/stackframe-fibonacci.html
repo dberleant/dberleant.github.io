@@ -2,14 +2,14 @@
 <html>
 
   <body>
-    <h2>With the timer on your phone, time various fibonacci number calculations. N should take about 1.6x N-1.</h2> 
-    <h1><button onclick="alert(`answer is `+fib(prompt('What number do you want to calculate the Fibonacci value of?')));">
-         Calculate a Finacci number
+    <h2>With the timer on your phone, time various Fibonacci number calculations. N should take about 1.6x N-1.</h2> 
+    <h1><button onclick="alert(`answer is `+fib(Number(prompt('What number do you want to calculate the Fibonacci value of?'))));">
+         Calculate a Fibonacci number
     </button></h1>
     <script>
       function fib(n){
-      if (n===0) return 0;
-      if (n===1) return 1;
+         if (n===0) return 0;
+         if (n===1) return 1;
       return (fib(n-1) + fib(n-2));
       }
     </script>
