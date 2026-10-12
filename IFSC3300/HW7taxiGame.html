@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taxi Nav: Number-Base Challenge</title>
+<style>
+:root{--navy:#08294b;--blue:#087ac1;--sky:#68c9ff;--green:#21b968;--gold:#ffd84d;--ink:#10263d;--paper:#f7fbff}
+*{box-sizing:border-box}
+body{margin:0;background:#d8efff;color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+button,input{font:inherit}
+button{cursor:pointer;border:0;border-radius:12px;padding:.75rem 1.15rem;font-weight:800;transition:filter .15s,transform .15s}
+button:hover{filter:brightness(1.08)}button:active{transform:translateY(1px)}
+button:focus-visible,input:focus-visible{outline:3px solid #ffbf35;outline-offset:3px}
+.app{max-width:1400px;margin:auto;padding:12px}
+.hud{display:grid;grid-template-columns:1fr 1.2fr 1fr 1fr auto;gap:10px;background:linear-gradient(120deg,#06294d,#0a477a);color:white;border:3px solid #4db8f7;border-radius:18px;padding:12px 16px;box-shadow:0 5px 0 #0c6b9e}
+.stat{text-align:center;align-self:center;border-right:1px solid #5b88aa;padding:0 8px}.stat:last-of-type{border:0}
+.stat label{display:block;font-size:.86rem;font-weight:700;opacity:.92}.stat strong{display:block;font-size:clamp(1.35rem,3vw,2.1rem);line-height:1.2}.score{color:#6af39d}.time{color:var(--gold)}
+.pause{background:#0874ce;color:white;border:2px solid #79d5ff;min-width:94px}
+.road-layout{display:grid;grid-template-columns:minmax(210px,1fr) minmax(260px,1.2fr) minmax(210px,1fr);gap:12px;margin:14px 0;align-items:stretch}
+.panel{background:var(--paper);border:3px solid #1686c9;border-radius:16px;overflow:hidden;box-shadow:0 4px 0 #93d9ff;align-self:start}
+.panel h2{margin:0;background:linear-gradient(110deg,#082b4f,#07558c);color:white;padding:10px 14px;font-size:1.1rem}
+.panel-content{padding:14px}.prompt{font-size:clamp(1.15rem,2vw,1.55rem);font-weight:800;line-height:1.45;margin:4px 0 12px}.subprompt{font-size:.95rem;line-height:1.5;margin:0}
+.base-label{font-weight:900;color:#075ca1}.tiny{font-size:.82rem;color:#425a70}
+.road-wrap{height:clamp(350px,57vh,610px);min-height:350px;position:relative;border:3px solid #8ed8ff;border-radius:18px;overflow:hidden;background:#368a43;box-shadow:0 5px 0 #7cbad9}
+canvas{display:block;width:100%;height:100%}
+.canvas-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#08294be8;color:white;border:1px solid #72caff;border-radius:20px;padding:6px 12px;font-size:.78rem;font-weight:700;pointer-events:none}
+.help-row{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid #d4e4ef;font-size:.9rem}.help-row:last-of-type{border-bottom:0}.examples{margin-top:10px;padding-top:8px;border-top:1px solid #9fc7df;font-size:.9rem;line-height:1.8}
+.feedback{min-height:32px;margin-top:8px;font-weight:800;font-size:.95rem}.good{color:#087c3e}.bad{color:#b3261e}.neutral{color:#275a7e}
+.answerbar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;background:linear-gradient(110deg,#06294d,#0a477a);border:3px solid #4db8f7;border-radius:18px;padding:16px;box-shadow:0 5px 0 #0c6b9e;color:white}
+.answerbar label{font-size:clamp(1.1rem,2.4vw,1.7rem);font-weight:900;padding:0 6px}
+.answerbar input{min-width:0;width:100%;padding:14px 16px;border-radius:10px;border:2px solid #60bfff;background:white;color:#10263d;font-size:1.3rem;font-weight:700}
+.submit{background:linear-gradient(#2bd66d,#17a94f);color:white;border:2px solid #8affb4;min-width:132px;font-size:1.05rem}
+.statusline{display:flex;justify-content:space-between;gap:10px;margin:10px 4px 0;color:#31536d;font-size:.84rem}
+.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#041b30bd;padding:18px;z-index:2}
+.dialog{max-width:460px;width:100%;background:#f7fbff;border:3px solid #64caff;border-radius:20px;padding:24px;text-align:center;box-shadow:0 12px 35px #001a2b70}
+.dialog h1{font-size:clamp(1.8rem,5vw,2.5rem);line-height:1.1;color:#073c67;margin:0 0 10px}.dialog p{line-height:1.55}.primary{background:#0877c5;color:white;border:2px solid #7ed5ff;font-size:1.05rem}.secondary{background:#dceefa;color:#10456a;border:1px solid #8bbbd8}
+.hidden{display:none!important}.score-big{font-size:3rem;font-weight:950;color:#087c43}.rank{font-size:1.35rem;font-weight:900;color:#075b95;margin:8px 0}
+@media(max-width:900px){.hud{grid-template-columns:repeat(4,1fr)}.pause{grid-column:1/-1;width:100%;padding:.55rem}.road-layout{grid-template-columns:1fr 1fr}.road-wrap{grid-column:1/-1;grid-row:1;height:380px}.panel{align-self:stretch}.answerbar{grid-template-columns:1fr auto}.answerbar label{grid-column:1/-1}.answerbar input{font-size:1.1rem}}
+@media(max-width:560px){.app{padding:7px}.hud{padding:9px;gap:4px}.stat{padding:0 2px}.stat label{font-size:.7rem}.stat strong{font-size:1.25rem}.road-layout{grid-template-columns:1fr}.road-wrap{grid-column:auto;grid-row:auto;height:350px;min-height:350px}.panel{width:100%}.answerbar{gap:8px;padding:11px}.answerbar label{font-size:1.1rem}.answerbar input{padding:12px 10px}.submit{min-width:85px;padding:.7rem}.statusline{font-size:.75rem}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="hud" aria-label="Game status">
+    <div class="stat"><label>Score</label><strong class="score" id="score">0</strong></div>
+    <div class="stat"><label>Time remaining</label><strong class="time" id="time">01:00</strong></div>
+    <div class="stat"><label>Corrections</label><strong id="count">0</strong></div>
+    <div class="stat"><label>Difficulty</label><strong id="difficulty">Easy</strong></div>
+    <button class="pause" id="pauseBtn" type="button">Pause (or type "p")</button>
+  </header>
+
+  <main>
+    <section class="road-layout">
+      <article class="panel">
+        <h2>Next course correction</h2>
+        <div class="panel-content">
+          <div class="prompt" id="question">Convert <span class="base-label">1010₂</span> to decimal (base 10).</div>
+          <p class="subprompt">Enter the equivalent value in the requested base. You have to steer clear of the potholes!</p>
+          <div class="feedback neutral" id="feedback" role="status" aria-live="polite">Ready when you are.</div>
+        </div>
+      </article>
+
+      <div class="road-wrap">
+        <canvas id="road" aria-label="Animated top-down road with a taxi and potholes"></canvas>
+        <div class="canvas-hint" id="roadHint">Compute correctly to steer around the next pothole</div>
+        <div class="overlay" id="startOverlay">
+          <div class="dialog">
+            <h1>Taxi Nav</h1>
+            <p><b>You are the navigation control unit.</b><br>Convert numbers between binary, decimal, and hexadecimal to steer the taxi around potholes.</p>
+            <p>Correct answer: <b>+10 points</b> · Wrong answer: <b>−15 points</b><br>Each pause: <b>−5 points</b></p>
+            <button class="primary" id="startBtn" type="button">Start 60-second drive</button>
+          </div>
+        </div>
+        <div class="overlay hidden" id="pauseOverlay">
+          <div class="dialog">
+            <h1>Drive paused</h1>
+            <p>Take a moment to work out the conversion. Pausing costs 5 points each time.</p>
+            <button class="primary" id="resumeBtn" type="button">Resume driving</button>
+          </div>
+        </div>
+        <div class="overlay hidden" id="endOverlay">
+          <div class="dialog">
+            <h1 id="endTitle">Shift complete!</h1>
+            <div class="score-big" id="finalScore">0</div>
+            <p>Final score</p>
+            <div class="rank" id="rankText">You have been promoted to navigation system intern engineer</div>
+            <p id="endDetails"></p>
+            <button class="primary" id="restartBtn" type="button">Drive again</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <h2>Quick help</h2>
+        <div class="panel-content">
+          <div class="help-row"><span><b>Binary</b> (base 2)</span><span>0–1 digits</span></div>
+          <div class="help-row"><span><b>Decimal</b> (base 10)</span><span>0–9 digits</span></div>
+          <div class="help-row"><span><b>Hex</b> (base 16)</span><span>0–9, A–F</span></div>
+          <div class="examples">
+            <b>Examples</b><br>
+            1010₂ = 10₁₀<br>
+            15₁₀ = F₁₆<br>
+            12₁₆ = 10010₂
+          </div>
+          <p class="tiny">Values range from 1 to 20. Hex digits A–F represent 10–15.</p>
+        </div>
+      </aside>
+    </section>
+
+    <form class="answerbar" id="answerForm">
+      <label for="answer">Your answer</label>
+      <input id="answer" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Type the converted number…" aria-describedby="answerHelp" disabled>
+      <button class="submit" id="submitBtn" type="submit" disabled>Submit ↗</button>
+    </form>
+    <div class="statusline"><span id="answerHelp">Hexadecimal answers may use A–F; letter case doesn't matter.</span><span id="streak">Correct streak: 0</span></div>
+  </main>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const canvas = $('road'), ctx = canvas.getContext('2d');
+  const state = {
+    running:false, paused:false, ended:false, score:0, timeLeft:60,
+    questions:0, correct:0, potholes:0, pauses:0, streak:0, bestStreak:0,
+    current:null, lastTime:0, roadOffset:0, taxiLane:1, targetLane:1,
+    tireChange:0, flash:0, questionAge:0, questionInterval:6.2,
+    potholesOnRoad:[], particles:[], lastQuestionSignature:''
+  };
+  const bases = [2,10,16];
+  const baseName = {2:'binary (base 2)',10:'decimal (base 10)',16:'hexadecimal (base 16)'};
+  const baseShort = {2:'₂',10:'₁₀',16:'₁₆'};
+  let raf = 0, timerId = null, lastTick = 0;
+
+  function resizeCanvas(){
+    const r=canvas.getBoundingClientRect(), dpr=Math.min(window.devicePixelRatio||1,2);
+    canvas.width=Math.max(1,Math.round(r.width*dpr)); canvas.height=Math.max(1,Math.round(r.height*dpr));
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  window.addEventListener('resize',resizeCanvas);
+
+  function toBase(n,b){return n.toString(b).toUpperCase();}
+  function makeQuestion(){
+    let source,target,n,signature,tries=0;
+    do {
+      source=bases[Math.floor(Math.random()*3)];
+      target=bases[Math.floor(Math.random()*3)];
+      while(target===source) target=bases[Math.floor(Math.random()*3)];
+      n=1+Math.floor(Math.random()*((source===2||target===2)?14:20));
+      signature=`${n}-${source}-${target}`;
+      tries++;
+    } while(signature===state.lastQuestionSignature && tries<40);
+    state.lastQuestionSignature=signature;
+    state.current={n,source,target,answer:toBase(n,target)};
+    state.questions++;
+    $('count').textContent=state.questions;
+    $('question').innerHTML=`Convert <span class="base-label">${toBase(n,source)}${baseShort[source]}</span> to ${baseName[target]}.`;
+    $('feedback').className='feedback neutral';
+    $('feedback').textContent='Enter your answer to steer the taxi.';
+    $('answer').value='';
+    $('answer').disabled=false;
+    $('submitBtn').disabled=false;
+    $('answer').focus({preventScroll:true});
+    state.questionAge=0;
+    state.questionInterval=Math.max(3.2,6.2-state.questions*0.16);
+    updateDifficulty();
+    addPothole();
+  }
+  function updateDifficulty(){
+    const level=state.questions<4?'Easy':state.questions<8?'Medium':state.questions<13?'Hard':'Expert';
+    $('difficulty').textContent=level;
+  }
+  function addPothole(){
+    const w=canvas.clientWidth||500;
+    const lane=Math.floor(Math.random()*3);
+    state.potholesOnRoad.push({x:laneX(lane,w),y:-35,r:Math.max(12,w*.032),lane,passed:false,age:0});
+    if(state.potholesOnRoad.length>8) state.potholesOnRoad.shift();
+  }
+  function laneX(lane,w){return w*(0.25+lane*0.25);}
+  function setFeedback(text,kind){$('feedback').textContent=text;$('feedback').className='feedback '+kind;}
+  function submitAnswer(ev){
+    ev.preventDefault();
+    if(!state.running||state.paused||state.ended||!state.current)return;
+    const raw=$('answer').value.trim().replace(/\s+/g,'').toUpperCase();
+    if(!raw){setFeedback('Type an answer first.','neutral');$('answer').focus();return;}
+    const valid = /^[0-9A-F]+$/.test(raw);
+    const parsed=valid?parseInt(raw,state.current.target):NaN;
+    if(!Number.isFinite(parsed)||parsed<0||parsed.toString(state.current.target).toUpperCase()!==raw.replace(/^0+(?=.)/,'')){
+      setFeedback('That is not a valid number in the requested base. Pothole ahead!','bad');
+      wrongAnswer('Invalid notation');
+      return;
+    }
+    if(parsed===state.current.n){
+      state.score+=10;state.correct++;state.streak++;state.bestStreak=Math.max(state.bestStreak,state.streak);
+      state.taxiLane=(state.taxiLane+1+Math.floor(Math.random()*2))%3;
+      state.targetLane=state.taxiLane;
+      state.flash=0.45;
+      setFeedback(`Correct! +10 points. ${toBase(state.current.n,state.current.target)}${baseShort[state.current.target]} is right.`, 'good');
+      $('roadHint').textContent='Course correction successful — clear road ahead!';
+      updateScore();
+      $('answer').disabled=true;$('submitBtn').disabled=true;
+      setTimeout(()=>{if(state.running&&!state.paused&&!state.ended)makeQuestion();},650);
+    } else {
+      setFeedback(`Incorrect. The correct answer was ${state.current.answer}. Tire change: −15 points.`, 'bad');
+      wrongAnswer('Wrong answer');
+    }
+  }
+  function wrongAnswer(reason){
+    state.score-=15;state.potholes++;state.streak=0;state.tireChange=2.0;
+    state.taxiLane=state.current?Math.floor(Math.random()*3):1;
+    state.flash=0.9;
+    state.potholesOnRoad.push({x:laneX(state.taxiLane,canvas.clientWidth||500),y:(canvas.clientHeight||400)*.63,r:25,lane:state.taxiLane,hit:true,age:0});
+    $('roadHint').textContent='POTHOLE HIT — changing tire…';
+    updateScore();$('answer').disabled=true;$('submitBtn').disabled=true;
+    setTimeout(()=>{if(state.running&&!state.paused&&!state.ended){$('roadHint').textContent='Back on the road — next correction!';makeQuestion();}},2100);
+  }
+  function updateScore(){
+    $('score').textContent=state.score;
+    $('streak').textContent=`Correct streak: ${state.streak}`;
+  }
+  function pauseGame(){
+    if(!state.running||state.ended||state.paused)return;
+    state.score-=5;state.pauses++;updateScore();
+    state.paused=true;$('pauseOverlay').classList.remove('hidden');
+    $('pauseBtn').textContent='Pause (or type "p")';$('answer').disabled=true;$('submitBtn').disabled=true;
+    if(timerId){clearInterval(timerId);timerId=null;}
+  }
+  function resumeGame(){
+    if(!state.paused||state.ended)return;
+    state.paused=false;$('pauseOverlay').classList.add('hidden');
+    $('pauseBtn').textContent='Pause (or type "p")';
+    if(state.current){$('answer').disabled=false;$('submitBtn').disabled=false;$('answer').focus({preventScroll:true});}
+    lastTick=performance.now();
+    timerId=setInterval(tickClock,100);
+  }
+  function startGame(){
+    state.running=true;state.paused=false;state.ended=false;state.score=0;state.timeLeft=60;state.questions=0;state.correct=0;state.potholes=0;state.pauses=0;state.streak=0;state.bestStreak=0;state.current=null;state.tireChange=0;state.potholesOnRoad=[];state.roadOffset=0;state.taxiLane=1;state.lastQuestionSignature='';
+    $('startOverlay').classList.add('hidden');$('pauseOverlay').classList.add('hidden');$('endOverlay').classList.add('hidden');
+    $('answer').disabled=false;$('submitBtn').disabled=false;$('pauseBtn').disabled=false;$('pauseBtn').textContent='Pause (or type "p")';
+    updateScore();$('time').textContent='01:00';$('count').textContent='0';$('roadHint').textContent='Compute correctly to steer around the next pothole';
+    makeQuestion();lastTick=performance.now();if(timerId)clearInterval(timerId);timerId=setInterval(tickClock,100);
+  }
+  function tickClock(){
+    if(!state.running||state.paused||state.ended)return;
+    const now=performance.now();
+    if(!lastTick)lastTick=now;
+    const elapsed=(now-lastTick)/1000;lastTick=now;
+    state.timeLeft=Math.max(0,state.timeLeft-elapsed);
+    const sec=Math.ceil(state.timeLeft);
+    $('time').textContent=`${String(Math.floor(sec/60)).padStart(2,'0')}:${String(sec%60).padStart(2,'0')}`;
+    if(state.timeLeft<=0)endGame();
+  }
+  function endGame(){
+    state.ended=true;state.running=false;state.paused=false;
+    if(timerId){clearInterval(timerId);timerId=null;}
+    $('answer').disabled=true;$('submitBtn').disabled=true;$('pauseBtn').disabled=true;
+    $('finalScore').textContent=state.score;
+    let rank='intern';
+    if(state.score>=150)rank='chief';
+    else if(state.score>=110)rank='lead';
+    else if(state.score>=70)rank='senior';
+    else if(state.score>=40)rank='junior';
+    else if(state.score>=10)rank='new hire';
+    $('rankText').textContent=`You have been promoted to navigation system ${rank} engineer`;
+    $('endTitle').textContent=state.score>=70?'Excellent driving!':'Shift complete!';
+    $('endDetails').textContent=`${state.correct} correct · ${state.potholes} pothole incidents · ${state.pauses} pauses · best streak ${state.bestStreak}`;
+    $('endOverlay').classList.remove('hidden');
+    $('roadHint').textContent='Shift complete — ready for another route?';
+  }
+
+  function roundedRect(c,x,y,w,h,r,fill,stroke){
+    c.beginPath();c.roundRect(x,y,w,h,r);if(fill){c.fillStyle=fill;c.fill()}if(stroke){c.strokeStyle=stroke;c.stroke()}
+  }
+  function drawTree(x,y,r){
+    ctx.fillStyle='rgba(0,0,0,.16)';ctx.beginPath();ctx.ellipse(x+4,y+6,r*1.1,r*.8,0,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle=['#23783b','#2e9343','#4cae4c','#1b6d39'][Math.floor((x+y)%4)];
+    ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#71c75d';ctx.beginPath();ctx.arc(x-r*.24,y-r*.24,r*.52,0,Math.PI*2);ctx.fill();
+  }
+  function drawPothole(p){
+    ctx.save();ctx.translate(p.x,p.y);
+    ctx.fillStyle='rgba(0,0,0,.26)';ctx.beginPath();ctx.ellipse(2,5,p.r*1.25,p.r*.95,0,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#20242a';ctx.beginPath();ctx.ellipse(0,0,p.r,p.r*.77,-.1,0,Math.PI*2);ctx.fill();
+    ctx.strokeStyle='#54575b';ctx.lineWidth=3;ctx.beginPath();ctx.ellipse(0,0,p.r*.9,p.r*.69,-.1,0,Math.PI*2);ctx.stroke();
+    ctx.strokeStyle='#35383d';ctx.lineWidth=2;
+    for(let i=0;i<6;i++){const a=i*Math.PI/3;ctx.beginPath();ctx.moveTo(Math.cos(a)*p.r*.72,Math.sin(a)*p.r*.55);ctx.lineTo(Math.cos(a)*p.r*1.22,Math.sin(a)*p.r*.96);ctx.stroke();}
+    ctx.restore();
+  }
+  function drawTaxi(x,y,w){
+    const tw=Math.max(30,w*.105),th=tw*1.72;
+    ctx.save();ctx.translate(x,y);
+    ctx.fillStyle='rgba(0,0,0,.32)';ctx.beginPath();ctx.ellipse(3,th*.28,tw*.58,th*.56,0,0,Math.PI*2);ctx.fill();
+    // wheels
+    ctx.fillStyle='#171c22';roundedRect(ctx,-tw*.51,-th*.31,tw*.19,th*.34,4,'#171c22');
+    roundedRect(ctx,tw*.32,-th*.31,tw*.19,th*.34,4,'#171c22');
+    roundedRect(ctx,-tw*.51,th*.18,tw*.19,th*.34,4,'#171c22');
+    roundedRect(ctx,tw*.32,th*.18,tw*.19,th*.34,4,'#171c22');
+    // yellow body
+    ctx.fillStyle='#f9c928';ctx.strokeStyle='#7e5d09';ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(-tw*.35,-th*.48);ctx.quadraticCurveTo(-tw*.5,-th*.4,-tw*.48,-th*.19);ctx.lineTo(-tw*.45,th*.34);ctx.quadraticCurveTo(-tw*.4,th*.49,-tw*.23,th*.5);ctx.lineTo(tw*.23,th*.5);ctx.quadraticCurveTo(tw*.4,th*.49,tw*.45,th*.34);ctx.lineTo(tw*.48,-th*.19);ctx.quadraticCurveTo(tw*.5,-th*.4,tw*.35,-th*.48);ctx.closePath();ctx.fill();ctx.stroke();
+    ctx.fillStyle='#263e51';roundedRect(ctx,-tw*.34,-th*.29,tw*.68,th*.25,5,'#263e51');
+    ctx.fillStyle='#8ac8e6';roundedRect(ctx,-tw*.3,-th*.25,tw*.6,th*.14,3,'#8ac8e6');
+    ctx.fillStyle='#fff1a0';roundedRect(ctx,-tw*.3,th*.02,tw*.6,th*.14,3,'#fff1a0');
+    ctx.fillStyle='#fdf7db';roundedRect(ctx,-tw*.27,-th*.43,tw*.54,th*.1,3,'#fdf7db');
+    ctx.fillStyle='#152f43';ctx.font=`bold ${Math.max(7,tw*.18)}px system-ui`;ctx.textAlign='center';ctx.fillText('TAXI',0,-th*.355);
+    ctx.fillStyle='#fb5a40';roundedRect(ctx,-tw*.31,th*.4,tw*.18,th*.055,2,'#fb5a40');roundedRect(ctx,tw*.13,th*.4,tw*.18,th*.055,2,'#fb5a40');
+    // roof checker stripe
+    ctx.fillStyle='#171c22';for(let i=0;i<5;i++)ctx.fillRect(-tw*.26+i*tw*.13,th*.23,tw*.09,th*.06);
+    if(state.tireChange>0){ctx.fillStyle='#fff';ctx.font=`bold ${Math.max(10,tw*.25)}px system-ui`;ctx.fillText('🔧',0,th*.72);}
+    ctx.restore();
+  }
+  function drawOtherCar(x,y,w){
+    const cw=Math.max(27,w*.09),ch=cw*1.7;ctx.save();ctx.translate(x,y);
+    ctx.fillStyle='rgba(0,0,0,.3)';ctx.beginPath();ctx.ellipse(2,5,cw*.55,ch*.52,0,0,Math.PI*2);ctx.fill();
+    roundedRect(ctx,-cw*.45,-ch*.46,cw*.9,ch*.92,9,'#cf3b2f','#7b211d');
+    roundedRect(ctx,-cw*.32,-ch*.25,cw*.64,ch*.22,5,'#182c3c');
+    roundedRect(ctx,-cw*.31,ch*.08,cw*.62,ch*.18,4,'#7bb6d1');
+    roundedRect(ctx,-cw*.33,-ch*.4,cw*.16,ch*.06,2,'#ffb7a5');roundedRect(ctx,cw*.17,-ch*.4,cw*.16,ch*.06,2,'#ffb7a5');
+    ctx.restore();
+  }
+  function drawRoad(dt){
+    const w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return;
+    ctx.clearRect(0,0,w,h);
+    // green verges
+    ctx.fillStyle='#3e9348';ctx.fillRect(0,0,w,h);
+    for(let y=-30;y<h+30;y+=50){for(let x=8;x<w;x+=43){const xx=x+Math.sin(y*.03+x)*8;drawTree(xx,y+((x*7)%23),8+((x+y)%5));}}
+    const roadW=w*.59,rx=(w-roadW)/2;
+    // road shadow and asphalt
+    ctx.fillStyle='#b2a98f';ctx.fillRect(rx-8,0,roadW+16,h);
+    ctx.fillStyle='#414953';ctx.fillRect(rx,0,roadW,h);
+    ctx.fillStyle='#555d66';ctx.fillRect(rx+5,0,roadW-10,h);
+    // edges
+    ctx.fillStyle='#f4d13c';ctx.fillRect(rx+8,0,4,h);ctx.fillRect(rx+roadW-12,0,4,h);
+    // lane dividers
+    state.roadOffset=(state.roadOffset+dt*(state.tireChange>0?40:105))%60;
+    ctx.fillStyle='#e8edf0';
+    for(let lane=1;lane<3;lane++){const x=rx+roadW*lane/3;for(let y=-60+state.roadOffset;y<h;y+=60)ctx.fillRect(x-2,y,4,32);}
+    // road markings and roadside stones
+    ctx.fillStyle='#d6d7d3';for(let y=0;y<h;y+=28){ctx.fillRect(rx-5,y,4,12);ctx.fillRect(rx+roadW+1,y+12,4,12);}
+    // potholes drift down toward taxi
+    for(const p of state.potholesOnRoad){if(!p.hit){p.y+=dt*(state.tireChange>0?35:90);p.age+=dt;}drawPothole(p);}
+    state.potholesOnRoad=state.potholesOnRoad.filter(p=>p.hit?state.tireChange>0:p.y<h+50);
+    // occasional traffic car
+    drawOtherCar(rx+roadW*.72,h*.18+Math.sin(performance.now()/1600)*12,w);
+    // target lane highlight
+    const taxiY=h*.68,tx=laneX(state.taxiLane,w);
+    if(state.running&&!state.paused&&!state.ended){
+      ctx.fillStyle='rgba(63,180,255,.10)';ctx.beginPath();ctx.moveTo(tx-8,taxiY-28);ctx.lineTo(tx-40,taxiY-160);ctx.lineTo(tx+40,taxiY-160);ctx.lineTo(tx+8,taxiY-28);ctx.closePath();ctx.fill();
+    }
+    drawTaxi(tx,taxiY,w);
+    if(state.flash>0){ctx.fillStyle=`rgba(255,255,255,${Math.min(.35,state.flash*.35)})`;ctx.fillRect(0,0,w,h);}
+    if(state.paused||state.ended){ctx.fillStyle='rgba(4,22,38,.16)';ctx.fillRect(0,0,w,h);}
+  }
+  function animate(now){
+    const dt=Math.min(.05,Math.max(0,(now-(state.lastFrame||now))/1000));state.lastFrame=now;
+    if(state.running&&!state.paused&&!state.ended){
+      state.questionAge+=dt;
+      if(state.tireChange>0)state.tireChange=Math.max(0,state.tireChange-dt);
+      if(state.flash>0)state.flash=Math.max(0,state.flash-dt);
+    }
+    drawRoad(dt);raf=requestAnimationFrame(animate);
+  }
+
+  $('answerForm').addEventListener('submit',submitAnswer);
+  $('startBtn').addEventListener('click',startGame);
+  $('restartBtn').addEventListener('click',startGame);
+  $('pauseBtn').addEventListener('click',()=>state.paused?resumeGame():pauseGame());
+  $('resumeBtn').addEventListener('click',resumeGame);
+  document.addEventListener('keydown',e=>{
+    if(e.key.toLowerCase()==='p' && !e.ctrlKey && !e.metaKey && !e.altKey &&
+       !state.ended && state.running) {
+      e.preventDefault();
+      if(state.paused) resumeGame(); else pauseGame();
+    }
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key.toLowerCase()==='p' && state.running && !state.ended){
+      e.preventDefault();
+      if(state.paused) resumeGame(); else pauseGame();
+    }
+  });
+  $('answer').addEventListener('keydown',e=>{if(e.key==='Escape'&&state.running&&!state.paused)pauseGame();});
+  resizeCanvas();makeInitialDecor();
+  raf=requestAnimationFrame(animate);
+  function makeInitialDecor(){
+    state.potholesOnRoad=[{x:laneX(0,canvas.clientWidth||500),y:130,r:20,lane:0},{x:laneX(2,canvas.clientWidth||500),y:260,r:18,lane:2}];
+    $('answer').disabled=true;$('submitBtn').disabled=true;$('pauseBtn').disabled=true;
+  }
+})();
+</script>
+</body>
+</html>
