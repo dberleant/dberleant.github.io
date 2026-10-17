@@ -17,13 +17,11 @@
       --error-border: #fca5a5;
       --error-text: #991b1b;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg-color);
@@ -31,7 +29,6 @@
       padding: 20px;
       line-height: 1.5;
     }
-
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -39,34 +36,28 @@
       flex-direction: column;
       gap: 20px;
     }
-
     header {
       border-bottom: 2px solid var(--border-color);
       padding-bottom: 12px;
     }
-
     header h1 {
       font-size: 1.6rem;
       color: var(--text-main);
     }
-
     header p {
       color: var(--text-muted);
       font-size: 0.95rem;
     }
-
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
-
     @media (max-width: 900px) {
       .grid {
         grid-template-columns: 1fr;
       }
     }
-
     .panel {
       background: var(--card-bg);
       border: 1px solid var(--border-color);
@@ -77,11 +68,9 @@
       gap: 10px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
-
     .panel-full {
       grid-column: 1 / -1;
     }
-
     label {
       font-weight: 600;
       font-size: 0.9rem;
@@ -90,7 +79,6 @@
       justify-content: space-between;
       align-items: center;
     }
-
     textarea {
       width: 100%;
       height: 280px;
@@ -104,19 +92,16 @@
       color: #1e293b;
       line-height: 1.4;
     }
-
     textarea:focus {
       outline: none;
       border-color: var(--primary-color);
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
     }
-
     .controls {
       display: flex;
       gap: 12px;
       align-items: center;
     }
-
     button.btn-primary {
       background-color: var(--primary-color);
       color: white;
@@ -127,17 +112,14 @@
       cursor: pointer;
       transition: background-color 0.2s;
     }
-
     button.btn-primary:hover {
       background-color: var(--primary-hover);
     }
-
     .tabs {
       display: flex;
       gap: 8px;
       margin-bottom: 8px;
     }
-
     .tab-btn {
       padding: 6px 14px;
       font-size: 0.85rem;
@@ -147,13 +129,11 @@
       cursor: pointer;
       border-radius: 4px;
     }
-
     .tab-btn.active {
       background: var(--primary-color);
       color: white;
       border-color: var(--primary-color);
     }
-
     .rendered-preview {
       min-height: 200px;
       padding: 16px;
@@ -162,12 +142,10 @@
       background: white;
       overflow-y: auto;
     }
-
     .rendered-preview p {
       margin-bottom: 12px;
       line-height: 1.6;
     }
-
     .rendered-preview button {
       padding: 2px 8px;
       cursor: pointer;
@@ -178,11 +156,9 @@
       margin: 0 2px;
       transition: all 0.15s ease;
     }
-
     .rendered-preview button:hover {
       background: #e2e8f0;
     }
-
     .tf-inline-panel {
       display: inline-block;
       margin-left: 8px;
@@ -191,7 +167,6 @@
       border: 1px solid #cbd5e1;
       border-radius: 4px;
     }
-
     .error-box {
       background-color: var(--error-bg);
       border: 1px solid var(--error-border);
@@ -202,7 +177,6 @@
       display: none;
       white-space: pre-wrap;
     }
-
     .badge {
       font-size: 0.75rem;
       background: #e2e8f0;
@@ -214,15 +188,12 @@
   </style>
 </head>
 <body>
-
 <div class="container">
   <header>
     <h1>JSON Record Processor</h1>
     <p>Flexible JSON parsing & custom JavaScript record processing</p>
   </header>
-
   <div class="grid">
-    <!-- Panel 1: JSON Input -->
     <div class="panel">
       <label for="jsonInput">
         (1) JSON Records Input
@@ -230,8 +201,6 @@
       </label>
       <textarea id="jsonInput" placeholder="Paste your JSON list or records here..."></textarea>
     </div>
-
-    <!-- Panel 2: JS Code Input -->
     <div class="panel">
       <label for="jsCodeInput">
         (2) JavaScript Code Processor
@@ -239,13 +208,10 @@
       <textarea id="jsCodeInput"></textarea>
     </div>
   </div>
-
   <div class="controls">
     <button class="btn-primary" id="runBtn">Execute JavaScript Code</button>
     <button class="btn-primary" id="downloadBtn">Download HTML</button>
   </div>
-
-  <!-- Panel 3: Output Area -->
   <div class="panel panel-full">
     <div style="display: flex; justify-content: space-between; align-items: center;">
       <label>(3) Code Output</label>
@@ -254,21 +220,23 @@
         <button class="tab-btn" id="tabRendered">Rendered HTML View</button>
       </div>
     </div>
-
     <div id="errorDisplay" class="error-box"></div>
-
     <textarea id="outputText" readonly placeholder="Output will appear here..."></textarea>
     <div id="outputRendered" class="rendered-preview" style="display: none;"></div>
   </div>
 </div>
 
-<script>
-  // Initial default JSON sample data
-  const defaultJSON = `[
+<!-- Raw plain-text templates prevent template-literal parsing crashes -->
+<script type="text/plain" id="defaultJSONCode">
+[
   {
     "type": "heading",
     "level": 2,
-    "text": "The Evolution of Prompting"
+    "text": "The Evolution of Prompting",
+    "true_false_question": "True or False: Clear headings help organize document sections.",
+    "hint": "Think about structural clarity in written passages.",
+    "commentary": "Headings act as landmark anchors for readers and parsers.",
+    "answer": true
   },
   {
     "type": "sentence",
@@ -279,21 +247,34 @@
     "answer": true
   },
   {
-    "type": "commentary",
-    "text": "Clear user prompts reduce entropy in the output probability distribution."
+    "type": "quote",
+    "text": "Garbage in, garbage out.",
+    "true_false_question": "True or False: This famous phrase highlights that output quality depends directly on input quality.",
+    "hint": "Consider how input data impacts processing results.",
+    "commentary": "A classic computer science idiom applicable directly to LLM prompting.",
+    "answer": true
+  },
+  {
+    "type": "code_block",
+    "text": "const prompt = 'Summarize the text clearly.';",
+    "true_false_question": "True or False: This code defines a variable named prompt.",
+    "hint": "Look at the keyword const.",
+    "commentary": "In JavaScript, const declares a block-scoped constant variable.",
+    "answer": true
   }
-]`;
+]
+</script>
 
-  // Initial default JavaScript Processor code
-  const defaultJS = `// Helper: Escapes string for JS literal inside HTML attributes
+<script type="text/plain" id="defaultJSCode">
+// Helper: Escapes string for JS literal inside HTML attributes
 function escapeForJSAndHTML(str) {
   if (!str) return "";
   return String(str)
-    .replace(/\\\\/g, "\\\\\\\\")
-    .replace(/'/g, "\\\\'")
+    .replace(/\\/g, "\\\\")
+    .replace(/'/g, "\\'")
     .replace(/"/g, "&quot;")
-    .replace(/\\n/g, "\\\\n")
-    .replace(/\\r/g, "\\\\r")
+    .replace(/\n/g, "\\n")
+    .replace(/\r/g, "\\r")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
 }
@@ -309,127 +290,119 @@ function escapeHTML(str) {
     .replace(/'/g, "&#39;");
 }
 
-// Global counter for unique panel IDs
-let tfCounter = 0;
+var tfCounter = 0;
 
-// Defined handler for "sentence" records:
-function process_sentence(record) {
-  // 1. Remove trailing whitespace before button
-  const text = (record.text || "").replace(/\\s+$/, "");
-  
-  // 2. Escape texts for HTML and inline JS event handlers
-  const questionText = escapeHTML(record.true_false_question || "");
-  const hintEscaped = escapeForJSAndHTML(record.hint || "No hint provided.");
-  const commentaryEscaped = escapeForJSAndHTML(record.commentary || "No commentary provided.");
-  const correct = (record.answer === true || String(record.answer).toLowerCase() === "true");
-  
-  // Unique panel ID
+// Shared Helper: Attaches True/False button + inline panel if question exists
+function attachQuizPanel(record, contentHtml) {
+  if (!record.true_false_question) {
+    return contentHtml;
+  }
+
+  var questionText = escapeHTML(record.true_false_question || "");
+  var hintEscaped = escapeForJSAndHTML(record.hint || "No hint provided.");
+  var commentaryEscaped = escapeForJSAndHTML(record.commentary || "No commentary provided.");
+  var correct = (record.answer === true || String(record.answer).toLowerCase() === "true");
+
   tfCounter++;
-  const panelId = "tf_panel_" + tfCounter;
+  var panelId = "tf_panel_" + tfCounter;
 
-  // 3. &raquo; Button shows/hides inline question panel
-  const toggleBtnHTML = \`<button type="button" onclick="(function(btn){ var el = document.getElementById('\${panelId}'); if(el){ el.style.display = (el.style.display === 'none') ? 'inline-block' : 'none'; } })(this)">&raquo;</button>\`;
+  var toggleBtnHTML = '<button type="button" onclick="(function(btn){ var el = document.getElementById(\'' + panelId + '\'); if(el){ el.style.display = (el.style.display === \'none\') ? \'inline-block\' : \'none\'; } })(this)">&raquo;</button>';
 
-  // 4. Sub-buttons with active Hint & Commentary behaviors:
-  // - Commentary button: shows alert() window
-  // - Hint button: toggles button text between "Hint" and the hint text
-  const subButtonsHTML = \`<button type="button" onclick="this.innerText=(\${correct}===true)?'True is correct!':'True is incorrect - try again!';this.style.background=(\${correct}===true)?'#bbf7d0':'#fecaca'">True</button><button type="button" onclick="this.innerText=(\${correct}===false)?'False is correct!':'False is incorrect - try again!';this.style.background=(\${correct}===false)?'#bbf7d0':'#fecaca'">False</button><button type="button" onclick="(function(btn){ if(btn.innerText === 'Hint'){ btn.innerText = '\${hintEscaped}'; } else { btn.innerText = 'Hint'; } })(this)">Hint</button><button type="button" onclick="alert('\${commentaryEscaped}')">Commentary</button>\`;
+  var subButtonsHTML = '<button type="button" onclick="this.innerText=(' + correct + '===true)?\'True is correct!\':\'True is incorrect - try again!\';this.style.background=(' + correct + '===true)?\'#bbf7d0\':\'#fecaca\'">True</button>' +
+    '<button type="button" onclick="this.innerText=(' + correct + '===false)?\'False is correct!\':\'False is incorrect - try again!\';this.style.background=(' + correct + '===false)?\'#bbf7d0\':\'#fecaca\'">False</button>' +
+    '<button type="button" onclick="(function(btn){ if(btn.innerText === \'Hint\'){ btn.innerText = \'' + hintEscaped + '\'; } else { btn.innerText = \'Hint\'; } })(this)">Hint</button>' +
+    '<button type="button" onclick="(function(btn){ if(btn.innerText === \'Commentary\'){ btn.innerText = \'' + commentaryEscaped + '\'; } else { btn.innerText = \'Commentary\'; } })(this)">Commentary</button>';
 
-  const inlinePanelHTML = \`<span id="\${panelId}" class="tf-inline-panel" style="display: none;">\${questionText} \${subButtonsHTML}</span>\`;
+  var inlinePanelHTML = '<span id="' + panelId + '" class="tf-inline-panel" style="display: none;">' + questionText + ' ' + subButtonsHTML + '</span>';
 
-  // Return text directly concatenated with no whitespace before &raquo;
-  return \`\${text}\${toggleBtnHTML}\${inlinePanelHTML}\`;
+  return contentHtml + toggleBtnHTML + inlinePanelHTML;
 }
 
-// Defined handler for "heading" records:
+// Handler for "sentence" records
+function process_sentence(record) {
+  var text = (record.text || "").replace(/\s+$/, "");
+  return attachQuizPanel(record, text);
+}
+
+// Handler for "heading" records
 function process_heading(record) {
-  const headingText = escapeHTML(record.text || "");
-  return '<p><strong style="font-size: 1.15em;">' + headingText + '</strong></p>';
+  var text = (record.text || "").replace(/\s+$/, "");
+  var headingText = escapeHTML(text);
+  var content = '<strong style="font-size: 1.15em;">' + headingText + '</strong>';
+  return '<p>' + attachQuizPanel(record, content) + '</p>';
 }
 
-// Defined handler for "example_label" records:
+// Handler for "example_label" records
 function process_example_label(record) {
-  const labelText = escapeHTML(record.text || "");
+  var labelText = escapeHTML(record.text || "");
   return '<p><strong>' + labelText + '</strong></p>';
 }
 
-// Defined handler for "quote" records:
+// Handler for "quote" records
 function process_quote(record) {
-  const quoteText = escapeHTML(record.text || "");
-  return '<p><span style="display: inline-block; margin-left: 2em;"><code>' + quoteText + '</code></span></p>';
+  var quoteText = escapeHTML(record.text || "");
+  var content = '<span style="display: inline-block; margin-left: 2em;"><code>' + quoteText + '</code></span>';
+  return '<p>' + attachQuizPanel(record, content) + '</p>';
 }
 
-// Defined handler for "code_block" records:
+// Handler for "code_block" records
 function process_code_block(record) {
-  const codeText = escapeHTML(record.text || "");
-  return '<pre style="margin-left: 2em; margin-bottom: 12px; white-space: pre-wrap;"><code>' + codeText + '</code></pre>';
+  var codeText = escapeHTML(record.text || "");
+  var codeHtml = '<pre style="margin-left: 2em; margin-bottom: 6px; white-space: pre-wrap;"><code>' + codeText + '</code></pre>';
+  
+  if (!record.true_false_question) {
+    return codeHtml;
+  }
+  
+  return codeHtml + '<p style="margin-left: 2em; margin-bottom: 12px;">' + attachQuizPanel(record, "") + '</p>';
 }
 
-// Defined handler for "paragraph_break" records:
+// Handler for "paragraph_break" records
 function process_paragraph_break(record) {
-  // Not used for output: the main loop below treats this record type as
-  // "close the current paragraph".
   return '';
 }
 
-// Fallback dynamic handler for any record type 'x'
+// Fallback dynamic handler for unknown record types
 function process_x(record) {
-  const typeName = record.type || "unknown";
-  return \`process-\${typeName} says hello.\`;
+  var typeName = record.type || "unknown";
+  return 'process-' + typeName + ' says hello.';
 }
 
-// Main execution function called for each record:
+// Dispatcher function
 function processRecord(record) {
-  const type = record.type;
+  var type = record.type;
+  if (type === "sentence") return process_sentence(record);
+  if (type === "heading") return process_heading(record);
+  if (type === "example_label") return process_example_label(record);
+  if (type === "quote") return process_quote(record);
+  if (type === "code_block") return process_code_block(record);
+  if (type === "paragraph_break") return process_paragraph_break(record);
 
-  if (type === "sentence") {
-    return process_sentence(record);
-  }
-
-  if (type === "heading") {
-    return process_heading(record);
-  }
-
-  if (type === "example_label") {
-    return process_example_label(record);
-  }
-
-  if (type === "quote") {
-    return process_quote(record);
-  }
-
-  if (type === "code_block") {
-    return process_code_block(record);
-  }
-
-  if (type === "paragraph_break") {
-    return process_paragraph_break(record);
-  }
-
-  const customFnName = "process_" + type;
+  var customFnName = "process_" + type;
   if (typeof window[customFnName] === "function") {
     return window[customFnName](record);
   }
-
   return process_x(record);
 }
 
 // Group inline pieces into <p> paragraphs. Block types and paragraph_break close the current paragraph.
-const BLOCK_TYPES = ["heading", "example_label", "quote", "code_block"];
-const html = [];
-let para = [];
+var BLOCK_TYPES = ["heading", "example_label", "quote", "code_block"];
+var html = [];
+var para = [];
+
 function flush() {
   if (para.length) {
     html.push("<p>" + para.join(" ") + "</p>");
     para = [];
   }
 }
+
 records.forEach(function (record) {
   if (record.type === "paragraph_break") {
     flush();
     return;
   }
-  const piece = processRecord(record);
+  var piece = processRecord(record);
   if (BLOCK_TYPES.indexOf(record.type) !== -1) {
     flush();
     html.push(piece);
@@ -437,10 +410,12 @@ records.forEach(function (record) {
     para.push(piece);
   }
 });
-flush();
-return html.join("\\n");`;
 
-  // UI Element References
+flush();
+return html.join("\n");
+</script>
+
+<script>
   const jsonInput = document.getElementById("jsonInput");
   const jsCodeInput = document.getElementById("jsCodeInput");
   const outputText = document.getElementById("outputText");
@@ -451,17 +426,14 @@ return html.join("\\n");`;
   const tabRaw = document.getElementById("tabRaw");
   const tabRendered = document.getElementById("tabRendered");
 
-  // Populate default values
-  jsonInput.value = defaultJSON;
-  jsCodeInput.value = defaultJS;
+  // Load defaults cleanly from raw text elements
+  jsonInput.value = document.getElementById("defaultJSONCode").textContent.trim();
+  jsCodeInput.value = document.getElementById("defaultJSCode").textContent.trim();
 
-  // Flexible JSON Parser
   function parseFlexibleJSON(inputStr) {
     let clean = inputStr.trim();
     if (!clean) return [];
-
     clean = clean.replace(/\u00A0/g, " ");
-
     try {
       const parsed = JSON.parse(clean);
       return Array.isArray(parsed) ? parsed : [parsed];
@@ -485,17 +457,13 @@ return html.join("\\n");`;
         records.push(JSON.parse(match[0]));
       } catch (err) {}
     }
-
     if (records.length > 0) return records;
-
     throw new Error("Unable to parse valid JSON records. Please check formatting.");
   }
 
-  // Execute User JavaScript Code
   function executeUserCode() {
     errorDisplay.style.display = "none";
     errorDisplay.textContent = "";
-
     let records = [];
     try {
       records = parseFlexibleJSON(jsonInput.value);
@@ -511,13 +479,9 @@ return html.join("\\n");`;
     try {
       const userRunner = new Function("records", jsCodeInput.value);
       const result = userRunner(records);
-
       const finalOutput = (result !== undefined) ? String(result) : "";
       outputText.value = finalOutput;
-      
-      // Render HTML output
       outputRendered.innerHTML = finalOutput;
-        
     } catch (err) {
       showError("JavaScript Execution Error:\n" + err.message);
     }
@@ -528,7 +492,6 @@ return html.join("\\n");`;
     errorDisplay.style.display = "block";
   }
 
-  // Tab switching
   tabRaw.addEventListener("click", () => {
     tabRaw.classList.add("active");
     tabRendered.classList.remove("active");
@@ -543,21 +506,17 @@ return html.join("\\n");`;
     outputRendered.style.display = "block";
   });
 
-  // Event Listeners
   runBtn.addEventListener("click", executeUserCode);
   jsonInput.addEventListener("input", executeUserCode);
   jsCodeInput.addEventListener("input", executeUserCode);
 
-  // Download the rendered passage as a standalone HTML file
   document.getElementById("downloadBtn").addEventListener("click", () => {
     const body = outputText.value;
     if (!body.trim()) {
       showError("Nothing to download yet - the output is empty.");
       return;
     }
-
-    const css = `
-* { box-sizing: border-box; margin: 0; padding: 0; }
+    const css = `* { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #0f172a; background: #ffffff; padding: 20px; line-height: 1.5; }
 .passage { max-width: 800px; margin: 0 auto; }
 p { margin-bottom: 12px; line-height: 1.6; }
@@ -567,7 +526,7 @@ button:hover { background: #e2e8f0; }
 
     const page = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n<meta charset=\"UTF-8\">\n" +
       "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-      "<title>Passage</title>\n<style>" + css + "\n</style>\n</head>\n<body>\n" +
+      "<title>Passage</title>\n<style>\n" + css + "\n</style>\n</head>\n<body>\n" +
       "<div class=\"passage\">\n" + body + "\n</div>\n</body>\n</html>\n";
 
     const blob = new Blob([page], { type: "text/html" });
@@ -581,7 +540,6 @@ button:hover { background: #e2e8f0; }
     URL.revokeObjectURL(url);
   });
 
-  // Initial Run
   executeUserCode();
 </script>
 </body>
