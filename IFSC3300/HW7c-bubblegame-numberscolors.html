@@ -129,9 +129,9 @@
 <body>
   <div id="game">
     <div id="hud">
-      Time Left: <span id="time">30</span>s<br>
+      Time Left: <span id="time">75</span>s<br>
       Score: <span id="score">0</span><br>
-      <small>+1 for invalid code snippets, -1 for valid ones</small>
+      <small>+100 for invalid code snippets, -100 for valid ones</small>
     </div>
     <div id="instructions">
       <strong>How to Play:</strong><br>
@@ -145,7 +145,7 @@
     </div>
     <button id="startButton">🚀 START GAME 🚀
 	       <span style="font-size: 12px;"><br>v1 by D. Hill, IFSC 30003 student; 
-		   <br>v2 by D. Berleant; 
+		   <br>v3 (10/18/2026) by D. Berleant; 
 		   <br>AI coding assist</span></button>
     <div id="result"></div>
   </div>
@@ -288,10 +288,10 @@ const codes = [
       if (!gameStarted) return;
       
       if (!codeItem.valid) {
-        score++;
+        score += 100;
 		with(new AudioContext()) { o = createOscillator(); o.frequency.value = 2000; o.connect(destination); o.start(); o.stop(currentTime+0.2); }
       } else {
-        score--;
+        score -= 100;
 		with(new AudioContext()) { o = createOscillator(); o.frequency.value = 500; o.connect(destination); o.start(); o.stop(currentTime+0.2); }
 		}
       
@@ -370,9 +370,9 @@ const codes = [
     const timeSpent = Math.round((Date.now() - startTime) / 1000);
     
     let message = "💡 Keep practicing objects!";
-    if (score > 15) message = "🏆 objects Master!";
-    else if (score > 10) message = "🎉 Great skills!";
-    else if (score > 5) message = "👍 Good grasp of syntax!";
+    if (score > 1500) message = "🏆 objects Master!";
+    else if (score > 1000) message = "🎉 Great skills!";
+    else if (score > 500) message = "👍 Good grasp of syntax!";
     else if (score > 0) message = "📚 Nice effort!";
     else if (score < 0) message = "🤔 Review your syntax!";
     
