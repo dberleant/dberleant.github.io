@@ -1,6 +1,6 @@
 <html>
 
-<head>
+<head> 
 <meta http-equiv="refresh" content="500">
 </head>
 
@@ -88,23 +88,23 @@ normal'><span style='font-family:"Times New Roman",serif;color:black'>&lt;/body&
 <p class=MsoNormal style='margin-bottom:0in;margin-top:.0001pt;line-height:
 normal'><span style='font-family:"Times New Roman",serif;color:black'>&lt;/html&gt;</span></p>
 
-<textarea>
+<textarea height=19 width=75>
 <!DOCTYPE html>
 <html>
 <body>
-<div id="div1">
-<p id="p1">This is a paragraph.</p>
-<p id="p2">This is another paragraph.</p>
-</div>
-<script>
-var paragraphNode = document.createElement("b");
-var textNode = document.createTextNode(paragraphNode.nodeType);
-textNode = document.createTextNode(textNode.nodeName);
-paragraphNode.appendChild(textNode);
-var divisionNode = document.getElementById("div1");
-var someChild = divisionNode.childNodes[3];
-divisionNode.insertBefore(paragraphNode,someChild);
-</script>
+  <div id="div1">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+  </div>
+  <script>
+    let paragraphNode = document.createElement("b");
+    let textNode = document.createTextNode(paragraphNode.nodeType);
+    textNode = document.createTextNode(textNode.nodeName);
+    paragraphNode.appendChild(textNode);
+    let divisionNode = document.getElementById("div1");
+    let someChild = divisionNode.childNodes[3];
+    divisionNode.insertBefore(paragraphNode,someChild);
+  </script>
 </body>
 </html>
 </textarea>
