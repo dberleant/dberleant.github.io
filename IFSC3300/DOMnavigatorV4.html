@@ -79,7 +79,7 @@
 </head>
 <body>
 
-<h1 id="id01">WELCOME TO DOM LAND!</h1>
+<h1 id="id01">Welcome to DOMland!</h1>
 
 <div>Many explore, but few return. If your current location becomes null, you are stranded: null has no nodeName, nodeType, nodeValue, parentNode, childNodes, nextSibling or previousSibling, and so there is no way out.</div>
 
@@ -97,10 +97,10 @@ window.addEventListener("error", function(e){
 });
 </script>
 
-<button onclick="clearOutput();output.nodeValue=here.nodeName;">Show current nodeName</button>
-<button onclick="clearOutput();output.nodeValue=here.nodeType;">Show current nodeType</button>
-<button onclick="clearOutput();output.nodeValue=String(here.nodeValue);">Show current nodeValue</button>
-<button onclick="clearOutput();output.nodeValue=String(here);">Show current node</button>
+<button onclick="output.nodeValue=here.nodeName;">Show current nodeName</button>
+<button onclick="output.nodeValue=here.nodeType;">Show current nodeType</button>
+<button onclick="output.nodeValue=String(here.nodeValue);">Show current nodeValue</button>
+<button onclick="output.nodeValue=String(here);">Show current node</button>
 <br><br>
 <button onclick="here=here.parentNode;clearOutput();">Go to parentNode</button>
 <button onclick="here=here.firstChild;clearOutput();">Go to firstChild</button>
