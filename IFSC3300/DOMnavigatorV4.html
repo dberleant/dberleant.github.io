@@ -62,10 +62,15 @@
     border-radius: 8px;
     margin-top: 1em;
   }
-  /* Distinctive colored @ brackets (drawn by CSS, not part of the DOM) */
-  #id02::before,
+  /* Distinctive colored brackets (drawn by CSS, not part of the DOM) */
+  #id02::before {
+    content: ">";
+    color: #00ff99;
+    font-size: 1.3em;
+    text-shadow: 0 0 8px #00ff99;
+  }
   #id02::after {
-    content: "@";
+    content: "<";
     color: #00ff99;
     font-size: 1.3em;
     text-shadow: 0 0 8px #00ff99;
@@ -78,13 +83,13 @@
 
 <div>Many explore, but few return. If your current location becomes null, you are stranded: null has no nodeName, nodeType, nodeValue, parentNode, childNodes, nextSibling or previousSibling, and so there is no way out.</div>
 
-<p id="id02">Output (if any) may be viewed in this box, between the colored @ signs</p>
+<p id="id02">Output appears between the green characters.</p>
 
 <script>
 let here=document.getElementById("id02");
 const output = here.firstChild;
 function clearOutput(){
-   output.nodeValue = "Output, if any, is shown here, upon request.";
+   output.nodeValue = "Output appears between the green characters.";
 }
 // Show any uncaught error (e.g. from a button's onclick) in the output box
 window.addEventListener("error", function(e){
